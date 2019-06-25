@@ -57,7 +57,7 @@ h1 strong{
     margin-bottom: 10px;
 }
 
-.portfolio{
+.productos{
     background:#FAFAFA;
     padding: 20px;
 }
@@ -79,6 +79,14 @@ h1 strong{
 
 .project-course, .project-date, project-url{
     margin: 10px 0;
+}
+
+.project-course.disponible{
+    color: green
+}
+
+.project-course.nodisponible{
+    color: red
 }
 
 .project-description{
@@ -191,6 +199,10 @@ footer a{
 }
 
 
+.graficas{
+    
+}
+
 .event{
    margin: 10px;
    width: 480px;
@@ -244,7 +256,6 @@ footer a{
     display: flex;
     align-items: center;
     justify-content: space-between;
-
 }
 
 .social {
