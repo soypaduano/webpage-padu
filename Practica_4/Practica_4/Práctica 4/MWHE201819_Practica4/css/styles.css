@@ -25,7 +25,7 @@ h1 {
 
 
 h1 strong{
-    color: #026FFF;
+    color: rgb(189, 155, 117);
 }
 
 .hero{
@@ -42,7 +42,7 @@ h1 strong{
 }
 
 .header{
-    background-color: #065ca7;
+    background-color: #70674b;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -93,7 +93,7 @@ h1 strong{
 }
 
 .linkToContent{
-    color: #026FFF;
+    color: rgb(172, 162, 111);
     line-height: 1.5em;
     letter-spacing: -.1px;
     margin: 0px;
@@ -102,6 +102,7 @@ h1 strong{
 
 p {
     line-height: 1.5;
+    font-size: 20px
 }
 
 footer {
