@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Maquetación web con hojas de estilo. Práctica 4</title>
+        <meta charset="utf-8">
+        <meta name="author" content="MWHE 2018/19">
+        <meta name="description" content="Práctica 4 de maquetación web con hojas de estilo">
+        <meta name="keywords" content="html, css, web">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+        <link href="css/styles.css" rel="stylesheet" type="text/css">
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/Chart.min.js"></script>
+        <script src="js/script_grafico.js"></script>
+        <script src="js/animatescroll.min.js"></script>
+    </head>
+    <body>
+        <header class="header">
+            <div class="containerLinks">
+                <h4>GRÁFICOS CON ChartJS</h1>
+                 <h2>Maquetación web con hojas de estilo. Práctica 4</h2>
+                </div>
+            </div>
+        </header>
+
+        <section class="hero">
+            <div class="containerLinks">
+                <nav id="menu">
+                        <ul>
+                                
+                            <li class="linkToContent"><a onclick="$('#calidad').animatescroll();">La calidad del aire</a></li>
+                            <li class="linkToContent"><a onclick="$('#madrid').animatescroll();">Evolución de la calidad del aire en Madrid</a></li>
+                        </ul>
+                    </nav>
+                </div>
+        </section>
+        
+
+        <main>
+            <section id="calidad" class="calidad">
+                <div class="container">
+                <div class="content">
+                    <h3>La calidad del aire</h3>
+                    <p>El índice de calidad del aire es una cifra que proporcionan las autoridades de una zona (normalmente urbana) y que refleja las cantidades de contaminantes presentes en el aire. Cuando la calidad del aire es buena (tiene pocos contaminantes), las personas pueden respirarlo indefinidamente sin que su salud se vea afectada. Cuando es mala pueden darse irritaciones oculares, todo tipo de problemas respiratorios e incluso cardíacos. Si la calidad del aire baja (o, por las condiciones atmosféricas, se prevé que pueda bajar) de unos límites (que son distintos en cada país), las autoridades pueden tomar medidas como prohibir la circulación de todos los vehículos que emitan contaminación, de algunos de ellos, prohibir la práctica de deporte al aire libre o recomendar el uso de mascarillas.</p>
+                    <section id="infoimage" class="infoimage-list">
+                            <div class="container">
+                                <article class="infoimage">
+                                    <figure class="infoimage-imageContainer">
+                                      <img class="infoimage-image" src="images/contaminacion_madrid.jpg" width="300">
+                                    </figure>
+                            
+                                    <div class="infoimage-detail">
+                                        <h3 class="infoimage-title">Madrid, capital europea más contaminada</h3>
+                                        <p class="infoimage-description">Los niveles de contaminación multiplican algunos valores europeos.</p>
+                                    </div>
+                                  </article>
+
+                                  <article class="infoimage">
+                                        <figure class="infoimage-imageContainer">
+                                          <img class="infoimage-image" src="images/contaminacion_madrid_2.jpg" width="300">
+                                        </figure>
+                                
+                                        <div class="infoimage-detail">
+                                            <h3 class="infoimage-title">Madrid, capital europea más contaminada</h3>
+                                            <p class="infoimage-description">Los niveles de contaminación multiplican algunos valores europeos.</p>
+                                        </div>
+                                      </article>
+                            </div>
+                    </section >
+                </div>
+                </div>
+            </section>
+
+            <section id="madrid" class="calidad">
+                <div class="container">
+                    <div class="content">
+                <h3>Evolución de la calidad del aire en Madrid</h3>
+                <section>
+                    <h4>Parámetros para el análisis</h4>
+                    <p>En este ejemplo, se van a analizar diversas partículas en suspensión, detectadas por la estación de control de la Plaza de España. Las partículas cuya evolución se va a presentar tanto en forma de tabla como de gráfico son las siguientes:</p>
+                    <ul>
+                        <li>Dióxido de azufre, SO<sub>2</sub> (en &micro;g/m<sup>3</sup>).</li>
+                        <li>Monóxido de nitrógeno, NO (en &micro;g/m<sup>3</sup>).</li>
+                        <li>Dióxido de nitrógeno, NO<sub>2</sub> (en &micro;g/m<sup>3</sup>).</li>
+                    </ul>
+                    <p>Cabe destacar que estas partículas a analizar no son las más relevantes, pero por las magnitudes que manejan pueden ser las más visuales representadas en forma de gráfico.</p>
+                </section>                
+                <section>
+                    <h4>Evolución de la calidad del aire en 2018 (tabla)</h4>
+                    <table>
+                        <caption>Estación de control de la Plaza de España</caption>
+                        <tr>
+                            <th>Partículas (en &micro;g/m<sup>3</sup>)</th>
+                            <th>Ene</th>
+                            <th>Feb</th>
+                            <th>Mar</th>
+                            <th>Abr</th>
+                            <th>May</th>
+                            <th>Jun</th>
+                            <th>Jul</th>
+                            <th>Ago</th>
+                            <th>Sep</th>
+                            <th>Oct</th>
+                        </tr>
+                        <tr>
+                            <th>Dióxido de azufre (SO<sub>2</sub>)</th>
+                            <td>3.1</td>
+                            <td>2.4</td>
+                            <td>1.0</td>
+                            <td>2.0</td>
+                            <td>53.6</td>
+                            <td>10.9</td>
+                            <td>46.2</td>
+                            <td>36.0</td>
+                            <td>128.5</td>
+                            <td>52.6</td>
+                        </tr>
+                        <tr>
+                            <th>Monóxido de nitrógeno (NO)</th>
+                            <td>1.8</td>
+                            <td>11.0</td>
+                            <td>5.0</td>
+                            <td>15.0</td>
+                            <td>7.4</td>
+                            <td>11.2</td>
+                            <td>30.4</td>
+                            <td>39.9</td>
+                            <td>42.2</td>
+                            <td>55.2</td>
+                        </tr>
+                        <tr>
+                            <th>Dióxido de nitrógeno (NO<sub>2</sub>)</th>
+                            <td>2.8</td>
+                            <td>10.7</td>
+                            <td>35.0</td>
+                            <td>38.0</td>
+                            <td>12.5</td>
+                            <td>24.5</td>
+                            <td>35.1</td>
+                            <td>55.2</td>
+                            <td>53.9</td>
+                            <td>89.0</td>
+                        </tr>
+                    </table>
+                </div>
+                </section>
+            </div>
+                <section>
+                    <div class="container">
+                    <h4>Evolución de la calidad del aire en 2018 (gráfico)</h4>
+                    <p>A continuación, se presenta un gráfico generado a partir de los datos anteriormente presentados.</p>
+                    <canvas id="myChart">Gráfico construido</canvas>
+                    
+                    
+
+
+                    
+                </div>
+                </section>
+            </section>
+        </main>
+    <section>
+        <div class="container">
+        <footer>
+            <p>La información de esta web está extraída de <a href="https://es.wikipedia.org/wiki/Calidad_del_aire" target="_blank" title="Se abre en una nueva ventana">Wikipedia</a> y de <a href="https://datos.madrid.es/portal/site/egob/menuitem.c05c1f754a33a9fbe4b2e4b284f1a5a0/?vgnextoid=aecb88a7e2b73410VgnVCM2000000c205a0aRCRD&vgnextchannel=374512b9ace9f310VgnVCM100000171f5a0aRCRD&vgnextfmt=default" target="_blank" title="Se abre en una nueva ventana">Calidad del aire. Datos diarios años 2001 a 2018</a>, del Portal de datos abiertos del Ayuntamiento de Madrid.</p>
+            <p>Contacto: <a href="mailto:carolina.garcia@esne.es">carolina.garcia@esne.es</a></p>
+        </footer>
+    </div>
+    </section>
+    </body>
+</html>

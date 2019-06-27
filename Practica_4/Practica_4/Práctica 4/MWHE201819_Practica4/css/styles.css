@@ -1,0 +1,159 @@
+body {
+    font-family: 'Fjalla One', sans-serif;
+    margin: 0%;
+
+}
+
+h1, h2, h3, h4, h5, h6,{
+    font-family: 'Fjalla One', sans-serif;
+    font-weight: normal;   
+}
+
+
+h1 {
+    font-size: 40px;
+    line-height: 1.5em;
+    letter-spacing: -.1px;
+    color: white;
+    margin: 0px;
+}
+
+
+.hero-image{
+    object-fit: cover;
+}
+
+
+h1 strong{
+    color: #026FFF;
+}
+
+.hero{
+    height: 100px;
+  /* background-image: url('../images/hero.jpg'); */
+  background-color: #fdfdfd;
+  /* background-size: 500px 300px; */
+  /* background-repeat: no-repeat; */
+  /* background-position-x: right; */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 100px
+}
+
+.header{
+    background-color: #065ca7;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    align-items: center;
+}
+
+.containerLinks{
+    width: 800px;
+    display: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+    height: inherit;
+    margin: 0 auto;
+    flex-wrap: inherit;
+}
+
+
+.content{
+    margin:30px;
+
+}
+
+.container{
+    width: 1000px;
+    display: inherit;
+    justify-content: inherit;
+    align-items: inherit;
+    height: inherit;
+    margin: 0 auto;
+    flex-wrap: inherit;
+    border-radius: 10px
+}
+
+.menu{
+    height: inherit;
+    padding: 10px
+}
+
+.calidad{
+    background:#FAFAFA;
+    padding: 10px;
+}
+
+.madrid{
+    background:gray;
+    padding: 10px;
+}
+
+.linkToContent{
+    color: #026FFF;
+    line-height: 1.5em;
+    letter-spacing: -.1px;
+    margin: 0px;
+    font-size: 20px;
+}
+
+p {
+    line-height: 1.5;
+}
+
+footer {
+    font-family: 'Fjalla One', sans-serif;
+    margin: 0%;
+}
+
+.infoimage{
+    margin: 10px;
+    width: 480px;
+    border-radius: 10px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #f4fbff;
+    text-align: center;
+    position: relative;
+    left: 165px;
+ }
+ 
+ .infoimage-list{
+     display: flex;
+     flex-wrap: wrap;
+ }
+ 
+ .infoimage-list-title{
+     margin-left: 20px;
+ }
+ 
+ .infoimage img{
+     width: 400px;
+     height: 200px;
+     object-fit: cover;
+ }
+ 
+ .infoimage-detail{
+     margin:20px 40px;
+     background-color: white;
+     margin-top: -40px;
+     position: relative;
+     padding: 20px;
+     border-radius: 4px;
+     text-align: center;
+ }
+ 
+ .infoimage-description{
+     text-align: left;
+ }
+ 
+ .infoimage-url{
+     border: 1px solid #056fff;
+     padding: 5px 20px;
+     text-decoration: none;
+     color: #056fff;
+     border-radius: 5px;
+ }
