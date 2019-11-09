@@ -5,23 +5,13 @@
 <!-- saved from url=(0155)https://static.platzi.com/media/tmp/class-files/git/desarrollo-web-portafolio/desarrollo-web-portafolio-a812d2d049ff02d5563d79604597f7cb390a8903/index.html -->
 <html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     
-    <title>Aprende programación</title>
+    <title>Awuita.io</title>
     <script src="js/jquery-1.8.3.min.js"></script>
     <script src="js/animatescroll.min.js"></script>
     <link rel="icon" type="image/png" href="images/tab_image.png">
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
     <link rel="stylesheet" href="styles/estilos.css">
-
-
-    <script>
-      var url_string = window.location.href
-      var url = new URL(url_string);
-    var t = url.searchParams.get("t");
-    var h = url.searchParams.get("h");
-    alert("temperatura es" + t);
-    alert("humedad es" + h);
-    </script>
     
 
 </head>
@@ -30,18 +20,18 @@
 
       <div class="container">        
           <figure class="logo">
-              <img src="images/logo_AprendeCodigo.png" alt="Logo de Aprende Codigo" height="50px">
+              
             </figure>
             <nav class="menu">
               <ol>
                 <li>
-                  <a onclick="$('#portafolio').animatescroll();">Portafolio</a>
+                  <a onclick="$('#portafolio').animatescroll();">Trabaja con nosotros</a>
                 </li>
                 <li>
-                  <a onclick="$('#eventos').animatescroll();">Lenguajes</a>
+                  <a onclick="$('#eventos').animatescroll();">Datos</a>
                 </li>
                 <li>
-                  <a onclick="$('#contacto').animatescroll();">Trabajemos juntos</a>
+                  <a onclick="$('#contacto').animatescroll();">Climathon Madrid</a>
                 </li>
               </ol>
             </nav>
@@ -56,8 +46,11 @@
       <div class="container">
         <div class="hero-title">
             <h1>
-                ¡Hola! Somos <strong>Aprende Programación</strong> <br> clases particulares con <br> pasión para la <strong>enseñanza</strong> ubicadas en Madrid Capital.
+                Awuita.io
             </h1>
+            <h3 style="color: white">
+              Awuita.io predice el riego en jardínes públicos según datos recolectados por IOT para reducir el consumo de agua.
+            </h3>
         </div>
          
       </div>
@@ -65,160 +58,109 @@
 
           <section id="portafolio" class="portfolio">
             <div class="container">
-            <h2>Portafolio (Proyectos Destacados de alumnos y de Sebastián Paduano)</h2>
-            <article class="project">
+            <h2>Datos recolectados (Recogemos los datos de <a href="https://openweathermap.org/api"> OpenWeather API </a>)</h2>
+            <article class="project-retiro">
               <div class="project-details">
-                  <h3 class="project-title">Smartick Coding</h3>
-                  <h6 class="project-course">Hecho en Javascript, CSS y HTML</h6>
-                  <h6 class="project-course"> Desarrollado por Smartick Team </h6>
-                  <p class="project-date"><small><strong>Fecha:</strong> 01/05/2018</small></p>
-                  <p class="project-url"><small><strong>Puedes verlo en:</strong> <a href="www.smartickmethod.com"> www.smartickmethod.com </a> </small></p>
-                  <p class="project-description"> Coding es un proyecto desarrollado por Smartick en el que se enseña los primeros conceptos de programación básicos a niños de entre 4 y 12 años. </p>    
+                <h2>Parque Retiro (Datos de Vancouver)</h2>
+                  <h3 class="project-title"></h3>Recolectado por la raspberry PI (cod: RJC56) ubicado en RJC. </h3>
+                  <p class="project-date"><small><strong>Última actualización:</strong> 09/11/2019</small></p>
+                  <h2 class="temperaturaVancouver"> </h2>    
+                  <h2 class="humedadVancouver"> 28 % </h2>   
+                  <h2 class="humedadTierraVancouver"> 80 % </h2>    
+                  <h2 class="vientoVancouver"> 28 % </h2>    
+                  <h2 class="presionVancouver"> 28 % </h2>    
+                     
               </div>
       
               <figure class="project-imageContainer">
-                      <img width="500" src="images/smartick_coding.PNG" alt="prouyecto del curso de React Native">
+                      <img width="400" src="images/retiro.jpg" alt="prouyecto del curso de React Native">
               </figure>
             
             </article>
       
-            <article class="project">
+            <article class="project-carlos">
                 <div class="project-details">
-                    <h3 class="project-title">Cowboy Runner</h3>
-                    <h6 class="project-course"> Desarrollado por Yago, alumno de Aprende Programación </h6>
-                    <h6 class="project-course">Hecho en Unity 3D</h6>
-                    <p class="project-date"><small><strong>Fecha:</strong> 03/03/2018</small></p>
-                    <p class="project-description">Cowboy Runner es un ejemplo que propone Unity 3D para empezar a desarrollar videojuegos. En una semana de desarrollo es posible realizar este minivideojuegos de plataformas basado en el antiguo Oeste americano.</p>    
+                  <h2>Parque Rey Juan Carlos</h2>
+                    <h3 class="project-title"></h3> Recolectado en RJC(cod: 83) </h3>
+                    <p class="project-date"><small><strong>Última actualización:</strong> 09/11/2019</small></p>
+                    <h2 class="temperatura"> </h2>    
+                    <h2 class="humedad"> 48 % </h2>    
+                  <h2 class="humedadTierra"> 48 % </h2>    
+                  <h2 class="viento"> 28 % </h2>    
+                  <h2 class="presion"> 28 % </h2>     
                 </div>
+
+                <script>
+                </script>
         
                 <figure class="project-imageContainer">
-                        <img width="500" src="images/cowboyrunner.PNG" alt="prouyecto del curso de React Native">
+                        <img width="400" src="images/rey_juan_carlos2.jpg" alt="prouyecto del curso de React Native">
                 </figure>
               
               </article>
-      
-              <article class="project">
-                  <div class="project-details">
-                      <h3 class="project-title">Doodle Jump Remake</h3>
-                      <h6 class="project-course">Hecho en Unity 3D</h6>
-                      <h6 class="project-course"> Desarrollado por Adilet, alumno de Aprende Programación </h6>
-                      <p class="project-date"><small><strong>Fecha:</strong> 09/10/2018</small></p>
-                      <p class="project-description">Pequeño remake de Doodle Jump, el famoso juego que arrasó al principio de que naciesen las stores. Jumper por excelencia, el juego trae pequeñas mecanicas que son interesantes de ver y suponen un buen punto de partida para el aprendizaje de físicas en Unity.</p>    
-                  </div>
-          
-                  <figure class="project-imageContainer">
-                          <img width="500" src="images/doodle.PNG" alt="prouyecto del curso de React Native">
-                  </figure>
-                
-                </article>
-      
-                <article class="project">
-                    <div class="project-details">
-                        <h3 class="project-title">Gun shooter</h3>
-                        <h6 class="project-course">Hecho en Unity 3D</h6>
-                        <h6 class="project-course"> Desarrollado por Yago, alumno de Aprende Programación </h6>
-                        <p class="project-date"><small><strong>Fecha:</strong> 01/06/2018</small></p>
-                        <p class="project-description">Juego con diferentes mecánicas y retos que permiten a 2 jugadores jugar en el mismo ordenador. Shooter compartiendo pantalla.</p>    
-                    </div>
-            
-                    <figure class="project-imageContainer">
-                            <img width="500" src="images/gun_shooter.PNG" alt="prouyecto del curso de React Native">
-                    </figure>
-                  
-                  </article>
 
-                  <article class="project">
-                    <div class="project-details">
-                        <h3 class="project-title">Memory Game</h3>
-                        <h6 class="project-course">Hecho en Unity 3D</h6>
-                        <h6 class="project-course"> Desarrollado por Sebastián Paduano, contenido de enseñanza de clases.</h6>
-                        <p class="project-date"><small><strong>Fecha:</strong> 10/10/2018</small></p>
-                        <p class="project-description">Pequeño juego de memoria que sirve muy bien para trabajar la programación de interfaces gráficas en Unity 3D.</p>    
-                    </div>
-            
-                    <figure class="project-imageContainer">
-                            <img width="500" src="images/memory_game.PNG" alt="prouyecto del curso de React Native">
-                    </figure>
-                  
-                  </article>
+              <script>
+              </script>
 
 
-                  <article class="project">
-                    <div class="project-details">
-                        <h3 class="project-title">Ghost Scape</h3>
-                        <h6 class="project-course">Hecho en Construct 2</h6>
-                        <h6 class="project-course"> Desarrollado por Miguel, alumno de Aprende Programación.</h6>
-                        <p class="project-date"><small><strong>Fecha:</strong> 10/10/2018</small></p>
-                        <p class="project-description">Juego hecho en Construct 2. El objetivo del juego es acabar con todos los fantasmas que van apareciendo en el juego. Es un juego bastante fácil de programar ya que está hecho mediante bloques de Construct2.</p>    
-                    </div>
-            
-                    <figure class="project-imageContainer">
-                            <img width="500" src="images/ghost.png" alt="Ghost space">
-                    </figure>
-                  </article>
-
-
-                  <article class="project">
-                    <div class="project-details">
-                        <h3 class="project-title">Físicas 3D</h3>
-                        <h6 class="project-course">Hecho en Unity 3D</h6>
-                        <h6 class="project-course"> Desarrollado por Sebastián Paduano, contenido de enseñanza en clase.</h6>
-                        <p class="project-date"><small><strong>Fecha:</strong> 10/10/2018</small></p>
-                        <p class="project-description">Ejemplos y actividades que te enseñarán a controlar las físicas en 3 dimensiones dentro de Unity 3D, al igual que trabajaremos con luces, relieve, planos y otras formas geométricas.</p>    
-                    </div>
-            
-                    <figure class="project-imageContainer">
-                            <img width="500" src="images/fisicas3d.PNG" alt="Contenido de enseñanza para clases">
-                    </figure>
-                  </article>
-
-                  <article class="project">
-                    <div class="project-details">
-                        <h3 class="project-title">PONG</h3>
-                        <h6 class="project-course">Hecho en Unity 3D</h6>
-                        <h6 class="project-course"> Desarrollado por Santiago, alumno de Aprende Programación.</h6>
-                        <p class="project-date"><small><strong>Fecha:</strong> 07/01/2018</small></p>
-                        <p class="project-description">Juego ideal para aprender físicas en 2D, controlación del jugador por medio del teclado, sistema de tilemap y sistema de particulas y control de animaciones por medio de código.</p>    
-                    </div>
-            
-                    <figure class="project-imageContainer">
-                            <img width="500" src="images/juego_pong.PNG" alt="Pong caption">
-                    </figure>
-                  </article>
-
-                  <article class="project">
-                    <div class="project-details">
-                        <h3 class="project-title">AstroJumper</h3>
-                        <h6 class="project-course">Hecho en Unity 3D</h6>
-                        <h6 class="project-course"> Desarrollado por Sebastián Paduano, contenido para escuela CEV.</h6>
-                        <p class="project-date"><small><strong>Fecha:</strong> 10/10/2018</small></p>
-                        <p class="project-description">Mitíco juego del PONG en donde se trabaja los conceptos básicos de Unity: input de jugador, materiales con físicas, sprites y puntuaciones.</p>    
-                    </div>
-            
-                    <figure class="project-imageContainer">
-                            <img width="500" src="images/astroJumper.PNG" alt="Astro jumper caption">
-                    </figure>
-                  </article>
-
-                  <article class="project">
-                    <div class="project-details">
-                        <h3 class="project-title">Prácticas y exámenes de ESNE.</h3>
-                        <h6 class="project-course">C# y Unity 3D.</h6>
-                        <h6 class="project-course"> Prácticas, exámenes y apuntes.</h6>
-                        <p class="project-date"><small><strong>Fecha:</strong> 10/10/2018</small></p>
-                        <p class="project-description">Apuntes, exámenes y prácticas para repasar los examenes de ESNE y ESTEC, cuyo objetivo es ayudar a aprobar a los alumnos y alumnas de los centros mencionados.</p>    
-                    </div>
-            
-                    <figure class="project-imageContainer">
-                            <img width="500" src="images/logo_esne.jpg" alt="Logo de esne">
-                    </figure>
-                  </article>
-
-
-
-                  </div>
+            </div>
           </section>
 
+
+          <script>
+            var apiKey = "63d4d9d9cfefc9f2ef0b26c190097321";
+            $.get( "http://api.openweathermap.org/data/2.5/weather?q=Madrid&APPID=63d4d9d9cfefc9f2ef0b26c190097321", function( dataMadrid ) {
+                $( ".result" ).html( dataMadrid );
+                console.log(dataMadrid);
+                var temperatura = dataMadrid["main"]["temp"];
+                var humedad = dataMadrid["main"]["humidity"];
+                var viento;
+                var presion = dataMadrid["main"]["pressure"];
+                console.log(dataMadrid)
+                $('.temperatura').text("Temperatura: " +  (parseInt(temperatura) - 273) + "º");
+
+                if(humedad > 80){
+                  $('.humedad').addClass('.noRegar')
+                  $('project-carlos').css('background-color', 'fbb198');
+                } else {
+                  $('.humedad').addClass('regar')
+                  $('.project-carlos').css('background-color', '#98FB98');
+                }
+                $('.humedad').text("Humedad del aire: " + humedad + "%");
+
+                $('.humedadTierra').text("Humedad de tierra: " + humedad + "%");
+                $('.viento').text("Wind speed: " + dataMadrid["wind"]["speed"] + "km/h");  
+                $('.presion').text("Presion: " + presion);
+              });
+
+              $.get( "http://api.openweathermap.org/data/2.5/weather?q=Vancouver&APPID=63d4d9d9cfefc9f2ef0b26c190097321", function( dataVancouver ) {
+                $( ".result" ).html( dataVancouver );
+                console.log(dataVancouver);
+                var temperatura = dataVancouver["main"]["temp"];
+                var humedad = dataVancouver["main"]["humidity"];
+                var viento;
+                var presion = dataVancouver["main"]["pressure"];
+                console.log(dataVancouver)
+
+                if(humedad > 80){
+                  $('.humedadVancouver').addClass('noRegar')
+                  $('.project-retiro').css('background-color', '#fbb198');
+                } else {
+                  $('.humedadVancouver').addClass('regar')
+                  $('.project-retiro').css('background-color', '#98FB98');
+                }
+                $('.humedadVancouver').text("Humedad del aire: " + humedad + "%")
+
+                $('.temperaturaVancouver').text("Temperatura: " +  (parseInt(temperatura) - 273) + "º");
+                $('.humedadVancouver').text("Humedad del aire: " + humedad + "%");
+                $('.humedadTierraVancouver').text("Humedad de tierra: " + humedad + "%");
+                $('.vientoVancouver').text("Wind speed: " + dataVancouver["wind"]["speed"] + "km/h");  
+                $('.presionVancouver').text("Presion: " + presion);
+              });
+
+
+
+          </script>
 
 
       
@@ -230,60 +172,14 @@
 
     <section id="eventos" class="event-list">
 
-      <div class="container">
-          <article class="event">
-              <figure class="event-imageContainer">
-                <img class="event-image" src="images/javascript_logo.jpg" width="500">
-              </figure>
       
-              <div class="event-detail">
-                  <h3 class="event-title">Javascript</h3>
-                  <p class="event-description">Aprenderás a realizar actividades complejas en una página web. Es uno de los lenguajes más usados actualmente.</p>
-              </div>
-            </article>
-      
-      
-            <article class="event">
-                <figure class="event-imageContainer">
-                  <img class="event-image" src="images/unity-logo-news.jpg" width="500">
-                </figure>
-        
-                <div class="event-detail">
-                    <h3 class="event-title">C# y Unity 3D</h3>
-                    <p class="event-description">El lenguaje perfecto para desarrollar videojuegos y aprender programación orientada a objetos.</p>
-                </div>
-              </article>
-      
-              <article class="event">
-                  <figure class="event-imageContainer">
-                    <img class="event-image" src="images/sratch_logo.png" width="500">
-                  </figure>
-          
-                  <div class="event-detail">
-                      <h3 class="event-title">Programación por bloques</h3>
-                      <p class="event-description">Perfecta para los más pequeños: iniciación a la programación y a los conceptos básicos. En <strong> Aprende Programación </strong> trabajaremos con Scratch y Construct.</p>
-                  </div>
-                </article>
-      
-                <article class="event">
-                    <figure class="event-imageContainer">
-                      <img class="event-image" src="images/mobile_png.jpg" width="500">
-                    </figure>
-            
-                    <div class="event-detail">
-                        <h3 class="event-title">Android e IOS</h3>
-                        <p class="event-description">También podrás aprender Swift y Java: lenguajes que sirven para hacer aplicaciones móviles.</p>
-                    </div>
-                  </article>
-      
-      </div>
       
       
     </section>
     <section id="contacto" class="contact">
       <div class="container">
           <form action="" class="form-email">
-              <h3> ¿Creamos algo juntos? <br> Consulta de precios y horarios: </h3>
+              <h3> ¿Creamos algo juntos? <br> Escribenos  </h3>
               <h2 style="color:white"> +34 654 49 14 39 </h2>
               <h2 style="color:white; text-transform:lowercase "> sebastian.paduano.m@gmail.com </h2>
             </form>
