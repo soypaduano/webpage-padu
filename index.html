@@ -25,13 +25,10 @@
             <nav class="menu">
               <ol>
                 <li>
-                  <a onclick="$('#portafolio').animatescroll();">Trabaja con nosotros</a>
+                  <a onclick="$('#portafolio').animatescroll();">Nuestros parques</a>
                 </li>
                 <li>
-                  <a onclick="$('#eventos').animatescroll();">Datos</a>
-                </li>
-                <li>
-                  <a onclick="$('#contacto').animatescroll();">Climathon Madrid</a>
+                  <a onclick="$('#contacto').animatescroll();">Contacta con nosotros</a>
                 </li>
               </ol>
             </nav>
@@ -61,12 +58,12 @@
             <h2>Datos recolectados (Recogemos los datos de <a href="https://openweathermap.org/api"> OpenWeather API </a>)</h2>
             <article class="project-retiro">
               <div class="project-details">
-                <h2>Parque Retiro (Datos de Vancouver)</h2>
+                <h2 id="tituloRetiro">Parque Retiro (Datos de Vancouver)</h2>
                   <h3 class="project-title"></h3>Recolectado por la raspberry PI (cod: RJC56) ubicado en RJC. </h3>
                   <p class="project-date"><small><strong>Última actualización:</strong> 09/11/2019</small></p>
                   <h2 class="temperaturaVancouver"> </h2>    
                   <h2 class="humedadVancouver"> 28 % </h2>   
-                  <h2 class="humedadTierraVancouver"> 80 % </h2>    
+                  <h1 class="humedadTierraVancouver"></h1>    
                   <h2 class="vientoVancouver"> 28 % </h2>    
                   <h2 class="presionVancouver"> 28 % </h2>    
                      
@@ -80,7 +77,7 @@
       
             <article class="project-carlos">
                 <div class="project-details">
-                  <h2>Parque Rey Juan Carlos</h2>
+                  <h2 id="tituloCarlos">Parque Rey Juan Carlos</h2>
                     <h3 class="project-title"></h3> Recolectado en RJC(cod: 83) </h3>
                     <p class="project-date"><small><strong>Última actualización:</strong> 09/11/2019</small></p>
                     <h2 class="temperatura"> </h2>    
@@ -109,31 +106,41 @@
 
           <script>
             var apiKey = "63d4d9d9cfefc9f2ef0b26c190097321";
-            $.get( "http://api.openweathermap.org/data/2.5/weather?q=Madrid&APPID=63d4d9d9cfefc9f2ef0b26c190097321", function( dataMadrid ) {
-                $( ".result" ).html( dataMadrid );
-                console.log(dataMadrid);
-                var temperatura = dataMadrid["main"]["temp"];
-                var humedad = dataMadrid["main"]["humidity"];
-                var viento;
-                var presion = dataMadrid["main"]["pressure"];
-                console.log(dataMadrid)
-                $('.temperatura').text("Temperatura: " +  (parseInt(temperatura) - 273) + "º");
+            
 
-                if(humedad > 80){
+
+              //setInterval(function(){ getMadData(); }, 2000);
+              getMadData();
+              getVancouverData();
+              getHumidData();
+
+              setInterval(function() {
+               getHumidData();
+                }, 1000);
+
+
+              function getHumidData(){
+                $.get( "https://api.thingspeak.com/channels/820218/feeds.json?api_key=6ZA5NGOK9SEFHNN7&results=2", function( dataHumid ) {
+                  console.log(dataHumid);
+                  var pos0 = dataHumid["feeds"][0];
+                  var field1 = pos0["field1"];
+                  if(field1 > 0){
+                    $('#tituloCarlos').text("Parque Rey Juan Carlos (No regar)")
                   $('.humedad').addClass('.noRegar')
-                  $('project-carlos').css('background-color', 'fbb198');
-                } else {
+                  $('.project-carlos').css('background-color', '#fbb198');
+                  $('.humedadTierra').text("Humedad tierra: SATURADA");
+                  } else {
+                    $('#tituloCarlos').text("Parque Rey Juan Carlos (Regar OK)")
                   $('.humedad').addClass('regar')
                   $('.project-carlos').css('background-color', '#98FB98');
-                }
-                $('.humedad').text("Humedad del aire: " + humedad + "%");
-
-                $('.humedadTierra').text("Humedad de tierra: " + humedad + "%");
-                $('.viento').text("Wind speed: " + dataMadrid["wind"]["speed"] + "km/h");  
-                $('.presion').text("Presion: " + presion);
+                  $('.humedadTierra').text("Humedad tierra: OK");
+                  }
+               
               });
+              }
 
-              $.get( "http://api.openweathermap.org/data/2.5/weather?q=Vancouver&APPID=63d4d9d9cfefc9f2ef0b26c190097321", function( dataVancouver ) {
+              function getVancouverData(){
+                $.get( "http://api.openweathermap.org/data/2.5/weather?q=Vancouver&APPID=63d4d9d9cfefc9f2ef0b26c190097321", function( dataVancouver ) {
                 $( ".result" ).html( dataVancouver );
                 console.log(dataVancouver);
                 var temperatura = dataVancouver["main"]["temp"];
@@ -143,9 +150,11 @@
                 console.log(dataVancouver)
 
                 if(humedad > 80){
+                  $('#tituloRetiro').text("Parque Retiro [Datos Vancouver] - NO REGAR! ")
                   $('.humedadVancouver').addClass('noRegar')
                   $('.project-retiro').css('background-color', '#fbb198');
                 } else {
+                  $('#tituloRetiro').text("Parque Retiro [Datos Vancouver] - Puedes regar :) ")
                   $('.humedadVancouver').addClass('regar')
                   $('.project-retiro').css('background-color', '#98FB98');
                 }
@@ -157,6 +166,40 @@
                 $('.vientoVancouver').text("Wind speed: " + dataVancouver["wind"]["speed"] + "km/h");  
                 $('.presionVancouver').text("Presion: " + presion);
               });
+              }
+
+              function getMadData(){
+                $.get( "http://api.openweathermap.org/data/2.5/weather?q=Madrid&APPID=63d4d9d9cfefc9f2ef0b26c190097321", function( dataMadrid ) {
+                $( ".result" ).html( dataMadrid );
+                console.log(dataMadrid);
+                var temperatura = dataMadrid["main"]["temp"];
+                var humedad = dataMadrid["main"]["humidity"];
+                var humedadTierra = getHumidData();
+                var viento;
+                var presion = dataMadrid["main"]["pressure"];
+                console.log(dataMadrid)
+                $('.temperatura').text("Temperatura: " +  (parseInt(temperatura) - 273) + "º");
+
+                if(humedadTierra > 80){
+                  $('#tituloCarlos').text("Parque Rey Juan Carlos (No regar)")
+                  $('.humedad').addClass('.noRegar')
+                  $('.project-carlos').css('background-color', '#fbb198');
+                } else {
+                  $('#tituloCarlos').text("Parque Rey Juan Carlos (Regar OK)")
+                  $('.humedad').addClass('regar')
+                  $('.project-carlos').css('background-color', '#98FB98');
+                }
+                $('.humedad').text("Humedad del aire: " + humedad + "%");
+
+                //$('.humedadTierra').text("Humedad de tierra: " + humedadTierra   + "%");
+                $('.viento').text("Wind speed: " + dataMadrid["wind"]["speed"] + "km/h");  
+                $('.presion').text("Presion: " + presion);
+              });
+              }
+
+
+
+
 
 
 
@@ -183,7 +226,7 @@
             </form>
       
           <div class="social">
-            <a href="https://www.facebook.com/Aprende-programaci%C3%B3n-1848476921946549/?modal=admin_todo_tour" class="social-link facebook"></a>
+            <a href="https://www.facebook.com/sebaspadu" class="social-link facebook"></a>
             <a href="https://es.linkedin.com/in/sebastian-paduano-4810b1136" class="social-link linkedin"></a>
           </div>
       </div>
