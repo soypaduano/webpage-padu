@@ -29,7 +29,7 @@ h1 strong{
 }
 
 .hero{
-    height: 100px;
+    height: 300px;
   /* background-image: url('../images/hero.jpg'); */
   background-color: #1b2127;
   /* background-size: 500px 300px; */
@@ -39,6 +39,7 @@ h1 strong{
   align-items: center;
   justify-content: space-between;
 }
+
 
 
 .project-details {
@@ -56,7 +57,7 @@ h1 strong{
     margin-bottom: 10px;
 }
 
-.productos{
+.portfolio{
     background:#FAFAFA;
     padding: 20px;
 }
@@ -80,14 +81,6 @@ h1 strong{
     margin: 10px 0;
 }
 
-.project-course.disponible{
-    color: green
-}
-
-.project-course.nodisponible{
-    color: red
-}
-
 .project-description{
     margin-right: 20px;
     font-size: 20px;
@@ -99,7 +92,7 @@ h1 strong{
 }
 
 .header{
-    background-color: #065ca7;
+    background-color: #1d252c;
     color: white;
     display: flex;
     justify-content: space-between;
@@ -198,10 +191,6 @@ footer a{
 }
 
 
-.graficas{
-    
-}
-
 .event{
    margin: 10px;
    width: 480px;
@@ -222,7 +211,7 @@ footer a{
 
 .event img{
     width: 480px;
-    height: 300px;
+    height: 200px;
     object-fit: cover;
 }
 
@@ -255,6 +244,7 @@ footer a{
     display: flex;
     align-items: center;
     justify-content: space-between;
+
 }
 
 .social {
@@ -307,12 +297,11 @@ footer a{
     font-family: 'Source Sans Pro', sans-serif;
 }
 
-.containerLinks{
-    
-}
+
+
 
 .container{
-    width: 100px;
+    width: 1000px;
     display: inherit;
     justify-content: inherit;
     align-items: inherit;
@@ -328,10 +317,3 @@ footer a{
 .hero-title h1{
     text-align: center;
 }
-
-
-
-
-
-
-
