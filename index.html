@@ -12,6 +12,16 @@
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
     <link rel="stylesheet" href="styles/estilos.css">
+
+
+    <script>
+      var url_string = window.location.href
+      var url = new URL(url_string);
+    var t = url.searchParams.get("t");
+    var h = url.searchParams.get("h");
+    alert("temperatura es" + t);
+    alert("humedad es" + h);
+    </script>
     
 
 </head>
