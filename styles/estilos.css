@@ -4,7 +4,7 @@ body {
 
 }
 
-h1, h2, h3, h4, h5, h6,{
+h1, h2, h3, h4, h5, h6{
     font-family: 'Fjalla One', sans-serif;
     font-weight: normal;   
 }
@@ -60,25 +60,9 @@ h1 strong{
 .portfolio{
     background:#FAFAFA;
     padding: 20px;
-
 }
 
-.project-retiro{
-    border-radius: 10px;
-    margin-bottom: 15px;
-    margin-right: 0%;
-    margin-left: 0%;
-    margin-top: 0%;
-    margin: 10px;
-    padding: 20px;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 3px 5px 33px  #888888;
-}
-
-.project-carlos{
+.project{
     border-radius: 10px;
     margin-bottom: 15px;
     margin-right: 0%;
@@ -315,22 +299,6 @@ footer a{
 
 
 
-.humedadVancouver.regar{
-    color: green;
-}
-
-.humedadVancouver.noRegar{
-    color: red;
-}
-
-
-.humedad.regar{
-    color: green;
-}
-
-.humedad.noregar{
-    color: red;
-}
 
 .container{
     width: 1000px;
@@ -349,3 +317,10 @@ footer a{
 .hero-title h1{
     text-align: center;
 }
+
+
+
+
+
+
+
