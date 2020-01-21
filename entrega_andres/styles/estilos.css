@@ -3,13 +3,10 @@ body {
     margin: 0%;
 
 }
-
 h1, h2, h3, h4, h5, h6{
     font-family: 'Fjalla One', sans-serif;
     font-weight: normal;   
 }
-
-
 h1 {
     font-size: 40px;
     line-height: 1.5em;
@@ -49,39 +46,28 @@ h1 strong{
   align-items: center;
   justify-content: space-between;
 }
-
 .hero_logo{
     height: 300px;
-    /* background-image: url('../images/hero.jpg'); */
     background-color: #10151a;
-    /* background-size: 500px 300px; */
-    /* background-repeat: no-repeat; */
-    /* background-position-x: right; */
-    display: flex;
     align-items: center;
     justify-content: space-between;
 }
-
 .detalle-projecto {
     width: 500px;
 }
-
 .contenedorImagen-proyecto{
     width: 500px;
     display: inline-block;
 }
-
 .titulo-proyecto{
     font-size: 30px;
     margin-top: 0px;
     margin-bottom: 10px;
 }
-
 .portfolio{
     background:#FAFAFA;
     padding: 20px;
 }
-
 .project{
     border-radius: 10px;
     margin-bottom: 15px;
@@ -96,21 +82,17 @@ h1 strong{
     justify-content: space-between;
     box-shadow: 3px 5px 33px  #888888;
 }
-
 .project-course, .project-date, project-url{
     margin: 10px 0;
 }
-
 .descripcion-project{
     margin-right: 20px;
     font-size: 20px;
 }
-
 .project strong{
     font-family: 'Fjalla One', sans-serif;
     font-weight: normal; 
 }
-
 .header{
     background-color: #1d252c;
     color: white;
@@ -119,7 +101,6 @@ h1 strong{
     height: 70px;
     align-items: center;
 }
-
 ol, ul{
     margin: 0;
     padding: 0;
