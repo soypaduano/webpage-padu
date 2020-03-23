@@ -25,9 +25,14 @@ h2.subtitle{
     font-style: italic;
 }
 
+header .logo img{
+    height: 50px;
+}
+
 img.logo_andres{
     position: relative;
     left: 200px;
+    border-radius: 5px;
 }
 .hero-image{
     object-fit: cover;
