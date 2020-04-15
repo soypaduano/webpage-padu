@@ -211,6 +211,8 @@ footer a {
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
+    padding: 1%;
+
 }
 
 .social-link {
@@ -370,5 +372,17 @@ li.level4:after {
 
     .descripcion-project {
         font-size: 20px;
+    }
+
+    .contact{
+        text-align: center;
+    }
+
+    .contact .social {
+        width: 100%;
+    }
+
+    footer{
+        font-size: 15px;
     }
 }
