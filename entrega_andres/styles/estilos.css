@@ -253,6 +253,7 @@ footer a {
 
 .listContainer {
     justify-content: center;
+    padding-left: 10%;
 }
 
 .skills {
@@ -273,7 +274,7 @@ footer a {
     position: absolute;
     top: calc(100% + 10px);
     left: 0;
-    width: 100%;
+    width: 90%;
     height: 20px;
     background-color: #1b2127;
     opacity: 0.3;
@@ -368,6 +369,14 @@ li.level4:after {
 
     .titulo-proyecto{
         font-size: 25px;
+    }
+
+    .skills .listContainer{
+        padding-left: 10%;
+    }
+
+    .skills li:before{
+        width: 90%;
     }
 
     .descripcion-project {
