@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="es">
+
+<head>
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.ico">
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>Portfolio Andres</title>
+  <script src="js/jquery-1.8.3.min.js"></script>
+  <script src="js/animatescroll.min.js"></script>
+  <link rel="icon" type="image/png" href="images/tab_image.png">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+  <link rel="stylesheet" href="styles/estilos.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+
+<body>
+
+
+  <section id="video1">
+      <div class="videoContainer">
+          <span> Fate </span>
+          <video class="html-video" src="images/video_test.MP4" width="1280" height="720" autoplay=true></video> 
+      </div>
+  </section>
+
+  <section id="video2">
+      <div class="videoContainer">
+          <span class="description"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin quis ante vitae sapien mattis ultrices eu sed magna. Praesent in ornare eros. Aenean interdum risus mattis magna semper, eu bibendum est condimentum. Nam quis pulvinar felis, quis tempus elit. Suspendisse a viverra velit. </span>
+          <video class="html-video" src="images/video_test.MP4" width="1280" height="720" autoplay=true></video> 
+      </div>
+  </section>
+
+
+  <section class="skills">
+    <div class="container">
+    <h2> My skills: </h2>
+    <ul class="listContainer"> 
+      <li class="level4"><strong>3DMax</strong></li>
+      <li class="level3"><strong>Photoshop</strong></li>
+      <li class="level3"><strong> Substance Painter </strong></li>
+      <li class="level4"><strong>Zbrush</strong></li>
+      <li class="level2"><strong>Illustrator</strong></li>
+      <li class="level3"><strong>Marmoset</strong></li>
+    </ul>
+    </div>
+  </section>
+
+
+  <section id="portafolio" class="portfolio">
+    <div class="container">
+      <h2 id="portafolio_link">Portfolio (my projects): </h2>
+
+
+      <article class="project">
+        <div class="detalle-projecto">
+          <h3 class="titulo-proyecto">Yellow Spider</h3>
+          <h6 class="project-course"> Done in 3DMax </h6>
+          <p class="project-date"><small><strong>Date:</strong> 03/03/2018</small></p>
+          <p class="descripcion-project">Project where I develop the modelling of a 3D Animal</p>
+        </div>
+
+        <figure class="contenedorImagen-proyecto">
+          <img width="450" src="images/arana_andres.jpg" alt="spider">
+        </figure>
+
+      </article>
+
+      <article class="project">
+        <div class="detalle-projecto">
+          <h3 class="titulo-proyecto">Still life inside a box</h3>
+          <h6 class="project-course">Done in Zbrush</h6>
+          <p class="project-date"><small><strong>Date:</strong> 01/05/2018</small></p>
+          <p class="descripcion-project"> Still Life inside the same square where I model other creations like boxes,
+            vases, etc. </p>
+        </div>
+
+        <figure class="contenedorImagen-proyecto">
+          <img width="450" src="images/bodegon.jpg" alt="prouyecto del curso de React Native">
+        </figure>
+
+      </article>
+
+
+      <article class="project">
+        <div class="detalle-projecto">
+          <h3 class="titulo-proyecto">4 elements</h3>
+          <h6 class="project-course">Done with Photoshop</h6>
+          <p class="project-date"><small><strong>Date:</strong> 09/10/2018</small></p>
+          <p class="descripcion-project">4 elements (fire, wind, water, ground) Done with photoshop, where I work mostly
+            with indexes in PS.
+          </p>
+        </div>
+
+        <figure class="contenedorImagen-proyecto">
+          <img width="450" src="images/elements.png" alt="prouyecto del curso de React Native">
+        </figure>
+
+      </article>
+
+      <article class="project">
+        <div class="detalle-projecto">
+          <h3 class="titulo-proyecto">Boat</h3>
+          <h6 class="project-course">ZBrush</h6>
+          <p class="project-date"><small><strong>Date:</strong> 01/06/2018</small></p>
+          <p class="descripcion-project">Boat with aquatic material, and a dragon near by.</p>
+        </div>
+
+        <figure class="contenedorImagen-proyecto">
+          <img width="450" src="images/barco.jpg" alt="prouyecto del curso de React Native">
+        </figure>
+
+      </article>
+    </div>
+  </section>
+ 
+  <section id="contacto" class="contact">
+    <div class="container">
+      <form action="console.log()" class="form-email">
+        <h3> Let's create something together <br> Call me and ask for prices and schedule </h3>
+        <h3 style="color:white"> Phone: 667906417 </h3>
+        <h3 > Mail: <a href="mailto:andresfersan19@gmail.com" style="color:white;"> andresfersan19@gmail.com </a> </h3>
+      </form>
+
+      <div class="social">
+        <a href="https://xgaruda69.artstation.com/ " class="social-link art_station"></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>
+      <p> Web created by Andres Fernandez Santiago </p>
+    </div>
+  </footer> 
+
+  <script>
+    $(document).ready(function () {
+      $('.logo_andres').hide();
+      $('.logo_andres').fadeIn(2000);
+    });
+
+    $(document).ready(function () {
+      $('#descripcion1').hide();
+      $('#descripcion1').fadeIn(4000);
+      $('#descripcion2').fadeIn(7000);
+    });
+
+    //documento html validado por: https://validator.w3.org
+  </script>
+
+</body>
+
+</html>
