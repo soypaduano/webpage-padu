@@ -3,7 +3,7 @@ html {
 }
 
 body {
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Libre Baskerville', serif;
     margin: 0%;
 }
 
@@ -43,19 +43,6 @@ h2 {
     margin-bottom: 40px;
 }
 
-/*cosas del header, no sé si las use.*/
-header .logo img {
-    height: 50px;
-}
-img.logo_andres {
-    position: relative;
-    width: 50%;
-    height: auto;
-    padding-left: 25%;
-    padding-top: 1%;
-    padding-bottom: 1%;
-}
-
 
 .videoContainer span{
     position: absolute;
@@ -69,10 +56,16 @@ img.logo_andres {
 }
 .videoContainer span.description{
     width: 90%;
-    font-size: 30px;
+    font-size: 3vw;
     padding: 5%;
     margin-top: 20%;
 }
+
+.videoContainer span.title{
+    font-size: 5vw;
+    margin-top: 15%;
+}
+
 .html-video{
     width: 100%;
     height: 100%;
