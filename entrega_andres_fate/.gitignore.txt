@@ -1,2 +1,1 @@
-images/video1.mp4
-images/video2.mp4
+*.mp4
