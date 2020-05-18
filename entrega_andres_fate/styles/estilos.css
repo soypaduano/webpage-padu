@@ -204,7 +204,6 @@ h2 {
     display: block;
     transition: all .2s ease-in;
     overflow: hidden;
-    /* Removing this will break the effects */
     opacity: 0.9;
 }
 
@@ -292,6 +291,7 @@ a.servant-item {
 
 
 
+/*barra de scroll editada, mas adaptada a la web*/
 body::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
     background-color: #F5F5F5;
