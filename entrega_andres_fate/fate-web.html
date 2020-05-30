@@ -6,7 +6,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>F A T E </title>
   <script src="js/jquery-1.8.3.min.js"></script>
+  <script src="js/controller.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lora:wght@500&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles/estilos.css">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,24 +21,17 @@
     <div id="video1">
         <div class="videoContainer">
             <span id="tituloFate"> Fate </span>
-            <video class="html-video" src="images/video1.mp4" width="1280" height="720" autoplay></video> 
+            <video muted autoplay loop class="html-video" src="images/video1.mp4" width="1280" height="720" autoplay></video> 
         </div>
     </div>
   
     <div id="video2">
         <div class="videoContainer">
-          <span class="title">¿Qué es fate?</span>
-          <span class="description"> Una novela visual adaptada al anime donde unos magos tienen que luchar juntos a sus servants para conseguir el Santo Grial , un objeto mágico que concede cualquier deseo. </span>
-            <video class="html-video" src="images/video2.mp4" width="1280" height="720" autoplay></video> 
+        <span class="title question">¿Qué es fate?</span>
+                <span class="description"> Una novela visual adaptada al anime donde unos magos tienen que luchar juntos a sus servants para conseguir el Santo Grial , un objeto mágico que concede cualquier deseo. </span>
+        <video muted autoplay loop class="html-video" src="images/video3.mp4" width="1280" height="720" autoplay></video> 
         </div>
     </div>
-  
-    <div id="video3">
-        <div class="videoContainer">
-            <video class="html-video" src="images/video3.mp4" width="1280" height="720" autoplay></video> 
-        </div>
-    </div>
-
 </div>
   
 
@@ -46,11 +41,22 @@
         <p>Choose your </p>
         <span class="title">SERVANT</span>
       </div>
+      <div class="categoriesServants">
+        <span type="archer">archer</span>
+        <span type="assasin">assasin</span>
+        <span type="berseker">berseker</span>
+        <span type="caster">caster</span>
+        <span type="lancer">lancer</span>
+        <span type="rider">rider</span>
+        <span type="ruler">ruler</span>
+        <span type="saber">saber</span>
+
+      </div> 
       <div class="servants-list">
 
         <!-- Archers -->
 
-          <a  class="servant-item">
+          <a  class="servant-item" type="archer">
               <figure class="servant-image">
                   <img src="images/Archer/Atalanta.png" alt="">
                   <div class="bottomBar">
@@ -463,6 +469,28 @@
     </div>
   </div>
  
+  <div id="galleryGame" class="gallery">
+        <div class="container">
+                <div class="title">
+                  <p> Gallery game </p>
+                </div>
+                <div id="galeria">
+                    
+                        <div id="slider">
+                            <figure>
+                                <img src="images/01.jpg">
+                                <img src="images/02.jpg">
+                                <img src="images/03.jpg">
+                                <img src="images/04.jpg">
+                                <img src="images/05.jpg">
+                            </figure>
+                        </div>
+                    
+                </div>
+        </div>
+  </div>
+
+
   <div id="contacto" class="contact">
     <div class="title-contact">Contacta en mis redes sociales</div>
       <form action="console.log()" class="form-email">
@@ -476,7 +504,7 @@
         <img class="instagram" src="images/instagram-icon.png" alt="instagram">
         </a>
       </form>
-    
+    <a href="https://www.game.es/VIDEOJUEGOS/ACCION/NINTENDO-SWITCH/FATE-" class="title-buy">Compra el juego</a>
   </div>
 
   <footer>
