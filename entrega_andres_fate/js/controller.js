@@ -1,6 +1,7 @@
 function hideElement(type){
+    debugger;
     $('.servant-item').fadeOut(100);
-    var values = $("[type=" + type + "]").length;
+    var values = $(".servant-item." + type).length;
     if(values == 4){
         $('.servants-list').removeClass('two').removeClass("four");
         $('.servants-list').addClass('four');
@@ -9,13 +10,14 @@ function hideElement(type){
         $('.servants-list').addClass('two');
     }
 
-    $("[type=" + type + "]").fadeIn(100);
+    $(".servant-item." + type).fadeIn(100);
 }
 
 $(document).ready(function(){
-    $('.categoriesServants span').click(function(){
-        $('.categoriesServants span').removeClass('selected');
+    $('.categoriesServants div').click(function(){
+        $('.categoriesServants div').removeClass('selected');
+        hideElement($(this).attr("class"))
         $(this).addClass("selected");
-       hideElement($(this).attr('typeCat'))
+      
     })
 });

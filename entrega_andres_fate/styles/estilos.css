@@ -157,7 +157,7 @@ h2 {
 }
 
 .gallery{
-    padding: 1%;
+    
 }
 
 .gallery .title{
@@ -227,18 +227,18 @@ div#slider figure {
     grid-template: 50% / 25% 25% 25% 25%;
 }
 
-.categoriesServants span{
+.categoriesServants div{
     cursor: pointer;
     font-size: 25px;
 }
 
-.categoriesServants span:hover{
+.categoriesServants div:hover{
     font-style: italic;
     font-weight: bold;
     font-size: 30px;
 }
 
-.categoriesServants span.selected{
+.categoriesServants div.selected{
     font-style: italic;
     font-weight: bold;
     font-size: 30px;
@@ -500,11 +500,25 @@ footer a {
 
 .aboutUs {
     padding: 3%;
+    margin-bottom: 6%;
 }
 
 .aboutUs .title{
     text-align: center;
-    font-size: 2vw;
+    font-size: 40px;
+    font-family: 'Lora', serif;
+}
+
+.aboutUs .description {
+    margin-top: 3%;
+    text-align: center;
+    font-size: 25px;
+}
+
+.aboutUs ul {
+    text-align: center;
+    list-style: none;
+    font-size: 20px;
 }
 
 
@@ -592,6 +606,20 @@ footer a {
 
 
 @media screen and (max-width: 319px) {
+
+    
+.categoriesServants{
+    grid-template: 40% / 50% 50%;
+    margin-bottom: 3%;
+}
+
+.categoriesServants div{
+    font-size: 15px;
+}
+
+.categoriesServants div.selected{
+    font-size: 20px;
+}
 
     .videoContainer span.description {
         font-size: 4vw;
