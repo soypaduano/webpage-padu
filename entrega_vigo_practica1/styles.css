@@ -25,6 +25,7 @@ header .logo img {
 .mainDescription-title {
     padding: 35px;
     width: inherit;
+    text-align: center;
 }
 
 .mainDescription-title h1 {
@@ -37,10 +38,25 @@ header .logo img {
     font-size: 30px;
 }
 
+.mainDescription-title h3 {
+    text-align: right;
+    font-size: 20px;
+}
+
 .mainDescription-title img {
     border-radius: 10px;
     border: 3px solid black;
+    width: 60%;
+    margin-bottom: 5%;
+    opacity: 0.9;
+    
 }
+
+.mainDescription-title img:hover {
+    opacity: 1;
+    border: 3px solid rgb(166, 108, 236);
+}
+
 
 .detalle-projecto {
     width: 50%
@@ -62,43 +78,58 @@ header .logo img {
     margin-bottom: 10px;
 }
 
-.portfolio {
-    background: #FAFAFA;
-    padding: 20px;
+.bikeGallery{
+    background-color: #9F9FED;
+    padding: 2%;
 }
 
-.project {
-    border-radius: 10px;
-    margin-bottom: 15px;
-    margin-right: 0%;
-    margin-left: 0%;
-    margin-top: 0%;
-    margin: 10px;
-    padding: 20px;
-    background-color: white;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    box-shadow: 3px 5px 33px #888888;
-    flex-wrap: wrap;
+.bikeGallery .title{
+    text-align: center;
+    position: relative;
+    top: 18px;
+    margin-bottom: 3%;
+    font-size: 2vw;
 }
 
-.project-course,
-.project-date,
-project-url {
-    font-size: 15px;
-    margin: 10px 0;
+#bikeGallery {
+    height: auto;
+    overflow: hidden;
+    position: relative;
 }
 
-.descripcion-project {
-    margin-right: 20px;
-    font-size: 25px;
+.bikeGallery #slider{
+    border-radius: 15px;
+    border: 3px solid black;
 }
 
-.project strong {
-    font-family: 'Fjalla One', sans-serif;
-    font-weight: normal;
+div#slider { overflow: hidden; }
+div#slider figure img { width: 20%; float: left; }
+div#slider figure { 
+  position: relative;
+  width: 500%;
+  margin: 0;
+  left: 0;
+  text-align: left;
+  font-size: 0;
+  animation: 30s slidy infinite; 
 }
+
+@keyframes slidy {
+    0% { left: 0%; }
+    20% { left: 0%; }
+    25% { left: -100%; }
+    45% { left: -100%; }
+    50% { left: -200%; }
+    70% { left: -200%; }
+    75% { left: -300%; }
+    95% { left: -300%; }
+    100% { left: -400%; }
+    }
+
+
+
+
+
 
 
 
@@ -107,10 +138,6 @@ ul {
     margin: 0;
     padding: 0;
     list-style-type: none;
-}
-
-figure {
-    margin: 0;
 }
 
 .header ol {
@@ -142,15 +169,17 @@ figure {
 }
 
 footer p {
-    padding-left: 40px
+   margin-right: 5%;
+   margin-left: 5%;
 }
 
 footer {
-    background-color: #1b2127;
+    background-color: rgb(51, 51, 100);
     color: white;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    text-align: center;
 }
 
 footer img {
@@ -204,63 +233,6 @@ footer a {
 .listContainer {
     justify-content: center;
     padding-left: 10%;
-}
-
-.skills {
-    text-align: center;
-}
-
-.skills li {
-    position: relative;
-    list-style: none;
-    margin: 50px 0;
-    font-weight: 500;
-    text-transform: uppercase;
-    text-align: center;
-}
-
-.skills li:before {
-    content: "";
-    position: absolute;
-    top: calc(100% + 10px);
-    left: 0;
-    width: 90%;
-    height: 20px;
-    background-color: #1b2127;
-    opacity: 0.3;
-    border-radius: 1000px;
-}
-
-.skills li:after {
-    content: "";
-    position: absolute;
-    top: calc(100% + 10px);
-    left: 0;
-    width: 0;
-    height: 20px;
-    background-color: #026FFF;
-    border-radius: 1000px;
-    animation-duration: .7s;
-    animation-timing-function: ease;
-    animation-fill-mode: forwards;
-}
-
-li.level2:after {
-    width: 40%;
-}
-
-li.level3:after {
-    width: 60%;
-}
-
-li.level4:after {
-    width: 80%;
-}
-
-#skills h1 {
-    color: #101113;
-    font-size: 35px;
-    padding: 10px;
 }
 
 @media screen and (max-width: 1023px) {

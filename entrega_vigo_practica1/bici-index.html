@@ -22,9 +22,6 @@
             <a style="cursor: pointer" onclick="$('#descripcion1').animatescroll();">Description</a>
           </li>
           <li>
-              <a style="cursor: pointer" onclick="$('#skills').animatescroll();">Skills</a>
-          </li>
-          <li>
             <a style="cursor: pointer" onclick="$('#portafolio').animatescroll();">Portfolio</a>
 
           </li>
@@ -36,111 +33,49 @@
     </div>
   </header>
 
-  
+
   <section class="mainDescription">
-      <div class="mainDescription-title">
-        <div class="contenedorDiv">
-            <h1 id="descripcion1">
-                Hey, I am <strong> Andres Fernandez Santiago</strong> <br> a <strong> 3D Artist </strong> specialized in
-                modelling and texturing of <strong> videogames elements </strong>
-            </h1>
-            <img src="images/bike-boardman.jpg">
-            <h2 class="subtitle" id="descripcion2">
-                3DMax, Photoshop , Illustrator, Substance Painter, Marmoset, Zbrush. <br> Languages: Gallego, Spanish, English
-            </h2>
-        </div>
+    <div class="mainDescription-title">
+      <div class="contenedorDiv">
+        <h1 id="descripcion1">
+          The Boardman AIR series has a pretty impressive palmares with multiple Olympic medals under its belt. That
+          made it an exciting challenge to develop for 2020
+        </h1>
+        <img src="images/bike-boardman.jpg">
+        <h2>With a brand new truncated aerofoil down tube and seat tube, developed as part of an extensive Aero R&D
+          process, the 2019 AIR offers an even faster ride in any wind direction</h2>
+        <h3>Aerodynamic performance isn’t much use if the frame doesn’t transfer power to the road efficiently too, but
+          with an oversized PF30 bottom bracket shell and new, tapered box-section chainstays, the AIR frameset makes
+          sure every possible watt makes it to the rear wheel.</h2>
       </div>
-  </section>
-
-
-  <section class="skills">
-    <div class="contenedorDiv">
-    <h2> My skills: </h2>
-    <ul class="listContainer"> 
-      <li class="level4"><strong>3DMax</strong></li>
-      <li class="level3"><strong>Photoshop</strong></li>
-      <li class="level3"><strong> Substance Painter </strong></li>
-      <li class="level4"><strong>Zbrush</strong></li>
-      <li class="level2"><strong>Illustrator</strong></li>
-      <li class="level3"><strong>Marmoset</strong></li>
-    </ul>
     </div>
   </section>
 
-
-  <section id="portafolio" class="portfolio">
+  <section id="bikeGallery" class="bikeGallery">
     <div class="contenedorDiv">
-      <h2 id="portafolio_link">Portfolio (my projects): </h2>
-
-
-      <article class="project">
-        <div class="detalle-projecto">
-          <h3 class="titulo-proyecto">Yellow Spider</h3>
-          <h6 class="project-course"> Done in 3DMax </h6>
-          <p class="project-date"><small><strong>Date:</strong> 03/03/2018</small></p>
-          <p class="descripcion-project">Project where I develop the modelling of a 3D Animal</p>
+        <div class="title">
+          <p> Other bikes </p>
         </div>
-
-        <figure class="contenedorImagen-proyecto">
-          <img width="450" src="images/arana_andres.jpg" alt="spider">
-        </figure>
-
-      </article>
-
-      <article class="project">
-        <div class="detalle-projecto">
-          <h3 class="titulo-proyecto">Still life inside a box</h3>
-          <h6 class="project-course">Done in Zbrush</h6>
-          <p class="project-date"><small><strong>Date:</strong> 01/05/2018</small></p>
-          <p class="descripcion-project"> Still Life inside the same square where I model other creations like boxes,
-            vases, etc. </p>
-        </div>
-
-        <figure class="contenedorImagen-proyecto">
-          <img width="450" src="images/bodegon.jpg" alt="prouyecto del curso de React Native">
-        </figure>
-
-      </article>
-
-
-      <article class="project">
-        <div class="detalle-projecto">
-          <h3 class="titulo-proyecto">4 elements</h3>
-          <h6 class="project-course">Done with Photoshop</h6>
-          <p class="project-date"><small><strong>Date:</strong> 09/10/2018</small></p>
-          <p class="descripcion-project">4 elements (fire, wind, water, ground) Done with photoshop, where I work mostly
-            with indexes in PS.
-          </p>
-        </div>
-
-        <figure class="contenedorImagen-proyecto">
-          <img width="450" src="images/elements.png" alt="prouyecto del curso de React Native">
-        </figure>
-
-      </article>
-
-      <article class="project">
-        <div class="detalle-projecto">
-          <h3 class="titulo-proyecto">Boat</h3>
-          <h6 class="project-course">ZBrush</h6>
-          <p class="project-date"><small><strong>Date:</strong> 01/06/2018</small></p>
-          <p class="descripcion-project">Boat with aquatic material, and a dragon near by.</p>
-        </div>
-
-        <figure class="contenedorImagen-proyecto">
-          <img width="450" src="images/barco.jpg" alt="prouyecto del curso de React Native">
-        </figure>
-
-      </article>
+        <div id="galeria">
+          <div id="slider">
+            <figure>
+              <img src="images/01.jpg" alt=""> 
+              <img src="images/02.jpg" alt="">
+              <img src="images/03.jpg" alt="">
+              <img src="images/04.jpg" alt="">
+              <img src="images/05.jpg" alt="">
+            </figure>
+          </div>
+      </div>
     </div>
   </section>
- 
+
   <section id="contacto" class="contact">
     <div class="contenedorDiv">
       <form action="console.log()" class="form-email">
         <h3> Let's create something together <br> Call me and ask for prices and schedule </h3>
         <h3 style="color:white"> Phone: 667906417 </h3>
-        <h3 > Mail: <a href="mailto:andresfersan19@gmail.com" style="color:white;"> andresfersan19@gmail.com </a> </h3>
+        <h3> Mail: <a href="mailto:andresfersan19@gmail.com" style="color:white;"> andresfersan19@gmail.com </a> </h3>
       </form>
 
       <div class="social">
@@ -150,20 +85,16 @@
   </section>
 
   <footer>
-    <div>
-      <p> Web created by Andres Fernandez Santiago </p>
-    </div>
-  </footer> 
+      <p> by Angel </p>
+      <p> 2020 </p>
+  </footer>
 
   <script>
-
     $(document).ready(function () {
       $('#descripcion1').hide();
       $('#descripcion1').fadeIn(4000);
       $('#descripcion2').fadeIn(7000);
     });
-
-    //documento html validado por: https://validator.w3.org
   </script>
 
 </body>
