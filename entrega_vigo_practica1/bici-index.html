@@ -11,91 +11,89 @@
 </head>
 
 <body>
-  <header class="header">
-    <div class="contenedorDiv">
-      <figure class="logo">
-        <img src="images/icon_bike.png" alt="Bici Logo">
-      </figure>
-      <nav class="menu">
-        <ol>
-          <li>
-            <a style="cursor: pointer" onclick="$('#descripcion1').animatescroll();">Description</a>
-          </li>
-          <li>
-            <a style="cursor: pointer" onclick="$('#portafolio').animatescroll();">Portfolio</a>
-
-          </li>
-          <li>
-            <a style="cursor: pointer" onclick="$('#contacto').animatescroll();">Work together</a>
-          </li>
-        </ol>
-      </nav>
-    </div>
-  </header>
-
-
-  <section class="mainDescription">
-    <div class="mainDescription-title">
-      <div class="contenedorDiv">
-        <h1 id="descripcion1">
-          The Boardman AIR series has a pretty impressive palmares with multiple Olympic medals under its belt. That
-          made it an exciting challenge to develop for 2020
-        </h1>
-        <img src="images/bike-boardman.jpg">
-        <h2>With a brand new truncated aerofoil down tube and seat tube, developed as part of an extensive Aero R&D
-          process, the 2019 AIR offers an even faster ride in any wind direction</h2>
-        <h3>Aerodynamic performance isn’t much use if the frame doesn’t transfer power to the road efficiently too, but
-          with an oversized PF30 bottom bracket shell and new, tapered box-section chainstays, the AIR frameset makes
-          sure every possible watt makes it to the rear wheel.</h2>
-      </div>
-    </div>
-  </section>
-
-  <section id="bikeGallery" class="bikeGallery">
-    <div class="contenedorDiv">
-        <div class="title">
-          <p> Other bikes </p>
+  <main>
+    <div id="encabezado">
+      <div id="encabezado-texto">
+        <div id="encabezado-texto-in">
+          <h1>Bicis boardman</h1>
+         
+          <h2 style="margin-top: 10%">las bicis electricas son una buena manera de haceer ejercicios, también para divertirse o pasear.</h2>
+          <a href="#imagenes" class="boton" id="view-work" style="margin-top: 5px;">
+            View Work
+            <img src="images/icon_bike.png">
+          </a>
         </div>
-        <div id="galeria">
-          <div id="slider">
-            <figure>
-              <img src="images/01.jpg" alt=""> 
-              <img src="images/02.jpg" alt="">
-              <img src="images/03.jpg" alt="">
-              <img src="images/04.jpg" alt="">
-              <img src="images/05.jpg" alt="">
-            </figure>
-          </div>
       </div>
+      <div id="encabezado-image"></div>
     </div>
-  </section>
 
-  <section id="contacto" class="contact">
-    <div class="contenedorDiv">
-      <form action="console.log()" class="form-email">
-        <h3> Let's create something together <br> Call me and ask for prices and schedule </h3>
-        <h3 style="color:white"> Phone: 667906417 </h3>
-        <h3> Mail: <a href="mailto:andresfersan19@gmail.com" style="color:white;"> andresfersan19@gmail.com </a> </h3>
-      </form>
+    <div id="imagenes">
 
-      <div class="social">
-        <a href="https://xgaruda69.artstation.com/ " class="social-link art_station"></a>
+
+      <div id="header">
+        <h2>Creating National Title and Olympic winning road bikes is in our DNA and something we have been doing since 2007. Each of the Boardman road platforms is designed, developed and specced for a specific intended purpose without compromise.
+          Whether it is a cutting-edge aero product or an endurance bike developed with comfort in mind we have the perfect road bike suitable for your needs.</h2>
       </div>
+
+      <img src="images/01.jpg" alt="">
+      <div class="descripcionImagen" style="text-align: left">
+        
+        <h3>SLR 8.9 CARBON RED</h3>
+        <p>Cutting-edge carbon fibre development at an attainable price point with outstanding performance.</p>
+        <p> <a href="https://www.boardmanbikes.com/gb_en/categories/road/"> Buy here </a></p>
+      </div>
+
+      <img src="images/02.jpg" alt="">
+
+      <div class="descripcionImagen" style="text-align: right">
+
+        <h3>SLR 8.9 CARBON GREY</h3>
+        <p>Cutting-edge carbon fibre development at an attainable price point with outstanding performance.</p>
+        <p> <a href="https://www.boardmanbikes.com/gb_en/categories/road/"> Buy here </a></p>
+      </div>
+
+
+      <img src="images/03.jpg" alt="">
+      <div class="descripcionImagen" style="text-align: left">
+        <h3>SLR 8.8 ALLOY</h3>
+        <p>The SLR 8.8 features a full carbon fork saving weight and super reliable shifting from its Shimano Sora componentry.</p>
+        <p> <a href="https://www.boardmanbikes.com/gb_en/categories/road/"> Buy here </a></p>
+      </div>
+
+
+      <img src="images/04.jpg" alt="">
+      <div class="descripcionImagen" style="text-align: right">
+        <h3>ADV 8.9</h3>
+        <p>Go anywhere, anytime on any surface. The ADV 8.9 provides the perfect platform for your cycling adventures.</p>
+        <p> <a href="https://www.boardmanbikes.com/gb_en/categories/road/"> Buy here </a></p>
+      </div>
+      <img src="images/05.jpg" alt="">
+      <div class="descripcionImagen last" style="text-align: left">
+        <h3>SLR 9.0</h3>
+        <p>The SLR 9.0 offers the outstanding all round capabilities of the SLR frameset using our C8 Carbon.</p>
+        <p> <a href="https://www.boardmanbikes.com/gb_en/categories/road/"> Buy here </a></p>
+      </div>
+
     </div>
-  </section>
+
+  </main>
+
+  <footer>
+    <h3>Contacta con nosotros</h3>
+    <p>No dudes en dejarnos un email o llamarnos</p>
+    <p>Email:
+      <strong>contact@acmephotos.test</strong>
+    </p>
+    <p>Phone:
+      <strong>(617) 555-5555</strong>
+    </p>
+  </footer>
 
   <footer>
       <p> by Angel </p>
       <p> 2020 </p>
   </footer>
 
-  <script>
-    $(document).ready(function () {
-      $('#descripcion1').hide();
-      $('#descripcion1').fadeIn(4000);
-      $('#descripcion2').fadeIn(7000);
-    });
-  </script>
 
 </body>
 
