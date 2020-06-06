@@ -1,0 +1,23 @@
+- Me he basado en las bicis de boardman puesto que son un producto llamativo y el diseño de las propias
+bicis electricas me atrae mucho. Estos diseños y estas imagenes (que han sido extraidas de la web) cuando
+estaba buscando inspiración pensé que podrían quedar bien en un diseño minimalista. Aparte, me atrae mucho
+el diseño de webs para productos sostenibles. Normalmente estas webs tienen tendencia a tener un estilo similar. 
+
+A la hora de desarrollar el mobile first, como primera práctica creo que podría ser mucho más asequible y
+llevadero empezar por un diseño vertical (agrupando todo el contenido verticalmente) y desaprovechar un poco
+los espacios de los lados. Puesto que solamente enseño algunos productos (tampoco quería poner muchos más)
+el espacio horizontal en este caso no es tan necesario. Con la imagen vertical del 'header' también queda muy
+bien esa cabecera ciclista, dando una gran importancia a la calidad de la imagen que será lo primero que vea el usuario.
+Otra particularidad a destacar es el sombreado que tiene el main, ya que si lo dejase sin sombras, quedaría como
+un div muy solo con todo el espacio de los lados. 
+
+
+La fuente que utilizo es Josefin Sans, que personalmente me gusta mucho para webs de venta. Se utilza mucho
+en otras webs que me han servido de inspiración (http://simoneviani.com/) & (http://monfa.red/=). Ha sido
+obtenida de google fonts, que es buen lugar para obtener distintos tipos de fuentes.
+
+Los textos que se han puesto son copiados de la web de la marca, ya que en este caso me quería centrar en la maquetacion
+y no tanto en el contenido.
+
+La web ha sido verificada en el validador: (w3c). 
+
