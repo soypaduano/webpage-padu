@@ -111,8 +111,6 @@ img {
 }
 
 
-
-
 .boton {
   padding: 0.5rem 2rem;
   border: 1px #ccc solid;
@@ -138,7 +136,7 @@ img {
   display: inline-block;
   padding-right: 1rem;
   padding-left: 1rem;
-  text-align: left;
+  text-align: center;
 }
 
 .descripcionImagen {
@@ -172,22 +170,29 @@ footer {
   margin: auto;
   color: #333;
 }
+
+
 @media (min-width: 500px) {
   #encabezado {
     display: flex;
     height: 100%;
   }
 
+
   #encabezado-texto {
     height: 100vh;
   }
 
+
+
   #encabezado-image {
     height: 100vh;
   }
+
 }
 @media (min-width: 700px) {
   .btn {
     padding: 1rem 3rem;
   }
+
 }
