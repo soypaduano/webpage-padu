@@ -1,10 +1,5 @@
-/* variables */
-:root{
-  --primary: #FFC636;
-  --secondary: #0A0B5B;
-}
 
-/* reset */
+
 body,p,a,ul,li{
   margin: 0;
   padding: 0;
@@ -14,16 +9,15 @@ li{
   list-style-type: none;
 }
 
-/* base styles */
 body{
-  background: var(--secondary);
+  background: #E6EBE0;
   overflow-x: hidden;
-  font-family: 'Rubik Regular';
+  font-family: 'Varela Round', sans-serif;
 }
-.button{
+.boton{
   background: none;
-  border: 2px solid var(--primary);
-  color: var(--primary);
+  border: 2px solid #ED6A5A;
+  color: black;
   padding: 6px 12px;
   border-radius: 20px;
   text-transform: uppercase;
@@ -31,7 +25,7 @@ body{
   display: inline-block;
   font-size: 1em;
 }
-.button:hover{
+.boton:hover{
   color: #222;
   background: var(--primary);
 }
@@ -44,18 +38,13 @@ input,textarea{
   font-size: 1em;
 }
 
-/* fonts */
-@font-face {
-  font-family: 'Rubik Regular';
-  src: url("assets/fonts/Rubik-Regular.ttf") format("ttf"),
-}
 h1,h2,h3,h4{
-  color: #DDDBFF;
+  color: #ED6A5A;
   font-weight: normal;
   line-height: 1.4em;
 }
 p,a,li{
-  color: #9893D8;
+  color: #ED6A5A;
   line-height: 1.4em;
   font-size: 1em;
 }
@@ -68,10 +57,10 @@ h2{
 h4{
   font-size: 1.1em;
 }
-.leading{
+.titular{
   font-size: 1.1em;
 }
-.grid{
+.rejilla{
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   gap: 10px;
@@ -107,38 +96,45 @@ h4{
   width: 200%;
 }
 #portfolio{
-  background: url(assets/square_bg.png);
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: bottom;
+  background: #9BC1BC;
   padding: 30px 20px;
 }
-#portfolio h3{
+#portfolio h2{
   margin-bottom: 0;
   text-align: center;
+  color: black;
 }
-.projects{
+.proyectos{
   margin: 20px 0;
 }
-.projects a{
+.proyectos a{
   grid-column: 1/9;
   display: flex;
   margin: 20px 0
 }
-.projects a *{
+.proyectos a *{
   margin: 0 20px;
   max-width: 40%;
   align-self: center;
 }
-.projects h4{
-  color: #9994f7
+
+.proyectos a img {
+  border-radius: 20px;
+}
+.proyectos h4{
+  color: black;
 }
 #habilidades{
   padding: 30px 20px;
-  background: #07083E;
+  background: #F4F1BB;
 }
 #habilidades h3{
   text-align: center;
+}
+
+#habilidades h4{
+  color: black;
+  font-style: italic;
 }
 #habilidades ul{
   margin: 40px 0;
@@ -148,9 +144,11 @@ h4{
   background: rgba(0,0,0,0.2);
   grid-column: span 4;
   text-align: center;
+  color: black;
 }
 #habilidades img{
-  height: 80px;
+  width: 100%;
+    height: auto;
   margin: 10px auto;
 }
 #habilidades p{
@@ -164,6 +162,7 @@ h4{
 #contacto h3, #contacto p{
   margin-bottom: 0;
   text-align: center;
+  color: white;
 }
 #contacto form{
   width: 80%;
@@ -179,13 +178,13 @@ h4{
   max-width: 100%;
   height: 200px;
 }
-#contacto .button{
+#contacto .boton{
   margin-top: 10px;
+  color: white;
 }
 footer{
   padding: 30px 20px;
   background-color: #14153D;
-  background-image: url(assets/footer_image.png);
   background-size: 40%;
   background-repeat: no-repeat;
   background-position: top center;
@@ -205,11 +204,7 @@ footer li{
 footer img{
   width: 20px;
 }
-
-
-/* small tablet styles */
 @media screen and (min-width: 620px){
-
   .bienvenido-text{
     grid-column: 1/5;
   }
@@ -220,23 +215,23 @@ footer img{
   .bienvenido-img img{
     width: 100%;
   }
-  .projects{
+  .proyectos{
     margin-top: 40px;
   }
-  .projects a{
+  .proyectos a{
     grid-column: span 4;
     display: block;
     margin: 20px 0;
   }
-  .projects a:last-child{
+  .proyectos a:last-child{
     grid-column: 3/7;
   }
-  .projects a *{
+  .proyectos a *{
     margin: 10px;
     max-width: 60%;
     margin: 10px 20%;
   }
-  .projects h4{
+  .proyectos h4{
     text-align: center;
   }
   #habilidades{
@@ -247,19 +242,17 @@ footer img{
   }
 
 }
-
-/* large tablet & laptop styles */
 @media screen and (min-width: 960px){
 
   body{
     font-size: 18px;
   }
-  .grid{
+  .rejilla{
     max-width: 1060px;
     margin: 0 auto;
     width: 100%;
   }
-  .leading{
+  .titular{
     margin: 20px 0;
   }
   .cabecera{
@@ -284,17 +277,17 @@ footer img{
   #bienvenido{
     padding-bottom: 40px;
   }
-  .projects a:nth-child(1){
+  .proyectos a:nth-child(1){
     grid-column: 2/4;
   }
-  .projects a:nth-child(2){
+  .proyectos a:nth-child(2){
     grid-column: 4/6;
     padding-top: 140px;
   }
-  .projects a:nth-child(3){
+  .proyectos a:nth-child(3){
     grid-column: 6/8;
   }
-  .projects a *{
+  .proyectos a *{
     max-width: 80%;
     margin: 30px 10%;
   }
@@ -315,10 +308,7 @@ footer img{
     background-size: 20%;
     padding: 40px 20px;
   }
-
 }
-
-/* desktop styles */
 @media screen and (min-width: 1200px){
 
   body{
@@ -330,20 +320,20 @@ footer img{
   #bienvenido, #portfolio, #habilidades, #contacto{
     padding: 90px 0;
   }
-  .leading{
+  .titular{
     margin: 20px 0;
   }
-  .projects a:nth-child(1){
+  .proyectos a:nth-child(1){
     grid-column: 1/3;
   }
-  .projects a:nth-child(2){
+  .proyectos a:nth-child(2){
     grid-column: 4/6;
     padding-top: 140px;
   }
-  .projects a:nth-child(3){
+  .proyectos a:nth-child(3){
     grid-column: 7/9;
   }
-  .projects a *{
+  .proyectos a *{
     max-width: 100%;
     margin: 30px 0%;
   }
@@ -360,5 +350,4 @@ footer img{
   footer img{
     width: 30px;
   }
-
 }
