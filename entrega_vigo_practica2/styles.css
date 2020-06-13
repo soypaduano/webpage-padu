@@ -1,10 +1,5 @@
 
 
-body,p,a,ul,li{
-  margin: 0;
-  padding: 0;
-  text-decoration: none;
-}
 li{
   list-style-type: none;
 }
@@ -24,18 +19,19 @@ body{
   box-shadow: 1px 2px 3px rgba(0,0,0,0.6);
   display: inline-block;
   font-size: 1em;
+  cursor: pointer;
 }
 .boton:hover{
   color: #222;
   background: var(--primary);
 }
-input,textarea{
-  background: rgba(255,255,255,0.05);
-  padding: 10px 16px;
-  border-radius: 20px;
-  border: 2px solid #9893D8;
-  color: #f2f2f2;
-  font-size: 1em;
+
+
+
+body,p,a,ul,li{
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
 }
 
 h1,h2,h3,h4{
@@ -117,6 +113,14 @@ h4{
   max-width: 40%;
   align-self: center;
 }
+input,textarea{
+  background: rgba(255,255,255,0.05);
+  padding: 10px 16px;
+  border-radius: 20px;
+  border: 2px solid #9893D8;
+  color: #f2f2f2;
+  font-size: 1em;
+}
 
 .proyectos a img {
   border-radius: 20px;
@@ -124,45 +128,45 @@ h4{
 .proyectos h4{
   color: black;
 }
-#habilidades{
+#colaboradores{
   padding: 30px 20px;
   background: #F4F1BB;
 }
-#habilidades h3{
+#colaboradores h3{
   text-align: center;
 }
 
-#habilidades h4{
+#colaboradores h4{
   color: black;
   font-style: italic;
 }
-#habilidades ul{
+#colaboradores ul{
   margin: 40px 0;
 }
-#habilidades li{
+#colaboradores li{
   padding: 10px;
   background: rgba(0,0,0,0.2);
   grid-column: span 4;
   text-align: center;
   color: black;
 }
-#habilidades img{
+#colaboradores img{
   width: 100%;
     height: auto;
   margin: 10px auto;
 }
-#habilidades p{
+#colaboradores p{
   text-align: center;
   margin: 0 20px;
 }
 #contacto{
   padding: 30px 20px;
-  background: #080936;
+  background: #E6EBE0;
 }
 #contacto h3, #contacto p{
   margin-bottom: 0;
   text-align: center;
-  color: white;
+  color: black;
 }
 #contacto form{
   width: 80%;
@@ -173,15 +177,22 @@ h4{
 #contacto input,#contacto textarea{
   width: 100%;
   margin: 10px 0;
+  color: black;
+  font-style: italic;
 }
 #contacto textarea{
   max-width: 100%;
   height: 200px;
+  color: black;
 }
+
 #contacto .boton{
   margin-top: 10px;
-  color: white;
+  color: black;
+  border: 2px solid black;
 }
+
+
 footer{
   padding: 30px 20px;
   background-color: #14153D;
@@ -189,57 +200,78 @@ footer{
   background-repeat: no-repeat;
   background-position: top center;
 }
+
+
 footer .copyright{
   grid-column: 1/3;
   font-size: 0.8em;
 }
+
 footer .social{
   grid-column: 7/9;
   display: flex;
   justify-content: flex-end;
 }
+
 footer li{
   margin: 0 6px;
 }
+
 footer img{
   width: 20px;
 }
+
 @media screen and (min-width: 620px){
   .bienvenido-text{
     grid-column: 1/5;
   }
+
   .bienvenido-img{
     display: block;
     grid-column: 5/9;
   }
+
   .bienvenido-img img{
     width: 100%;
   }
+
   .proyectos{
     margin-top: 40px;
   }
+
   .proyectos a{
     grid-column: span 4;
     display: block;
     margin: 20px 0;
   }
+
+
   .proyectos a:last-child{
     grid-column: 3/7;
   }
+
+
   .proyectos a *{
     margin: 10px;
     max-width: 60%;
     margin: 10px 20%;
   }
+
+
   .proyectos h4{
     text-align: center;
   }
-  #habilidades{
+
+
+  #colaboradores{
     padding: 30px 100px;
   }
+
+
   footer{
     background-size: 20%;
   }
+
 
 }
 @media screen and (min-width: 960px){
@@ -247,29 +279,37 @@ footer img{
   body{
     font-size: 18px;
   }
+
+
   .rejilla{
     max-width: 1060px;
     margin: 0 auto;
     width: 100%;
   }
+
   .titular{
     margin: 20px 0;
   }
+
   .cabecera{
     padding: 0 20px;
   }
+
   .cabecera h1{
     grid-column: 1/3;
   }
+
   .cabecera ul{
     display: flex;
     grid-column: 6/9;
     justify-content: flex-end;
     align-self: center;
   }
+
   .cabecera li{
     margin-left: 20px;
   }
+
   .bienvenido-text{
     grid-column: 1/5;
     align-self: center;
@@ -277,33 +317,41 @@ footer img{
   #bienvenido{
     padding-bottom: 40px;
   }
+
   .proyectos a:nth-child(1){
     grid-column: 2/4;
   }
+
   .proyectos a:nth-child(2){
     grid-column: 4/6;
     padding-top: 140px;
   }
+  
   .proyectos a:nth-child(3){
     grid-column: 6/8;
   }
+
   .proyectos a *{
     max-width: 80%;
     margin: 30px 10%;
   }
-  #habilidades{
+
+  #colaboradores{
     padding: 30px 20px;
   }
-  #habilidades ul{
+
+  #colaboradores ul{
     margin: 40px auto;
   }
-  #habilidades li{
+
+  #colaboradores li{
     grid-column: span 2;
   }
-  #habilidades p{
+  #colaboradores p{
     max-width: 600px;
     margin: 40px auto;
   }
+
   footer{
     background-size: 20%;
     padding: 40px 20px;
@@ -314,29 +362,35 @@ footer img{
   body{
     font-size: 20px;
   }
+
   .cabecera{
     padding: 0;
   }
-  #bienvenido, #portfolio, #habilidades, #contacto{
+  #bienvenido, #portfolio, #colaboradores, #contacto{
     padding: 90px 0;
   }
+
   .titular{
     margin: 20px 0;
   }
   .proyectos a:nth-child(1){
     grid-column: 1/3;
   }
+
   .proyectos a:nth-child(2){
     grid-column: 4/6;
     padding-top: 140px;
   }
+
   .proyectos a:nth-child(3){
     grid-column: 7/9;
   }
+
   .proyectos a *{
     max-width: 100%;
     margin: 30px 0%;
   }
+
   footer{
     padding: 80px 0;
     background-size: 30%;
@@ -344,6 +398,7 @@ footer img{
   footer .copyright{
     grid-column: 1/4;
   }
+  
   footer .social{
     grid-column: 6/9;
   }
