@@ -1,9 +1,16 @@
+
+
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script src="js/jquery-1.8.3.min.js"></script>
+  <script src="js/controller.js"></script>
+  <script src="js/animatescroll.min.js"></script>
   <title>PhotoCool Madrid</title>
 </head>
 <body>
@@ -11,11 +18,13 @@
   <nav class="cabecera rejilla">
     <h1>PhotoCool Madrid</h1>
     <ul>
-      <li><a href="#portfolio">portfolio</a></li>
+      <li><a style="cursor: pointer"  onclick="$('#portfolio').animatescroll();">portfolio</a></li>
 
-      <li><a href="#colaboradores">colaboradores</a></li>
+      <li><a style="cursor: pointer"  onclick="$('#colaboradores').animatescroll();">colaboradores</a></li>
 
-      <li><a href="#contacto">contacto</a></li>
+
+      <li><a style="cursor: pointer"  onclick="$('#contacto').animatescroll();">contacto</a></li>
+
     </ul>
     
   </nav>
@@ -28,38 +37,40 @@
       <h2>Estudio fotografico ubicado en Madrid</h2>
 
       <p class="titular">PhotoCool Madrid se caracteriza por haber participado en proyectos multidisciplinares, aplicando muchas tecnicas de creatividad e innovación. Fue fundada en Madrid en 2010.</p>
-      <a href="#portfolio" class="boton">ver proyectos</a>
+
+      <a id="botonGoPortfolio"class="boton">ver proyectos</a>
     </div>
 
     <div class="bienvenido-img">
 
-      <img src="assets/madrid_portada.png" alt="pic of planet">
+      <img src="recursos/madrid_portada.png" alt="pic of planet">
     </div>
 
   </section>
 
 
   <!-- algunas imagenes y proyectos -->
-  <section id="portfolio">
+  <section style="display: none" id="portfolio">
 
     <h2>Proyectos y disciplinas</h2>
-    
+
     <div class="proyectos rejilla">
 
-      <a href="https://www.lavanguardia.com/local/madrid/20180416/442517814705/madrid-territorio-prohibido-skaters-multa.html">
-        <img src="assets/skate.jpg" alt="space race image">
+
+      <a class="imageProyecto" style="display: none" href="https://www.lavanguardia.com/local/madrid/20180416/442517814705/madrid-territorio-prohibido-skaters-multa.html">
+        <img src="recursos/skate.jpg" alt="space race image">
 
         <h4>Fotografía de Skate</h4>
       </a>
-      <a href="https://www.vice.com/es/article/pkee58/africa-toto-fiesta-madrid">
+      <a class="imageProyecto" style="display: none" href="https://www.vice.com/es/article/pkee58/africa-toto-fiesta-madrid">
 
-        <img src="assets/fiesta.jpg" alt="planet boy image">
+        <img src="recursos/fiesta.jpg" alt="planet boy image">
 
         <h4>Fotografía de fiesta</h4>
       </a>
-      <a href="https://www.timeout.es/madrid/es/arte/el-mapa-del-arte-urbano-de-madrid">
+      <a class="imageProyecto" style="display: none" href="https://www.timeout.es/madrid/es/arte/el-mapa-del-arte-urbano-de-madrid">
 
-        <img src="assets/grafitti.jpg" alt="captain cosmo image">
+        <img src="recursos/grafitti.jpg" alt="captain cosmo image">
         <h4>Fotografía de Arte Urbano</h4>
 
       </a>
@@ -69,46 +80,52 @@
 <!-- colaboradores -->
   <section id="colaboradores">
 
-    <h3>Empresas con las que hemos trabajado</h3>
+
+    <h3> <b>Empresas con las que podras hacer practicas </b> </h3>
     <ul class="rejilla">
 
       <li>
-        <img src="assets/vice_logo.png" alt="comet">
+        <img src="recursos/vice_logo.png" alt="comet">
         <h4>Vice Media</h4>
       </li>
       <li>
 
-        <img src="assets/natgeo_logo.png" alt="comet">
+        <img src="recursos/natgeo_logo.png" alt="comet">
         <h4>NatGeo</h4>
       </li>
       <li>
 
-        <img src="assets/canon_logo.png" alt="comet">
+        <img src="recursos/canon_logo.png" alt="comet">
         <h4>Canon</h4>
+
       </li>
       <li>
 
-        <img src="assets/elpais_logo.jpg" alt="comet">
+        <img src="recursos/elpais_logo.jpg" alt="comet">
         <h4>El Pais</h4>
       </li>
 
     </ul>
     <p class="titular">
-      Empresas como NatGeo, Vice, Canon o periodicos nacionales como El País han confiado en nosotros para dirigir ciertos proyectos fotograficos. Estamos tanto en proyectos documentales, como proyectos sociales o underground de la ciudad de Madrid.
+      Empresas como NatGeo, Vice, Canon o periodicos nacionales como El País han confiado en nosotros para dirigir ciertos proyectos fotograficos. Estamos tanto en proyectos documentales, como proyectos sociales o underground de la ciudad de Madrid. <br>
+      <br>
+      <b>Es por eso que hacer practicas con nosotros es una buena oportunidad. Aplica!</b>
     </p>
   </section>
+
   <!--contacto -->
   <section id="contacto">
-    <h3>Contacta con nosotros</h3>
 
-    <p class="titular">No dudes en escribirnos si quieres colaborar con nosotros, o si tienes alguna propuesta</p>
+    <h3 style="font-size: 30px">Haz practicas con nosotros </h3>
+
+    <p class="titular">No dudes en escribirnos si quieres hacer practicas con nosotros, o si tienes alguna propuesta</p>
     <form>
 
-      <input type="text" placeholder='nombre'>
-      <input type="email" placeholder='email'>
+      <input id="nombreIntroducido" type="text" placeholder='nombre'>
+      <input id="emailIntroducido" type="email" placeholder='email'>
 
-      <textarea placeholder='tu mensaje'></textarea>
-      <button class="boton">Enviar propuesta</button>
+      <textarea id="mensajeIntroducido" placeholder='tu mensaje'></textarea>
+      <button id="sendPracticas" class="boton">Enviar propuesta</button>
     </form>
   </section>
 
@@ -118,9 +135,9 @@
 
       <ul class="social">
 
-        <li><a href="https://www.facebook.com/"><img src="assets/icon_fb.svg" alt="facebook"></a></li>
+        <li><a href="https://www.facebook.com/"><img src="recursos/icon_fb.svg" alt="facebook"></a></li>
 
-        <li><a href="https://twitter.com/explore"><img src="assets/icon_tw.svg" alt="twitter"></a></li>
+        <li><a href="https://twitter.com/explore"><img src="recursos/icon_tw.svg" alt="twitter"></a></li>
 
       </ul>
     </div>

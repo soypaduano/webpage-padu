@@ -9,6 +9,8 @@ body{
   overflow-x: hidden;
   font-family: 'Varela Round', sans-serif;
 }
+
+
 .boton{
   background: none;
   border: 2px solid #ED6A5A;
@@ -20,6 +22,8 @@ body{
   display: inline-block;
   font-size: 1em;
   cursor: pointer;
+
+
 }
 .boton:hover{
   color: #222;
@@ -34,37 +38,53 @@ body,p,a,ul,li{
   text-decoration: none;
 }
 
+
 h1,h2,h3,h4{
   color: #ED6A5A;
   font-weight: normal;
   line-height: 1.4em;
 }
+
+.titular b{
+  font-size: 29px;
+}
+
+
 p,a,li{
   color: #ED6A5A;
   line-height: 1.4em;
   font-size: 1em;
 }
+
 h1, h3{
   font-size: 1.2em;
 }
 h2{
   font-size: 1.6em;
 }
+
 h4{
   font-size: 1.1em;
 }
+
 .titular{
   font-size: 1.1em;
 }
 .rejilla{
+
   display: grid;
   grid-template-columns: repeat(8, 1fr);
   gap: 10px;
   box-sizing: border-box;
 }
+
+
 .cabecera{
   margin: 0 20px;
 }
+
+
+
 .cabecera h1{
   grid-column: 1/4;
   grid-row: 1;
@@ -72,42 +92,54 @@ h4{
   border-bottom: 3px solid var(--primary);
   display: inline-block;
 }
+
+
 .cabecera ul{
   display: none;
 }
+
 #bienvenido{
   padding: 0 20px 20px 20px;
 }
+
 .bienvenido-text{
   grid-column: 1/6;
 }
+
 .bienvenido-text a{
   margin: 20px 0;
 }
+
 .bienvenido-img{
   display: none;
   grid-column: 6/9;
 }
+
 .bienvenido-img img{
   width: 200%;
 }
+
 #portfolio{
   background: #9BC1BC;
   padding: 30px 20px;
 }
+
 #portfolio h2{
   margin-bottom: 0;
   text-align: center;
   color: black;
 }
+
 .proyectos{
   margin: 20px 0;
 }
+
 .proyectos a{
   grid-column: 1/9;
   display: flex;
   margin: 20px 0
 }
+
 .proyectos a *{
   margin: 0 20px;
   max-width: 40%;
@@ -125,24 +157,34 @@ input,textarea{
 .proyectos a img {
   border-radius: 20px;
 }
+
+
 .proyectos h4{
   color: black;
 }
+
+
 #colaboradores{
   padding: 30px 20px;
   background: #F4F1BB;
 }
+
 #colaboradores h3{
   text-align: center;
 }
+
 
 #colaboradores h4{
   color: black;
   font-style: italic;
 }
+
+
 #colaboradores ul{
   margin: 40px 0;
 }
+
+
 #colaboradores li{
   padding: 10px;
   background: rgba(0,0,0,0.2);
@@ -274,6 +316,8 @@ footer img{
 
 
 }
+
+
 @media screen and (min-width: 960px){
 
   body{
