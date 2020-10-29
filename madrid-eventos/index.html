@@ -10,8 +10,8 @@
 </head>
 
 <body>
-  <div class="title">Eventos y actividades culturales en municipios de <span class="city">Madrid.</span> <span
-      class="creator">powered by <span><a href="https://google.com">padu</a></span></div>
+  <div class="title">Eventos y actividades culturales en municipios de <span class="city">Madrid.</span></div>
+  <div class="creator">powered by <a href="https://google.com">padu</a></div>
   <div class="list-container">
     <ol>
       <li>
@@ -42,18 +42,32 @@
 
 
 <script>
-  var jqxhr = $.get("https://datos.madrid.es/egob/catalogo/300107-0-agenda-actividades-eventos.json", function () {
-      alert("success");
-    })
-    .done(function () {
-      alert("second success");
-    })
-    .fail(function () {
-      alert("error");
-    })
-    .always(function () {
-      alert("finished");
-    });
+
+  let url = "https://datos.madrid.es/egob/catalogo/300107-0-agenda-actividades-eventos.json";
+
+
+
+
+function httpGetAsync(theUrl, callback)
+{
+    var xmlHttp = new XMLHttpRequest();
+    xmlHttp.onreadystatechange = function() { 
+        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
+            callback(xmlHttp.responseText);
+    }
+    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
+    xmlHttp.send(null);
+}
+
+debugger;
+httpGetAsync(url, hola)
+
+
+function hola(response){
+  alert("hola");
+  console.log(response);
+}
+
     
 </script>
 

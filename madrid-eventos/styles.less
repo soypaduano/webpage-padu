@@ -3,15 +3,17 @@ body{
     background-color: #fff;    
     font-family: 'Taviraj', serif;
 
+    
     .title{
-        font-size: 3vw;
+        font-size: 2.5vw;
         .city{
-          font-size: 2.1vw;
+          font-size: 4.1vw;
           color: blue;
         }
-        .creator{
-          font-size: 1vw;
-        }
+    }
+
+    .creator{
+      font-size: 1vw;
     }
       
       ol {
@@ -108,10 +110,22 @@ body{
           border: 1px solid double;
         }
       }
-
-     
-
       .event-title{
         font-size: 20px;
+      }
+    }
+
+    @media screen and (max-width: 500px) {
+      body{
+        .title{
+          font-size: 6vw;
+          .city{
+            font-size: 7vw;
+          }
+          .creator{
+            font-size: 3vw;
+          }
+        }
+        
       }
     }
