@@ -11,6 +11,10 @@ server.listen(PORT, function() {
   console.log('Chat server running');
 });
 
+app.all('/secret', function (req, res, next) {
+  res.send('el secreto está aquí');
+});
+
 var io = require('socket.io')(server);
 
 io.on('connection', function(socket) {
