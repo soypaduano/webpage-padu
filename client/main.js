@@ -24,3 +24,27 @@ socket.on('message', function(text) {
 
   container.scrollTop = container.scrollHeight;
 });
+
+
+
+$.ajax({
+  url : 'http://127.0.0.1:5000/secret',
+  type : 'GET',
+  dataType:'json',
+  complete : function(req, data, error){
+    console.log(req);
+    console.log(data);
+    console.log(error);
+    debugger;
+  },
+  success : function(data) {              
+      alert('Data: '+data);
+  },
+  error : function(request,error)
+  {
+    debugger;
+      alert("Request: "+JSON.stringify(request));
+  }
+});
+
+
