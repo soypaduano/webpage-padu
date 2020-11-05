@@ -40,35 +40,4 @@
   </div>
 </body>
 
-
-<script>
-
-  let url = "https://datos.madrid.es/egob/catalogo/300107-0-agenda-actividades-eventos.json";
-
-
-
-
-function httpGetAsync(theUrl, callback)
-{
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.onreadystatechange = function() { 
-        if (xmlHttp.readyState == 4 && xmlHttp.status == 200)
-            callback(xmlHttp.responseText);
-    }
-    xmlHttp.open("GET", theUrl, true); // true for asynchronous 
-    xmlHttp.send(null);
-}
-
-debugger;
-httpGetAsync(url, hola)
-
-
-function hola(response){
-  alert("hola");
-  console.log(response);
-}
-
-    
-</script>
-
 </html>

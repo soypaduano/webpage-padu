@@ -3,34 +3,75 @@
 
 <head>
   <meta charset="utf-8" />
-  <script src="jquery-1.8.3.min.js"></script>
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Chat App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="ios.css" />
+  <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
   <script src="/socket.io/socket.io.js"></script>
+  <script src="jquery-1.8.3.min.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Taviraj&display=swap" rel="stylesheet">
+  <title>Municipio Cultural</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
 </head>
 
 <body>
-  <main>
-    <section>
-      <p>Hey 😊</p>
-      <br />
-      <p>Hi there!</p>
-      <br />
-    </section>
-    <div>
-      <form>
-        <div>
-          <input id="message">
+    <body>
+        <div class="creator">powered by <a href="https://google.com">padu</a> 2020 </div>
+        <div class="title">Eventos y actividades culturales en distritos de <span class="city">Madrid.</span></div>
+        <div class="description">El Ayuntamiento de Madrid organiza una cantidad importante de eventos en centros culturales y bibliotecas que apenas tienen difusión. </div>
+        <div class="newsletter-container">
+            <div class="description newsletter-text"><b> Suscribete a nuestra newsletter y enterate todas las semanas de los eventos más secretos de la ciudad: </b>  </div> 
+            <input type="text">
+            <button>Suscribete!</button>
         </div>
-        <div>
-          <button>Send</button>
+        
+
+        <div class="list-container">
+          <ol id="events-list">
+            <li event-id="00000" event-district="Latina" class="one-day-event" url="">
+              <div class='event-title'>Baile de Chotis (Evento de un día)</div>
+              <p class="event-description">Qui dolorem ipsum quia dolor sit amet, consectetur nobis est eligendi optio cumque
+                nihil impedit.</p>
+              <div class="event-data-container">
+                <div class='event-small-data event-location'>@ Centro Cultural Conde Duque</div>
+                <div class="event-small-data event-day-start">Día: 15-09-2020</div>
+                <div class="event-small-data event-hour">Hora: <span>18:30</span> - <span>23:00</span></div>
+                <div class="event-small-data event-price">Precio: 10 euros</div>
+                <div class="event-small-data event-audience"></div>
+              </div>
+              <div class="event-more-info">
+                <a id="link-to-event">+ info</a>
+              </div>
+            </li>
+
+            <li event-id="00000" event-district="Latina" class="weekly-event" url="">
+                <div class='event-title'>Baile de Chotis (Evento semanal)</div>
+                <p class="event-description">Qui dolorem ipsum quia dolor sit amet, consectetur nobis est eligendi optio cumque
+                  nihil impedit.</p>
+                <div class="event-data-container">
+                  <div class='event-small-data event-location '>@ Centro Cultural Conde Duque</div>
+                  <div class="event-small-data event-day-start">Día inicio: 15-09-2020</div>
+                  <div class="event-small-data event-day-end">Día fin: 15-09-2020</div>
+                  <div class="event-small-data event-day-recurrence">Frecuencia: Semanal</div>
+                  <div class="event-small-data event-price">Entrada general: 10 euros</div>
+                  <div class="event-small-data event-audience"></div>
+                </div>
+                <div class="event-more-info">
+                    <a id="link-to-event">+ info</a>
+                  </div>
+              </li>
+      
+          </ol>
         </div>
-      </form>
-    </div>
-  </main>
-  <script src="main.js"></script>
+      
+        <script src="main.js"></script>
+      
+        
+      </body>  
 </body>
 
 </html>
+
+
+
