@@ -1,4 +1,5 @@
 
+
 var dotsAnim;
 
 let $oneDayEvent = $('.one-day-event').remove();
@@ -36,6 +37,7 @@ socket.on('message', function(text) {
 function readEventData(data){
   //Evento de un día o evento de varios días?
   let events = data['@graph'];
+  events = orderByDate(events);
   events.forEach(element => {
 
     let $copy;
@@ -115,7 +117,6 @@ function readEventData(data){
   clearInterval(dotsAnim);
 }
 
-
 function getDistrict(district){
   var parts = district.split('/');
   var lastSegment = parts.pop() || parts.pop();  // handle potential trailing slash
@@ -137,17 +138,27 @@ function doEventsRequest(){
     },
     success : function(data) {
       readEventData(data);
+
     },error : function(request,error){
-  
+      alert("not working");
     }
   });
-  
 }
+
+/*
+TODO:
+  Reordenar el array con los proximos eventos a partir de hoy. 
+*/
+function orderByDate(events){
+return events
+}
+
+
+function sortFunction(a,b){  }; 
 
 function loadingAnim(){
 dotsAnim = window.setInterval( function() {
     let dots = $('#dots');
-    debugger;
     console.log
     if ( dots.text().length > 3 ) 
         dots.text('.');

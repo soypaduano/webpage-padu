@@ -5,6 +5,9 @@ var http = require('http');
 var request=require('request');
 var bodyParser = require('body-parser')
 
+const cors = require('cors');
+app.use(cors())
+
 
 var server = http.Server(app);
 app.use(express.static('client'));
@@ -27,7 +30,7 @@ io.on('connection', function(socket) {
 });
 
 
-app.all('/datos', function (reqq, ress, nextt) {
+app.all('/datos', cors(), function (reqq, ress, nextt) {
 
 
 var url_actividades_culturales_ocio_municipal_100_dias = "http://datos.madrid.es/egob/catalogo/206974-0-agenda-eventos-culturales-100.json"
@@ -39,9 +42,9 @@ request({
     url: url_actividades_culturales_ocio_municipal_100_dias,
     json: true
 }, function (error, response, body) {
-
+  console.log("ESTAMOS HACIENDO ESTO")
     if (!error && response.statusCode === 200) {
-      console.log(body);
+      //console.log(body);
         ress.send(body);
     }
 })
