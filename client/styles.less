@@ -56,6 +56,21 @@ body {
 
   .creator {
     font-size: 1vw;
+    color: black;
+    .padu{
+      font-style: italic;
+      text-decoration: underline;
+      border: 1px solid black;
+      color: blue;
+      font-size: 1.2vw;
+      padding: 5px;
+      cursor: pointer;
+    }
+
+    .padu:hover{
+      color: black;
+      border: 2px dashed blue;
+    }
   }
 
   ol {
@@ -92,7 +107,34 @@ body {
       border-color: blue;
       border: 5px double blue;
     }
+  }
 
+  .filter-container{
+    background-color: aliceblue;
+    width: 100%;
+    display: inline-flex;
+    margin-top: 15px;
+    .filter {
+      font-size: 30px;
+      margin-right: 10px;
+      margin-left: 10px;
+      font-weight: bold;
+      padding: 10px;
+      border: 2px solid black;
+      cursor: pointer;
+      &.selected{
+        border: 2px solid black;
+        background-color: blue;
+        color: white;
+      }
+      &.selected:hover{
+        border: 2px solid black;
+      }
+    }
+
+    .filter:hover{
+      border: 2px dashed blue;
+    }
   }
 
   .event-title {

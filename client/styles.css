@@ -47,6 +47,20 @@ body .newsletter-container input {
 }
 body .creator {
   font-size: 1vw;
+  color: black;
+}
+body .creator .padu {
+  font-style: italic;
+  text-decoration: underline;
+  border: 1px solid black;
+  color: blue;
+  font-size: 1.2vw;
+  padding: 5px;
+  cursor: pointer;
+}
+body .creator .padu:hover {
+  color: black;
+  border: 2px dashed blue;
 }
 body ol {
   counter-reset: section;
@@ -77,6 +91,32 @@ body li:hover {
     border-color: blue;
     border: 5px double blue;
   }
+}
+body .filter-container {
+  background-color: aliceblue;
+  width: 100%;
+  display: inline-flex;
+  margin-top: 15px;
+}
+body .filter-container .filter {
+  font-size: 30px;
+  margin-right: 10px;
+  margin-left: 10px;
+  font-weight: bold;
+  padding: 10px;
+  border: 2px solid black;
+  cursor: pointer;
+}
+body .filter-container .filter.selected {
+  border: 2px solid black;
+  background-color: blue;
+  color: white;
+}
+body .filter-container .filter.selected:hover {
+  border: 2px solid black;
+}
+body .filter-container .filter:hover {
+  border: 2px dashed blue;
 }
 body .event-title {
   position: relative;

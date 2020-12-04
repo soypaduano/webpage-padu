@@ -4,20 +4,19 @@
 <head>
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Chat App</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
   <script src="/socket.io/socket.io.js"></script>
   <script src="jquery-1.8.3.min.js"></script>
   <link rel="stylesheet" href="styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Taviraj&display=swap" rel="stylesheet">
-  <title>Municipio Cultural</title>
+  <title>Que pasa en mi distrito</title>
   <meta content="width=device-width, initial-scale=1" name="viewport" />
 </head>
 
 <body>
     <body>
-        <div class="creator">powered by <a href="https://google.com">padu</a> 2020 </div>
+        <div class="creator">powered by <span class="padu">padu</span> 2020 </div>
         <div class="title">Eventos y actividades culturales en distritos de <span class="city">Madrid.</span></div>
         <div class="description">El Ayuntamiento de Madrid organiza una cantidad importante de eventos en centros culturales y bibliotecas que apenas tienen difusión. </div>
         <div class="newsletter-container">
@@ -28,8 +27,9 @@
         
 
         <div class="filter-container">
-          <div> Hoy </div>
-          <div> Gratis </div>
+          <div class="filter" id="day"> Hoy </div>
+          <div class="filter" id="free" value="1"> Gratis </div>
+          <div class="filter" id="free" value="1"> Evento de varios días </div>
         </div>
 
         <div class="list-container">
@@ -68,7 +68,7 @@
               </li>
       
           </ol>
-          <div class="loading"> <span class="text"> cargando los eventos </span> <span id="dots"> . . . </span> </div>
+          <div class="loading"> <span class="text"> cargando los eventos (puede tardar un poco) </span> <span id="dots"> . . . </span> </div>
         </div>
       
         <script src="main.js"></script>
