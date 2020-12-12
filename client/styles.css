@@ -30,10 +30,10 @@ body button:hover {
   border: 4px double black;
 }
 body .title {
-  font-size: 2.5vw;
+  font-size: 38px;
 }
 body .title .city {
-  font-size: 4.1vw;
+  font-size: 44px;
   color: blue;
 }
 body .description {
@@ -67,6 +67,7 @@ body ol {
 }
 body li {
   list-style-type: none;
+  width: 95%;
   position: relative;
   font-size: 1.5rem;
   padding: 15px;
@@ -98,8 +99,15 @@ body .filter-container {
   display: inline-flex;
   margin-top: 15px;
 }
+body .filter-container select {
+  background-color: aliceblue;
+  border: 2px solid black;
+  font-family: 'Taviraj', serif;
+  font-weight: bold;
+  font-size: 20px;
+}
 body .filter-container .filter {
-  font-size: 30px;
+  font-size: 25px;
   margin-right: 10px;
   margin-left: 10px;
   font-weight: bold;
@@ -118,10 +126,18 @@ body .filter-container .filter.selected:hover {
 body .filter-container .filter:hover {
   border: 2px dashed blue;
 }
-body .event-title {
+body .event-head {
+  display: inline-flex;
+}
+body .event-head .event-title {
   position: relative;
   font-size: 30px;
   font-weight: bold;
+}
+body .event-head .event-district {
+  position: absolute;
+  right: 0;
+  margin-right: 15px;
 }
 body .event-title:after {
   content: '';
@@ -198,7 +214,18 @@ body li::before {
   height: 25px;
   border: 2px solid #000;
 }
+body .no-events {
+  display: none;
+  background-color: gray;
+  width: 100%;
+  font-size: 50px;
+  color: blue;
+  border: 1px solid black;
+  background-color: aliceblue;
+  text-align: center;
+}
 body .loading {
+  padding: 10px;
   width: 100%;
   font-size: 30px;
   color: blue;
@@ -211,33 +238,93 @@ body .loading .text {
 body .loading #dots {
   font-size: 35px;
 }
-@media screen and (max-width: 450px) {
-  body {
-    margin: 10px;
+@media screen and (max-width: 768px) {
+  body .title {
+    font-size: 30px;
   }
-  body ol {
-    padding: 0;
+  body .creator {
+    font-size: 16px;
   }
-  body .event-data-container {
-    display: block;
-  }
-  body li:hover {
-    right: 0px;
-    border: 1px solid double;
-  }
-  .event-title {
+  body .creator .padu {
     font-size: 20px;
   }
+  body .description {
+    font-size: 18px;
+  }
+  body input {
+    width: 150px;
+    height: 30px;
+    font-size: 15px;
+  }
+  body button {
+    font-size: 15px;
+  }
+  body .filter-container .filter {
+    font-size: 15px;
+  }
+  body .filter-container select {
+    font-size: 15px;
+  }
+  body .event-head {
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  body .event-head .event-title {
+    font-size: 26px;
+  }
+  body .event-head .event-district {
+    font-size: 16px;
+    left: 15px;
+  }
+  body .event-data-container {
+    display: inline-block;
+  }
+  body .event-data-container .event-small-data {
+    font-size: 18px;
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
 }
-@media screen and (max-width: 500px) {
-  body .title {
-    font-size: 6vw;
+@media screen and (max-width: 425px) {
+  body .filter-container .filter {
+    padding: 3px;
+    margin-left: 4px;
+    font-size: 12px;
   }
-  body .title .city {
-    font-size: 7vw;
+  body .filter-container select {
+    font-size: 12px;
+    width: 90px;
   }
-  body .title .creator {
-    font-size: 3vw;
+  body .event-title {
+    font-size: 26px;
+  }
+  body .event-head .event-title {
+    font-size: 23px;
+  }
+  body .event-description {
+    font-size: 16px;
+  }
+  body .event-data-container .event-small-data {
+    font-size: 16px;
+  }
+  body li {
+    margin-left: -20px;
+  }
+}
+@media screen and (max-width: 320px) {
+  body .event-head .event-title {
+    font-size: 17px;
+  }
+  body .filter-container select {
+    width: 70px;
+  }
+  body .loading {
+    font-size: 18px;
+  }
+  body .loading #dots {
+    font-size: 20px;
   }
 }
 body::-webkit-scrollbar-track {

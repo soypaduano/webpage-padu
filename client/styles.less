@@ -4,7 +4,7 @@ body {
   font-family: 'Taviraj', serif;
 
 
-  button{
+  button {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
@@ -30,14 +30,14 @@ body {
     border-radius: 0;
     text-decoration: none;
     border: 4px double black;
- }
+  }
 
 
   .title {
-    font-size: 2.5vw;
+    font-size: 38px;
 
     .city {
-      font-size: 4.1vw;
+      font-size: 44px;
       color: blue;
     }
   }
@@ -57,7 +57,8 @@ body {
   .creator {
     font-size: 1vw;
     color: black;
-    .padu{
+
+    .padu {
       font-style: italic;
       text-decoration: underline;
       border: 1px solid black;
@@ -67,7 +68,7 @@ body {
       cursor: pointer;
     }
 
-    .padu:hover{
+    .padu:hover {
       color: black;
       border: 2px dashed blue;
     }
@@ -79,6 +80,7 @@ body {
 
   li {
     list-style-type: none;
+    width: 95%; 
     position: relative;
     font-size: 1.5rem;
     padding: 15px;
@@ -90,11 +92,9 @@ body {
   }
 
   li:hover {
-
     animation-duration: 0.2s;
     animation-name: slideIn;
     animation-fill-mode: forwards;
-    
   }
 
   @keyframes slideIn {
@@ -102,6 +102,7 @@ body {
       right: 0px;
       border: 1px double black;
     }
+
     100% {
       right: 20px;
       border-color: blue;
@@ -109,39 +110,62 @@ body {
     }
   }
 
-  .filter-container{
+  .filter-container {
     background-color: aliceblue;
     width: 100%;
     display: inline-flex;
     margin-top: 15px;
+
+    select {
+      background-color: aliceblue;
+      border: 2px solid black;
+      font-family: 'Taviraj', serif;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
     .filter {
-      font-size: 30px;
+      font-size: 25px;
       margin-right: 10px;
       margin-left: 10px;
       font-weight: bold;
       padding: 10px;
       border: 2px solid black;
       cursor: pointer;
-      &.selected{
+
+      &.selected {
         border: 2px solid black;
         background-color: blue;
         color: white;
       }
-      &.selected:hover{
+
+      &.selected:hover {
         border: 2px solid black;
       }
     }
 
-    .filter:hover{
+    .filter:hover {
       border: 2px dashed blue;
     }
   }
 
-  .event-title {
-    position: relative;
-    font-size: 30px;
-    font-weight: bold;
+  .event-head {
+    display: inline-flex;
+
+    .event-title {
+      position: relative;
+      font-size: 30px;
+      font-weight: bold;
+    }
+
+    .event-district {
+      position: absolute;
+      right: 0;
+      margin-right: 15px;
+    }
   }
+
+
 
   .event-title:after {
     content: '';
@@ -233,7 +257,19 @@ body {
   }
 
 
+  .no-events {
+    display: none;
+    background-color: gray;
+    width: 100%;
+    font-size: 50px;
+    color: blue;
+    border: 1px solid black;
+    background-color: aliceblue;
+    text-align: center;
+  }
+
   .loading {
+    padding: 10px;
     width: 100%;
     font-size: 30px;
     color: blue;
@@ -243,54 +279,145 @@ body {
     .text {
       margin-left: 15px;
     }
-
+    
     #dots {
       font-size: 35px;
     }
   }
-
-
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 768px) {
   body {
-    margin: 10px;
 
-    ol {
-      padding: 0;
+    .title{
+      font-size: 30px;
     }
-
-    .event-data-container {
-      display: block;
-    }
-
-    li:hover {
-      right: 0px;
-      border: 1px solid double;
-    }
-  }
-
-  .event-title {
-    font-size: 20px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  body {
-    .title {
-      font-size: 6vw;
-
-      .city {
-        font-size: 7vw;
-      }
-
-      .creator {
-        font-size: 3vw;
+    .creator{
+      font-size: 16px;
+      .padu{
+        font-size: 20px;
       }
     }
 
+    .description {
+      font-size: 18px;
+    }
+
+    input {
+      width: 150px;
+      height: 30px;
+      font-size: 15px;
+    }
+
+    button {
+      font-size: 15px;
+    }
+
+    .filter-container {
+      .filter {
+        font-size: 15px;
+      }
+
+      select {
+        font-size: 15px;
+      }
+    }
+
+    .event-head{
+      display: inline-block;
+      margin-bottom: 20px;
+      .event-title{
+        font-size: 26px;
+      }
+      .event-district{
+        font-size: 16px;
+        left: 15px;
+      }
+    }
+
+    .event-data-container{
+      display: inline-block;
+      .event-small-data{
+        font-size: 18px;
+        margin-left: 8px;
+        margin-right: 8px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+    }
+
+    
   }
 }
+
+@media screen and (max-width: 425px) {
+  body {
+    .filter-container {
+      .filter {
+        padding: 3px;
+        margin-left: 4px;
+        font-size: 12px;
+      }
+  
+      select {
+        font-size: 12px;
+        width: 90px;
+      }
+    }
+
+    .event-title{
+      font-size: 26px;
+    }
+
+    .event-head{
+      .event-title{
+        font-size: 23px;
+      }
+    }
+
+    .event-description{
+      font-size: 16px;
+    }
+
+    .event-data-container{
+      .event-small-data{
+        font-size: 16px;
+      }
+    }
+
+    li{
+      margin-left: -20px;
+    }
+  }
+}
+
+@media screen and (max-width: 320px) {
+  body {
+
+    .event-head{
+      .event-title{
+        font-size: 17px;
+      }
+    }
+
+    .filter-container {
+      select {
+        width: 70px;
+      }
+    }
+
+    .loading{
+      font-size: 18px;
+      #dots{
+        font-size: 20px;
+      }
+    }
+    
+  }
+}
+
+
+
 
 
 body::-webkit-scrollbar-track {
@@ -318,7 +445,7 @@ input[type=text] {
 input[type=text]:focus {
   border: 3px double black;
   font-size: 20px;
-  background-color:white;
+  background-color: white;
   font-family: 'Taviraj', serif;
   font-style: italic;
 }

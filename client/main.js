@@ -1,43 +1,16 @@
-
 var dotsAnim;
+
 
 let $oneDayEvent = $('.one-day-event').remove();
 let $weeklyEvent = $('.weekly-event').remove();
 $($oneDayEvent).hide();
 $($weeklyEvent).hide();
 
-
-/*var form = document.querySelector('form');
-
-form.addEventListener('submit', function(e) {
-  e.preventDefault();
-  var input = document.querySelector('#message');
-  var text = input.value;
-  socket.emit('message', text);
-  input.value = '';
-});
-
-socket.on('message', function(text) {
-  if (!text) {
-    return;
-  }
-  var container = document.querySelector('section');
-  var newMessage = document.createElement('p');
-  newMessage.innerText = text;
-  container.appendChild(newMessage);
-
-  var seperator = document.createElement('br');
-  container.appendChild(seperator);
-
-  container.scrollTop = container.scrollHeight;
-});*/
-
 function readEventData(data) {
   //Evento de un día o evento de varios días?
   let events = data['@graph'];
   events = orderByDate(events);
   events.forEach(element => {
-
     let $copy;
     let recurrence = element['recurrence'];
     if (recurrence) {
@@ -61,8 +34,18 @@ function readEventData(data) {
 
     //District
     let district = 'no-district'
-    if (element['address']) district = getDistrict(element['address']['district']['@id']);
-    $($copy).attr('district', district);
+    let postalcode = 'no-postal-code'
+    if (element['address']) {
+      district = getDistrict(element['address']['district']['@id']);
+      if (element['address' ['area']] && element['address']['area']['postal-code']) {
+        postalcode = element['address']['area']['postal-code'];
+        $($copy).find('.event-district').text(district + ', ' + postalcode);
+      }
+
+      $($copy).find('.event-district').text(district);
+    }
+    district = district.toUpperCase();
+    $($copy).attr('event-district', district);
 
 
     //Event title and description
@@ -90,29 +73,27 @@ function readEventData(data) {
     if (!eventLocation) {
       eventLocation = 'Sin ubicación'
       $($copy).find('.event-location').addClass('none');
+    } else {
+      $($copy).click(function () {
+        window.open("http://google.com/search?q=" + eventLocation);
+      })
     }
     $($copy).find('.event-location').text(eventLocation);
 
 
     //Price
-
-    
-    //Caso2: es free, pero no se pone en el div.
-
-    
-
     let free = element['free'];
-    if (free){
+    if (free) {
       price = 'Precio: Gratis'
-    } else{
+    } else {
       price = element['price'];
       //Caso: no es free, pero no tiene precio
-      if(!price)  price = 'Precio: Consultar en la web'
+      if (!price) price = 'Precio: Consultar en la web'
       else price = 'Precio:' + price;
-    } 
+    }
 
     //No es free, pero no tiene precio  
-   
+
 
     $($copy).find('.event-price').text(price);
     $($copy).attr('free', free);
@@ -142,7 +123,7 @@ function getDistrict(district) {
 
 $(document).ready(function () {
   loadingAnim();
-  addListenerCreator(); 
+  addListenerCreator();
   doEventsRequest();
 })
 
@@ -162,10 +143,6 @@ function doEventsRequest() {
   });
 }
 
-/*
-TODO:
-  Reordenar el array con los proximos eventos a partir de hoy. 
-*/
 function orderByDate(events) {
   events = events.sort(function (a, b) {
     return new Date(a.dtend) - new Date(b.dtend);
@@ -173,65 +150,86 @@ function orderByDate(events) {
   return events;
 }
 
-function filterOnlyToday(){
+function filterOnlyToday() {
   $('li[day!="' + getToday() + '"]').toggle();
 }
 
 function getToday() {
   var d = new Date(),
-      month = '' + (d.getMonth() + 1),
-      day = '' + d.getDate(),
-      year = d.getFullYear();
+    month = '' + (d.getMonth() + 1),
+    day = '' + d.getDate(),
+    year = d.getFullYear();
 
-  if (month.length < 2) 
-      month = '0' + month;
-  if (day.length < 2) 
-      day = '0' + day;
+  if (month.length < 2)
+    month = '0' + month;
+  if (day.length < 2)
+    day = '0' + day;
 
   return [year, month, day].join('-');
 }
 
-function addListenerFilters(){
+function addListenerFilters() {
   $('#day').attr('value', getToday());
-  $('.filter').click(function(){
+  $('.filter').click(function () {
     //Buscar aquellos filtros activos
-    if($(this).hasClass('selected')){
+    if ($(this).hasClass('selected')) {
       $(this).removeClass('selected')
     } else {
       $(this).addClass('selected');
     }
     var filters = [];
-    $('.filter.selected').each(function(){
+    $('.filter.selected').each(function () {
+      filters.push($(this))
+    });
+
+    //Dropdown filter
+    var valueSelect = $($('#district-filter').find('option:selected')).text();
+    debugger;
+    if(valueSelect !== 'DISTRITOS') filters.push($($('#district-filter').find('option:selected')));
+    applyFilters(filters);
+  });
+
+  $('.filter-container').find('select').change(function () {
+    var filters = [];
+    //Les pasamos los seleccionados. 
+    $('.filter.selected').each(function () {
       filters.push($(this))
     })
+    
+    //Dropdown filter
+    var valueSelect = $($(this).find('option:selected')).text();
+    if(valueSelect !== 'DISTRITOS') filters.push($($(this).find('option:selected')))
+
     applyFilters(filters);
   })
+
 }
 
-function applyFilters(filters){
+function applyFilters(filters) {
   $('li').show();
-  filters.forEach(function(element){
+  filters.forEach(function (element) {
     var id = $(element).attr('id');
     var value = $(element).attr('value')
-    var comparision = '!='
+    var comparision = '!=';
+
+    if(id === 'event-district'){
+      value = '"' + value + '"';
+    }
 
     console.log($('li:visible').length);
-    var a = 'li:visible[' + id  + comparision  + value + ']'
+    var a = 'li:visible[' + id + comparision + value + ']'
+    console.log(a);
     $(a).toggle();
   });
-  console.log($('li:visible').length);
-  debugger;
+
+  $('li:visible').length === 0 ? $('.no-events').show() :  $('.no-events').hide();
 }
 
-function addListenerCreator(){
-  $('.padu').click(function(){
+function addListenerCreator() {
+  $('.padu').click(function () {
     window.open('https://www.instagram.com/padu.es/');
   });
 }
-
-
-
-
 
 
 function sortFunction(a, b) {};
