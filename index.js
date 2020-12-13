@@ -30,11 +30,12 @@ io.on('connection', function(socket) {
 });
 
 
-app.all('/datos', cors(), function (reqq, ress, nextt) {
+app.all('/actividades-culturales', cors(), function (reqq, ress, nextt) {
 
 
 var url_actividades_culturales_ocio_municipal_100_dias = "http://datos.madrid.es/egob/catalogo/206974-0-agenda-eventos-culturales-100.json"
 var url_agenda_actividades_culturales = "https://datos.madrid.es/egob/catalogo/300107-0-agenda-actividades-eventos.json"
+var url_agenda_biblioteca = "https://datos.madrid.es/egob/catalogo/206717-0-agenda-eventos-bibliotecas.json";
 
 
 

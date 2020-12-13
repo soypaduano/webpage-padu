@@ -224,6 +224,16 @@ body .no-events {
   background-color: aliceblue;
   text-align: center;
 }
+body .no-events .padu {
+  border: 1px solid blue;
+  color: black;
+  font-size: 40px;
+}
+body .no-events .padu:hover {
+  color: blue;
+  cursor: pointer;
+  border: 2px dashed black;
+}
 body .loading {
   padding: 10px;
   width: 100%;
@@ -285,6 +295,9 @@ body .loading #dots {
     margin-right: 8px;
     margin-top: 5px;
     margin-bottom: 5px;
+  }
+  body .no-events {
+    font-size: 25px;
   }
 }
 @media screen and (max-width: 425px) {

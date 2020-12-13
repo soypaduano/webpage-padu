@@ -1,5 +1,8 @@
 var dotsAnim;
 
+var eventosActividadesCulturales;
+var eventosBibliotecas;
+
 
 let $oneDayEvent = $('.one-day-event').remove();
 let $weeklyEvent = $('.weekly-event').remove();
@@ -124,21 +127,26 @@ function getDistrict(district) {
 $(document).ready(function () {
   loadingAnim();
   addListenerCreator();
-  doEventsRequest();
+  doRequestActividadesCulturales();
 })
 
-function doEventsRequest() {
+function doRequestActividadesCulturales(){
+  doEventsRequest('http://127.0.0.1:5000/actividades-culturales')
+  //todo: falta añadir la ruta para las actividades de la biblioteca.
+}
+
+function doEventsRequest(url) {
   $.ajax({
-    url: 'http://127.0.0.1:5000/datos',
+    url: url,
     type: 'GET',
     dataType: 'json',
     complete: function (req, data, error) {},
     success: function (data) {
       readEventData(data);
-
     },
     error: function (request, error) {
-      alert("not working");
+      $('.loading').hide();
+      $('#wrong-message').show();
     }
   });
 }
