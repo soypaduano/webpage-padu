@@ -132,7 +132,7 @@ $(document).ready(function () {
 
 function doRequestActividadesCulturales(){
   var currentURL = window.location.href;
-  var urlEvents = currentURL + 'actividades-culturales';
+  var urlEvents = currentURL + '/request';
   doEventsRequest(urlEvents);
 }
 
@@ -231,7 +231,7 @@ function applyFilters(filters) {
     $(a).toggle();
   });
 
-  $('li:visible').length === 0 ? $('.no-events').show() :  $('.no-events').hide();
+  $('li:visible').length === 0 ? $('#no-events').show() :  $('#no-events').hide();
 }
 
 function addListenerCreator() {
@@ -239,9 +239,6 @@ function addListenerCreator() {
     window.open('https://www.instagram.com/padu.es/');
   });
 }
-
-
-function sortFunction(a, b) {};
 
 function loadingAnim() {
   dotsAnim = window.setInterval(function () {
