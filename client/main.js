@@ -131,7 +131,9 @@ $(document).ready(function () {
 })
 
 function doRequestActividadesCulturales(){
-  doEventsRequest('http://127.0.0.1:5000/actividades-culturales')
+  var currentURL = window.location.href;
+  var urlEvents = currentURL + 'actividades-culturales';
+  doEventsRequest(urlEvents);
 }
 
 function doEventsRequest(url) {
