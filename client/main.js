@@ -132,7 +132,6 @@ $(document).ready(function () {
 
 function doRequestActividadesCulturales(){
   doEventsRequest('http://127.0.0.1:5000/actividades-culturales')
-  //todo: falta añadir la ruta para las actividades de la biblioteca.
 }
 
 function doEventsRequest(url) {
