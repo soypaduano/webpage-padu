@@ -18,11 +18,11 @@ server.listen(PORT, function () {
 });
 
 app.use(express.static(__dirname + '/public'))
-app.all('/actividades-culturales', cors(), function (request, response, nextt) {
+app.all('/distrito-cultural', cors(), function (request, response, nextt) {
   response.sendFile('client/actividadesCulturales/index.html' , { root : __dirname});
 });
 
-app.all('/actividades-culturales/request', cors(), function (reqq, ress, nextt) {
+app.all('/distrito-cultural/request', cors(), function (reqq, ress, nextt) {
   var url_actividades_culturales_ocio_municipal_100_dias = "http://datos.madrid.es/egob/catalogo/206974-0-agenda-eventos-culturales-100.json"
   //var url_agenda_actividades_culturales = "https://datos.madrid.es/egob/catalogo/300107-0-agenda-actividades-eventos.json"
   //var url_agenda_biblioteca = "https://datos.madrid.es/egob/catalogo/206717-0-agenda-eventos-bibliotecas.json";
