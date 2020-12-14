@@ -1,0 +1,276 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Nunito', sans-serif;
+}
+
+header {
+    width: 100%;
+    height: 20%;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+header nav {
+    display: flex;
+    justify-content: flex-end;
+}
+
+header nav .nav-right-section {
+    width: 700px;
+    height: auto;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    padding: 10px;
+}
+
+nav .nav-right-section a {
+    margin: 10px;
+    color: #000000;
+}
+
+nav .nav-right-section .menu-icon {
+    width: 25px;
+    height: 25px;
+}
+
+nav .nav-right-section img {
+    border-radius: 50%;
+    margin-left: 10px;
+}
+
+main {
+    text-align: center;
+}
+
+
+main .main-logo img {
+    width: 300px;
+}
+
+main .main-logo {
+    width: 530px;
+    margin: 0 auto;
+    margin-bottom: 35px;
+    margin-top: 35px;
+}
+
+
+main .main-clock {
+    width: 530px;
+    margin: 0 auto;
+    margin-bottom: 50px;
+}
+
+main .main-clock {
+    font-size: 30px;
+}
+
+main .main-input {
+    width: 530px;
+    margin: 0 auto;
+    margin-bottom: 35px;
+}
+
+main .main-input-container {
+    width: 525px;
+    border-radius: 100px;
+    border: 1px solid #dfe1e5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .main-input-container.error {
+    border: 1px solid #d14242;
+}
+
+main .main-input-container.confirmPassword {
+    margin-top: 15px;
+    display: none;
+}
+
+main .main-input input {
+    width: 450px;
+    height: 40px;
+    border: none;
+    outline: none;
+    font-family: 'Nunito', sans-serif;
+}
+
+main .main-input-container:hover {
+    box-shadow: 0 1px 3px 0 #202147;
+}
+
+main .main-input .search-icon {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 18px;
+    width: 18px;
+    cursor: pointer;
+}
+
+main .main-input .micro-icon {
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    height: 18px;
+    width: 18px;
+    cursor: pointer;
+}
+
+
+main .main-buttons {
+    width: 530px;
+    margin: 0 auto;
+}
+
+main .main-buttons p {
+    font-size: 17px;
+    margin-top: 20px;
+}
+
+main .main-buttons div {
+    display: inline-block;
+}
+
+main .main-buttons button {
+    height: 40px;
+    background-color: #f2f2f2;
+    border: 0;
+    font-size: 17px;
+    color: #5f6368;
+    border-radius: 5px;
+    padding: 10;
+}
+
+main .main-buttons button.blocked{
+    background-color: #cacaca;
+    cursor: not-allowed;
+}
+
+main .main-buttons button.blocked:hover{
+    background-color: #cacaca;
+    cursor: not-allowed;
+    color: #5f6368;
+}
+
+main .main-buttons button:hover {
+    border: 1px solid #c6c6c6;
+    box-shadow: 0 1px 1px #000001;
+    color: #000000;
+}
+
+
+footer {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    font-size: 13px;
+    background-color: #f2f2f2;
+    border-top: 1px solid #e4e4e4;
+    font-size: 13px;
+}
+
+footer ul {
+    margin: 10px;
+    list-style: none;
+    display: flex;
+    padding-left: 10;
+}
+
+footer ul a {
+    margin: 10px;
+}
+
+footer .footer-left {
+    justify-self: left;
+}
+
+footer .footer-right {
+    justify-self: right;
+}
+
+.main-list{
+    overflow: hidden;
+}
+
+.main-list ul {
+    width: 100%;
+    overflow-y: scroll;
+    height: 150px;
+    opacity: 0.9;
+    scrollbar-width: none;
+    scroll-behavior: unset;
+    display: flex;
+    /* move flex-items in column */
+    flex-direction: column;
+    font-size: 15px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    align-items: center;
+}
+
+::-webkit-scrollbar {
+    width: 0px;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
+}
+.main-list li:last-child {
+    border: none;
+}
+
+.main-list li p {
+    text-decoration: none;
+    display: flex;
+    width: 100%;
+    margin-left: 8px;
+    -webkit-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -moz-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -o-transition: font-size 0.3s ease, background-color 0.3s ease;
+    -ms-transition: font-size 0.3s ease, background-color 0.3s ease;
+    transition: font-size 0.3s ease, background-color 0.3s ease;
+}
+
+.main-list ul li {
+    display: inline-flex;
+}
+
+
+.main-list ul li span {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+
+.main-list ul li.error span:before {
+    content: "\e014";
+    color: rgb(197, 56, 56);
+}
+
+.main-list ul li.correct span:before {
+    content: "\e013";
+    color: rgb(4, 189, 44);
+}
+
+.main-list ul li.correct p {
+    opacity: 0.4;
+}

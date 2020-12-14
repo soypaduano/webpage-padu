@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>🔒</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/less.js/3.9.0/less.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="passwordGame/css/main.css">
+    <link rel="stylesheet" href="passwordGame/css/animate.css">
+    <script src="passwordGame/js/main.js"></script>
+    </body>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul class="nav-right-section">
+                <li>
+                    <p>Introduce una contraseña válida siguiendo los requerimientos de abajo</a>
+                </li>
+            </ul>
+        </nav> 
+    </header>
+
+    <main>
+        <section class="main-clock">
+            <p id="timeText"> 00:00 </p>
+        </section>
+        <section class="main-input">
+            <div class="main-input-container">
+                <input id="textPassword" type="password" placeholder="Introduce una contraseña valida" " onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false">
+                <span id="seePassword" class="micro-icon glyphicon glyphicon-eye-open"></span>
+            </div>
+            <div class="main-input-container confirmPassword">
+                <input id="textPasswordConfirm" type="password" placeholder="Confirma la contraseña" onselectstart="return false" onpaste="return false;" onCopy="return false" onCut="return false" onDrag="return false" onDrop="return false" >
+                <span id="seePasswordConfirm" class="micro-icon glyphicon glyphicon-eye-open" data-toggle="tooltip" data-placement="top" title="No funciona, lo siento 😕"></span>
+            </div>
+        </section>
+        <section class="main-logo">
+            <div class="main-list">
+                <ul id="error-list">
+                </ul>
+            </div>
+
+        </section>
+        <section class="main-buttons">
+            <div><button id="registerButton" class="blocked">Acceder al sitio secreto</button></div>
+            <p id="creator" style="display: none" class="animated animated infinite shake delay-1s"> Minijuego creado por <a href="css/padu.jpg" target="_blank">@sebaspaduano</a></p>
+        </section>
+    </main>
+
+
+    <footer>
+        <ul class="footer-left">
+            <li>
+                <a href="https://github.com/soypaduano">Mi Github</a>
+            </li>
+            <li>
+                <a href="https://instagram.com/sebaspaduano">Mi Instagram</a>
+            </li>
+        </ul>
+        <ul class="footer-right">
+            <li>
+                web desarrollada por sebastian paduano (2020)
+            </li>
+        </ul>
+    </footer>
+</body>
+
+</html>
+
+
+<!-- https://twitter.com/notdetails/status/1201015962398539777?s=20 -->
