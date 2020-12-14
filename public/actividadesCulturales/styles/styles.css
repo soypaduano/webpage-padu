@@ -326,6 +326,11 @@ body .loading #dots {
     margin-left: -20px;
   }
 }
+@media screen and (max-width: 425px) {
+  body .title {
+    font-size: 25px;
+  }
+}
 @media screen and (max-width: 320px) {
   body .event-head .event-title {
     font-size: 17px;
@@ -350,7 +355,26 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background-color: blue;
 }
-input[type=text] {
+input[type=submit] {
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  border-radius: 0;
+  font-family: 'Taviraj', serif;
+  color: black;
+  font-size: 20px;
+  font-weight: 100;
+  background-color: white;
+  -webkit-box-shadow: 0 0 0 0 #000000;
+  -moz-box-shadow: 0 0 0 0 #000000;
+  box-shadow: 0 0 0 0 #000000;
+  text-shadow: 0 0 0 #000000;
+  border: solid black 1px;
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
+  text-align: center;
+}
+input[type=email] {
   padding: 5px;
   border: 1px solid black;
   -webkit-border-radius: 1px;
