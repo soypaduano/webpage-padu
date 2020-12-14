@@ -18,8 +18,13 @@ server.listen(PORT, function () {
 });
 
 app.use(express.static(__dirname + '/public'))
+
 app.all('/distrito-cultural', cors(), function (request, response, nextt) {
   response.sendFile('client/actividadesCulturales/index.html' , { root : __dirname});
+});
+
+app.all('/aprende-programacion', cors(), function (request, response, nextt) {
+  response.sendFile('client/aprendeProgramacion/index.html' , { root : __dirname});
 });
 
 app.all('/distrito-cultural/request', cors(), function (reqq, ress, nextt) {
