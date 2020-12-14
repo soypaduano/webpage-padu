@@ -1,0 +1,92 @@
+
+@-moz-keyframes spin { 100% { -moz-transform: rotate(360deg); } }
+@-webkit-keyframes spin { 100% { -webkit-transform: rotate(360deg); } }
+@keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+
+@font-face {
+    font-family: 'Comic Sans MS';
+    src: url("../js/comici.ttf");
+  }
+
+body{
+    font-family: 'Comic Sans MS';
+    letter-spacing: 0.5px;
+    color: aquamarine;
+    background-image: linear-gradient(to bottom, #b967ff, #4d0988);
+    cursor: url("../images/hakim_mouse.png"), auto;
+}
+
+.container-fluid{
+    background-color: #fffb96;
+    color: aquamarine;
+}
+
+.list-group-item{
+    background-image: url('../images/pattern_background.png')
+}seb
+
+a{
+    cursor: pointer;
+}
+
+.frase-rapero{
+    font-size: 150%;
+    font-style: oblique;  
+    font-weight: bold;
+}
+
+
+img:hover{
+    -webkit-animation:spin 1s linear infinite;
+    -moz-animation:spin 1s linear infinite;
+    animation:spin 1s linear infinite;
+}
+
+.play-button .btn{
+    color: #e60073
+}
+
+.download-button .btn{
+    color: chartreuse
+}
+
+
+.share-button .btn{
+    color: darkblue;
+}
+
+.raper-title{
+    font-size: 65px;
+    text-align: center;
+    -webkit-animation: glow 1s ease-in-out infinite alternate;
+    -moz-animation: glow 1s ease-in-out infinite alternate;
+     animation: glow 1s ease-in-out infinite alternate;
+}
+
+.play-button{
+    position: relative;
+    margin-right: 0px;
+    display: inline-block;
+    letter-spacing: 5px;
+}
+
+.download-button{
+    position: relative;
+    margin-right: 0px;
+    display: inline-block;
+    letter-spacing: 5px;
+}
+
+
+.img-rounded.rapper{
+    margin-left: 40px;
+}
+
+.black-background {background-color:#000000;}
+.white {color:#ffffff;}
+
+
+#louisvi{
+    background-image: url(images/pattern_background.png);
+}
