@@ -75,7 +75,7 @@ body li {
   background: #fff;
   color: #000000;
   border: 1px solid black;
-  cursor: help;
+  cursor: pointer;
 }
 body li:hover {
   animation-duration: 0.2s;
@@ -128,6 +128,7 @@ body .filter-container .filter:hover {
 }
 body .event-head {
   display: inline-flex;
+  width: 90%;
 }
 body .event-head .event-title {
   position: relative;
@@ -310,17 +311,17 @@ body .loading #dots {
     font-size: 12px;
     width: 90px;
   }
-  body .event-title {
-    font-size: 26px;
+  body .event-head {
+    width: 100%;
   }
   body .event-head .event-title {
-    font-size: 23px;
+    font-size: 20px;
   }
   body .event-description {
-    font-size: 16px;
+    font-size: 15px;
   }
   body .event-data-container .event-small-data {
-    font-size: 16px;
+    font-size: 13px;
   }
   body li {
     margin-left: -20px;
@@ -388,4 +389,12 @@ input[type=text]:focus {
   background-color: white;
   font-family: 'Taviraj', serif;
   font-style: italic;
+}
+@media (hover: hover) and (pointer: fine) {
+  li:hover {
+    -webkit-transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
+  }
 }

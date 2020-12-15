@@ -77,7 +77,7 @@ function readEventData(data) {
       eventLocation = 'Sin ubicación'
       $($copy).find('.event-location').addClass('none');
     } else {
-      $($copy).click(function () {
+      $($copy).find('.event-location').click(function () {
         window.open("http://google.com/search?q=" + eventLocation);
       })
     }
