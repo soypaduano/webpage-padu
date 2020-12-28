@@ -1,0 +1,12 @@
+body {
+  background-color: ghostwhite;
+}
+body .title {
+  text-align: center;
+  color: black;
+  font-size: 25px;
+}
+body #flag-section {
+  width: 20%;
+  height: 20%;
+}

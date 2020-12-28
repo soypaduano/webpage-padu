@@ -35,6 +35,14 @@ app.all('/frases-trap', cors(), function (request, response, nextt) {
   response.sendFile('client/frasesTrap/index.html' , { root : __dirname});
 });
 
+app.all('/bicis-boardman', cors(), function (request, response, nextt) {
+  response.sendFile('client/bicisBoardman/index.html' , { root : __dirname});
+});
+
+app.all('/madrid-flag', cors(), function (request, response, nextt) {
+  response.sendFile('client/madridFlag/index.html' , { root : __dirname});
+});
+
 app.all('/distrito-cultural/request', cors(), function (reqq, ress, nextt) {
   var url_actividades_culturales_ocio_municipal_100_dias = "http://datos.madrid.es/egob/catalogo/206974-0-agenda-eventos-culturales-100.json"
   //var url_agenda_actividades_culturales = "https://datos.madrid.es/egob/catalogo/300107-0-agenda-actividades-eventos.json"
