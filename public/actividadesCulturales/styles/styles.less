@@ -88,13 +88,13 @@ body {
     background: #fff;
     color: rgb(0, 0, 0);
     border: 1px solid black;
-    cursor: pointer;
   }
-
-  li:hover {
-    animation-duration: 0.2s;
-    animation-name: slideIn;
-    animation-fill-mode: forwards;
+  li{
+    &.desktop:hover{
+      animation-duration: 0.2s;
+      animation-name: slideIn;
+      animation-fill-mode: forwards;
+    }
   }
 
   @keyframes slideIn {
@@ -486,13 +486,4 @@ input[type=text]:focus {
   background-color: white;
   font-family: 'Taviraj', serif;
   font-style: italic;
-}
-
-@media (hover: hover) {
-  li:hover { 
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
-  }
 }

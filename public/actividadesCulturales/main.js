@@ -3,6 +3,12 @@ var dotsAnim;
 var eventosActividadesCulturales;
 var eventosBibliotecas;
 
+if (typeof window.orientation !== 'undefined') { 
+  console.log('is mobile');
+ } else {
+  $('.one-day-event').addClass('desktop');
+  $('.weekly-event').addClass('desktop');
+ }
 
 let $oneDayEvent = $('.one-day-event').remove();
 let $weeklyEvent = $('.weekly-event').remove();

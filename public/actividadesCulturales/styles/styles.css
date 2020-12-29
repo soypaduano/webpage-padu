@@ -75,9 +75,8 @@ body li {
   background: #fff;
   color: #000000;
   border: 1px solid black;
-  cursor: pointer;
 }
-body li:hover {
+body li.desktop:hover {
   animation-duration: 0.2s;
   animation-name: slideIn;
   animation-fill-mode: forwards;
@@ -389,12 +388,4 @@ input[type=text]:focus {
   background-color: white;
   font-family: 'Taviraj', serif;
   font-style: italic;
-}
-@media (hover: hover) {
-  li:hover {
-    -webkit-transition: none !important;
-    -moz-transition: none !important;
-    -o-transition: none !important;
-    transition: none !important;
-  }
 }
