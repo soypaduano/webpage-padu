@@ -39,7 +39,9 @@ function readEventData(data) {
 
     //Audience
     let audience = element['audience'];
-    if (audience) $($copy).find('event-audience').text(audience);
+    if (audience){
+      $($copy).find('.event-audience').text('Publico recomendado: ' + audience);
+    } 
 
     //District
     let district = 'no-district'

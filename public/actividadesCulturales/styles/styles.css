@@ -195,9 +195,8 @@ body .event-small-data.event-location.none:hover {
   text-decoration: none;
 }
 body .event-small-data.event-audience {
-  color: #6a6a29;
+  color: #585858;
   font-style: italic;
-  display: none;
 }
 body li::before {
   text-align: center;
