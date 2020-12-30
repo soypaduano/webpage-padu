@@ -1,23 +1,40 @@
 <!DOCTYPE html>
 <html>
-	<head>
-			<link rel="stylesheet" href="madridFlag/styles/styles.css">
-		<meta charset="utf-8">
-		<title>My first three.js app</title>
-		<style>
-			body { margin: 0; }
-		</style>
-	</head>
-	<body>
-		<script src="jquery-1.8.3.min.js"></script>
-		<script src="three.min.js"></script>
-		
-	<div class="title">
-		hola
+
+<head>
+	<link rel="stylesheet" href="madridFlag/styles/styles.css">
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Yatra+One&display=swap" rel="stylesheet">
+	<meta charset="utf-8">
+	<title>madrid y sus escudos</title>
+	<style>
+		body {
+			margin: 0;
+		}
+	</style>
+</head>
+
+<body>
+	<script src="jquery-1.8.3.min.js"></script>
+	<script src="three.min.js"></script>
+	<script src="OrbitControl.min.js"></script>
+
+
+	<div class="flag-container">
+			<div class="title">
+					In 1212, the Council of Madrid used an ensign that shown a bear with the seven stars of the Ursa Major or Ursa
+					Minor.
+					This flag was used in the Battle of Las Navas de Tolosa by madrilian troops.[5][6]
+					A later and widely spread representation of the arms of Madrid depicts two mistakes: a shield with a shape used
+					since the
+					16th century and five-pointed stars Argent (white or light grey),
+					instead of eight pointed commonly used by the Madrid Council at that time
+				</div>
+			
+				<section id="flag-section"></section>
 	</div>
 
-		<section id="flag-section"></section>
+	<script src="madridFlag/js/flag.js"></script>
+</body>
 
-		<script src="madridFlag/js/flag.js"></script>
-	</body>
 </html>

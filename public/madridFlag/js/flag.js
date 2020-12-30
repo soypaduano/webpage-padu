@@ -9,9 +9,11 @@ const renderer = new THREE.WebGLRenderer({
     alpha: true,
     antialias: true
 });
-renderer.setSize(window.innerWidth * 0.7, window.innerHeight * 0.7);
+renderer.setSize(window.innerWidth * 0.95, window.innerHeight * 0.95);
 $section.append(renderer.domElement);
-
+console.log(renderer);
+const controls = new THREE.OrbitControls( camera, renderer.domElement );
+controls.update();
 
 const loader = new THREE.TextureLoader();
 
@@ -45,10 +47,12 @@ function animate() {
 
     flag.geometry.verticesNeedUpdate = true;
 
-
+    controls.update();
     requestAnimationFrame(animate);
     renderer.render(scene, camera);
 }
 
 
 animate();
+
+
