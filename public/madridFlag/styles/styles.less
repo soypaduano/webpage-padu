@@ -2,18 +2,14 @@ body {
     background-color: red;
     font-family: 'Yatra One', cursive;
 
-    .flag-container{
-        pointer-events: none;
-
-    }
+   
 
     .title {
         color: black;
-        font-size: 60px;
-        pointer-events: none;
+        font-size: 45px;
         height: 10px;
         user-select: none;
-        position: relative;
+        position: absolute;
     }
 
     #flag-section {
@@ -21,11 +17,13 @@ body {
         position: fixed;
         top: -100px;
         width: 100%;
-        pointer-events: auto;
-        z-index: -1;
-        position: relative;
+        cursor: grab;
+        z-index: 1;
+        position: absolute;
+        &:hover{
+            z-index: -1;
+        }
         canvas {
-            pointer-events: all;
             padding-left: 0;
             padding-right: 0;
             margin-left: auto;

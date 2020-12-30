@@ -1,15 +1,15 @@
-
+var colors = ['red' ]
 
 const $section = $('#flag-section')
 console.log($section)
 const scene = new THREE.Scene();
-const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.2, 1000);
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth * 0.92 / window.innerHeight * 0.92, 0.2, 1000);
 
 const renderer = new THREE.WebGLRenderer({
     alpha: true,
     antialias: true
 });
-renderer.setSize(window.innerWidth * 0.95, window.innerHeight * 0.95);
+renderer.setSize(window.innerWidth * 1, window.innerHeight * 1);
 $section.append(renderer.domElement);
 console.log(renderer);
 const controls = new THREE.OrbitControls( camera, renderer.domElement );

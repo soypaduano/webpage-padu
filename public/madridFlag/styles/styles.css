@@ -2,28 +2,26 @@ body {
   background-color: red;
   font-family: 'Yatra One', cursive;
 }
-body .flag-container {
-  pointer-events: none;
-}
 body .title {
   color: black;
-  font-size: 60px;
-  pointer-events: none;
+  font-size: 45px;
   height: 10px;
   user-select: none;
-  position: relative;
+  position: absolute;
 }
 body #flag-section {
   font-size: 40px;
   position: fixed;
   top: -100px;
   width: 100%;
-  pointer-events: auto;
+  cursor: grab;
+  z-index: 1;
+  position: absolute;
+}
+body #flag-section:hover {
   z-index: -1;
-  position: relative;
 }
 body #flag-section canvas {
-  pointer-events: all;
   padding-left: 0;
   padding-right: 0;
   margin-left: auto;
