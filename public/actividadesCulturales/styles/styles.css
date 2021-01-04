@@ -1,6 +1,6 @@
 body {
   margin: 50px;
-  background-color: #a4bde4;
+  background-color: #f9f6f6;
   font-family: 'Taviraj', serif;
 }
 body button {
@@ -34,7 +34,7 @@ body .title {
 }
 body .title .city {
   font-size: 44px;
-  color: white;
+  text-decoration: underline;
 }
 body .description {
   font-family: 'Trirong', serif;
@@ -55,7 +55,7 @@ body .creator .padu {
   font-style: italic;
   text-decoration: underline;
   border: 1px solid #2e2e2d;
-  color: white;
+  color: #00adb1;
   font-size: 1.2vw;
   padding: 5px;
   cursor: pointer;
