@@ -37,10 +37,12 @@ body .title .city {
   color: blue;
 }
 body .description {
+  font-family: 'Trirong', serif;
   font-size: 1.3vw;
 }
 body .newsletter-container {
   display: inline-flex;
+  font-family: 'Trirong', serif;
 }
 body .newsletter-container input {
   margin-left: 25px;
@@ -62,6 +64,9 @@ body .creator .padu:hover {
   color: black;
   border: 2px dashed blue;
 }
+body #mc_embed_signup_scroll {
+  display: flex;
+}
 body ol {
   counter-reset: section;
 }
@@ -72,9 +77,9 @@ body li {
   font-size: 1.5rem;
   padding: 15px;
   margin-bottom: 15px;
-  background: #fff;
+  background: aliceblue;
   color: #000000;
-  border: 1px solid black;
+  border: 4px double black;
 }
 body li.desktop:hover {
   animation-duration: 0.2s;
@@ -93,13 +98,12 @@ body li.desktop:hover {
   }
 }
 body .filter-container {
-  background-color: aliceblue;
   width: 100%;
   display: inline-flex;
   margin-top: 15px;
 }
 body .filter-container select {
-  background-color: aliceblue;
+  background-color: white;
   border: 2px solid black;
   font-family: 'Taviraj', serif;
   font-weight: bold;
@@ -146,6 +150,8 @@ body .event-title:after {
 }
 body .event-description {
   font-size: 20px;
+  font-family: 'Trirong', serif;
+  font-stretch: condensed;
 }
 body .event-description a {
   background: #e9e9e9;
@@ -159,14 +165,16 @@ body .event-description a:hover {
   font-style: italic;
 }
 body .event-data-container {
-  background-color: aliceblue;
+  background-color: white;
+  border: 1px solid black;
   width: 100%;
+  font-family: 'Trirong', serif;
   display: inline-flex;
 }
 body .event-more-info {
   background: #e9e9e9;
   display: inline-flex;
-  font-size: 15px;
+  font-size: 20px;
   color: blue;
 }
 body .event-more-info:hover {
@@ -211,7 +219,7 @@ body li::before {
   font-size: 2rem;
   width: 25px;
   height: 25px;
-  border: 2px solid #000;
+  border: 2px double #000;
 }
 body .no-events {
   display: none;
@@ -355,6 +363,8 @@ body::-webkit-scrollbar-thumb {
   background-color: blue;
 }
 input[type=submit] {
+  height: 100%;
+  width: 100%;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -374,11 +384,12 @@ input[type=submit] {
   text-align: center;
 }
 input[type=email] {
+  width: 40%;
   padding: 5px;
   border: 1px solid black;
   -webkit-border-radius: 1px;
   border-radius: 1px;
-  font-size: 20px;
+  font-size: 25px;
   font-family: 'Taviraj', serif;
 }
 input[type=text]:focus {

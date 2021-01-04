@@ -1,7 +1,10 @@
+@font-title: 'Taviraj', serif;
+@font-description: 'Trirong', serif;
+
 body {
   margin: 50px;
   background-color: #fff;
-  font-family: 'Taviraj', serif;
+  font-family: @font-title;
 
 
   button {
@@ -35,7 +38,6 @@ body {
 
   .title {
     font-size: 38px;
-
     .city {
       font-size: 44px;
       color: blue;
@@ -43,12 +45,13 @@ body {
   }
 
   .description {
+    font-family: @font-description;
     font-size: 1.3vw;
   }
 
   .newsletter-container {
     display: inline-flex;
-
+    font-family: @font-description;
     input {
       margin-left: 25px;
     }
@@ -74,6 +77,10 @@ body {
     }
   }
 
+  #mc_embed_signup_scroll{
+    display: flex;
+  }
+
   ol {
     counter-reset: section;
   }
@@ -85,9 +92,9 @@ body {
     font-size: 1.5rem;
     padding: 15px;
     margin-bottom: 15px;
-    background: #fff;
+    background: aliceblue;
     color: rgb(0, 0, 0);
-    border: 1px solid black;
+    border: 4px double black;
   }
   li{
     &.desktop:hover{
@@ -111,13 +118,12 @@ body {
   }
 
   .filter-container {
-    background-color: aliceblue;
     width: 100%;
     display: inline-flex;
     margin-top: 15px;
 
     select {
-      background-color: aliceblue;
+      background-color: white;
       border: 2px solid black;
       font-family: 'Taviraj', serif;
       font-weight: bold;
@@ -166,8 +172,6 @@ body {
     }
   }
 
-
-
   .event-title:after {
     content: '';
     position: absolute;
@@ -176,6 +180,8 @@ body {
 
   .event-description {
     font-size: 20px;
+    font-family: @font-description;
+    font-stretch: condensed;
 
     a {
       background: rgb(233, 233, 233);
@@ -192,15 +198,17 @@ body {
   }
 
   .event-data-container {
-    background-color: aliceblue;
+    background-color: white;
+    border: 1px solid black;
     width: 100%;
+    font-family: @font-description;
     display: inline-flex;
   }
 
   .event-more-info {
     background: rgb(233, 233, 233);
     display: inline-flex;
-    font-size: 15px;
+    font-size: 20px;
     color: blue;
 
     &:hover {
@@ -252,7 +260,7 @@ body {
     font-size: 2rem;
     width: 25px;
     height: 25px;
-    border: 2px solid #000;
+    border: 2px double #000;
   }
 
 
@@ -432,10 +440,6 @@ body {
   }
 }
 
-
-
-
-
 body::-webkit-scrollbar-track {
   background-color: aliceblue;
 }
@@ -450,6 +454,8 @@ body::-webkit-scrollbar-thumb {
 }
 
 input[type=submit]{
+  height: 100%;
+  width: 100%;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
@@ -470,11 +476,12 @@ input[type=submit]{
 }
 
 input[type=email] {
+  width: 40%;
   padding: 5px;
   border: 1px solid black;
   -webkit-border-radius: 1px;
   border-radius: 1px;
-  font-size: 20px;
+  font-size: 25px;
   font-family: 'Taviraj', serif;
 }
 
