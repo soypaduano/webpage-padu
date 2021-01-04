@@ -76,7 +76,16 @@ function readEventData(data) {
     let dateStart = element['dtstart'];
     if (!dateStart) dateStart = 'No hay fecha de inicio'
     let dayStart = dateStart.split(' ');
-    $($copy).find('.event-day-start').text('Fecha inicio: ' + dayStart[0]);
+    let dayStartFormat;
+    var dt=new Date(dayStart[0]);
+    if(isToday(dt)) {
+      dayStartFormat = 'Hoy';
+    } else if(isTomorrow(dt)) {
+      dayStartFormat = 'Mañana'
+    } else {
+      dayStartFormat = dayStart[0];
+    }
+    $($copy).find('.event-day-start').text('Fecha inicio: ' + dayStartFormat );
     $($copy).attr('day', dayStart[0]);
 
     //event location
@@ -247,6 +256,20 @@ function addListenerCreator() {
     window.open('https://www.instagram.com/padu.es/');
   });
 }
+
+const isToday = (date) => {
+  const today = new Date()
+  return date.getDate() === today.getDate() &&
+      date.getMonth() === today.getMonth() &&
+      date.getFullYear() === today.getFullYear();
+};
+
+const isTomorrow = (date) => {
+  const today = new Date()
+  return date.getDate() === today.getDate() + 1 &&
+      date.getMonth() === today.getMonth() &&
+      date.getFullYear() === today.getFullYear();
+};
 
 function loadingAnim() {
   dotsAnim = window.setInterval(function () {

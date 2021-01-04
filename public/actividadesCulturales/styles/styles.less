@@ -1,9 +1,16 @@
 @font-title: 'Taviraj', serif;
 @font-description: 'Trirong', serif;
 
+@color-black: #2e2e2d;
+@color-gray: #9d9c9c;
+@color-blue-light:#a4bde4;
+@color-blue-strong: #00adb1;
+@color-yellow: #f59d25;
+
+
 body {
   margin: 50px;
-  background-color: #fff;
+  background-color: @color-blue-light;
   font-family: @font-title;
 
 
@@ -12,7 +19,7 @@ body {
     -moz-border-radius: 0;
     border-radius: 0;
     font-family: 'Taviraj', serif;
-    color: black;
+    color: @color-black;
     font-size: 20px;
     font-weight: 100;
     background-color: white;
@@ -20,7 +27,7 @@ body {
     -moz-box-shadow: 0 0 0 0 #000000;
     box-shadow: 0 0 0 0 #000000;
     text-shadow: 0 0 0 #000000;
-    border: solid black 1px;
+    border: solid @color-black 1px;
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
@@ -32,7 +39,7 @@ body {
     -moz-border-radius: 0;
     border-radius: 0;
     text-decoration: none;
-    border: 4px double black;
+    border: 4px double @color-black;
   }
 
 
@@ -40,7 +47,7 @@ body {
     font-size: 38px;
     .city {
       font-size: 44px;
-      color: blue;
+      color: white;
     }
   }
 
@@ -59,21 +66,21 @@ body {
 
   .creator {
     font-size: 1vw;
-    color: black;
+    color: @color-black;
 
     .padu {
       font-style: italic;
       text-decoration: underline;
-      border: 1px solid black;
-      color: blue;
+      border: 1px solid @color-black;
+      color: white;
       font-size: 1.2vw;
       padding: 5px;
       cursor: pointer;
     }
 
     .padu:hover {
-      color: black;
-      border: 2px dashed blue;
+      color: @color-black;
+      border: 2px dashed @color-blue-strong;
     }
   }
 
@@ -92,9 +99,9 @@ body {
     font-size: 1.5rem;
     padding: 15px;
     margin-bottom: 15px;
-    background: aliceblue;
+    background: white;
     color: rgb(0, 0, 0);
-    border: 4px double black;
+    border: 4px double @color-blue-light;
   }
   li{
     &.desktop:hover{
@@ -107,13 +114,13 @@ body {
   @keyframes slideIn {
     0% {
       right: 0px;
-      border: 1px double black;
+      border: 1px double @color-black;
     }
 
     100% {
       right: 20px;
-      border-color: blue;
-      border: 5px double blue;
+      border-color: @color-blue-strong;
+      border: 5px double @color-blue-strong;
     }
   }
 
@@ -124,34 +131,35 @@ body {
 
     select {
       background-color: white;
-      border: 2px solid black;
+      border: 2px solid @color-black;
       font-family: 'Taviraj', serif;
       font-weight: bold;
       font-size: 20px;
     }
 
     .filter {
+      background-color: white;
       font-size: 25px;
       margin-right: 10px;
       margin-left: 10px;
       font-weight: bold;
       padding: 10px;
-      border: 2px solid black;
+      border: 2px solid @color-black;
       cursor: pointer;
 
       &.selected {
-        border: 2px solid black;
-        background-color: blue;
+        border: 2px solid @color-black;
+        background-color: @color-blue-strong;
         color: white;
       }
 
       &.selected:hover {
-        border: 2px solid black;
+        border: 2px solid @color-black;
       }
     }
 
     .filter:hover {
-      border: 2px dashed blue;
+      border: 2px dashed @color-blue-strong;
     }
   }
 
@@ -187,7 +195,7 @@ body {
       background: rgb(233, 233, 233);
       display: inline-flex;
       font-size: 15px;
-      color: blue;
+      color: @color-blue-light;
 
       &:hover {
         cursor: pointer;
@@ -199,7 +207,7 @@ body {
 
   .event-data-container {
     background-color: white;
-    border: 1px solid black;
+    border: 1px solid @color-black;
     width: 100%;
     font-family: @font-description;
     display: inline-flex;
@@ -209,7 +217,7 @@ body {
     background: rgb(233, 233, 233);
     display: inline-flex;
     font-size: 20px;
-    color: blue;
+    color: @color-blue-strong;
 
     &:hover {
       cursor: pointer;
@@ -225,7 +233,7 @@ body {
     font-weight: bold;
 
     &.event-location {
-      color: blue;
+      color: @color-blue-strong;
       cursor: pointer;
 
       &:hover {
@@ -233,7 +241,7 @@ body {
       }
 
       &.none {
-        color: gray;
+        color: @color-gray; 
         cursor: initial;
         &:hover {
           text-decoration: none;
@@ -266,22 +274,22 @@ body {
 
   .no-events {
     display: none;
-    background-color: gray;
+    background-color: @color-gray;
     width: 100%;
     font-size: 50px;
-    color: blue;
-    border: 1px solid black;
+    color: @color-blue-strong;
+    border: 1px solid @color-black;
     background-color: aliceblue;
     text-align: center;
     .padu{
-      border: 1px solid blue;
-      color: black;
+      border: 1px solid @color-blue-strong;
+      color: @color-black;
       font-size: 40px;
     }
     .padu:hover{
-      color: blue;
+      color: @color-blue-strong;
       cursor: pointer;
-      border: 2px dashed black;
+      border: 2px dashed @color-black;
     }
   }
 
@@ -289,9 +297,9 @@ body {
     padding: 10px;
     width: 100%;
     font-size: 30px;
-    color: blue;
+    color: @color-blue-strong;
     background-color: aliceblue;
-    border: 1px solid black;
+    border: 1px solid @color-black;
 
     .text {
       margin-left: 15px;
@@ -450,7 +458,7 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: blue;
+  background-color: @color-blue-strong;
 }
 
 input[type=submit]{
@@ -460,7 +468,7 @@ input[type=submit]{
   -moz-border-radius: 0;
   border-radius: 0;
   font-family: 'Taviraj', serif;
-  color: black;
+  color: @color-black;
   font-size: 20px;
   font-weight: 100;
   background-color: white;
@@ -468,7 +476,7 @@ input[type=submit]{
   -moz-box-shadow: 0 0 0 0 #000000;
   box-shadow: 0 0 0 0 #000000;
   text-shadow: 0 0 0 #000000;
-  border: solid black 1px;
+  border: solid @color-black 1px;
   text-decoration: none;
   display: inline-block;
   cursor: pointer;
@@ -478,7 +486,7 @@ input[type=submit]{
 input[type=email] {
   width: 40%;
   padding: 5px;
-  border: 1px solid black;
+  border: 1px solid @color-black;
   -webkit-border-radius: 1px;
   border-radius: 1px;
   font-size: 25px;
@@ -486,7 +494,7 @@ input[type=email] {
 }
 
 input[type=text]:focus {
-  border: 3px double black;
+  border: 3px double @color-black;
   font-size: 20px;
   background-color: white;
   font-family: 'Taviraj', serif;
