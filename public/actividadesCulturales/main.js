@@ -67,7 +67,7 @@ function readEventData(data) {
     $($copy).find('.event-title').text(element['title']);;
     let description = element['description'];
     if (description === '') {
-      $($copy).find('.event-description').html('<p>Para ver la descripción, pincha aquí: <a id="link-to-event">+ info</a></p>')
+      $($copy).find('.event-description').html('<p>Este evento no tiene descripción. Para ver más información, pincha aquí: <a id="link-to-event">+ info</a></p>')
       $($copy).find('.event-more-info').remove();
     } else {
       $($copy).find('.event-description').text(description);
