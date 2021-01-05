@@ -28,7 +28,8 @@ function readEventData(data) {
       let dayEnd;
       if (!dateEnd) dateEnd = 'No hay fecha de fin'
       else dayEnd = dateEnd.split(' ')[0]
-      $('.event-day-end').text('Fecha fin: ' + dayEnd);
+      dayEnd = transformDateToString(dayEnd)
+      $($copy).find('.event-day-end').text('Fecha fin: ' + dayEnd);
       $($copy).attr('dtend', "1");
     } else {
       $copy = $oneDayEvent.clone();
@@ -80,14 +81,7 @@ function readEventData(data) {
     if (!dateStart) dateStart = 'No hay fecha de inicio'
     let dayStart = dateStart.split(' ');
     let dayStartFormat;
-    var dt=new Date(dayStart[0]);
-    if(isToday(dt)) {
-      dayStartFormat = 'Hoy';
-    } else if(isTomorrow(dt)) {
-      dayStartFormat = 'Mañana'
-    } else {
-      dayStartFormat = dayStart[0];
-    }
+    dayStartFormat = transformDateToString(dayStart[0]);
     $($copy).find('.event-day-start').text('Fecha inicio: ' + dayStartFormat );
     $($copy).attr('day', dayStart[0]);
 
@@ -144,6 +138,16 @@ function getDistrict(district) {
   return lastSegment;
 }
 
+function transformDateToString(dateString){
+  var dt=new Date(dateString);
+  if(isToday(dt)) {
+    return 'Hoy';
+  } else if(isTomorrow(dt)) {
+    return 'Mañana';
+  } else {
+    return dateString;
+  }
+}
 
 $(document).ready(function () {
   loadingAnim();
@@ -265,7 +269,7 @@ function applyFilters(filters) {
 
 function addListenerCreator() {
   $('.padu').click(function () {
-    window.open('https://www.instagram.com/padu.es/');
+    window.open('https://www.instagram.com/padu.soy/');
   });
 }
 
