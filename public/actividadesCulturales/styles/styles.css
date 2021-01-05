@@ -1,5 +1,5 @@
 body {
-  margin: 50px;
+  margin: 35px;
   background-color: #f9f6f6;
   font-family: 'Taviraj', serif;
 }
@@ -30,22 +30,29 @@ body button:hover {
   border: 4px double #2e2e2d;
 }
 body .title {
-  font-size: 38px;
+  margin-top: 20px;
+  font-size: 42px;
 }
 body .title .city {
-  font-size: 44px;
+  font-size: 48px;
   text-decoration: underline;
 }
 body .description {
+  margin-top: 10px;
+  padding: 10px;
   font-family: 'Trirong', serif;
-  font-size: 1.3vw;
+  font-size: 28px;
 }
 body .newsletter-container {
   display: inline-flex;
+  font-size: 18px;
   font-family: 'Trirong', serif;
 }
 body .newsletter-container input {
   margin-left: 25px;
+}
+body .newsletter-text {
+  font-size: 18px;
 }
 body .creator {
   font-size: 1vw;
@@ -100,7 +107,7 @@ body li.desktop:hover {
 body .filter-container {
   width: 100%;
   display: inline-flex;
-  margin-top: 15px;
+  margin-top: 20px;
 }
 body .filter-container select {
   background-color: white;
@@ -258,16 +265,22 @@ body .loading #dots {
 }
 @media screen and (max-width: 768px) {
   body .title {
-    font-size: 30px;
+    font-size: 28px;
+  }
+  body .title .city {
+    font-size: 32px;
   }
   body .creator {
-    font-size: 16px;
+    font-size: 14px;
   }
   body .creator .padu {
-    font-size: 20px;
+    font-size: 18px;
   }
   body .description {
     font-size: 18px;
+  }
+  body .newsletter-text {
+    font-size: 14px;
   }
   body input {
     width: 150px;
@@ -340,8 +353,14 @@ body .loading #dots {
   }
 }
 @media screen and (max-width: 320px) {
+  body {
+    margin-top: 20px;
+  }
   body .event-head .event-title {
     font-size: 17px;
+  }
+  body .filter-container {
+    font-size: 15px;
   }
   body .filter-container select {
     width: 70px;
@@ -385,7 +404,8 @@ input[type=submit] {
   text-align: center;
 }
 input[type=email] {
-  width: 40%;
+  width: 30%;
+  height: 30px;
   padding: 5px;
   border: 1px solid #2e2e2d;
   -webkit-border-radius: 1px;

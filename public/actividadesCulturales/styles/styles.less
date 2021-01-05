@@ -12,7 +12,7 @@
 
 
 body {
-  margin: 50px;
+  margin: 35px;
   background-color: @color-beige;
   font-family: @font-title;
 
@@ -47,24 +47,32 @@ body {
 
 
   .title {
-    font-size: 38px;
+    margin-top: 20px;
+    font-size: 42px;
     .city {
-      font-size: 44px;
+      font-size: 48px;
       text-decoration: underline;
     }
   }
 
   .description {
+    margin-top: 10px;
+    padding: 10px;
     font-family: @font-description;
-    font-size: 1.3vw;
+    font-size: 28px;
   }
 
   .newsletter-container {
     display: inline-flex;
+    font-size: 18px;
     font-family: @font-description;
     input {
       margin-left: 25px;
     }
+  }
+
+  .newsletter-text{
+    font-size: 18px;
   }
 
   .creator {
@@ -130,7 +138,7 @@ body {
   .filter-container {
     width: 100%;
     display: inline-flex;
-    margin-top: 15px;
+    margin-top: 20px;
 
     select {
       background-color: white;
@@ -316,19 +324,25 @@ body {
 
 @media screen and (max-width: 768px) {
   body {
-
     .title{
-      font-size: 30px;
+      font-size: 28px;
+      .city{
+        font-size: 32px;
+      }
     }
     .creator{
-      font-size: 16px;
+      font-size: 14px;
       .padu{
-        font-size: 20px;
+        font-size: 18px;
       }
     }
 
     .description {
       font-size: 18px;
+    }
+
+    .newsletter-text{
+      font-size: 14px;
     }
 
     input {
@@ -381,6 +395,7 @@ body {
 
 @media screen and (max-width: 425px) {
   body {
+    
     .filter-container {
       .filter {
         padding: 3px;
@@ -428,7 +443,7 @@ body {
 
 @media screen and (max-width: 320px) {
   body {
-
+    margin-top: 20px;
     .event-head{
       .event-title{
         font-size: 17px;
@@ -436,6 +451,7 @@ body {
     }
 
     .filter-container {
+      font-size: 15px;
       select {
         width: 70px;
       }
@@ -487,7 +503,8 @@ input[type=submit]{
 }
 
 input[type=email] {
-  width: 40%;
+  width: 30%;
+  height: 30px;
   padding: 5px;
   border: 1px solid @color-black;
   -webkit-border-radius: 1px;

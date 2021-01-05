@@ -39,9 +39,12 @@ function readEventData(data) {
 
     //Audience
     let audience = element['audience'];
-    if (audience){
+    if (audience && ((audience === 'Niños' || audience === 'Niños,Familias'))){
+      $($copy).attr('audience', 0)
       $($copy).find('.event-audience').text('Publico recomendado: ' + audience);
-    } 
+    } else {
+      $($copy).attr('audience', 1)
+    }
 
     //District
     let district = 'no-district'
@@ -72,7 +75,7 @@ function readEventData(data) {
     //id
     $($copy).attr('id', element['id']);
 
-
+    //Date Start 
     let dateStart = element['dtstart'];
     if (!dateStart) dateStart = 'No hay fecha de inicio'
     let dayStart = dateStart.split(' ');
@@ -113,8 +116,6 @@ function readEventData(data) {
     }
 
     //No es free, pero no tiene precio  
-
-
     $($copy).find('.event-price').text(price);
     $($copy).attr('free', free);
 
@@ -125,8 +126,11 @@ function readEventData(data) {
     });
 
     $('#events-list').append($copy);
-    $($copy).show();
 
+
+    if(!(audience === 'Niños' || audience === 'Niños,Familias')){
+        $($copy).show();
+    }
   });
 
   $('.loading').hide();
@@ -210,10 +214,11 @@ function addListenerFilters() {
 
     //Dropdown filter
     var valueSelect = $($('#district-filter').find('option:selected')).text();
-    debugger;
     if(valueSelect !== 'DISTRITOS') filters.push($($('#district-filter').find('option:selected')));
     applyFilters(filters);
   });
+
+
 
   $('.filter-container').find('select').change(function () {
     var filters = [];
@@ -228,23 +233,30 @@ function addListenerFilters() {
 
     applyFilters(filters);
   })
-
 }
 
 function applyFilters(filters) {
-  $('li').show();
+  var audience = false;
+  filters.forEach(function (element) {
+    var id = $(element).attr('id');
+    if(id === 'audience') audience = true;
+  });
+
+  if(audience){
+    $('li').show();
+  } else {
+    $('li[audience=0]').hide();
+    $('li[audience=1]').show();
+  }
+
   filters.forEach(function (element) {
     var id = $(element).attr('id');
     var value = $(element).attr('value')
     var comparision = '!=';
 
-    if(id === 'event-district'){
-      value = '"' + value + '"';
-    }
+    if(id === 'event-district') value = '"' + value + '"';
 
-    console.log($('li:visible').length);
     var a = 'li:visible[' + id + comparision + value + ']'
-    console.log(a);
     $(a).toggle();
   });
 
