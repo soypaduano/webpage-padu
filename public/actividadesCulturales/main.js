@@ -1,4 +1,5 @@
 var dotsAnim;
+var test = false;
 
 var eventosActividadesCulturales;
 var eventosBibliotecas;
@@ -10,10 +11,17 @@ if (typeof window.orientation !== 'undefined') {
   $('.weekly-event').addClass('desktop');
  }
 
-let $oneDayEvent = $('.one-day-event').remove();
-let $weeklyEvent = $('.weekly-event').remove();
-$($oneDayEvent).hide();
-$($weeklyEvent).hide();
+ let $oneDayEvent;
+ let $weeklyEvent;
+
+ if(!test){
+  $oneDayEvent = $('.one-day-event').remove();
+  $weeklyEvent = $('.weekly-event').remove();
+  $($oneDayEvent).hide();
+  $($weeklyEvent).hide();
+ }
+
+
 
 function readEventData(data) {
   //Evento de un día o evento de varios días?
@@ -152,8 +160,9 @@ function transformDateToString(dateString){
 $(document).ready(function () {
   loadingAnim();
   addListenerCreator();
-  doRequestActividadesCulturales();
+  if(!test) doRequestActividadesCulturales();
 })
+
 
 function doRequestActividadesCulturales(){
   var currentURL = window.location.href;

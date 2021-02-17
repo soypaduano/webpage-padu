@@ -14,7 +14,7 @@ app.use(express.static('client'));
 app.use(bodyParser.json())
 
 server.listen(PORT, function () {
-  console.log('Chat server running');
+  console.log('Aplicación del padu funcionando');
 });
 
 app.use(express.static(__dirname + '/public'))
