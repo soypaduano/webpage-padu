@@ -278,6 +278,7 @@ function applyFilters(filters) {
 
 function addListenerCreator() {
   $('.padu').click(function () {
+    window.open('https://www.paypal.com/donate?hosted_button_id=R7NPDDXAEE4V6');
     window.open('https://www.instagram.com/padu.soy/');
   });
 }

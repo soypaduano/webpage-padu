@@ -50,6 +50,10 @@ body .description {
   font-size: 33px;
   font-family: 'Work Sans', sans-serif;
 }
+body .description b {
+  font-size: 35px;
+  color: black;
+}
 body .newsletter-container {
   display: inline-flex;
   font-size: 23px;
@@ -195,7 +199,7 @@ body .event-more-info:hover {
   background-color: yellow;
 }
 body .event-small-data {
-  font-size: 20px;
+  font-size: 19px;
   margin-right: 10px;
   margin-left: 10px;
   font-weight: bold;
@@ -242,16 +246,7 @@ body .no-events {
   border: 1px solid #262626;
   background-color: #FFFFFF;
   text-align: center;
-}
-body .no-events .padu {
-  border: 1px solid #00d3d6;
-  color: #262626;
-  font-size: 40px;
-}
-body .no-events .padu:hover {
-  color: #00adb1;
   cursor: pointer;
-  border: 2px dashed #262626;
 }
 body .loading {
   padding: 10px;
@@ -282,6 +277,9 @@ body .loading #dots {
   }
   body .description {
     font-size: 18px;
+  }
+  body .description b {
+    font-size: 22px;
   }
   body .newsletter-text {
     font-size: 14px;
