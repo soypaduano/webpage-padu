@@ -75,8 +75,8 @@ function readEventData(data) {
     $($copy).find('.event-title').text(element['title']);;
     let description = element['description'];
     if (description === '') {
-      $($copy).find('.event-description').html('<p>Este evento no tiene descripción. Para ver más información, pincha aquí: <a id="link-to-event">+ info</a></p>')
-      $($copy).find('.event-more-info').remove();
+      $($copy).find('.event-description').html('<p>Este evento no tiene descripción. Para ver más información, pincha aquí: <a id="link-to-event">+ INFO</a></p>')
+      $($copy).find('.event-more-info').find('#link-to-event').remove();
     } else {
       $($copy).find('.event-description').text(description);
     }
@@ -125,6 +125,11 @@ function readEventData(data) {
     let link = element['link'];
     $($copy).find('#link-to-event').click(function () {
       window.open(link);
+    });
+
+
+    $($copy).find('.shareWhatsapp').click(function () {
+      window.open('whatsapp://send?text=He encontrado este evento en padu.dev/distrito-cultural!: ' + encodeURIComponent(link));
     });
 
     $('#events-list').append($copy);
@@ -278,8 +283,11 @@ function applyFilters(filters) {
 
 function addListenerCreator() {
   $('.padu').click(function () {
-    window.open('https://www.paypal.com/donate?hosted_button_id=R7NPDDXAEE4V6');
     window.open('https://www.instagram.com/padu.soy/');
+  });
+
+  $('.donate').click(function () {
+    window.open('https://www.paypal.com/donate?hosted_button_id=R7NPDDXAEE4V6');
   });
 }
 

@@ -23,6 +23,17 @@ body {
 
   .header-donator{
     display: flex;
+    .donate{
+      background-color: rgba(255, 255, 0, 0.425);
+      right: 0;
+      position: absolute;
+      margin-right: 50px;
+      cursor: pointer;
+    }
+    .donate:hover{
+      background-color: rgba(255, 255, 0, 0.918);
+    }
+
     form{
       position: relative;
       margin-left: 50px;
@@ -90,6 +101,8 @@ body {
     font-size: 24px;
   }
 
+
+
   .creator {
     font-size: 1vw;
     color: @color-black;
@@ -135,16 +148,17 @@ body {
       animation-duration: 0.2s;
       animation-name: slideIn;
       animation-fill-mode: forwards;
+      border: 5px double @color-link;
     }
   }
 
   @keyframes slideIn {
     0% {
-      border: 1px double @color-black;
+      
     }
 
     100% {
-      border: 5px double @color-link;
+      
       box-shadow: 13px 15px 16px  #979797;
     }
   }
@@ -216,6 +230,14 @@ body {
     font-family: @font-description;
     font-stretch: condensed;
 
+    #link-to-event{
+      color: @color-link;
+    }
+
+    .shareWhatsapp{
+      margin-left: 20px;
+    }
+
     a {
       background: rgb(233, 233, 233);
       display: inline-flex;
@@ -238,14 +260,36 @@ body {
   }
 
   .event-more-info {
-    background: rgb(233, 233, 233);
     display: inline-flex;
     font-size: 20px;
     color: @color-link;
 
-    &:hover {
+    #link-to-event{
+      background: rgb(233, 233, 233);
+      &:hover{
+        background-color: yellow;
+      }
+    }
+
+    .shareWhatsapp{
+      position: absolute;
+      right: 0;
+      margin-right: 15px;
+      color: @color-black;
+      font-size: 12px;
+      display: flex;
       cursor: pointer;
-      background-color: @color-hover;
+      .whatsappImage{
+        margin-left: 5px;
+        width: 20px;
+        height: 20px;
+        position: relative;
+        background-size: 100%;
+        background-image: url('../images/share.png');
+      }
+      &:hover{
+        background-color: yellow;
+      }
     }
   }
 
@@ -398,6 +442,16 @@ body {
 
 @media screen and (max-width: 425px) {
   body {
+
+    .header-donator{
+      .creator{
+        line-height: 30px;
+      }
+
+      .donate{
+        position: relative;
+      }
+    }
     
     .filter-container {
       .filter {

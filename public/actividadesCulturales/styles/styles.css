@@ -6,6 +6,16 @@ body {
 body .header-donator {
   display: flex;
 }
+body .header-donator .donate {
+  background-color: rgba(255, 255, 0, 0.425);
+  right: 0;
+  position: absolute;
+  margin-right: 50px;
+  cursor: pointer;
+}
+body .header-donator .donate:hover {
+  background-color: rgba(255, 255, 0, 0.918);
+}
 body .header-donator form {
   position: relative;
   margin-left: 50px;
@@ -104,13 +114,10 @@ body li.desktop:hover {
   animation-duration: 0.2s;
   animation-name: slideIn;
   animation-fill-mode: forwards;
+  border: 5px double #00d3d6;
 }
 @keyframes slideIn {
-  0% {
-    border: 1px double #262626;
-  }
   100% {
-    border: 5px double #00d3d6;
     box-shadow: 13px 15px 16px #979797;
   }
 }
@@ -171,6 +178,12 @@ body .event-description {
   font-family: 'Work Sans', sans-serif;
   font-stretch: condensed;
 }
+body .event-description #link-to-event {
+  color: #00d3d6;
+}
+body .event-description .shareWhatsapp {
+  margin-left: 20px;
+}
 body .event-description a {
   background: #e9e9e9;
   display: inline-flex;
@@ -189,13 +202,34 @@ body .event-data-container {
   display: inline-flex;
 }
 body .event-more-info {
-  background: #e9e9e9;
   display: inline-flex;
   font-size: 20px;
   color: #00d3d6;
 }
-body .event-more-info:hover {
+body .event-more-info #link-to-event {
+  background: #e9e9e9;
+}
+body .event-more-info #link-to-event:hover {
+  background-color: yellow;
+}
+body .event-more-info .shareWhatsapp {
+  position: absolute;
+  right: 0;
+  margin-right: 15px;
+  color: #262626;
+  font-size: 12px;
+  display: flex;
   cursor: pointer;
+}
+body .event-more-info .shareWhatsapp .whatsappImage {
+  margin-left: 5px;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  background-size: 100%;
+  background-image: url('../images/share.png');
+}
+body .event-more-info .shareWhatsapp:hover {
   background-color: yellow;
 }
 body .event-small-data {
@@ -324,6 +358,12 @@ body .loading #dots {
   }
 }
 @media screen and (max-width: 425px) {
+  body .header-donator .creator {
+    line-height: 30px;
+  }
+  body .header-donator .donate {
+    position: relative;
+  }
   body .filter-container .filter {
     padding: 3px;
     margin-left: 4px;
