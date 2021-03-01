@@ -140,15 +140,16 @@ body {
     margin-bottom: 15px;
     background: @color-gray-event;
     color: rgb(0, 0, 0);
-    border: 4px double @color-black;
+    border: 1px solid @color-black;
+
     box-shadow: 3px 5px 6px  #979797;
   }
   li{
     &.desktop:hover{
-      animation-duration: 0.2s;
+      animation-duration: 0.4s;
       animation-name: slideIn;
       animation-fill-mode: forwards;
-      border: 5px double @color-link;
+      border: 2px solid @color-link;
     }
   }
 
@@ -442,13 +443,14 @@ body {
 
 @media screen and (max-width: 425px) {
   body {
-
     .header-donator{
+      display: block;
       .creator{
         line-height: 30px;
       }
 
       .donate{
+        margin-top: 10px;
         position: relative;
       }
     }
@@ -487,13 +489,42 @@ body {
     li{
       margin-left: -20px;
     }
+
+    input[type=email] {
+      width: 40%;
+      font-size: 15px;
+    }
+
+    input[type=submit]{
+      height: 100%;
+      width: 100%;
+      -webkit-border-radius: 0;
+      -moz-border-radius: 0;
+      border-radius: 0;
+      font-family: @font-description;
+      color: @color-black;
+      font-size: 20px;
+      font-weight: 100;
+      background-color: white;
+      -webkit-box-shadow: 0 0 0 0 @color-black;
+      -moz-box-shadow: 0 0 0 0 @color-black;
+      box-shadow: 0 0 0 0 @color-black;
+      text-shadow: 0 0 0 @color-black;
+      border: solid @color-black 1px;
+      text-decoration: none;
+      display: inline-block;
+      cursor: pointer;
+      text-align: center;
+    }
+    
+
   }
 }
 
 @media screen and (max-width: 425px) {
   body{
     .title{
-      font-size: 25px;
+      font-size: 27px;
     }
   }
 }

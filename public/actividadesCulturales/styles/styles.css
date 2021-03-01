@@ -107,14 +107,14 @@ body li {
   margin-bottom: 15px;
   background: #FFFFFF;
   color: #000000;
-  border: 4px double #262626;
+  border: 1px solid #262626;
   box-shadow: 3px 5px 6px #979797;
 }
 body li.desktop:hover {
-  animation-duration: 0.2s;
+  animation-duration: 0.4s;
   animation-name: slideIn;
   animation-fill-mode: forwards;
-  border: 5px double #00d3d6;
+  border: 2px solid #00d3d6;
 }
 @keyframes slideIn {
   100% {
@@ -358,10 +358,14 @@ body .loading #dots {
   }
 }
 @media screen and (max-width: 425px) {
+  body .header-donator {
+    display: block;
+  }
   body .header-donator .creator {
     line-height: 30px;
   }
   body .header-donator .donate {
+    margin-top: 10px;
     position: relative;
   }
   body .filter-container .filter {
@@ -388,10 +392,35 @@ body .loading #dots {
   body li {
     margin-left: -20px;
   }
+  body input[type=email] {
+    width: 40%;
+    font-size: 15px;
+  }
+  body input[type=submit] {
+    height: 100%;
+    width: 100%;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    font-family: 'Work Sans', sans-serif;
+    color: #262626;
+    font-size: 20px;
+    font-weight: 100;
+    background-color: white;
+    -webkit-box-shadow: 0 0 0 0 #262626;
+    -moz-box-shadow: 0 0 0 0 #262626;
+    box-shadow: 0 0 0 0 #262626;
+    text-shadow: 0 0 0 #262626;
+    border: solid #262626 1px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+  }
 }
 @media screen and (max-width: 425px) {
   body .title {
-    font-size: 25px;
+    font-size: 27px;
   }
 }
 @media screen and (max-width: 320px) {
