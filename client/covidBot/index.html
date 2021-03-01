@@ -1,0 +1,79 @@
+<html>
+    <head>
+        <meta charset = "utf-8"/>
+        <meta name ="viewport" content = "width=device-width, initial-scale = 1.0">
+        <script src="jquery-1.8.3.min.js"></script>
+        <script src = "covidBot/java.js"></script>
+        <link rel = "stylesheet" href = "covidBot/mystyle.css">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <title> Covid Bot </title>
+    </head>
+    <body>
+    <!-- Navbar (sit on top) -->
+    <div>
+      <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+        <!-- Float links to the right. Hide them on small screens -->
+        <div class="w3-right w3-hide-small">
+          <a href="#inicio" class="w3-bar-item w3-button">Inicio</a>
+          <a href="#about" class="w3-bar-item w3-button">About</a>
+          <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+          <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+          <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+          <a href="#contact" class="w3-bar-item w3-button">Contact</a>
+        </div>
+      </div>
+    </div>
+
+    <div id="inicio" class="section">
+      <h1>Bienvenido 👋</h1>
+      <h2>Tienes dudas respecto al covid? ¡No te preocupes!</h2>
+      <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="https://google.com" class="urlStyle"> Hopsital Fuenlabrada </a> cursus ante ante, quis euismod purus cursus aliquet. Sed lobortis nulla efficitur ullamcorper iaculis. </h3>
+      <div id="listaInicio" class="claseLista">
+        <ul>
+          <li> <img src="vaccine.png" style="width: 25px; height: 25px;"> Primer elemento</li>
+          <li>Primer elemento</li>
+          <li>Primer elemento</li>
+          <li>Primer elemento</li>
+        </ul>
+        <ul>
+          <li>Primer elemento</li>
+          <li>Primer elemento</li>
+          <li>Primer elemento</li>
+          <li>Primer elemento</li>
+        </ul>
+      </div>
+      <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="https://google.com" class="urlStyle"> Hopsital Fuenlabrada </a> cursus ante ante, quis euismod purus cursus aliquet. Sed lobortis nulla efficitur ullamcorper iaculis. </h3>
+      <div style="text-align: center;">
+        <img id="imagenSectionInicio" src="chatbot.jpg">
+      </div>
+      
+    </div>
+    
+        <i class="icon ion-home"></i>
+        <div class = "chatbox">
+            <button class="open_button" onclick="openchat()"></button>
+            <div class = "chatbox_support" id="chatbox_support">
+                <div class = "chatbox_header">
+                    <img src="icon@2x.png" class="icon_chat">
+                    <div class="circle"></div>
+                    <div class="circle_opaque"></div>
+                    <p id= "live_chat">Live chat with Cova</p>
+                    <p id= "ask_chat">Ask anything</p>
+                    <button id="close_chat" onclick="closechat()"></button>
+                </div>
+                <div class = "chatbox_bottom">
+                    <input type="text" class="input_user" id="input_user" placeholder="Type your message">
+                    <button class="btn"  id="myBtn">
+                    </button>
+                </div>
+                <div class="chat_msg" id="chat_msg">
+
+                </div>
+            </div>
+        </div>
+      </body>
+    
+    </body>
+
+</html>
+

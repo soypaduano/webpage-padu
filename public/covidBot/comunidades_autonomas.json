@@ -1,0 +1,81 @@
+{"CA": [
+    {"coma": "Madrid",
+     "patterns": ["Comunidad de Madrid", "Madrid", "Community of Madrid"],
+     "telephone": ["900 102 112"]
+    },
+    {"coma": "Andalucia",
+     "patterns": ["Andalucia", "Andalusia"],
+     "telephone": ["900 400 061 / 955 545 060"]
+    },
+    {"coma": "Aragon",
+     "patterns": ["Aragon"],
+     "telephone": ["976 696 382"]
+    },
+    {"coma": "Asturias",
+     "patterns": ["Asturias"],
+     "telephone": ["984 100 400"]
+    }, 
+    {"coma": "Cantabria",
+     "patterns": ["Cantabria"],
+     "telephone": ["900 612 112"]
+    }, 
+    {"coma": "Castilla La Mancha",
+     "patterns": ["Castilla La Mancha", "Castile La Mancha"],
+     "telephone": ["900 122 112"]
+    }, 
+    {"coma": "Castilla y León",
+     "patterns": ["Castilla y Leon", "Castile y Leon"],
+     "telephone": ["900 612 112"]
+    }, 
+    {"coma": "Cataluña",
+     "patterns": ["Cataluna", "Catalonia", "Cataluña"],
+     "telephone": ["061"]
+    }, 
+    {"coma": "Ceuta",
+     "patterns": ["Ceuta"],
+     "telephone": ["900 720 692"]
+    }, 
+    {"coma": "Comunidad Valenciana",
+     "patterns": ["Comunidad Valenciana", "Valencia", "Valencian Community", "Comunitat Valenciana"],
+     "telephone": ["900 300 555"]
+    }, 
+    {"coma": "Extremadura",
+     "patterns": ["Extremadura", "extremadura", "extrem"],
+     "telephone": ["112"]
+    }, 
+    {"coma": "Galicia",
+     "patterns": ["Galicia"],
+     "telephone": ["900 400 116"]
+    }, 
+    {"coma": "Islas Baleares",
+     "patterns": ["Islas Baleares", "Balearic Islands", "Balearia"],
+     "telephone": ["900 100 971"]
+    }, 
+        {"coma": "Canarias",
+     "patterns": ["Canarias", "Canary Islands", "Islas Canarias"],
+     "telephone": ["900 112 061"]
+    }, 
+    {"coma": "La Rioja",
+     "patterns": ["La Rioja"],
+     "telephone": ["941 298 333"]
+    }, 
+    {"coma": "Melilla",
+     "patterns": ["Melilla"],
+     "telephone": ["112"]
+    }, 
+    {"coma": "Murcia",
+     "patterns": ["Murcia"],
+     "telephone": ["900 121 212"]
+    }, 
+    {"coma": "Navarra",
+     "patterns": ["Navarra", "Navarre"],
+     "telephone": ["948 290 290"]
+    }, 
+    {"coma": "Pais Vasco",
+     "patterns": ["Pais Vasco", "Vasque Country"],
+     "telephone": ["900 203 050"]
+    }
+    
+    ]}
+    
+    

@@ -1,0 +1,77 @@
+{"intents": [
+
+    {"tag": "greeting",
+     "patterns": ["Hola", "Hay alguien ahi?", "Buenas", "Qué tal", "Buenos dias"],
+     "responses": ["Hola, gracias por tu visita", "Me alegro de verte", "Hola, ¿cómo te puedo ayudar?"],
+     "context_set": ""
+    },
+    {"tag": "goodbye",
+     "patterns": ["Adiós", "Hasta luego", "¡Hasta pronto!"],
+     "responses": ["Hasta luego \\U0001F44B , gracias por tu visita", "Que tengas un buen día", "¡Adiós! Vuelve pronto."]
+    },
+    {"tag": "thanks",
+     "patterns": ["Gracias", "OK", "Muchas gracias"],
+     "responses": ["¡Encantada de ayudar!", "¡Vuelve cuando quieras!", "Es un placer"]
+    },
+    {"tag": "jokes",
+     "patterns": ["Cuentame una broma", "¿Te sabes alguna broma?", "Dime algo gracioso", "Are you funny?", "Hazme reir"],
+     "responses": ["¿Cuál es el único instrumento musical que se puede recargar? La batería \\U0001F923"]
+    },
+    {"tag": "Chatbot",
+     "patterns": ["¿Quién eres?", "¿Eres real?", "¿Eres un robot?", "Cuéntame de ti", "¿Qué es esto?", "¿Eres humano?", "¿Usas inteligencia artificial?", "¿Qué eres?", "¿Eres una persona?"],
+     "responses": ["Okay... ¿Puedes guardarme un secreto? \\U0001F61C \n\n Soy un programa que usa inteligencia artificial para tratar de entender tus preguntas y darte las respuestas correctas.\n\nAsí que no, no soy humano pero soy tan real como internet.\n\nA veces puedo fallar, y por ello mis creadoras están siempre buscando nuevas formas de mejorar cómo se conectan mis neuronas \\U0001F4A1\\U0001F9E0\\U0001F695"]
+    },
+    {"tag": "ChatbotName",
+     "patterns": ["¿Cómo te llamas?", "¿Cuál es el nombre del chatbot?", "¿Cuál es tu nombre?", "¿Tienes nombre?"],
+     "responses": ["Me llamo Cova"]
+    },
+    {"tag": "ChatbotAge",
+     "patterns": ["¿Cuántos años tienes?", "¿Cuál es tu edad?", "Di tu edad"],
+     "responses": ["No puedo decirte mi edad, cambia cada día \\U0001F60E"]
+    },
+    {"tag": "ChatbotMood",
+     "patterns": ["¿Cómo estás?", "¿Cómo lo llevas?", "¿Estás bien?", "¿Qué haces?", "¿Cómo te encuentras?", "¿Qué tal?"],
+     "responses": ["¡Estoy bien, gracias!", "¡Bastante bien, gracias!"]
+    },
+    {"tag": "ChatbotHelp",
+     "patterns": ["¿Puedes ayudarme?", "Ayúdame", "Necesito ayuda", "Puedes ayudarme", "Ayuda"],
+     "responses": ["Claro, qué necesitas"]
+    },
+    {"tag": "ContactCovid",
+     "patterns": ["He estado en contacto con un positivo", "Tuve contacto con un positivo", "¿Qué hago en contacto con un positivo?", "Mi amigo es positivo", "Un familiar es positivo", "Un compañero de trabajo es positivo", "Un amigo tiene covid", "Mi amigo tiene corona", "Un familiar tiene corona", "Un compañero tiene corona", "He estado en contacto con un positivo", "He estado en contacto con una persona que tiene coronavirus", "He estado en contacto con una persona que tiene covid-19", "He estado en contacto con una persona que tiene corona", "He conocido a un positivo"],
+     "responses": ["En caso de que hayas estado en contacto con alguien con sospecha o confirmación de Covid-19, tienes que hacer cuarentena durante al menos 10 días desde el último contacto. Observa tus síntomas durante la cuarentena y los 4 días tras su finalización \\U0001F575 Si presentas síntomas, llama a tu centro médico o al teléfono Covid de tu Comunidad Autónoma. Puedes preguntarme por el teléfono de tu Comunidad Autónoma \\U0001F4DE\\U0001F9A0\n\nEl virus COVID-19 puede ser transmitido desde dos días antes de la aparición de los síntomas. También lo pueden transmitir personas asintomáticas. Incluso con un test diagnóstico negativo al principio del periodo de cuarentena, es importante mantener la cuarentena hasta el final, ya que los síntomas de la enfermedad pueden aparecer tras el resultado del test y durante el periodo de cuarentena.\n\nSi vives con más personas, debes aislarte en una única habitación de tu casa. \\U0001F9CD\\U0001F6AA. Si es posible, utiliza sólo tu propio baño, sin compartir. \\U0001F6B9\\U0001F6BD\\U0001F6C1. Si no es posible, debes desinfectarlo con lejía tras cada uso \\U0001F9FC. Debes evitar abandonar tu habitación y, cuando sea estrictamente necesario, debes usar mascarilla quirúrgica y lavarte las manos antes de salir (con agua y jabón o con solució hidroalcohólica)."]
+        }, 
+    {"tag": "CovidTelephone",
+         "patterns": ["¿Cuál  es el número covid de mi Comunidad Autónoma?", "Cual es el número covid de", "Cual es el telefono covid de", "Cuál es el numero Covid-19 de", "Cual es el telefono covid de", "Cual es el telefono coronavirus de", "donde puedo llamar?", "Necesito llamar a alguien", "A quien puedo llamar?", "Dame el telefono de", "EL numero de", "Necesito el numero de telefono de", "Puedes darme el numero de telefono de", "Necesito un numero de telefono", "Dime el telefono covid de", "Telefono Covid-19", "Telefono Covid", "Numero Covid"],
+         "responses": ["Es importante no colapsar las líneas telefónicas. Si solo necesitas información, debes llamar al número Covid proporcionado por tu Comunidad Autónoma.\n\n\\U0001F198\\U0000260E En caso de emergencia, llama al 112. "]
+    }, 
+    {"tag": "CovidWhatis",
+         "patterns": ["¿Qué es el Covid-19?", "¿Qué es el coronavirus?", "¿Cómo es el coronavirus?", "Dame información sobre el Covid", "Dame información sobre el coronavirus", "¿Qué es el SARS-CoV-2?", "¿Qué es el corona?"],
+         "responses": ["\\U0001F9A0 Los Coronavirus son una amplia familia de virus que pueden causar infección en humanos y en algunos animales (pájaros y mamíferos). A veces pueden transmitirse de animales a personas.\n\nEl coronavirus SARS-CoV-2 es un nuevo tipo de coronavirus y causa la enfermedad COVID-19. La transmisión se produce por contacto directo de las membranas mucosas de la nariz, ojos o boca con gotas respiratorias emitidas por un contagiado \\U0001F5E3\\U0001F4A6\n\nPor esto es importante mantener una mínima distancia de seguridad de 2 m \\U0001F9CD\\U000025AB\\U000025AB\\U0001F9CD\n\n\\U0001F534 Evidencias reciente del COVID-19 muestran que puede producirse la transmisión desde casos asintomáticos o incluso casos en fase presintomática."]
+    }, 
+    {"tag": "CovidTransmission",
+         "patterns": ["¿Cómo se transmite el Covid-19?", "¿Cómo se extiende el Covid-19?", "Como es la transmisión del Covid", "Dame informacion sobre la transmision del coronavirus", "¿Cómo se transmite el virus?", "¿Cómo te puedes infectar?", "¿Como te infectas de covid?", "Puedo coger covid por tocar una superficie?", "Transmisión de coronavirus"],
+         "responses": ["Los últimos estudios sugieren que la transmisión ocurre mediante el contacto directo de las membranas mucosas de la nariz, ojos o boca con gotas respiratorias emitidas por una persona enferma cuando tose, estornuda, habla o canta \\U0001F5E3\\U0001F4A6\n\nDe esta manera, la transmisión se conoce como aerosol, y es más probable que ocurra cuando las personas están en contacto directo o cercano (menos de 1 metro de distancia) con una persona infectada. Por ello es importante guardar una distancia de al menos 2 metros \\U0001F9CD\\U000025AB\\U000025AB\\U0001F9CD\n\nLa transmisión aerosol puede producirse en escenarios específicos, particularmente en interiores, espacios concurridos e inadecuadamente ventilados, donde las personas se juntan por largos periodos de tiempo. ¡Elige espacios abiertos y con buena ventilación! \\U0001F3DE\\U0001F4A8\n\nEl virus también se puede extender cuando un infectado estornuda, tose, o toca una superficie. Las otras personas se pueden contagiar al tocar dichas superficies, y luego tocarse los ojos, nariz o boca sin haberse lavado las manos antes. Por ello debes lavarte las manos de forma frecuente \\U0001F9F4\\U0001F932 y usar una mascarilla \\U0001F637\n\n¡Ten cuidado! Los nuevos estudios sobre el COVID-19 muestran que se puede producir la transmisión desde infectados asintomáticos o casos en la fase presintomática. \n\nEn cualquier caso, quédate en casa si presentas algún síntoma o si debes hacer cuarentena. \\U0001F3E0"]
+    }, 
+     {"tag": "CovidSymptoms",
+         "patterns": ["¿Cuáles son los síntomas del coronavirus?", "Cómo son los síntomas del coronavirus?", "Dime los síntomas del coronavirus", "Covid sintomas", "Coronavirus síntomas", "Cuál es el síntoma más común", "Como son los sintomas?", "Cuáles son los síntomas?", "Corona síntomas", "Covid-19 síntomas"],
+         "responses": ["Es importante saber que el Covid-19 puede afectar de diferentes maneras dependiendo de la persona.\n\nLos síntomas más comunes son:\n\\U00002714 Fiebre \n\\U00002714 Tos \n\\U00002714 Dificultad respiratoria\n\nOtros síntomas menos comunes son:\n\\U00002714 Pérdida de olfato y gusto\n\\U00002714 Escalofríos\n\\U00002714 Dolor de garganta\n\\U00002714 Dolor muscular\n\\U00002714 Dolor de cabeza\n\\U00002714 Cansancio general\n\\U00002714 Diarrea o vómitos\n\\U00002714 Malestar generalizado\n\nDe media, suelen pasar unos 5-6 días tras la transmisión para que se presenten los síntomas, pero este periodo se puede alargar hasta los 14 días."]
+    },
+    {"tag": "CovidSymptomsON",
+         "patterns": ["Tengo síntomas", "Muestro symptoms", "Tiene symptoms", "Me siento mal", "No me siento bien", "Falta de aliento", "no puedo respirar bien", "difícil respirar", "tengo fiebre", " temperatura es alta", " temperatura es sobre", " temperatura es baja", "tengo tos", "olfato", "gusto", "tengo escalofríos", "me duele la garganta", "dolor mucular", "me duele la cabeza", "siento cansancio", "tengo diarrea", "vomito", "malestar", "me siento mal", "no me siento bien", "me siento enfermo", "me siento mal", "tengo síntomas", "¿qué puedo hacer si tengo síntomas?", "¿qué puedo hacer en el caso de tener síntomas?"],
+         "responses": ["Es importante saber que el Covid-19 puede afectar de diferentes maneras dependiendo de la persona.\n\nSi tienes fiebre, tos, falta de aliento u otros síntomas, debes seguir las siguientes recomendaciones:\n\n\\U0001F3E0 Aíslate en casa\nSi vives con más personas, debes aislarte en una única habitación de tu casa. \\U0001F9CD\\U0001F6AA. Si es posible, utiliza sólo tu propio baño, sin compartir. \\U0001F6B9\\U0001F6BD\\U0001F6C1. Si no es posible, debes desinfectarlo con lejía tras cada uso \\U0001F9FC. Debes evitar abandonar tu habitación y, cuando sea estrictamente necesario, debes usar mascarilla quirúrgica y lavarte las manos antes de salir (con agua y jabón o con solució hidroalcohólica).\n\n\\U0001f575 Observa tus síntomas\nSi tienes la sensación de falta de aire o de vértigo debido a cualquier otro síntoma, llama al 112.\n\n\\U0001F4DE LLama a tu centro de salud o al número Covid de tu Comunidad Autónoma. Puedes preguntarme por el teléfono Covid de tu comunidad\n\n\\U00002764 Cuida de tu salud\n\nPuedes preguntarme si tienes alguna duda respecto al aislamiento, medidas de protección o números de teléfono Covid-19."]
+    },
+    {"tag": "CovidSymptomsOFF",
+         "patterns": ["Me siento bien", "No tengo síntomas", "no siento síntomas","no tiene síntomas", "no síntomas", "Estoy bien", "Me siento bien", "Me siento sano", "no tengo fiebre", "puedo respirar", "no toso", "qué hacer si no tengo síntomas"],
+         "responses": ["\\U00002139 Es importante saber que el Covid-19 puede afectar de diferentes maneras dependiendo de la persona.\n\nEs posible que una persona infectada con Covid-19 no presente ningún síntoma, o solo tenga síntomas leves. De todas maneras, esta persona puede extender el virus contagiando a otras personas.\n\nAdemás, suelen pasar unos 5-6 días tras la transmisión para que se presenten los síntomas, pero este periodo se puede alargar hasta los 14 días."]
+    }, 
+    {"tag": "CovidQuarantine",
+         "patterns": ["¿Qué es cuarentena?", "¿Qué es aislamiento?", "¿Cuánto tiempo dura la cuarentena?", "¿Cómo me aíslo?", "¿Cómo se hace cuarentena?", "Me explicas qué es la cuarentena?", "Dame información sobre la cuarentena", "Cuéntame más sobre el aislamiento", "Qué es aislamiento domiciliario?"],
+         "responses": ["\\U00002139 ¿Qué es la cuarentena?\nEs una medida de salud pública para controlar la transmisión del virus COVID-19. Está indicado para que las personas que se han expuesto al virus notengan contacto con otras personas durante el periodo en el que puedan desarrollar y transmitir la infección.\n\n\\U0001F3E0¿De qué trata la cuarentena?\nLas medidas recomendadas, son permanecer sólo en una habitación del hogar por el mayor tiempo posible, usar un baño propio y usar una mascarilla quirúrgica siempre que abandones dicha habitación. En este caso, los convivientes también deben llevar mascarilla. No debes abandonar tu domicilio durante la cuarentena.\n\n\\U0001F4C5¿Cuánto tiempo dura la cuarentena?\n10 días desde el último contacto con un caso positivo. La cuarentena dura 10 días porque la mayoría de la población desarrolla síntomas los primeros 10 días tras la exposición a un caso COVID-19 positivo. Observa los síntomas durante la cuarentena y durante los 4 días posteriores a su finalización\n\\U00002757¿Por qué es tan importante hacer cuarentena?\nEl COVID-19 puede ser transmitido desde dos días antes de la aparición de los síntomas e incluso por personas asintomáticas.  Incluso con un test diagnóstico negativo al principio del periodo de cuarentena, es importante mantener la cuarentena hasta el final, ya que los síntomas de la enfermedad pueden aparecer tras el resultado del test y durante el periodo de cuarentena."]
+    },
+    {"tag": "CovidMeasures",
+         "patterns": ["Medidas de proteccion", "¿Cómo me protejo del virus?", "Cuales son las medidas de proteccion contra el Covid-19", "Qué puedo hacer para protegerme contra el coronavirus?", "Qué hacer para evitar la infección", "Qué hacer para evitar el Covid"],
+         "responses": ["\\U0001F91D\\U0001F9FC\\U00002728 Lávate las manos con frecuencia.\n\n\\U0001F637 Usa una mascarilla.\n\n\\U0001F645 Evita tocarte la boca, nariz y ojos. Cuando tosas, cubre tu boca y nariz con el codo.\n\n\\U0001F9CD\\U000025AB\\U000025AB\\U0001F9CD Guarda una disatancia de al menos 1.5m con el resto de personas. Limita tus contactos\n\n\\U0001F3DE Prioriza los espacios abiertos.\n\n\\U0001FA9F Ventila los espacios cerrados con frecuencia.\n\n\\U0001F3E0 Quédate en casa si sufres algún síntoma o si tienes que hacer cuarentena."]
+    }
+]
+}
