@@ -51,7 +51,8 @@ app.all('/covid-bot', cors(), function (request, response, nextt) {
 app.get('/covid-bot/pytest', (req, res) => {
 
   var dataToSend; // spawn new child process to call the python script
-  const python = spawn('python', ['public/covidBot/test.py']); // collect data from script
+  //const python = spawn('python', ['public/covidBot/test.py']); // collect data from script
+  const python = spawn('python', ['public/covidBot/test2.py', req.query.input]);
   python.stdout.on('data', function (data) {
     console.log('Pipe data from python script ...');
     dataToSend = data.toString();

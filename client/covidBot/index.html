@@ -3,77 +3,124 @@
         <meta charset = "utf-8"/>
         <meta name ="viewport" content = "width=device-width, initial-scale = 1.0">
         <script src="jquery-1.8.3.min.js"></script>
-        <script src = "covidBot/java.js"></script>
-        <link rel = "stylesheet" href = "covidBot/mystyle.css">
+        <script src = "covidBot/main.js"></script>
+        <link rel = "stylesheet" href = "covidBot/styles/styles.css">
         <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
         <title> Covid Bot </title>
     </head>
     <body>
-    <!-- Navbar (sit on top) -->
-    <div>
-      <div class="w3-bar w3-white w3-wide w3-padding w3-card">
-        <!-- Float links to the right. Hide them on small screens -->
-        <div class="w3-right w3-hide-small">
-          <a href="#inicio" class="w3-bar-item w3-button">Inicio</a>
-          <a href="#about" class="w3-bar-item w3-button">About</a>
-          <a href="#contact" class="w3-bar-item w3-button">Contact</a>
-          <a href="#contact" class="w3-bar-item w3-button">Contact</a>
-          <a href="#contact" class="w3-bar-item w3-button">Contact</a>
-          <a href="#contact" class="w3-bar-item w3-button">Contact</a>
-        </div>
+ 
+      <!-- Navbar (sit on top) -->
+  <div>
+    <div class="w3-bar w3-white w3-wide w3-padding w3-card">
+
+      <!-- Float links to the right. Hide them on small screens -->
+      <div class="w3-right w3-hide-small">
+        <a href="#inicio" class="w3-bar-item w3-button">Inicio</a>
+        <a href="#fuentesInformacion" class="w3-bar-item w3-button">Fuentes de información</a>
+        <a href="#tecnologia" class="w3-bar-item w3-button">Tecnología</a>
+        <a href="#contacto" class="w3-bar-item w3-button">Contacto</a>
+        <a href="#contact" class="w3-bar-item w3-button">Español</a>
       </div>
     </div>
-
-    <div id="inicio" class="section">
+  </div>
+  
+  <div id="inicio">
       <h1>Bienvenido 👋</h1>
-      <h2>Tienes dudas respecto al covid? ¡No te preocupes!</h2>
-      <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="https://google.com" class="urlStyle"> Hopsital Fuenlabrada </a> cursus ante ante, quis euismod purus cursus aliquet. Sed lobortis nulla efficitur ullamcorper iaculis. </h3>
-      <div id="listaInicio" class="claseLista">
-        <ul>
-          <li> <img src="vaccine.png" style="width: 25px; height: 25px;"> Primer elemento</li>
-          <li>Primer elemento</li>
-          <li>Primer elemento</li>
-          <li>Primer elemento</li>
-        </ul>
-        <ul>
-          <li>Primer elemento</li>
-          <li>Primer elemento</li>
-          <li>Primer elemento</li>
-          <li>Primer elemento</li>
-        </ul>
+      <h2>¿Tienes dudas respecto a la Covid-19? ¡No te preocupes!</h2>
+      <h3>Un equipo de ingenieros y médicos del <a href="https://www.comunidad.madrid/hospital/fuenlabrada/" class="urlStyle">Hospital Universitario de Fuenlabrada</a> ha creado a Cova, un chatbot con IA que tratará de ayudarte a resolver tus preguntas. </h3>
+  
+      <div id="listaInicio">
+          <ul>
+              <li>  Información general</li>
+              <li> ¿Qué es el coronavirus?</li>
+              <li>Transmisión del coronavirus</li>
+              <li>Síntomas de la Covid-19</li>
+          </ul>
+
+          <ul>
+              <li> Contacto con positivos</li>
+              <li> Medidas de protección contra el coronavirus</li>
+              <li> Cuarentena </li>
+              <li> Recomendaciones según resultados </li>
+          </ul>
+
       </div>
-      <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. <a href="https://google.com" class="urlStyle"> Hopsital Fuenlabrada </a> cursus ante ante, quis euismod purus cursus aliquet. Sed lobortis nulla efficitur ullamcorper iaculis. </h3>
+      <h3>Pulsa en el icono que se encuentra en la <a href="open_button" class="urlStyle">esquina inferior derecha</a> para hablar con Cova. ¡Todo está listo para comenzar!</h3>
       <div style="text-align: center;">
-        <img id="imagenSectionInicio" src="chatbot.jpg">
+          <img id="imagenSeccionInicio" src="covidBot/images/imagen1.png" >
+      </div>
+
+  </div>
+
+  <div id="fuentesInformacion">
+      <h1>Información en la que puedes confiar</h1>
+      <h3>Toda la información proporcionada ha sido supervisada por un equipo de médicos. Además, hemos contado con fuentes de información ampliamente reconocidas. </h3>
+      <div id="imagenfuentesInformacion">
+          <img  src="covidBot/images/Imagen2.png" style="height:120px">
+          <img  src="covidBot/images/Imagen3.png" style="height:120px">
+          <img  src="covidBot/images/Imagen4.png" style="height:120px">
       </div>
       
-    </div>
-    
-        <i class="icon ion-home"></i>
-        <div class = "chatbox">
-            <button class="open_button" onclick="openchat()"></button>
-            <div class = "chatbox_support" id="chatbox_support">
-                <div class = "chatbox_header">
-                    <img src="icon@2x.png" class="icon_chat">
-                    <div class="circle"></div>
-                    <div class="circle_opaque"></div>
-                    <p id= "live_chat">Live chat with Cova</p>
-                    <p id= "ask_chat">Ask anything</p>
-                    <button id="close_chat" onclick="closechat()"></button>
-                </div>
-                <div class = "chatbox_bottom">
-                    <input type="text" class="input_user" id="input_user" placeholder="Type your message">
-                    <button class="btn"  id="myBtn">
-                    </button>
-                </div>
-                <div class="chat_msg" id="chat_msg">
+  </div>
 
-                </div>
-            </div>
-        </div>
-      </body>
-    
-    </body>
+  <div id="tecnologia">
+      <h1>La tecnología como herramienta contra la desinformación </h1>
+      <h3>Cova ha sido diseñada para ayudarte utilizando algoritmos de Inteligencia Artificial.  Estos algoritmos tratan de predecir qué tipo de información quieres averiguar analizando la pregunta que introduces.</h3>
+      <h3>Los Chatbots han sido utilizados por innumerables compañías para tratar de resolver las dudas de sus clientes y reducir la carga de trabajo de sus empleados.</h3>
+      <h3>Durante los últimos años, hospitales y clínicas han ido incorporando esta tecnología en sus páginas web y APPs para tratar de mejorar la atención a sus pacientes.</h3>
+      <h3>Se acabaron las esperas telefónicas,  las numerosas búsquedas por internet para encontrar la información que buscabas y los mensajes contradictorios de diferentes fuentes. Cova te proporcionará la información necesaria, supervisada por expertos, en un una única búsqueda y de forma accesible. </h3>
+  </div>
+
+  <div id="contacto">
+      <div id="contactoForm">
+          <h1>¿Tienes una duda? ¡Contacta con nosotros! </h1>
+          <form id= "form" action="/my-handling-form-page" method="post">
+              <ul>
+                  <li>
+                      <label for="mail">Correo electrónico:</label>
+                      <input type="email" id="mail" name="user_mail">
+                  </li>
+                  <li>
+                      <label for="msg">Tu duda:</label>
+                      <textarea id="msg" name="user_message"></textarea>
+                      
+                  </li>
+                  <li class="button">
+                      <button type="submit">Enviar</button>
+                  </li>
+              </ul>
+          </form>
+      </div>
+      
+  </div>
+  
+  
+  
+      <i class="icon ion-home"></i>
+  <div class = "chatbox">
+      <button class="open_button" onclick="openchat()"></button>
+      <div class = "chatbox_support" id="chatbox_support">
+          <div class = "chatbox_header">
+              <img src="covidBot/images/icon@2x.png" class="icon_chat">
+              <div class="circle"></div>
+              <div class="circle_opaque"></div>
+              <p id= "live_chat">Live chat with Cova</p>
+              <p id= "ask_chat">Ask anything</p>
+              <button id="close_chat" onclick="closechat()"></button>
+          </div>
+          <div class = "chatbox_bottom">
+              <input type="text" class="input_user" id="input_user" placeholder="Escribe tu mensaje">
+              <button class="btn"  id="myBtn">
+              </button>
+          </div>
+          <div class="chat_msg" id="chat_msg">
+
+          </div>
+      </div>
+  </div>
+
+</body>
 
 </html>
 

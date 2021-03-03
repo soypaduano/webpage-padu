@@ -1,44 +1,125 @@
-
-
 body{
-    background-color: whitesmoke;
+    background-color:rgb(247, 247, 247);
+    font-family: 'Lato', sans-serif;
+}
+
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Lato', sans-serif;
 }
 
 #inicio{
     padding: 50px;
-    width: 60%;
+    width: 75%;
+
 }
 
-#imagenSectionInicio{
-    
-    border-radius: 15px; 
-    box-shadow: 5px 5px 5px  #979797;
-}
-
-.urlStyle{
-    color: gray;
-    font-style: italic;
-}
 
 #listaInicio{
-    display: flex;
-    line-height: 40px;
-    color: gray;
-    opacity: 0.8;
+    display:flex;
+    line-height:40px;
+    color:gray;
+    opacity:0.8;
     font-size: 20px;
 }
 
 #listaInicio ul{
     list-style: none;
     margin-left: 25px;
-    margin-right: 25px;
+    margin-right:25px;
+}
+
+.urlStyle{
+    color:gray;
+    font-style:italic;
+}
+
+#fuentesInformacion{
+    
+    padding: 50px;
+    width: 70%;
+}
+
+#imagenfuentesInformacion{
+    display:flex;
+    
+}
+
+#imagenfuentesInformacion img{
+    margin-right:50px;
+    
+}
+
+#tecnologia{
+    
+    padding: 50px;
+    width: 80%;
+}
+
+#contacto{
+    display:flex;
+}
+
+#contactoForm{
+    
+    padding: 50px;
+    width: 80%;
+}
+
+#contactoForm form{
+    margin-bottom: 100px;
+    width: 500px;
+    padding: 1em;
+}
+
+
+#form ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+#form li + li {
+    margin-top: 1em;
+  }
+
+#form label {
+    width: 100%;
+    text-align: left;
+  }
+
+  #form li{
+      display: grid;
+  }
+
+input, textarea{
+    border-radius: 14px;
+    border: 1px solid rgb(77, 77, 77);
+}
+
+#form button{
+    width: 100px;
+    border: none;
+    background-color: cyan;
+    border-radius: 15px;
+    color: white;
+    margin-left: 200px;
+}
+
+.button{
+    text-align: right;
+}
+
+button {
+/* Este margen adicional representa aproximadamente el mismo espacio que el espacio
+    entre las etiquetas y sus campos de texto */
+margin-left: .5em;
 }
 
 .chatbox{
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    background-color: teal;
+position: fixed;
+bottom: 0;
+right: 0;
+background-color: teal;
 }
 .open_button {
     position: absolute;
@@ -50,7 +131,7 @@ body{
     cursor: pointer;
     border-style: none;
     color: transparent;
-    background-image:url("icon@2x.png");
+    background-image:url("../images/icon@2x.png");
     background-position: center;
     background-repeat:no-repeat;
     background-size: contain;
@@ -103,7 +184,7 @@ body{
     border-top-left-radius: 20px;
     border-top-right-radius: 20px;
     z-index: 2;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial,  Helvetica, sans-serif;
     font-size: 17px;
     font-weight: lighter;
     overflow: visible;
@@ -251,7 +332,7 @@ body{
     border-style: none;
     opacity: 1;
     border-radius: 20px;
-    font-family: "HelveticaNeue-Light";
+    font-family: "tahoma";
     font-weight: 300;
     font-size: 15px;
 }
@@ -271,7 +352,7 @@ body{
     border-style: none;
     opacity: 1;
     border-radius: 20px;
-    font-family: "HelveticaNeue-Light";
+    font-family: "tahoma";
     font-weight: 300;
     font-size: 15px;
   }
