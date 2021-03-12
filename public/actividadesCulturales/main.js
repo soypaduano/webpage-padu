@@ -4,6 +4,8 @@ var test = false;
 var eventosActividadesCulturales;
 var eventosBibliotecas;
 
+var element, $copy;
+
 if (typeof window.orientation !== 'undefined') { 
   console.log('is mobile');
  } else {
@@ -22,16 +24,9 @@ if (typeof window.orientation !== 'undefined') {
  }
 
 
-
-function readEventData(data) {
-  //Evento de un día o evento de varios días?
-  let events = data['@graph'];
-  events = orderByDate(events);
-  events.forEach(element => {
-    let $copy;
-    let recurrence = element['recurrence'];
+ function addDayHour(element){
+let recurrence = element['recurrence'];
     if (recurrence) {
-      $copy = $weeklyEvent.clone();
       let dateEnd = element['dtend'];
       let dayEnd;
       if (!dateEnd) dateEnd = 'No hay fecha de fin'
@@ -45,95 +40,123 @@ function readEventData(data) {
       if (!time) time = 'Sin hora';
       $($copy).find('.event-hour').text('hora: ' + time);
     }
+ }
 
+ function addAudience(element){
+  let audience = element['audience'];
+  if (audience && ((audience === 'Niños' || audience === 'Niños,Familias'))){
+    $($copy).attr('audience', 0)
+    $($copy).find('.event-audience').text('Publico recomendado: ' + audience);
+  } else {
+    $($copy).attr('audience', 1)
+  }
+  return audience;
+ }
+
+ function addDistrict(element){
+  let district = 'no-district'
+  let postalcode = 'no-postal-code'
+  if (element['address']) {
+    district = getDistrict(element['address']['district']['@id']);
+    if (element['address' ['area']] && element['address']['area']['postal-code']) {
+      postalcode = element['address']['area']['postal-code'];
+      $($copy).find('.event-district').text(district + ', ' + postalcode);
+    }
+
+    $($copy).find('.event-district').text(district);
+  }
+  district = district.toUpperCase();
+  $($copy).attr('event-district', district);
+ }
+
+ function addTitleDescription(element){
+  $($copy).find('.event-title').text(element['title']);;
+  let description = element['description'];
+  if (description === '') {
+    $($copy).find('.event-description').html('<p>Este evento no tiene descripción. Para ver más información, pincha aquí: <a id="link-to-event">+ INFO</a></p>')
+    $($copy).find('.event-more-info').find('#link-to-event').remove();
+  } else {
+    $($copy).find('.event-description').text(description);
+  }
+  $($copy).attr('id', element['id']);
+ }
+
+ function addDayStart(element){
+  let dateStart = element['dtstart'];
+  if (!dateStart) dateStart = 'No hay fecha de inicio'
+  let dayStart = dateStart.split(' ');
+  let dayStartFormat;
+  dayStartFormat = transformDateToString(dayStart[0]);
+  $($copy).find('.event-day-start').text('Fecha inicio: ' + dayStartFormat );
+  $($copy).attr('day', dayStart[0]);
+ }
+
+ function addEventLocation(element){
+  let eventLocation = element['event-location'];
+  if (!eventLocation) {
+    eventLocation = 'Sin ubicación'
+    $($copy).find('.event-location').addClass('none');
+  } else {
+    $($copy).find('.event-location').click(function () {
+      window.open("http://google.com/search?q=" + eventLocation);
+    })
+  }
+  $($copy).find('.event-location').text(eventLocation);
+ }
+
+ function addPrice(element){
+  let free = element['free'];
+  if (free) {
+    price = 'Precio: Gratis'
+  } else {
+    price = element['price'];
+    //Caso: no es free, pero no tiene precio
+    if (!price) price = 'Precio: Consultar en la web'
+    else price = 'Precio:' + price;
+  }
+  $($copy).find('.event-price').text(price);
+  $($copy).attr('free', free);
+ }
+
+ function addLink(element){
+  let link = element['link'];
+  $($copy).find('#link-to-event').click(function () {
+    window.open(link);
+  });
+
+  $($copy).find('.shareWhatsapp').click(function () {
+    window.open('whatsapp://send?text=He encontrado este evento en padu.dev/distrito-cultural!: ' + encodeURIComponent(link));
+  });
+ }
+
+
+function readEventData(data) {
+  //Evento de un día o evento de varios días?
+  let events = data['@graph'];
+  //events = events.filter((v,i,a)=>a.findIndex(t=>(t.title === v.))===i)
+  events = orderByDate(events);
+
+  //events.find(x => x.)
+  events.forEach(element_ => {
+    element = element_;
+    //Day and Hour
+    addDayHour(element);
     //Audience
-    let audience = element['audience'];
-    if (audience && ((audience === 'Niños' || audience === 'Niños,Familias'))){
-      $($copy).attr('audience', 0)
-      $($copy).find('.event-audience').text('Publico recomendado: ' + audience);
-    } else {
-      $($copy).attr('audience', 1)
-    }
-
+    let audience = addAudience(element);
     //District
-    let district = 'no-district'
-    let postalcode = 'no-postal-code'
-    if (element['address']) {
-      district = getDistrict(element['address']['district']['@id']);
-      if (element['address' ['area']] && element['address']['area']['postal-code']) {
-        postalcode = element['address']['area']['postal-code'];
-        $($copy).find('.event-district').text(district + ', ' + postalcode);
-      }
-
-      $($copy).find('.event-district').text(district);
-    }
-    district = district.toUpperCase();
-    $($copy).attr('event-district', district);
-
-
+    addDistrict(element);
     //Event title and description
-    $($copy).find('.event-title').text(element['title']);;
-    let description = element['description'];
-    if (description === '') {
-      $($copy).find('.event-description').html('<p>Este evento no tiene descripción. Para ver más información, pincha aquí: <a id="link-to-event">+ INFO</a></p>')
-      $($copy).find('.event-more-info').find('#link-to-event').remove();
-    } else {
-      $($copy).find('.event-description').text(description);
-    }
-
-    //id
-    $($copy).attr('id', element['id']);
-
-    //Date Start 
-    let dateStart = element['dtstart'];
-    if (!dateStart) dateStart = 'No hay fecha de inicio'
-    let dayStart = dateStart.split(' ');
-    let dayStartFormat;
-    dayStartFormat = transformDateToString(dayStart[0]);
-    $($copy).find('.event-day-start').text('Fecha inicio: ' + dayStartFormat );
-    $($copy).attr('day', dayStart[0]);
-
+    addTitleDescription(element);
     //event location
-    let eventLocation = element['event-location'];
-    if (!eventLocation) {
-      eventLocation = 'Sin ubicación'
-      $($copy).find('.event-location').addClass('none');
-    } else {
-      $($copy).find('.event-location').click(function () {
-        window.open("http://google.com/search?q=" + eventLocation);
-      })
-    }
-    $($copy).find('.event-location').text(eventLocation);
-
-
+    addEventLocation(element)
     //Price
-    let free = element['free'];
-    if (free) {
-      price = 'Precio: Gratis'
-    } else {
-      price = element['price'];
-      //Caso: no es free, pero no tiene precio
-      if (!price) price = 'Precio: Consultar en la web'
-      else price = 'Precio:' + price;
-    }
-
-    //No es free, pero no tiene precio  
-    $($copy).find('.event-price').text(price);
-    $($copy).attr('free', free);
-
+    addPrice(element);
     //Link
-    let link = element['link'];
-    $($copy).find('#link-to-event').click(function () {
-      window.open(link);
-    });
-
-
-    $($copy).find('.shareWhatsapp').click(function () {
-      window.open('whatsapp://send?text=He encontrado este evento en padu.dev/distrito-cultural!: ' + encodeURIComponent(link));
-    });
+    addLink(element);
 
     $('#events-list').append($copy);
 
+    
 
     if(!(audience === 'Niños' || audience === 'Niños,Familias')){
         $($copy).show();
