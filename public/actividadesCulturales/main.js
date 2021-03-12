@@ -6,59 +6,59 @@ var eventosBibliotecas;
 
 var element, $copy;
 
-if (typeof window.orientation !== 'undefined') { 
+if (typeof window.orientation !== 'undefined') {
   console.log('is mobile');
- } else {
+} else {
   $('.one-day-event').addClass('desktop');
   $('.weekly-event').addClass('desktop');
- }
+}
 
- let $oneDayEvent;
- let $weeklyEvent;
+let $oneDayEvent;
+let $weeklyEvent;
 
- if(!test){
+if (!test) {
   $oneDayEvent = $('.one-day-event').remove();
   $weeklyEvent = $('.weekly-event').remove();
   $($oneDayEvent).hide();
   $($weeklyEvent).hide();
- }
+}
 
 
- function addDayHour(element){
-let recurrence = element['recurrence'];
-    if (recurrence) {
-      let dateEnd = element['dtend'];
-      let dayEnd;
-      if (!dateEnd) dateEnd = 'No hay fecha de fin'
-      else dayEnd = dateEnd.split(' ')[0]
-      dayEnd = transformDateToString(dayEnd)
-      $($copy).find('.event-day-end').text('Fecha fin: ' + dayEnd);
-      $($copy).attr('dtend', "1");
-    } else {
-      $copy = $oneDayEvent.clone();
-      let time = element['time'];
-      if (!time) time = 'Sin hora';
-      $($copy).find('.event-hour').text('hora: ' + time);
-    }
- }
+function addDayHour(element) {
+  let recurrence = element['recurrence'];
+  if (recurrence) {
+    let dateEnd = element['dtend'];
+    let dayEnd;
+    if (!dateEnd) dateEnd = 'No hay fecha de fin'
+    else dayEnd = dateEnd.split(' ')[0]
+    dayEnd = transformDateToString(dayEnd)
+    $($copy).find('.event-day-end').text('Fecha fin: ' + dayEnd);
+    $($copy).attr('dtend', "1");
+  } else {
+    $copy = $oneDayEvent.clone();
+    let time = element['time'];
+    if (!time) time = 'Sin hora';
+    $($copy).find('.event-hour').text('hora: ' + time);
+  }
+}
 
- function addAudience(element){
+function addAudience(element) {
   let audience = element['audience'];
-  if (audience && ((audience === 'Niños' || audience === 'Niños,Familias'))){
+  if (audience && ((audience === 'Niños' || audience === 'Niños,Familias'))) {
     $($copy).attr('audience', 0)
     $($copy).find('.event-audience').text('Publico recomendado: ' + audience);
   } else {
     $($copy).attr('audience', 1)
   }
   return audience;
- }
+}
 
- function addDistrict(element){
+function addDistrict(element) {
   let district = 'no-district'
   let postalcode = 'no-postal-code'
   if (element['address']) {
     district = getDistrict(element['address']['district']['@id']);
-    if (element['address' ['area']] && element['address']['area']['postal-code']) {
+    if (element['address'['area']] && element['address']['area']['postal-code']) {
       postalcode = element['address']['area']['postal-code'];
       $($copy).find('.event-district').text(district + ', ' + postalcode);
     }
@@ -67,9 +67,9 @@ let recurrence = element['recurrence'];
   }
   district = district.toUpperCase();
   $($copy).attr('event-district', district);
- }
+}
 
- function addTitleDescription(element){
+function addTitleDescription(element) {
   $($copy).find('.event-title').text(element['title']);;
   let description = element['description'];
   if (description === '') {
@@ -79,19 +79,19 @@ let recurrence = element['recurrence'];
     $($copy).find('.event-description').text(description);
   }
   $($copy).attr('id', element['id']);
- }
+}
 
- function addDayStart(element){
+function addDayStart(element) {
   let dateStart = element['dtstart'];
   if (!dateStart) dateStart = 'No hay fecha de inicio'
   let dayStart = dateStart.split(' ');
   let dayStartFormat;
   dayStartFormat = transformDateToString(dayStart[0]);
-  $($copy).find('.event-day-start').text('Fecha inicio: ' + dayStartFormat );
+  $($copy).find('.event-day-start').text('Fecha inicio: ' + dayStartFormat);
   $($copy).attr('day', dayStart[0]);
- }
+}
 
- function addEventLocation(element){
+function addEventLocation(element) {
   let eventLocation = element['event-location'];
   if (!eventLocation) {
     eventLocation = 'Sin ubicación'
@@ -102,9 +102,9 @@ let recurrence = element['recurrence'];
     })
   }
   $($copy).find('.event-location').text(eventLocation);
- }
+}
 
- function addPrice(element){
+function addPrice(element) {
   let free = element['free'];
   if (free) {
     price = 'Precio: Gratis'
@@ -116,9 +116,9 @@ let recurrence = element['recurrence'];
   }
   $($copy).find('.event-price').text(price);
   $($copy).attr('free', free);
- }
+}
 
- function addLink(element){
+function addLink(element) {
   let link = element['link'];
   $($copy).find('#link-to-event').click(function () {
     window.open(link);
@@ -127,7 +127,7 @@ let recurrence = element['recurrence'];
   $($copy).find('.shareWhatsapp').click(function () {
     window.open('whatsapp://send?text=He encontrado este evento en padu.dev/distrito-cultural!: ' + encodeURIComponent(link));
   });
- }
+}
 
 
 function readEventData(data) {
@@ -156,10 +156,10 @@ function readEventData(data) {
 
     $('#events-list').append($copy);
 
-    
 
-    if(!(audience === 'Niños' || audience === 'Niños,Familias')){
-        $($copy).show();
+
+    if (!(audience === 'Niños' || audience === 'Niños,Familias')) {
+      $($copy).show();
     }
   });
 
@@ -174,11 +174,11 @@ function getDistrict(district) {
   return lastSegment;
 }
 
-function transformDateToString(dateString){
-  var dt=new Date(dateString);
-  if(isToday(dt)) {
+function transformDateToString(dateString) {
+  var dt = new Date(dateString);
+  if (isToday(dt)) {
     return 'Hoy';
-  } else if(isTomorrow(dt)) {
+  } else if (isTomorrow(dt)) {
     return 'Mañana';
   } else {
     return dateString;
@@ -188,11 +188,11 @@ function transformDateToString(dateString){
 $(document).ready(function () {
   loadingAnim();
   addListenerCreator();
-  if(!test) doRequestActividadesCulturales();
+  if (!test) doRequestActividadesCulturales();
 })
 
 
-function doRequestActividadesCulturales(){
+function doRequestActividadesCulturales() {
   var currentURL = window.location.href;
   var urlEvents = currentURL + '/request';
   doEventsRequest(urlEvents);
@@ -203,7 +203,7 @@ function doEventsRequest(url) {
     url: url,
     type: 'GET',
     dataType: 'json',
-    complete: function (req, data, error) {},
+    complete: function (req, data, error) { },
     success: function (data) {
       readEventData(data);
     },
@@ -255,7 +255,7 @@ function addListenerFilters() {
 
     //Dropdown filter
     var valueSelect = $($('#district-filter').find('option:selected')).text();
-    if(valueSelect !== 'DISTRITOS') filters.push($($('#district-filter').find('option:selected')));
+    if (valueSelect !== 'DISTRITOS') filters.push($($('#district-filter').find('option:selected')));
     applyFilters(filters);
   });
 
@@ -267,10 +267,10 @@ function addListenerFilters() {
     $('.filter.selected').each(function () {
       filters.push($(this))
     })
-    
+
     //Dropdown filter
     var valueSelect = $($(this).find('option:selected')).text();
-    if(valueSelect !== 'DISTRITOS') filters.push($($(this).find('option:selected')))
+    if (valueSelect !== 'DISTRITOS') filters.push($($(this).find('option:selected')))
 
     applyFilters(filters);
   })
@@ -280,10 +280,10 @@ function applyFilters(filters) {
   var audience = false;
   filters.forEach(function (element) {
     var id = $(element).attr('id');
-    if(id === 'audience') audience = true;
+    if (id === 'audience') audience = true;
   });
 
-  if(audience){
+  if (audience) {
     $('li').show();
   } else {
     $('li[audience=0]').hide();
@@ -295,13 +295,13 @@ function applyFilters(filters) {
     var value = $(element).attr('value')
     var comparision = '!=';
 
-    if(id === 'event-district') value = '"' + value + '"';
+    if (id === 'event-district') value = '"' + value + '"';
 
     var a = 'li:visible[' + id + comparision + value + ']'
     $(a).toggle();
   });
 
-  $('li:visible').length === 0 ? $('#no-events').show() :  $('#no-events').hide();
+  $('li:visible').length === 0 ? $('#no-events').show() : $('#no-events').hide();
 }
 
 function addListenerCreator() {
@@ -317,15 +317,15 @@ function addListenerCreator() {
 const isToday = (date) => {
   const today = new Date()
   return date.getDate() === today.getDate() &&
-      date.getMonth() === today.getMonth() &&
-      date.getFullYear() === today.getFullYear();
+    date.getMonth() === today.getMonth() &&
+    date.getFullYear() === today.getFullYear();
 };
 
 const isTomorrow = (date) => {
   const today = new Date()
   return date.getDate() === today.getDate() + 1 &&
-      date.getMonth() === today.getMonth() &&
-      date.getFullYear() === today.getFullYear();
+    date.getMonth() === today.getMonth() &&
+    date.getFullYear() === today.getFullYear();
 };
 
 function loadingAnim() {
