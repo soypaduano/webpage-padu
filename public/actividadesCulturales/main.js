@@ -1,3 +1,44 @@
+
+var arr = [
+  {
+    "nombre": "sarah",
+    "edad": 1
+  },
+  {
+    "nombre": "pedro",
+    "edad": 2
+  },
+  {
+    "nombre": "sarah",
+    "edad": 3
+  },
+  {
+    "nombre": "sebas",
+    "edad": 4
+  },
+  {
+    "nombre": "sebas",
+    "edad": 5
+  },
+  {
+    "nombre": "pablo",
+    "edad": 6
+  },
+  {
+    "nombre": "juan",
+    "edad": 7
+  },
+  {
+    "nombre": "sarah",
+    "edad": 8
+  }
+]
+
+
+
+
+
+
 var dotsAnim;
 var test = false;
 
@@ -50,6 +91,7 @@ function addAudience(element) {
   } else {
     $($copy).attr('audience', 1)
   }
+  console.log(audience);
   return audience;
 }
 
@@ -129,18 +171,23 @@ function addLink(element) {
   });
 }
 
+function removeRepeatedEvents(events) {
+  let uniqueArray = events.filter((v,i,a)=>a.findIndex(t=>(t.title === v.title))===i)
+  return uniqueArray;
+}
+
 
 function readEventData(data) {
   //Evento de un día o evento de varios días?
-  let events = data['@graph'];
-  //events = events.filter((v,i,a)=>a.findIndex(t=>(t.title === v.))===i)
+  let events = data['@graph']
   events = orderByDate(events);
+  let uniqueEvents = removeRepeatedEvents(events);
 
-  //events.find(x => x.)
-  events.forEach(element_ => {
+  uniqueEvents.forEach(element_ => {
     element = element_;
     //Day and Hour
     addDayHour(element);
+    addDayStart(element);
     //Audience
     let audience = addAudience(element);
     //District
@@ -158,7 +205,7 @@ function readEventData(data) {
 
 
 
-    if (!(audience === 'Niños' || audience === 'Niños,Familias')) {
+    if (!(audience === 'Niños' || audience === 'Niños,Familias' || audience == 'Jovenes' || audience == 'Familias')) {
       $($copy).show();
     }
   });

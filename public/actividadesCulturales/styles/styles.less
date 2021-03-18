@@ -2,23 +2,16 @@
 @font-description: 'Work Sans', sans-serif;
 
 @color-black: #262626;
-@color-gray-background: #A8D0DB;
-@color-gray-event: #FFFFFF;
+@color-blue-strong: #00adb1;
+@color-blue-light:#6D696A;
+@color-blue-light-background: #A8D0DB;
+@color-white-event: #FFFFFF;
 @color-link: #00d3d6;
 @color-hover: yellow;
 
-
-@color-blue-light:#6D696A;
-@color-blue-strong: #00adb1;
-@color-yellow: #f59d25;
-@color-beige: #f9f6f6;
-@color-rosa: #f4a8bd;
-@color-red: #e84256;
-
-
 body {
   margin: 35px;
-  background-color: @color-gray-background;
+  background-color: @color-blue-light-background;
   font-family: @font-title;
 
   .header-donator{
@@ -138,7 +131,7 @@ body {
     font-size: 1.5rem;
     padding: 15px;
     margin-bottom: 15px;
-    background: @color-gray-event;
+    background: @color-white-event;
     color: rgb(0, 0, 0);
     border: 1px solid @color-black;
 
@@ -309,7 +302,7 @@ body {
       }
 
       &.none {
-        color: @color-gray-background;
+        color: @color-blue-light-background;
         cursor: initial;
         &:hover {
           text-decoration: none;
@@ -341,12 +334,12 @@ body {
 
   .no-events {
     display: none;
-    background-color: @color-gray-background;
+    background-color: @color-blue-light-background;
     width: 100%;
     font-size: 50px;
     color: @color-black;
     border: 1px solid @color-black;
-    background-color: @color-gray-event;
+    background-color: @color-white-event;
     text-align: center;
     cursor: pointer;
   }
@@ -356,7 +349,7 @@ body {
     width: 100%;
     font-size: 30px;
     color: @color-black;
-    background-color: @color-gray-event;
+    background-color: @color-white-event;
     border: 1px solid @color-black;
     .text {
       margin-left: 15px;
