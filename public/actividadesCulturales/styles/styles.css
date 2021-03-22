@@ -156,7 +156,7 @@ body .filter-container .filter:hover {
 }
 body .event-head {
   display: inline-flex;
-  width: 90%;
+  width: 85%;
 }
 body .event-head .event-title {
   position: relative;

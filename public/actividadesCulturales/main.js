@@ -1,44 +1,4 @@
 
-var arr = [
-  {
-    "nombre": "sarah",
-    "edad": 1
-  },
-  {
-    "nombre": "pedro",
-    "edad": 2
-  },
-  {
-    "nombre": "sarah",
-    "edad": 3
-  },
-  {
-    "nombre": "sebas",
-    "edad": 4
-  },
-  {
-    "nombre": "sebas",
-    "edad": 5
-  },
-  {
-    "nombre": "pablo",
-    "edad": 6
-  },
-  {
-    "nombre": "juan",
-    "edad": 7
-  },
-  {
-    "nombre": "sarah",
-    "edad": 8
-  }
-]
-
-
-
-
-
-
 var dotsAnim;
 var test = false;
 
@@ -188,23 +148,15 @@ function readEventData(data) {
     //Day and Hour
     addDayHour(element);
     addDayStart(element);
-    //Audience
-    let audience = addAudience(element);
-    //District
-    addDistrict(element);
-    //Event title and description
-    addTitleDescription(element);
-    //event location
-    addEventLocation(element)
-    //Price
-    addPrice(element);
-    //Link
-    addLink(element);
+    let audience = addAudience(element); //Audience
+    addDistrict(element); //District
+    addTitleDescription(element); //Event title and description
+    addEventLocation(element) //event location
+    addPrice(element);//Price
+    addLink(element); //Link
 
     $('#events-list').append($copy);
-
-
-
+    
     if (!(audience === 'Niños' || audience === 'Niños,Familias' || audience == 'Jovenes' || audience == 'Familias')) {
       $($copy).show();
     }
@@ -227,6 +179,8 @@ function transformDateToString(dateString) {
     return 'Hoy';
   } else if (isTomorrow(dt)) {
     return 'Mañana';
+  } else if (isPastTomorrow(dt)) {
+    return 'Pasado Mañana';
   } else {
     return dateString;
   }
@@ -371,6 +325,13 @@ const isToday = (date) => {
 const isTomorrow = (date) => {
   const today = new Date()
   return date.getDate() === today.getDate() + 1 &&
+    date.getMonth() === today.getMonth() &&
+    date.getFullYear() === today.getFullYear();
+};
+
+const isPastTomorrow = (date) => {
+  const today = new Date()
+  return date.getDate() === today.getDate() + 2 &&
     date.getMonth() === today.getMonth() &&
     date.getFullYear() === today.getFullYear();
 };
