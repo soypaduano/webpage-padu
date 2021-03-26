@@ -97,10 +97,11 @@ body #mc_embed_signup_scroll {
 }
 body ol {
   counter-reset: section;
+  margin-left: 0px;
+  padding-left: 0px;
 }
 body li {
   list-style-type: none;
-  width: 95%;
   position: relative;
   font-size: 1.5rem;
   padding: 15px;
@@ -162,6 +163,7 @@ body .event-head .event-title {
   position: relative;
   font-size: 30px;
   font-weight: bold;
+  line-height: 32px;
 }
 body .event-head .event-district {
   position: absolute;
@@ -283,7 +285,6 @@ body .no-events {
   cursor: pointer;
 }
 body .loading {
-  padding: 10px;
   width: 100%;
   font-size: 30px;
   color: #262626;
@@ -296,7 +297,7 @@ body .loading .text {
 body .loading #dots {
   font-size: 35px;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 900px) {
   body .title {
     font-size: 28px;
   }
@@ -327,6 +328,7 @@ body .loading #dots {
     font-size: 15px;
   }
   body .filter-container .filter {
+    width: 15%;
     font-size: 15px;
   }
   body .filter-container select {
@@ -338,6 +340,7 @@ body .loading #dots {
   }
   body .event-head .event-title {
     font-size: 26px;
+    line-height: 27px;
   }
   body .event-head .event-district {
     font-size: 16px;
@@ -355,6 +358,12 @@ body .loading #dots {
   }
   body .no-events {
     font-size: 25px;
+  }
+  body .loading {
+    font-size: 18px;
+  }
+  body .loading #dots {
+    font-size: 20px;
   }
 }
 @media screen and (max-width: 425px) {
@@ -388,9 +397,6 @@ body .loading #dots {
   }
   body .event-data-container .event-small-data {
     font-size: 13px;
-  }
-  body li {
-    margin-left: -20px;
   }
   body input[type=email] {
     width: 40%;
