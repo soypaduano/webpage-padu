@@ -1,4 +1,69 @@
+@colorA: #ee7752;
+@colorB: #e73c7e;
+@colorC: #23a6d5;
+@colorD:  #23d5ab;
+
 body{
     font-family: 'Alice', serif;
-    background-color: rgb(218, 216, 214);
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    color: white;
 }
+
+#header{
+    display: flex;
+}
+
+.image-cropper {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    overflow: hidden;
+    border-radius: 50%;
+    right: 0;
+    margin-right: 25px;
+    border: 2px double white;
+    img {
+        display: inline;
+        margin: 0 auto;
+        height: 100%;
+        width: 100px;
+        background-image: url("images/padu.jpg");
+        background-size: cover;
+        &:hover{
+            background-image: url("images/padu2.jpg");
+            background-size: cover;
+        }
+      }
+  }
+
+
+#project-container {
+    padding: 10px;
+    .project{
+        border: 1px solid black;
+        background: linear-gradient(-45deg, #23a6d5, #23d5ab, #ee7752, #e73c7e);
+        color: black;
+        padding: 15px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+
+    .project:hover{
+        border: 2px solid black;
+    }
+
+    a {
+        color: black;
+        font-size: 25px;
+        &.small-link{
+            font-size: 15px;
+        }
+    }
+
+    p{
+        font-size: 18px;
+    }
+}
+
+
+
