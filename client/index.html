@@ -5,24 +5,24 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="styles.css" />
   <script src="/socket.io/socket.io.js"></script>
   <script src="jquery-1.8.3.min.js"></script>
-  <title> PADU 🚴‍♂️  </title>
+  <title> PADU 🚴‍♂️ </title>
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="index/styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
 
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-CNXFQX900J"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <link rel="stylesheet" href="index/styles.css">
+  <script href="js/main.js"> </script>
 
-  gtag('config', 'G-CNXFQX900J');
-</script>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CNXFQX900J"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-CNXFQX900J');
+  </script>
 
 </head>
 
@@ -30,82 +30,158 @@
 
   <div id="header">
     <div id="title">
-      <h2>
-        ¡hello! ¡hola! 👋
-      </h2>
-      <h3>
-        I am redesigning the web so now is under changes ⚠️
-      </h3>
-    </div>
-    
-    <div class="image-cropper">
-      <img class="rounded" />
+      <div class="warning">
+        😥⚠️ I'm redesigning the web and implementing new features and projects. Is not completed 😥⚠️
+      </div>
+
+      <div class="hello">
+        <p> ¡hello! ¡hola! <span class="blog-title-emoji">👋</span> i'm sebastian </p>
+        <div data-toggle="tooltip" data-placement="right" title="Tooltip on right" class="image-cropper">
+          <img class="rounded" />
+        </div>
+      </div>
+
+      <div class="about-me">
+        Passionate web developer with 4 years of experience in the e-learning sector. Committed to utilizing my skills
+        to further the mission of a company. Creative, honest and good team mate.
+      </div>
+
     </div>
   </div>
 
-    <div id="project-container">
+  <br>
+  <br>
+
+  <h2 class="section-title"> Work Experience </h2>
+
+  <div id="project-container">
     <div class="project">
-      <a href="/aprende-programacion">Aprende Programacion (2017-now)</a>
+      <h3> <a href="/aprende-programacion">Aprende Programacion (2017-now)</a></h3>
       <p>
         Aprende Programacion is a service I created to help university students to find online
-        teachers. 20 students from different ages were taught by me and other teachers. Mostly
+        teachers. 20 students from different ages were taught by me and other team mates. Mostly
         Unity 3D, Java (OOP) and Javascript.
       </p>
     </div>
 
     <div class="project">
-      <a href="/frases-trap"> Frases del Trap (2018)</a>
+      <h3> <a href="/frases-trap"> Frases del Trap (2018)</a> </h3>
       <p>
-        Frases del Trap is a web project where I used viral phrases and interviews of rappers
+        Frases del Trap is a web experimental project where I used viral phrases and interviews of rappers. Done in
+        Javascript, HTML5 and CSS.
       </p>
     </div>
-    
+
     <div class="project">
-    <a href=""> Adidas Hackathon (Madrid) </a>
-    <p>Adidas IT organized 4 hackathons around Europe: Madrid, Barcelona, Sofia and Berlín. We developed a prototype in Arduino to check how the user
-      step on the shoe and correct it depending on the sport. The Arduino was connected to a server (developed in Spring) that sent all the information processed to an Android App.
-      <b>We got the second position out of 15 teams</b>
-    </p>
-    <iframe width="460" height="215" src="https://www.youtube.com/embed/o3CZJfYd_Ks" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <br>
-    <a class="small-link" href="https://www.google.com">Click here to see the full video</a>
+      <h3> Adidas Hackathon @ Madrid (2018) </h3>
+      <p>Adidas IT organized 4 hackathons around Europe: Madrid, Barcelona, Sofia and Berlín. We developed a prototype
+        in Arduino to check how the user
+        step on the shoe and correct it depending on the sport. The Arduino was connected to a server (developed in
+        Spring) that sent all the information processed to an Android App.
+        <b>We got the second position out of 15 teams</b>
+      </p>
+      <iframe width="460" height="215" src="https://www.youtube.com/embed/o3CZJfYd_Ks" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+      <br>
+      <a class="small-link" href="https://www.youtube.com/watch?v=SWhT1KT1L1c&t=27s">Click here to see the full Adidas
+        video</a>
     </div>
 
     <div class="project">
-      <a>Programa La Plaza (2019)</a>
-      <iframe title="vimeo-player" src="https://player.vimeo.com/video/376363469" width="640" height="360" frameborder="0" allowfullscreen></iframe>
+      <h3>Programa La Plaza (2019)</h3>
+      <p> <a href="https://www.medialab-prado.es/"> MediaLab Prado </a> organized a visual contest called Programa la
+        Plaza (Code the Square) that was exposed in a 10 meters led-screen in Madrid. Done in three.js </b>
+      </p>
+      <br>
+      <iframe width="460" height="215" title="vimeo-player" src="https://player.vimeo.com/video/376363469"
+        frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <div class="project">
+      <h3>Hack 4 Good Telefonica (Winners at 2017, 2018, 2019) </h3>
+      <p> <a href="https://www.medialab-prado.es/"> Hack 4 Good </a> is a Spanish famous hackathon where the objective
+        is to develop an idea with social impact. </b>
+      </p>
+      <br>
+      <iframe width="460" height="215" src="https://www.youtube.com/embed/gs9E3NVcMBo" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen></iframe>
+    </div>
+
+    <div class="project">
+      <h3> <a href="https://www.smartickcoding.com/public/list/hoc/?language=es_ES"> Smartick Coding (2018 - 2021) </a>
+      </h3>
+      <p>
+        <a href="https://www.smartickcoding.com/public/list/hoc/?language=es_ES">Smartick</a> is a platform that helps
+        kids from 4-14 years old to learn math and coding.
+        I co-lead the Coding project from a technical to strategic point. Strong knowledge in JavaScript, CSS
+        and Java 8. Also worked with:
+        Google Cloud Platform, Maven, SQL, Jenkins, Spring & Hibernate and Jira Software. Product
+        co-leader and responsible for 4 people team.
+      </p>
+      <br>
+    </div>
+
+    <div class="project">
+      <h3> <a href="/bicis-boardman"> Boardman Bikes (2020) </a></h3>
+      <p>
+        Web for a client
+      </p>
+      <br>
+    </div>
+
+    <div class="project">
+      <h3> <a href="/password-game"> Password Game (2020) </a></h3>
+      <p>
+        Videogame / web I created during the lockdown. It shows the horror of creating a new password in some webs out
+        there.
+      </p>
+      <br>
+      <br>
+      <br>
+    </div>
+
+    <div class="project">
+      <h3> <a href="https://www.jovenmustio.com"> Joven Mustio Web (2020) </a></h3>
+      <p>
+        Joven Mustio is an artist based in Glasgow / Madrid. I created his personal website / portfolio. Purely HTML5,
+        Javascript and CSS.
+      </p>
+      <br>
+    </div>
+
+    <div class="project">
+      <h3> Makey Makey Experiment (2020) </a></h3>
+      <p>
+        Just messing around with the Makey Makey and Javascript for playing the sounds.
+      </p>
+      <br>
+      <iframe width="460" height="215" src="https://www.youtube.com/embed/4opwuyXk5IQ" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture allowfullscreen"></iframe>
+    </div>
+
+    <div class="project">
+      <h3> <a href="/distrito-cultural"> Distrito Cultural (2021) </a> </a></h3>
+      <p>
+        Madrid has a lot of cultural events that don't get the diffusion its deserve and the website where are posted,
+        is awful. I created Distrito Cultural in order to re-organize the events
+        in a more comprehensive way. Distrito Cultural gets data from the OpenSource database of Madrid. Done in
+        Node.js.
+      </p>
+    </div>
+
+    <div class="project">
+      <h3> <a href="/madrid-flag"> Madrid Flag (2021) </a> </a></h3>
+      <p>
+        Little experiment with WebGL
+      </p>
     </div>
 
 
-    
-    
-    <br>
-    <p>Hack 4 Good (Winners)</p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/gs9E3NVcMBo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <br> 
-    <a href="https://www.smartickcoding.com/public/list/hoc/?language=es_ES">Smartick Coding (2018 - 2021)</a>
-    <br>
-    <a href="/bicis-boardman">bicis boardman (client 2020)</a>
-    <br>
-    <a href="/password-game"> password minigame (2020)</a>
-    <br>
-    <a href="https://www.jovenmustio.com">joven mustio web (2020)</a>
-    <br>
-    <p>makey makey experiment (2020)</p>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/4opwuyXk5IQ" frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen></iframe>
-    <br>
-    <a href="/distrito-cultural">distrito cultural (2021)</a>
-    <br>
-    <a href="/madrid-flag">history of madrid's shields (2021) </a>
-   
-    <p>Two Instagram Filters: Ciudad Lineal & 2DeMayo</p>
-    <br>
-    
-   
 
-  </body>
+
+</body>
 </body>
 
 </html>
