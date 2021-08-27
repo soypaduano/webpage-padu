@@ -79,6 +79,25 @@ body {
   padding-left: 10px;
   color: black;
 }
+#skills-container {
+  padding: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+#skills-container .skill-card {
+  width: fit-content;
+  height: fit-content;
+  border: 2px solid black;
+  background-color: white;
+  font-size: 34px;
+  border-radius: 15px;
+  margin: 10px;
+}
+#skills-container .skill-card span {
+  color: black;
+  padding: 15px;
+}
 #project-container {
   padding: 20px;
   padding-left: 30px;
@@ -93,12 +112,18 @@ body {
   margin-bottom: 20px;
   box-shadow: 5px 8px 8px #979797;
 }
+#project-container .project.color1 {
+  background: linear-gradient(-45deg, #23a6d5, #23d5ab, #ee7752, #e73c7e);
+}
+#project-container .project.color2 {
+  background: linear-gradient(-45deg, #e73c7e, #23a6d5, #ee7752, #23d5ab);
+}
 #project-container .project:hover {
   box-shadow: 10px 12px 12px #979797;
 }
 #project-container h3 {
   color: white;
-  font-size: 25px;
+  font-size: 26px;
   margin-bottom: 10px;
   margin-top: 5px;
 }
@@ -110,6 +135,18 @@ body {
   text-decoration: underline;
 }
 #project-container p {
-  padding: 10px;
-  font-size: 20px;
+  padding: 5px;
+  padding-right: 15px;
+  font-size: 23px;
+  letter-spacing: 0.4px;
+  width: 75%;
+}
+#project-container img {
+  width: 20%;
+  height: 20%;
+  border-radius: 5%;
+  border: 2px solid white;
+}
+#project-container .description-container {
+  display: flex;
 }
