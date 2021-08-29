@@ -9,6 +9,7 @@ body {
 #header {
   display: flex;
   color: black;
+  text-align: center;
 }
 #header .hello {
   font-size: 36px;
