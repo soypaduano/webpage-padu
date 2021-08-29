@@ -90,9 +90,17 @@ body {
   height: fit-content;
   border: 2px solid black;
   background-color: white;
-  font-size: 34px;
   border-radius: 15px;
   margin: 10px;
+}
+#skills-container .skill-card.strong {
+  font-size: 32px;
+}
+#skills-container .skill-card.medium {
+  font-size: 26px;
+}
+#skills-container .skill-card.weak {
+  font-size: 22px;
 }
 #skills-container .skill-card span {
   color: black;
