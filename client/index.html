@@ -11,7 +11,10 @@
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
-
+  <script src="https://unpkg.com/scrollreveal"></script>
+  <script>
+    ScrollReveal({ reset: true });
+</script>
   <link rel="stylesheet" href="index/styles.css">
   <script src="index/js/main.js"> </script>
   <link rel="icon" href="index/images/favicon.ico">
@@ -37,21 +40,41 @@
 
       <div class="hello">
         <p> ¡hello! ¡hola! <span class="blog-title-emoji">👋</span> i'm sebastian </p>
-        <div data-toggle="tooltip" data-placement="right" title="Tooltip on right" class="image-cropper">
-          <img class="rounded" />
-        </div>
+          <div class="image-cropper">
+            <img class="rounded" />
+          </div>
       </div>
 
       <div class="about-me">
-        Passionate web developer with 4 years of experience in the e-learning sector. Committed to utilizing my skills
+        Passionate web developer with <a id="cv" href="index/images/CV_SEBAS.pdf" download="CV_SEBASTIAN_PADUANO"> 4 years of experience in the e-learning sector </a>. Committed to utilizing my skills
         to further the mission of a company. Creative, honest and good team mate.
       </div>
 
     </div>
   </div>
 
-  <br>
-  <br>
+  <div id="social-container">
+    <div class="social-card">
+      <a href="https://github.com/soypaduano">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg">
+      </a>
+    </div>
+
+    <div class="social-card">
+      <a href="https://stackoverflow.com/users/9684719/sebastian-paduano">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/e/ef/Stack_Overflow_icon.svg">
+      </a>      
+    </div>
+
+    <div class="social-card">
+      <a href="https://stackoverflow.com/users/9684719/sebastian-paduano">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/LinkedIn_logo_initials.png">
+      </a>      
+    </div>
+
+    
+
+  </div>
 
   <div id="skills-container">
     <div class="skill-card strong">
@@ -65,7 +88,7 @@
     </div>
 
     <div class="skill-card strong">
-      <span> HTML </span>
+      <span id="prueba"> HTML </span>
       <img href="">
     </div>
 
@@ -75,7 +98,7 @@
     </div>
 
     <div class="skill-card weak">
-      <span> React.js & Vue </span>
+      <span> React & Vue </span>
       <img href="">
     </div>
 
@@ -86,6 +109,11 @@
 
     <div class="skill-card medium">
       <span> Unity 3D & C# </span>
+      <img href="">
+    </div>
+
+    <div class="skill-card medium">
+      <span> JS Animations </span>
       <img href="">
     </div>
 
@@ -165,44 +193,51 @@
     <div class="project">
       <h3> <a href="https://www.smartickcoding.com/public/list/hoc/?language=es_ES"> Smartick Coding (2018 - 2021) </a>
       </h3>
-      <p>
-        <a href="https://www.businessinsider.es/funciona-metodo-aprendizaje-matematicas-smartick-770783">Smartick</a> is a platform that helps
-        kids from 4-14 years old to learn math and coding.
-        I co-lead the Coding project from a technical to strategic point. Strong knowledge in JavaScript, CSS
-        and Java 8. Also worked with:
-        Google Cloud Platform, Maven, SQL, Jenkins, Spring & Hibernate and Jira Software. Product
-        co-leader and responsible for 4 people team.
-      </p>
-      <br>
+      <div class="description-container">
+        <p>
+          <a href="https://www.businessinsider.es/funciona-metodo-aprendizaje-matematicas-smartick-770783">Smartick</a> is a platform that helps
+          kids from 4-14 years old to learn math and coding.
+          I co-lead the Coding project from a technical to strategic point. Strong knowledge in JavaScript, CSS
+          and Java 8. Also worked with:
+          Google Cloud Platform, Maven, SQL, Jenkins, Spring & Hibernate and Jira Software. Product
+          co-leader and responsible for 4 people team.
+        </p>
+        <img src="index/images/CODING_GIF.gif">
+      </div>
+    
       <a class="small-link" href="https://www.smartickcoding.com/public/list/hoc/?language=es_ES">Click here to play!</a>
     </div>
 
     <div class="project">
       <h3> <a href="/bicis-boardman"> Boardman Bikes (2020) </a></h3>
-      <p>
-        Web for a client developed with Javascript, JQuery and Less.
-      </p>
-      <br>
+      <div class="description-container">
+        <p>
+          Web for a client developed with Javascript, JQuery and Less.
+        </p>
+        <img src="index/images/BOARDMAN_BIKES.gif">
+      </div>
     </div>
 
     <div class="project">
       <h3> <a href="/password-game"> Password Game (2020) </a></h3>
-      <p>
-        Videogame / web I created during the lockdown. It shows the horror of creating a new password in some webs out
-        there.
-      </p>
-      <br>
-      <br>
-      <br>
+      <div class="description-container">
+        <p>
+          Videogame / web I created during the lockdown. It shows the horror of creating a new password in some webs out
+          there.
+        </p>
+        <img src="index/images/PASSWORD_GIF.gif">
+      </div>
     </div>
 
     <div class="project">
       <h3> <a href="https://www.jovenmustio.com"> Joven Mustio Web (2020) </a></h3>
-      <p>
-        Joven Mustio is an artist based in Glasgow / Madrid. I created his personal website / portfolio. Purely HTML5,
-        Javascript and CSS.
-      </p>
-      <br>
+      <div class="description-container">
+        <p>
+          Joven Mustio is an artist based in Glasgow / Madrid. I created his personal website / portfolio. Purely HTML5,
+          Javascript and CSS.
+        </p>
+        <img src="index/images/MUSTIO_GIF.gif">
+      </div>
     </div>
 
     <div class="project">
