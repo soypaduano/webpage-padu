@@ -1,19 +1,26 @@
 body {
   font-family: 'Alice', serif;
-  background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background: #E2CFCF;
   color: white;
 }
-.warning {
-  background-color: #e25353;
+a {
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  background-color: black;
+  padding: 5px;
+}
+a:hover {
+  background-color: #C1EDCC;
+  color: black;
 }
 #header {
   display: flex;
   color: black;
-  text-align: center;
   cursor: url('index/images/pink_dot.png');
 }
 #header .hello {
-  font-size: 36px;
+  font-size: 65px;
   padding: 10px;
   display: flex;
 }
@@ -55,30 +62,9 @@ body {
   }
 }
 #header .about-me {
-  font-size: 28px;
+  font-size: 30px;
   padding: 15px;
-}
-#header .about-me a {
-  color: white;
-}
-.image-cropper {
-  width: 100px;
-  height: 100px;
-  overflow: hidden;
-  border-radius: 50%;
-  border: 2px double white;
-}
-.image-cropper img {
-  display: inline;
-  margin: 0 auto;
-  height: 100%;
-  width: 100px;
-  background-image: url("images/padu.jpg");
-  background-size: cover;
-}
-.image-cropper img:hover {
-  background-image: url("images/padu2.jpg");
-  background-size: cover;
+  line-height: 50px;
 }
 .section-title {
   padding-left: 10px;
@@ -87,12 +73,16 @@ body {
 #social-container {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  background-color: none;
 }
 #social-container img {
   width: 50px;
   height: 50px;
   margin: 20px;
+}
+#social-container a {
+  padding: 0;
+  background-color: #E2CFCF;
 }
 #skills-container {
   padding: 20px;
