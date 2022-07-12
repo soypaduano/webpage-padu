@@ -10,9 +10,8 @@ var http = require('http');
 
 var request = require('request');
 
-var path = require("path");
+var path = require("path"); //const reload = require("reload");
 
-var reload = require("reload");
 
 var bodyParser = require('body-parser');
 
