@@ -1,5 +1,9 @@
-@font-title: 'Taviraj', serif;
-@font-description: 'Work Sans', sans-serif;
+@font-test1: 'Alice', serif;
+@font-test2: 'Work Sans', sans-serif;
+@font-test3: 'Cabin', sans-serif;
+
+@background-color: #fbece2;
+@highlight-color: #e2d4ff;
 
 @color-black: #262626;
 @color-blue-strong: #00adb1;
@@ -10,9 +14,9 @@
 @color-hover: yellow;
 
 body {
-  margin: 35px;
-  background-color: @color-blue-light-background;
-  font-family: @font-title;
+  margin: 40px;
+  background-color: @background-color;
+  font-family: @font-test1;
 
   .header-donator{
     display: flex;
@@ -25,19 +29,61 @@ body {
     }
     .donate:hover{
       background-color: rgba(255, 255, 0, 0.918);
-    }
-
-    form{
-      position: relative;
-      margin-left: 50px;
+      font-weight: bold;
     }
   }
+
+  .header-container{
+    background-color: white;
+    padding: 10px;
+    border: 2px solid black;
+    margin-top: 20px;
+    &.title{
+      width: 80%;
+    }
+
+    &.description{
+      position: relative;
+      width: 65%;
+      left: 30%;
+    }
+  }
+
+  h1 {
+    font-size: 48px;
+    .city {
+      font-size: 56px;
+      text-decoration: underline;
+    }
+  }
+
+  h3{
+    padding: 10px;
+    font-size: 28px;
+    font-weight: normal;
+  }
+
+  .important{
+    background-image: linear-gradient(transparent 60%, @highlight-color 60%);
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: top center;
+  }
+
+  .description-separator{
+    text-align: center;
+    margin: 0 !important;
+    padding: 0 !important;
+    margin-bottom: 0px;
+    font-size: 26px;
+  }
+
+
 
   button {
     -webkit-border-radius: 0;
     -moz-border-radius: 0;
     border-radius: 0;
-    font-family: 'Taviraj', serif;
     color: @color-black;
     font-size: 20px;
     font-weight: 100;
@@ -61,59 +107,9 @@ body {
     border: 4px double @color-black;
   }
 
-  .title {
-    margin-top: 20px;
-    font-size: 48px;
-    .city {
-      font-size: 56px;
-      text-decoration: underline;
-    }
-  }
-
-  .description {
-    margin-top: 10px;
-    padding: 10px;
-    font-size: 33px;
-    font-family: @font-description;
-    b{
-      font-size: 35px;
-      color: black;
-    }
-  }
-
-  .newsletter-container {
-    display: inline-flex;
-    font-size: 23px;
-    font-family: @font-description;
-    input {
-      margin-left: 25px;
-    }
-  }
-
-  .newsletter-text{
-    font-size: 24px;
-  }
-
-
-
   .creator {
     font-size: 1vw;
     color: @color-black;
-
-    .padu {
-      font-style: italic;
-      text-decoration: underline;
-      border: 1px solid @color-black;
-      color: @color-black;
-      font-size: 1.2vw;
-      padding: 5px;
-      cursor: pointer;
-      background-color: white;
-    }
-
-    .padu:hover {
-      border: 2px dashed @color-blue-strong;
-    }
   }
 
   #mc_embed_signup_scroll{
@@ -166,9 +162,9 @@ body {
     select {
       background-color: white;
       border: 2px solid @color-black;
-      font-family: 'Taviraj', serif;
       font-weight: bold;
       font-size: 20px;
+      font: @font-test1;
     }
 
     .filter {
@@ -180,20 +176,13 @@ body {
       padding: 10px;
       border: 2px solid @color-black;
       cursor: pointer;
+      font-family: @font-test1;
 
       &.selected {
         border: 2px solid @color-black;
         background-color: @color-blue-strong;
         color: white;
       }
-
-      &.selected:hover {
-        border: 2px solid @color-black;
-      }
-    }
-
-    .filter:hover {
-      border: 2px dashed @color-blue-strong;
     }
   }
 
@@ -223,7 +212,6 @@ body {
 
   .event-description {
     font-size: 20px;
-    font-family: @font-description;
     font-stretch: condensed;
 
     #link-to-event{
@@ -251,7 +239,6 @@ body {
     background-color: white;
     border: 1px solid @color-black;
     width: 100%;
-    font-family: @font-description;
     display: inline-flex;
   }
 
@@ -500,7 +487,6 @@ body {
       -webkit-border-radius: 0;
       -moz-border-radius: 0;
       border-radius: 0;
-      font-family: @font-description;
       color: @color-black;
       font-size: 20px;
       font-weight: 100;
@@ -573,7 +559,6 @@ input[type=submit]{
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   border-radius: 0;
-  font-family: @font-description;
   color: @color-black;
   font-size: 20px;
   font-weight: 100;
@@ -597,13 +582,11 @@ input[type=email] {
   -webkit-border-radius: 1px;
   border-radius: 1px;
   font-size: 25px;
-  font-family: @font-description;
 }
 
 input[type=text]:focus {
   border: 3px double @color-black;
   font-size: 20px;
   background-color: white;
-  font-family: @font-description;
   font-style: italic;
 }

@@ -10,6 +10,10 @@ var http = require('http');
 
 var request = require('request');
 
+var path = require("path");
+
+var reload = require("reload");
+
 var bodyParser = require('body-parser');
 
 var _require = require('child_process'),
