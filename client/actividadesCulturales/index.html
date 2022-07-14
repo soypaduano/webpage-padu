@@ -7,19 +7,22 @@
   <title>Distrito Cultural</title>
   <meta content="width=device-width, initial-scale=1" name="viewport" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name=”description” content="Distrito Cultural es una web que recopila todos los eventos organizados por el Ayuntamiento de Madrid por distritos y gratuitos. Hecha por Sebastián Paduano”">
+  <meta name=”description”
+    content="Distrito Cultural es una web que recopila todos los eventos organizados por el Ayuntamiento de Madrid por distritos y gratuitos. Hecha por Sebastián Paduano”">
   <meta name="keywords" content="Madrid, Eventos, Gratis, Cultura, Ocio, Municipio, Barrio, Musica, Teatro">
   <meta name="author" content="Sebastian Paduano">
 
-<meta property="og:title" content="Eventos en distritos de Madrid">
-<meta property="og:description" content="Todos los eventos más secretos de la ciudad">
-<meta property="og:image" content="https://ep01.epimg.net/elpais/imagenes/2019/01/03/icon_design/1546532105_431806_1546705431_noticia_normal_recorte1.jpg">
-<meta property="og:url" content="https://padu.dev/distrito-cultural">
+  <meta property="og:title" content="Eventos en distritos de Madrid">
+  <meta property="og:description" content="Todos los eventos más secretos de la ciudad">
+  <meta property="og:image"
+    content="https://ep01.epimg.net/elpais/imagenes/2019/01/03/icon_design/1546532105_431806_1546705431_noticia_normal_recorte1.jpg">
+  <meta property="og:url" content="https://padu.dev/distrito-cultural">
 
-<meta name="twitter:title" content="Eventos en distritos de Madrid">
-<meta name="twitter:description" content="Todos los eventos más secretos de la ciudad">
-<meta name="twitter:image" content="https://ep01.epimg.net/elpais/imagenes/2019/01/03/icon_design/1546532105_431806_1546705431_noticia_normal_recorte1.jpg">
-<meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Eventos en distritos de Madrid">
+  <meta name="twitter:description" content="Todos los eventos más secretos de la ciudad">
+  <meta name="twitter:image"
+    content="https://ep01.epimg.net/elpais/imagenes/2019/01/03/icon_design/1546532105_431806_1546705431_noticia_normal_recorte1.jpg">
+  <meta name="twitter:card" content="summary_large_image">
 
 
   <link rel="stylesheet" href="actividadesCulturales/styles/styles.css">
@@ -34,116 +37,145 @@
 <body>
 
   <body>
-    <div class="header-donator">
-        <div class="creator"><span class="padu">padu</span>  2022 </div>
+
+    <div id="header-section">
+      <div class="header-donator">
+        <div class="creator"><span class="padu">padu</span> 2022 </div>
         <div class="donate">¡Ayudame a mantener el proyecto!</div>
+      </div>
+
+      <div class="header-container title">
+        <h1> Eventos y actividades culturales en distritos de <span class="city">Madrid.</span></h1>
+      </div>
+
+      <div class="header-container description">
+        <h3>En Madrid hay una gran cantidad de <span class="important"> eventos en centros culturales, bibliotecas,
+            parques y plazas</span> que apenas tienen difusión.
+          <br>
+          <p class="description-separator">. . .</p>
+          Esta web pretende estructurar la información para <span class="important"> facilitar la visualización </span>y
+          hacer estos eventos más accesibles. </b>
+        </h3>
+      </div>
+
+      <div style="text-align: center;">
+        <br>
+        <p>
+          .
+        </p>
+        <p>
+          .
+        </p>
+        <p>
+          .
+        </p>
+      </div>
+
     </div>
-   
-    <div class="header-container title">
-      <h1> Eventos y actividades culturales en distritos de <br> <span class="city">Madrid.</span></h1>
-    </div>
-      
-    <div class="header-container description">
-    <h3>En Madrid hay una gran cantidad de <span class="important"> eventos en centros culturales, bibliotecas, parques y plazas</span> que apenas tienen difusión. 
-       <br>
-      <p class="description-separator">. . .</p>
-       Esta web pretende estructurar la información para <span class="important"> facilitar la visualización  </span>y hacer estos eventos más accesibles. </b>
-    </h3>
-    </div>
+
+    <div id="event-section">
+      <div class="filter-container">
+        <div class="filter" id="day"> Hoy </div>
+        <div class="filter" id="free" value="1"> Gratis </div>
+        <div class="filter" id="dtend" value="1"> Semanal </div>
+        <div class="filter" id="audience" value="0"> Para niños </div>
+        <select class="filter-dropdown" id="district-filter">
+          <option id="event-district" selected="ALL" value="ALL">DISTRITOS</option>
+          <option id="event-district" value="ARGANZUELA"> ARGANZUELA </option>
+          <option id="event-district" value="BARAJAS"> BARAJAS </option>
+          <option id="event-district" value="CARABANCHEL"> CARABANCHEL </option>
+          <option id="event-district" value="CENTRO"> CENTRO </option>
+          <option id="event-district" value="CHAMARTIN"> CHAMARTIN </option>
+          <option id="event-district" value="CHAMBERI"> CHAMBERI </option>
+          <option id="event-district" value="CIUDAD LINEAL"> CIUDAD LINEAL </option>
+          <option id="event-district" value="FUENCARRAL-ELPARDO"> FUENCARRAL-EL PARDO </option>
+          <option id="event-district" value="HORTALEZA"> HORTALEZA </option>
+          <option id="event-district" value="LATINA"> LATINA </option>
+          <option id="event-district" value="MONCLOA-ARAVACA"> MONCLOA-ARAVACA </option>
+          <option id="event-district" value="MORATALAZ"> MORATALAZ </option>
+          <option id="event-district" value="PUENTEDEVALLECAS"> PUENTE DE VALLECAS </option>
+          <option id="event-district" value="RETIRO"> RETIRO </option>
+          <option id="event-district" value="SALAMANCA"> SALAMANCA </option>
+          <option id="event-district" value="SAN BLAS-CANILLEJAS"> SAN BLAS-CANILLEJAS </option>
+          <option id="event-district" value="TETUAN"> TETUAN </option>
+          <option id="event-district" value="USERA"> USERA </option>
+          <option id="event-district" value="VICALVARO"> VICALVARO </option>
+          <option id="event-district" value="VILLADEVALLECAS"> VILLA DE VALLECAS </option>
+          <option id="event-district" value="VILLAVERDE"> VILLAVERDE </option>
+        </select>
+      </div>
   
-
-    <div class="filter-container">
-      <div class="filter" id="day"> Hoy </div>
-      <div class="filter" id="free" value="1"> Gratis </div>
-      <div class="filter" id="dtend" value="1"> Semanal </div>
-      <div class="filter" id="audience" value="0"> Para niños </div>
-      <select class="filter" id="district-filter">
-        <option id="event-district" selected="ALL" value="ALL">DISTRITOS</option>
-        <option id="event-district" value="ARGANZUELA"> ARGANZUELA </option>
-        <option id="event-district" value="BARAJAS"> BARAJAS </option>
-        <option id="event-district" value="CARABANCHEL"> CARABANCHEL </option>
-        <option id="event-district" value="CENTRO"> CENTRO </option>
-        <option id="event-district" value="CHAMARTIN"> CHAMARTIN </option>
-        <option id="event-district" value="CHAMBERI"> CHAMBERI </option>
-        <option id="event-district" value="CIUDAD LINEAL"> CIUDAD LINEAL </option>
-        <option id="event-district" value="FUENCARRAL-ELPARDO"> FUENCARRAL-EL PARDO </option>
-        <option id="event-district" value="HORTALEZA"> HORTALEZA </option>
-        <option id="event-district" value="LATINA"> LATINA </option>
-        <option id="event-district" value="MONCLOA-ARAVACA"> MONCLOA-ARAVACA </option>
-        <option id="event-district" value="MORATALAZ"> MORATALAZ </option>
-        <option id="event-district" value="PUENTEDEVALLECAS"> PUENTE DE VALLECAS </option>
-        <option id="event-district" value="RETIRO"> RETIRO </option>
-        <option id="event-district" value="SALAMANCA"> SALAMANCA </option>
-        <option id="event-district" value="SAN BLAS-CANILLEJAS"> SAN BLAS-CANILLEJAS </option>
-        <option id="event-district" value="TETUAN"> TETUAN </option>
-        <option id="event-district" value="USERA"> USERA </option>
-        <option id="event-district" value="VICALVARO"> VICALVARO </option>
-        <option id="event-district" value="VILLADEVALLECAS"> VILLA DE VALLECAS </option>
-        <option id="event-district" value="VILLAVERDE"> VILLAVERDE </option>
-      </select>
-    </div>
-
-    <div class="list-container">
-
-      <ol id="events-list">
-        <li event-district="Latina" class="one-day-event" url="">
-          <div class="event-head">
-            <div class="event-title">Un titulo así bien largote para poder diferenciar con el distrito y poder ver más
-              cosas en la mediaquerie</div>
-            <div class="event-district">Hortaleza</div>
-          </div>
-          <p class="event-description">Qui dolorem ipsum quia dolor sit amet, consectetur nobis est eligendi optio
-            cumque
-            nihil impedit.</p>
-          <div class="event-data-container">
-            <div class='event-small-data event-location'>@ Centro Cultural Conde Duque</div>
-            <div class="event-small-data event-day-start">Día: 15-09-2020</div>
-            <div class="event-small-data event-hour">Hora: <span>18:30</span> - <span>23:00</span></div>
-            <div class="event-small-data event-price">Precio: 10 euros</div>
-            <div class="event-small-data event-audience"></div>
-          </div>
-          <div class="event-more-info">
-            <a id="link-to-event">+ INFO</a>
-            <div class="shareWhatsapp"> Compartir <div class="whatsappImage"></div></div>
-          </div>
-        </li>
-
-        <li event-district="Latina" class="weekly-event" url="">
-          <div class="event-head">
-            <div class="event-title">Aintzira</div>
-            <div class="event-district">Hortaleza</div>
-          </div>
-          <p class="event-description">Qui dolorem ipsum quia dolor sit amet, consectetur nobis est eligendi optio
-            cumque
-            nihil impedit.</p>
-          <div class="event-data-container">
-            <div class='event-small-data event-location '>@ Centro Cultural Conde Duque</div>
-            <div class="event-small-data event-day-start">Día inicio: 15-09-2020</div>
-            <div class="event-small-data event-day-end">Día fin: 15-09-2020</div>
-            <div class="event-small-data event-day-recurrence">Semanal</div>
-            <div class="event-small-data event-price">Entrada general: 10 euros</div>
-            <div class="event-small-data event-audience"></div>
-          </div>
-          <div class="event-more-info">
-            <a id="link-to-event">+ INFO</a>
-            <div class="shareWhatsapp"> Compartir <div class="whatsappImage"></div></div>
-          </div>
-        </li>
-
-      </ol>
-
-
-      <div class="no-events" id="no-events">No hay eventos 😟 </div>
-      <div class="no-events" id="wrong-message">Algo ha ido mal 😟 <br> 
+      <div class="list-container">
+  
+        <ol id="events-list">
+          <li event-district="Latina" class="one-day-event" url="">
+            <div class="event-head">
+              <div class="event-title">Un titulo así bien largote para poder diferenciar con el distrito y poder ver más
+                cosas en la mediaquerie</div>
+              <div class="event-district">Hortaleza</div>
+            </div>
+            <p class="event-description">Qui dolorem ipsum quia dolor sit amet, consectetur nobis est eligendi optio
+              cumque
+              nihil impedit.</p>
+            <div class="event-data-container">
+              <div class='event-small-data event-location'>@ Centro Cultural Conde Duque</div>
+              <div class="event-small-data event-day-start">Día: 15-09-2020</div>
+              <div class="event-small-data event-hour">Hora: <span>18:30</span> - <span>23:00</span></div>
+              <div class="event-small-data event-price">Precio: 10 euros</div>
+              <div class="event-small-data event-audience"></div>
+            </div>
+            <div class="event-more-info">
+              <a id="link-to-event">+ INFO</a>
+              <div class="shareWhatsapp"> Compartir <div class="whatsappImage"></div>
+              </div>
+            </div>
+          </li>
+  
+          <li event-district="Latina" class="weekly-event" url="">
+            <div class="event-head">
+              <div class="event-title">Aintzira</div>
+              <div class="event-district">Hortaleza</div>
+            </div>
+            <p class="event-description">Qui dolorem ipsum quia dolor sit amet, consectetur nobis est eligendi optio
+              cumque
+              nihil impedit.</p>
+            <div class="event-data-container">
+              <div class='event-small-data event-location '>@ Centro Cultural Conde Duque</div>
+              <div class="event-small-data event-day-start">Día inicio: 15-09-2020</div>
+              <div class="event-small-data event-day-end">Día fin: 15-09-2020</div>
+              <div class="event-small-data event-day-recurrence">Semanal</div>
+              <div class="event-small-data event-price">Entrada general: 10 euros</div>
+              <div class="event-small-data event-audience"></div>
+            </div>
+            <div class="event-more-info">
+              <a id="link-to-event">+ INFO</a>
+              <div class="shareWhatsapp"> Compartir <div class="whatsappImage"></div>
+              </div>
+            </div>
+          </li>
+  
+        </ol>
+  
+  
+        <div class="no-events" id="no-events">No hay eventos 😟 </div>
+        <div class="no-events" id="wrong-message">Algo ha ido mal 😟 <br>
           Es posible que se deba a un problema técnico de la web del ayuntamiento.
           Si encuentras otro problema, escribe a <a href="https://www.instagram.com/padu.soy/">padu</span></a></div>
-
-      <div class="loading"> <span class="text"> cargando los eventos (puede tardar un poco 🕒) </span> <span id="dots"> . .
-          . </span> </div>
+  
+        <div class="loading"> <span class="text"> cargando los eventos (puede tardar un poco 🕒) </span> <span id="dots">
+            . .
+            . </span> </div>
+      </div>
     </div>
+
 
     <script src="actividadesCulturales/main.js"></script>
 
-</body>
+  </body>
 
 </html>
+
+
+<script src="/reload/reload.js">
+
+</script>

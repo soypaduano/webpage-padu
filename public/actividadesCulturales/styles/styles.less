@@ -1,8 +1,12 @@
-@font-test1: 'Alice', serif;
-@font-test2: 'Work Sans', sans-serif;
+@font-test2: 'Alice', serif;
+@font-test1: 'Work Sans', sans-serif;
 @font-test3: 'Cabin', sans-serif;
 
-@background-color: #fbece2;
+@background-color2: #fbece2;
+@background-color: #cee4ca;
+
+@button-color: #F08080;
+@button-color-background: #f3b0b0;
 @highlight-color: #e2d4ff;
 
 @color-black: #262626;
@@ -34,6 +38,7 @@ body {
   }
 
   .header-container{
+    box-shadow:10px 12px 0px rgba(0, 0, 0, 0.13);
     background-color: white;
     padding: 10px;
     border: 2px solid black;
@@ -77,8 +82,6 @@ body {
     margin-bottom: 0px;
     font-size: 26px;
   }
-
-
 
   button {
     -webkit-border-radius: 0;
@@ -167,21 +170,36 @@ body {
       font: @font-test1;
     }
 
-    .filter {
-      background-color: white;
-      font-size: 25px;
-      margin-right: 10px;
-      margin-left: 10px;
-      font-weight: bold;
-      padding: 10px;
-      border: 2px solid @color-black;
+    .filter, .filter-dropdown {
+      display: inline-block;
+      padding: 0.25rem 0.75rem;
+      margin: 1rem 0.5rem 0 0;
+      font-size: 1.2rem;
+      font-family: SpaceGroteskRegular,sans-serif;
+      line-height: 130%;
+      background-color: #ff9d7a;
+      border: 2px solid #5b0505;
+      color: #5b0505;
+      border-radius: 1rem;
+      text-decoration: none;
+      position: relative;
+      top: 0;
       cursor: pointer;
-      font-family: @font-test1;
+      transition: .35s;
+      font-weight: normal;
 
+      &:hover{
+        top: 0.25rem;
+        box-shadow: 0 -1px 0 #5b0505,0 -3px 0 -1px #5b0505,0 -5px 0 -2px #5b0505,0 -7px 0 -3px #5b0505,0 -9px 0 -5px #5b0505,0 -11px 0 -6px #5b0505;
+      }
+      
       &.selected {
-        border: 2px solid @color-black;
-        background-color: @color-blue-strong;
-        color: white;
+        background-color: #5b0505;
+        color: #ff9d7a;
+        &:hover{
+          top: 0.25rem;
+          box-shadow: 0 -1px 0 #ff9d7a,0 -3px 0 -1px #ff9d7a,0 -5px 0 -2px #ff9d7a,0 -7px 0 -3px #ff9d7a,0 -9px 0 -5px #ff9d7a,0 -11px 0 -6px #ff9d7a;
+        }
       }
     }
   }
@@ -541,16 +559,16 @@ body {
 }
 
 body::-webkit-scrollbar-track {
-  background-color: aliceblue;
+  background-color: @background-color;
 }
 
 body::-webkit-scrollbar {
   width: 12px;
-  background-color: #F5F5F5;
+  background-color: @background-color;
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: @color-blue-strong;
+  background-color: @highlight-color;
 }
 
 input[type=submit]{

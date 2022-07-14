@@ -1,7 +1,7 @@
 body {
   margin: 40px;
-  background-color: #fbece2;
-  font-family: 'Alice', serif;
+  background-color: #cee4ca;
+  font-family: 'Work Sans', sans-serif;
 }
 body .header-donator {
   display: flex;
@@ -18,6 +18,7 @@ body .header-donator .donate:hover {
   font-weight: bold;
 }
 body .header-container {
+  box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
   background-color: white;
   padding: 10px;
   border: 2px solid black;
@@ -125,23 +126,41 @@ body .filter-container select {
   border: 2px solid #262626;
   font-weight: bold;
   font-size: 20px;
-  font: 'Alice', serif;
+  font: 'Work Sans', sans-serif;
 }
-body .filter-container .filter {
-  background-color: white;
-  font-size: 25px;
-  margin-right: 10px;
-  margin-left: 10px;
-  font-weight: bold;
-  padding: 10px;
-  border: 2px solid #262626;
+body .filter-container .filter,
+body .filter-container .filter-dropdown {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  margin: 1rem 0.5rem 0 0;
+  font-size: 1.2rem;
+  font-family: SpaceGroteskRegular, sans-serif;
+  line-height: 130%;
+  background-color: #ff9d7a;
+  border: 2px solid #5b0505;
+  color: #5b0505;
+  border-radius: 1rem;
+  text-decoration: none;
+  position: relative;
+  top: 0;
   cursor: pointer;
-  font-family: 'Alice', serif;
+  transition: 0.35s;
+  font-weight: normal;
 }
-body .filter-container .filter.selected {
-  border: 2px solid #262626;
-  background-color: #00adb1;
-  color: white;
+body .filter-container .filter:hover,
+body .filter-container .filter-dropdown:hover {
+  top: 0.25rem;
+  box-shadow: 0 -1px 0 #5b0505, 0 -3px 0 -1px #5b0505, 0 -5px 0 -2px #5b0505, 0 -7px 0 -3px #5b0505, 0 -9px 0 -5px #5b0505, 0 -11px 0 -6px #5b0505;
+}
+body .filter-container .filter.selected,
+body .filter-container .filter-dropdown.selected {
+  background-color: #5b0505;
+  color: #ff9d7a;
+}
+body .filter-container .filter.selected:hover,
+body .filter-container .filter-dropdown.selected:hover {
+  top: 0.25rem;
+  box-shadow: 0 -1px 0 #ff9d7a, 0 -3px 0 -1px #ff9d7a, 0 -5px 0 -2px #ff9d7a, 0 -7px 0 -3px #ff9d7a, 0 -9px 0 -5px #ff9d7a, 0 -11px 0 -6px #ff9d7a;
 }
 body .event-head {
   display: inline-flex;
@@ -435,14 +454,14 @@ body .loading #dots {
   }
 }
 body::-webkit-scrollbar-track {
-  background-color: aliceblue;
+  background-color: #cee4ca;
 }
 body::-webkit-scrollbar {
   width: 12px;
-  background-color: #F5F5F5;
+  background-color: #cee4ca;
 }
 body::-webkit-scrollbar-thumb {
-  background-color: #00adb1;
+  background-color: #e2d4ff;
 }
 input[type=submit] {
   height: 100%;
