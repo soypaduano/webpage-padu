@@ -4,7 +4,7 @@ var app = express();
 var http = require('http');
 var request = require('request');
 var path = require("path");
-const reload = require("reload");
+//const reload = require("reload");
 
 var bodyParser = require('body-parser')
 const {spawn} = require('child_process');
@@ -81,4 +81,4 @@ app.get('/covid-bot/pytest', (req, res) => {
     })
   });
 
-reload(app);
+//reload(app);
