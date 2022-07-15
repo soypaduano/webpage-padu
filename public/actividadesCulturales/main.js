@@ -35,7 +35,7 @@ function addDayHour(element) {
     $copy = $oneDayEvent.clone();
     let time = element['time'];
     if (!time) time = 'Sin hora';
-    $($copy).find('.event-hour').text('hora: ' + time);
+    $($copy).find('.event-hour').text('' + time);
   }
 }
 
@@ -46,6 +46,7 @@ function addAudience(element) {
     $($copy).find('.event-audience').text('Publico recomendado: ' + audience);
   } else {
     $($copy).attr('audience', 1)
+    $($copy).find('.event-audience').remove();
   }
   console.log(audience);
   return audience;
@@ -71,7 +72,7 @@ function addTitleDescription(element) {
   $($copy).find('.event-title').text(element['title']);;
   let description = element['description'];
   if (description === '') {
-    $($copy).find('.event-description').html('<p>Este evento no tiene descripción. Para ver más información, pincha aquí: <a id="link-to-event">+ INFO</a></p>')
+    $($copy).find('.event-description').html('<p>Este evento no tiene descripción. Para ver más información, <a id="link-to-event"> pincha aquí.</a></p>')
     $($copy).find('.event-more-info').find('#link-to-event').remove();
   } else {
     $($copy).find('.event-description').text(description);
@@ -85,14 +86,15 @@ function addDayStart(element) {
   let dayStart = dateStart.split(' ');
   let dayStartFormat;
   dayStartFormat = transformDateToString(dayStart[0]);
-  $($copy).find('.event-day-start').text('Fecha inicio: ' + dayStartFormat);
+  $($copy).find('.event-day-start').text('' + dayStartFormat);
   $($copy).attr('day', dayStart[0]);
 }
 
 function addEventLocation(element) {
+  $($copy).find('.event-location').removeClass('none');
   let eventLocation = element['event-location'];
   if (!eventLocation) {
-    eventLocation = 'Sin ubicación'
+    eventLocation = 'Sin ubicación' //no location
     $($copy).find('.event-location').addClass('none');
   } else {
     $($copy).find('.event-location').click(function () {
@@ -105,12 +107,12 @@ function addEventLocation(element) {
 function addPrice(element) {
   let free = element['free'];
   if (free) {
-    price = 'Precio: Gratis'
+    price = 'Gratis'
   } else {
     price = element['price'];
     //Caso: no es free, pero no tiene precio
     if (!price) price = 'Precio: Consultar en la web'
-    else price = 'Precio:' + price;
+    else price = '' + price;
   }
   $($copy).find('.event-price').text(price);
   $($copy).attr('free', free);
@@ -118,11 +120,16 @@ function addPrice(element) {
 
 function addLink(element) {
   let link = element['link'];
+
+  $($copy).find('.event-title').click(function () {
+    window.open(link);
+  });
+
   $($copy).find('#link-to-event').click(function () {
     window.open(link);
   });
 
-  $($copy).find('.shareWhatsapp').click(function () {
+  $($copy).find('.share-whatsapp').click(function () {
     window.open('whatsapp://send?text= He encontrado este evento. Fichalo. ' + encodeURIComponent(link));
   });
 }

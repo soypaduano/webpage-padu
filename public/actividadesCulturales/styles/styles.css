@@ -93,6 +93,8 @@ body ol {
   counter-reset: section;
   margin-left: 0px;
   padding-left: 0px;
+  padding-right: 100px;
+  padding-left: 100px;
 }
 body li {
   list-style-type: none;
@@ -103,23 +105,27 @@ body li {
   background: #FFFFFF;
   color: #000000;
   border: 1px solid #262626;
-  box-shadow: 3px 5px 6px #979797;
+  transition: 0.3s;
 }
 body li.desktop:hover {
-  animation-duration: 0.4s;
-  animation-name: slideIn;
-  animation-fill-mode: forwards;
-  border: 2px solid #00d3d6;
+  transition: 0.3s;
+  transform: translate(4px, -4px);
+  box-shadow: 10px 10px 0px #10162f;
 }
 @keyframes slideIn {
+  0% {
+    transform: translate(0px, 0px);
+    box-shadow: 3px 5px 6px #979797;
+  }
   100% {
-    box-shadow: 13px 15px 16px #979797;
+    transform: translate(4px, -4px);
+    box-shadow: 0px 0px 8px -8px #10162F;
   }
 }
 body .filter-container {
-  width: 100%;
   display: inline-flex;
   margin-top: 20px;
+  margin-left: 10%;
 }
 body .filter-container select {
   background-color: white;
@@ -168,9 +174,16 @@ body .event-head {
 }
 body .event-head .event-title {
   position: relative;
-  font-size: 30px;
+  font-size: 2rem;
   font-weight: bold;
   line-height: 32px;
+}
+body .event-head .event-title:hover {
+  cursor: pointer;
+  background-image: linear-gradient(transparent 60%, #e2d4ff 60%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: top center;
 }
 body .event-head .event-district {
   position: absolute;
@@ -186,25 +199,18 @@ body .event-description {
   font-size: 20px;
   font-stretch: condensed;
 }
-body .event-description #link-to-event {
-  color: #00d3d6;
-}
-body .event-description .shareWhatsapp {
-  margin-left: 20px;
-}
 body .event-description a {
-  background: #e9e9e9;
-  display: inline-flex;
-  font-size: 15px;
-  color: #6D696A;
+  background-image: linear-gradient(transparent 60%, #e2d4ff 60%);
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  background-position: top center;
+  cursor: pointer;
 }
 body .event-description a:hover {
-  cursor: pointer;
-  background-color: yellow;
+  font-weight: bold;
 }
 body .event-data-container {
   background-color: white;
-  border: 1px solid #262626;
   width: 100%;
   display: inline-flex;
 }
@@ -213,51 +219,39 @@ body .event-more-info {
   font-size: 20px;
   color: #00d3d6;
 }
-body .event-more-info #link-to-event {
-  background: #e9e9e9;
-}
-body .event-more-info #link-to-event:hover {
-  background-color: yellow;
-}
-body .event-more-info .shareWhatsapp {
-  position: absolute;
-  right: 0;
-  margin-right: 15px;
-  color: #262626;
-  font-size: 12px;
-  display: flex;
-  cursor: pointer;
-}
-body .event-more-info .shareWhatsapp .whatsappImage {
-  margin-left: 5px;
-  width: 20px;
-  height: 20px;
-  position: relative;
-  background-size: 100%;
-  background-image: url('../images/share.png');
-}
-body .event-more-info .shareWhatsapp:hover {
-  background-color: yellow;
-}
 body .event-small-data {
   font-size: 19px;
   margin-right: 10px;
   margin-left: 10px;
-  font-weight: bold;
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  margin: 1rem 0.5rem 0 0;
+  font-size: 1rem;
+  line-height: 130%;
+  background-color: white;
+  border: 2px solid black;
+  color: black;
+  border-radius: 1rem;
+  text-decoration: none;
 }
-body .event-small-data.event-location {
-  color: #00d3d6;
+body .event-small-data.share-whatsapp {
+  text-decoration: underline;
   cursor: pointer;
 }
-body .event-small-data.event-location:hover {
-  background-color: yellow;
+body .event-small-data.share-whatsapp img {
+  width: 15px;
+  margin-top: 0px;
+  margin-left: 5px;
+  position: relative;
+  top: 1px;
+}
+body .event-small-data.event-location {
+  text-decoration: underline;
+  cursor: pointer;
 }
 body .event-small-data.event-location.none {
-  color: #A8D0DB;
-  cursor: initial;
-}
-body .event-small-data.event-location.none:hover {
   text-decoration: none;
+  cursor: text;
 }
 body .event-small-data.event-audience {
   color: #585858;
@@ -360,6 +354,7 @@ body .loading #dots {
     margin-right: 8px;
     margin-top: 5px;
     margin-bottom: 5px;
+    font-weight: bold;
   }
   body .no-events {
     font-size: 25px;

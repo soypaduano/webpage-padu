@@ -9,9 +9,11 @@
 @button-color-background: #f3b0b0;
 @highlight-color: #e2d4ff;
 
+@urlColor: #f1c383;
+
 @color-black: #262626;
 @color-blue-strong: #00adb1;
-@color-blue-light:#6D696A;
+@color-blue-light: #6D696A;
 @color-blue-light-background: #A8D0DB;
 @color-white-event: #FFFFFF;
 @color-link: #00d3d6;
@@ -22,32 +24,35 @@ body {
   background-color: @background-color;
   font-family: @font-test1;
 
-  .header-donator{
+  .header-donator {
     display: flex;
-    .donate{
+
+    .donate {
       background-color: rgba(255, 255, 0, 0.425);
       right: 0;
       position: absolute;
       margin-right: 50px;
       cursor: pointer;
     }
-    .donate:hover{
+
+    .donate:hover {
       background-color: rgba(255, 255, 0, 0.918);
       font-weight: bold;
     }
   }
 
-  .header-container{
-    box-shadow:10px 12px 0px rgba(0, 0, 0, 0.13);
+  .header-container {
+    box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
     background-color: white;
     padding: 10px;
     border: 2px solid black;
     margin-top: 20px;
-    &.title{
+
+    &.title {
       width: 80%;
     }
 
-    &.description{
+    &.description {
       position: relative;
       width: 65%;
       left: 30%;
@@ -56,26 +61,27 @@ body {
 
   h1 {
     font-size: 48px;
+
     .city {
       font-size: 56px;
       text-decoration: underline;
     }
   }
 
-  h3{
+  h3 {
     padding: 10px;
     font-size: 28px;
     font-weight: normal;
   }
 
-  .important{
+  .important {
     background-image: linear-gradient(transparent 60%, @highlight-color 60%);
     background-size: 100% 100%;
     background-repeat: no-repeat;
     background-position: top center;
   }
 
-  .description-separator{
+  .description-separator {
     text-align: center;
     margin: 0 !important;
     padding: 0 !important;
@@ -115,7 +121,7 @@ body {
     color: @color-black;
   }
 
-  #mc_embed_signup_scroll{
+  #mc_embed_signup_scroll {
     display: flex;
   }
 
@@ -123,6 +129,8 @@ body {
     counter-reset: section;
     margin-left: 0px;
     padding-left: 0px;
+    padding-right: 100px;
+    padding-left: 100px;
   }
 
   li {
@@ -134,33 +142,33 @@ body {
     background: @color-white-event;
     color: rgb(0, 0, 0);
     border: 1px solid @color-black;
-
-    box-shadow: 3px 5px 6px  #979797;
+    transition: 0.3s;
   }
-  li{
-    &.desktop:hover{
-      animation-duration: 0.4s;
-      animation-name: slideIn;
-      animation-fill-mode: forwards;
-      border: 2px solid @color-link;
+
+  li {
+    &.desktop:hover {
+      transition: 0.3s;
+      transform: translate(4px, -4px);
+      box-shadow: 10px 10px 0px #10162f;
     }
   }
 
   @keyframes slideIn {
     0% {
-      
+      transform: translate(0px, 0px);
+      box-shadow: 3px 5px 6px #979797;
     }
 
     100% {
-      
-      box-shadow: 13px 15px 16px  #979797;
+      transform: translate(4px, -4px);
+      box-shadow: 0px 0px 8px -8px #10162F;
     }
   }
 
   .filter-container {
-    width: 100%;
     display: inline-flex;
     margin-top: 20px;
+    margin-left: 10%;
 
     select {
       background-color: white;
@@ -170,12 +178,13 @@ body {
       font: @font-test1;
     }
 
-    .filter, .filter-dropdown {
+    .filter,
+    .filter-dropdown {
       display: inline-block;
       padding: 0.25rem 0.75rem;
       margin: 1rem 0.5rem 0 0;
       font-size: 1.2rem;
-      font-family: SpaceGroteskRegular,sans-serif;
+      font-family: SpaceGroteskRegular, sans-serif;
       line-height: 130%;
       background-color: #ff9d7a;
       border: 2px solid #5b0505;
@@ -188,17 +197,18 @@ body {
       transition: .35s;
       font-weight: normal;
 
-      &:hover{
+      &:hover {
         top: 0.25rem;
-        box-shadow: 0 -1px 0 #5b0505,0 -3px 0 -1px #5b0505,0 -5px 0 -2px #5b0505,0 -7px 0 -3px #5b0505,0 -9px 0 -5px #5b0505,0 -11px 0 -6px #5b0505;
+        box-shadow: 0 -1px 0 #5b0505, 0 -3px 0 -1px #5b0505, 0 -5px 0 -2px #5b0505, 0 -7px 0 -3px #5b0505, 0 -9px 0 -5px #5b0505, 0 -11px 0 -6px #5b0505;
       }
-      
+
       &.selected {
         background-color: #5b0505;
         color: #ff9d7a;
-        &:hover{
+
+        &:hover {
           top: 0.25rem;
-          box-shadow: 0 -1px 0 #ff9d7a,0 -3px 0 -1px #ff9d7a,0 -5px 0 -2px #ff9d7a,0 -7px 0 -3px #ff9d7a,0 -9px 0 -5px #ff9d7a,0 -11px 0 -6px #ff9d7a;
+          box-shadow: 0 -1px 0 #ff9d7a, 0 -3px 0 -1px #ff9d7a, 0 -5px 0 -2px #ff9d7a, 0 -7px 0 -3px #ff9d7a, 0 -9px 0 -5px #ff9d7a, 0 -11px 0 -6px #ff9d7a;
         }
       }
     }
@@ -210,9 +220,17 @@ body {
 
     .event-title {
       position: relative;
-      font-size: 30px;
+      font-size: 2rem;
       font-weight: bold;
       line-height: 32px;
+
+      &:hover {
+        cursor: pointer;
+        background-image: linear-gradient(transparent 60%, @highlight-color 60%);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: top center;
+      }
     }
 
     .event-district {
@@ -232,30 +250,21 @@ body {
     font-size: 20px;
     font-stretch: condensed;
 
-    #link-to-event{
-      color: @color-link;
-    }
-
-    .shareWhatsapp{
-      margin-left: 20px;
-    }
-
     a {
-      background: rgb(233, 233, 233);
-      display: inline-flex;
-      font-size: 15px;
-      color: @color-blue-light;
+      background-image: linear-gradient(transparent 60%, @highlight-color 60%);
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: top center;
+      cursor: pointer;
 
       &:hover {
-        cursor: pointer;
-        background-color: @color-hover;
+        font-weight: bold;
       }
     }
   }
 
   .event-data-container {
     background-color: white;
-    border: 1px solid @color-black;
     width: 100%;
     display: inline-flex;
   }
@@ -264,56 +273,43 @@ body {
     display: inline-flex;
     font-size: 20px;
     color: @color-link;
-
-    #link-to-event{
-      background: rgb(233, 233, 233);
-      &:hover{
-        background-color: yellow;
-      }
-    }
-
-    .shareWhatsapp{
-      position: absolute;
-      right: 0;
-      margin-right: 15px;
-      color: @color-black;
-      font-size: 12px;
-      display: flex;
-      cursor: pointer;
-      .whatsappImage{
-        margin-left: 5px;
-        width: 20px;
-        height: 20px;
-        position: relative;
-        background-size: 100%;
-        background-image: url('../images/share.png');
-      }
-      &:hover{
-        background-color: yellow;
-      }
-    }
   }
 
   .event-small-data {
     font-size: 19px;
     margin-right: 10px;
     margin-left: 10px;
-    font-weight: bold;
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    margin: 1rem 0.5rem 0 0;
+    font-size: 1rem;
+    line-height: 130%;
+    background-color: white;
+    border: 2px solid black;
+    color: black;
+    border-radius: 1rem;
+    text-decoration: none;
 
-    &.event-location {
-      color: @color-link;
+    &.share-whatsapp {
+      text-decoration: underline;
       cursor: pointer;
 
-      &:hover {
-        background-color: @color-hover;
+      img {
+        width: 15px;
+        margin-top: 0px;
+        margin-left: 5px;
+        position: relative;
+        top: 1px;
       }
+    }
+
+    &.event-location {
+      text-decoration: underline;
+      cursor: pointer;
 
       &.none {
-        color: @color-blue-light-background;
-        cursor: initial;
-        &:hover {
-          text-decoration: none;
-        }
+        text-decoration: none;
+        cursor: text;
       }
     }
 
@@ -357,9 +353,11 @@ body {
     color: @color-black;
     background-color: @color-white-event;
     border: 1px solid @color-black;
+
     .text {
       margin-left: 15px;
     }
+
     #dots {
       font-size: 35px;
     }
@@ -368,27 +366,31 @@ body {
 
 @media screen and (max-width: 900px) {
   body {
-    .title{
+    .title {
       font-size: 28px;
-      .city{
+
+      .city {
         font-size: 32px;
       }
     }
-    .creator{
+
+    .creator {
       font-size: 14px;
-      .padu{
+
+      .padu {
         font-size: 18px;
       }
     }
 
     .description {
       font-size: 18px;
-      b{
+
+      b {
         font-size: 22px;
       }
     }
 
-    .newsletter-text{
+    .newsletter-text {
       font-size: 14px;
     }
 
@@ -413,36 +415,42 @@ body {
       }
     }
 
-    .event-head{
+    .event-head {
       display: inline-block;
       margin-bottom: 20px;
-      .event-title{
+
+      .event-title {
         font-size: 26px;
         line-height: 27px;
       }
-      .event-district{
+
+      .event-district {
         font-size: 16px;
         left: 15px;
       }
     }
 
-    .event-data-container{
+    .event-data-container {
       display: inline-block;
-      .event-small-data{
+
+      .event-small-data {
         font-size: 18px;
         margin-left: 8px;
         margin-right: 8px;
         margin-top: 5px;
         margin-bottom: 5px;
+        font-weight: bold;
       }
-    }    
-    .no-events{
+    }
+
+    .no-events {
       font-size: 25px;
     }
 
-    .loading{
+    .loading {
       font-size: 18px;
-      #dots{
+
+      #dots {
         font-size: 20px;
       }
     }
@@ -451,25 +459,26 @@ body {
 
 @media screen and (max-width: 425px) {
   body {
-    .header-donator{
+    .header-donator {
       display: block;
-      .creator{
+
+      .creator {
         line-height: 30px;
       }
 
-      .donate{
+      .donate {
         margin-top: 10px;
         position: relative;
       }
     }
-    
+
     .filter-container {
       .filter {
         padding: 3px;
         margin-left: 4px;
         font-size: 12px;
       }
-  
+
       select {
         font-size: 12px;
         width: 90px;
@@ -477,19 +486,20 @@ body {
     }
 
 
-    .event-head{
+    .event-head {
       width: 100%;
-      .event-title{
+
+      .event-title {
         font-size: 20px;
       }
     }
 
-    .event-description{
+    .event-description {
       font-size: 15px;
     }
 
-    .event-data-container{
-      .event-small-data{
+    .event-data-container {
+      .event-small-data {
         font-size: 13px;
       }
     }
@@ -499,7 +509,7 @@ body {
       font-size: 15px;
     }
 
-    input[type=submit]{
+    input[type=submit] {
       height: 100%;
       width: 100%;
       -webkit-border-radius: 0;
@@ -519,14 +529,14 @@ body {
       cursor: pointer;
       text-align: center;
     }
-    
+
 
   }
 }
 
 @media screen and (max-width: 425px) {
-  body{
-    .title{
+  body {
+    .title {
       font-size: 27px;
     }
   }
@@ -535,26 +545,29 @@ body {
 @media screen and (max-width: 320px) {
   body {
     margin-top: 20px;
-    .event-head{
-      .event-title{
+
+    .event-head {
+      .event-title {
         font-size: 17px;
       }
     }
 
     .filter-container {
       font-size: 15px;
+
       select {
         width: 70px;
       }
     }
 
-    .loading{
+    .loading {
       font-size: 18px;
-      #dots{
+
+      #dots {
         font-size: 20px;
       }
     }
-    
+
   }
 }
 
@@ -571,7 +584,7 @@ body::-webkit-scrollbar-thumb {
   background-color: @highlight-color;
 }
 
-input[type=submit]{
+input[type=submit] {
   height: 100%;
   width: 100%;
   -webkit-border-radius: 0;
