@@ -5,19 +5,12 @@
 @background-color2: #fbece2;
 @background-color: #cee4ca;
 
+@color-black: #262626;
 @button-color: #F08080;
 @button-color-background: #f3b0b0;
 @highlight-color: #e2d4ff;
+@frecuency-color: #FFFD98;
 
-@urlColor: #f1c383;
-
-@color-black: #262626;
-@color-blue-strong: #00adb1;
-@color-blue-light: #6D696A;
-@color-blue-light-background: #A8D0DB;
-@color-white-event: #FFFFFF;
-@color-link: #00d3d6;
-@color-hover: yellow;
 
 body {
   margin: 40px;
@@ -42,20 +35,35 @@ body {
   }
 
   .header-container {
-    box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
-    background-color: white;
     padding: 10px;
-    border: 2px solid black;
     margin-top: 20px;
 
     &.title {
       width: 80%;
+      background-color: white;
+      border: 2px solid @color-black;
+      box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
     }
 
     &.description {
-      position: relative;
-      width: 65%;
-      left: 30%;
+      width: 100%;
+      display: flex;
+
+      h3 {
+        background-color: white;
+        border: 3px solid @color-black;
+        box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
+        width: 70%;
+      }
+
+      .flag-container{
+        box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
+        width: 200px;
+        height: 200px;
+        background-color: white;
+        margin: 2em;
+      }
+
     }
   }
 
@@ -139,7 +147,6 @@ body {
     font-size: 1.5rem;
     padding: 15px;
     margin-bottom: 15px;
-    background: @color-white-event;
     color: rgb(0, 0, 0);
     border: 1px solid @color-black;
     transition: 0.3s;
@@ -269,12 +276,6 @@ body {
     display: inline-flex;
   }
 
-  .event-more-info {
-    display: inline-flex;
-    font-size: 20px;
-    color: @color-link;
-  }
-
   .event-small-data {
     font-size: 19px;
     margin-right: 10px;
@@ -282,11 +283,11 @@ body {
     display: inline-block;
     padding: 0.25rem 0.75rem;
     margin: 1rem 0.5rem 0 0;
-    font-size: 1rem;
+    font-size: 0.9rem;
     line-height: 130%;
     background-color: white;
-    border: 2px solid black;
-    color: black;
+    border: 2px solid @color-black;
+    color: @color-black;
     border-radius: 1rem;
     text-decoration: none;
 
@@ -303,6 +304,11 @@ body {
       }
     }
 
+    &.event-frecuency{
+      background-color: yellow;
+      display: none;
+    }
+
     &.event-location {
       text-decoration: underline;
       cursor: pointer;
@@ -311,11 +317,6 @@ body {
         text-decoration: none;
         cursor: text;
       }
-    }
-
-    &.event-audience {
-      color: rgb(88, 88, 88);
-      font-style: italic;
     }
   }
 
@@ -337,12 +338,10 @@ body {
 
   .no-events {
     display: none;
-    background-color: @color-blue-light-background;
     width: 100%;
     font-size: 50px;
     color: @color-black;
     border: 1px solid @color-black;
-    background-color: @color-white-event;
     text-align: center;
     cursor: pointer;
   }
@@ -351,7 +350,6 @@ body {
     width: 100%;
     font-size: 30px;
     color: @color-black;
-    background-color: @color-white-event;
     border: 1px solid @color-black;
 
     .text {

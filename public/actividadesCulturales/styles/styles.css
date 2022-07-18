@@ -18,19 +18,31 @@ body .header-donator .donate:hover {
   font-weight: bold;
 }
 body .header-container {
-  box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
-  background-color: white;
   padding: 10px;
-  border: 2px solid black;
   margin-top: 20px;
 }
 body .header-container.title {
   width: 80%;
+  background-color: white;
+  border: 2px solid #262626;
+  box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
 }
 body .header-container.description {
-  position: relative;
-  width: 65%;
-  left: 30%;
+  width: 100%;
+  display: flex;
+}
+body .header-container.description h3 {
+  background-color: white;
+  border: 3px solid #262626;
+  box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
+  width: 70%;
+}
+body .header-container.description .flag-container {
+  box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
+  width: 200px;
+  height: 200px;
+  background-color: white;
+  margin: 2em;
 }
 body h1 {
   font-size: 48px;
@@ -102,7 +114,6 @@ body li {
   font-size: 1.5rem;
   padding: 15px;
   margin-bottom: 15px;
-  background: #FFFFFF;
   color: #000000;
   border: 1px solid #262626;
   transition: 0.3s;
@@ -214,11 +225,6 @@ body .event-data-container {
   width: 100%;
   display: inline-flex;
 }
-body .event-more-info {
-  display: inline-flex;
-  font-size: 20px;
-  color: #00d3d6;
-}
 body .event-small-data {
   font-size: 19px;
   margin-right: 10px;
@@ -226,11 +232,11 @@ body .event-small-data {
   display: inline-block;
   padding: 0.25rem 0.75rem;
   margin: 1rem 0.5rem 0 0;
-  font-size: 1rem;
+  font-size: 0.9rem;
   line-height: 130%;
   background-color: white;
-  border: 2px solid black;
-  color: black;
+  border: 2px solid #262626;
+  color: #262626;
   border-radius: 1rem;
   text-decoration: none;
 }
@@ -245,6 +251,10 @@ body .event-small-data.share-whatsapp img {
   position: relative;
   top: 1px;
 }
+body .event-small-data.event-frecuency {
+  background-color: yellow;
+  display: none;
+}
 body .event-small-data.event-location {
   text-decoration: underline;
   cursor: pointer;
@@ -252,10 +262,6 @@ body .event-small-data.event-location {
 body .event-small-data.event-location.none {
   text-decoration: none;
   cursor: text;
-}
-body .event-small-data.event-audience {
-  color: #585858;
-  font-style: italic;
 }
 body li::before {
   text-align: center;
@@ -274,12 +280,10 @@ body li::before {
 }
 body .no-events {
   display: none;
-  background-color: #A8D0DB;
   width: 100%;
   font-size: 50px;
   color: #262626;
   border: 1px solid #262626;
-  background-color: #FFFFFF;
   text-align: center;
   cursor: pointer;
 }
@@ -287,7 +291,6 @@ body .loading {
   width: 100%;
   font-size: 30px;
   color: #262626;
-  background-color: #FFFFFF;
   border: 1px solid #262626;
 }
 body .loading .text {

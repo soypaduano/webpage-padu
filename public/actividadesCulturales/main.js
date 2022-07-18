@@ -3,21 +3,15 @@ var test = false;
 var dotsAnim, eventosActividadesCulturales, element, $copy;
 var filters = [];
 
-if (typeof window.orientation !== 'undefined') {
-  console.log('is mobile');
-} else {
+if (typeof window.orientation === 'undefined') {
   $('.one-day-event').addClass('desktop');
-  $('.weekly-event').addClass('desktop');
 }
 
 let $oneDayEvent;
-let $weeklyEvent;
 
 if (!test) {
   $oneDayEvent = $('.one-day-event').remove();
-  $weeklyEvent = $('.weekly-event').remove();
   $($oneDayEvent).hide();
-  $($weeklyEvent).hide();
 }
 
 
@@ -43,12 +37,11 @@ function addAudience(element) {
   let audience = element['audience'];
   if (audience && ((audience === 'Niños' || audience === 'Niños,Familias'))) {
     $($copy).attr('audience', 0)
-    $($copy).find('.event-audience').text('Publico recomendado: ' + audience);
+    $($copy).find('.event-audience').text('Para niños: ' + audience);
   } else {
     $($copy).attr('audience', 1)
     $($copy).find('.event-audience').remove();
   }
-  console.log(audience);
   return audience;
 }
 
@@ -61,7 +54,6 @@ function addDistrict(element) {
       postalcode = element['address']['area']['postal-code'];
       $($copy).find('.event-district').text(district + ', ' + postalcode);
     }
-
     $($copy).find('.event-district').text(district);
   }
   district = district.toUpperCase();
@@ -88,6 +80,14 @@ function addDayStart(element) {
   dayStartFormat = transformDateToString(dayStart[0]);
   $($copy).find('.event-day-start').text('' + dayStartFormat);
   $($copy).attr('day', dayStart[0]);
+
+
+  let recurrence = element['recurrence'];
+  if(recurrence){
+    var dateEnd = element['dtend'];
+    $($copy).find('.event-day-start').text('Termina ' + transformDateToString(dateEnd).toLocaleLowerCase());
+    $($copy).find('.event-frecuency').show();
+  }
 }
 
 function addEventLocation(element) {
@@ -182,10 +182,8 @@ function transformDateToString(dateString) {
     return 'Hoy';
   } else if (isTomorrow(dt)) {
     return 'Mañana';
-  } else if (isPastTomorrow(dt)) {
-    return 'Pasado Mañana';
   } else {
-    return dateString;
+    return '' + dt.getDate() + '-' + (dt.getMonth() + 1) + '-' + dt.getFullYear();
   }
 }
 
@@ -333,7 +331,6 @@ const isPastTomorrow = (date) => {
 function loadingAnim() {
   dotsAnim = window.setInterval(function () {
     let dots = $('#dots');
-    console.log
     if (dots.text().length > 3)
       dots.text('.');
     else

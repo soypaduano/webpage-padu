@@ -4,21 +4,15 @@ var test = false;
 var dotsAnim, eventosActividadesCulturales, element, $copy;
 var filters = [];
 
-if (typeof window.orientation !== 'undefined') {
-  console.log('is mobile');
-} else {
+if (typeof window.orientation === 'undefined') {
   $('.one-day-event').addClass('desktop');
-  $('.weekly-event').addClass('desktop');
 }
 
 var $oneDayEvent;
-var $weeklyEvent;
 
 if (!test) {
   $oneDayEvent = $('.one-day-event').remove();
-  $weeklyEvent = $('.weekly-event').remove();
   $($oneDayEvent).hide();
-  $($weeklyEvent).hide();
 }
 
 function addDayHour(element) {
@@ -44,13 +38,12 @@ function addAudience(element) {
 
   if (audience && (audience === 'Niños' || audience === 'Niños,Familias')) {
     $($copy).attr('audience', 0);
-    $($copy).find('.event-audience').text('Publico recomendado: ' + audience);
+    $($copy).find('.event-audience').text('Para niños: ' + audience);
   } else {
     $($copy).attr('audience', 1);
     $($copy).find('.event-audience').remove();
   }
 
-  console.log(audience);
   return audience;
 }
 
@@ -96,6 +89,13 @@ function addDayStart(element) {
   dayStartFormat = transformDateToString(dayStart[0]);
   $($copy).find('.event-day-start').text('' + dayStartFormat);
   $($copy).attr('day', dayStart[0]);
+  var recurrence = element['recurrence'];
+
+  if (recurrence) {
+    var dateEnd = element['dtend'];
+    $($copy).find('.event-day-start').text('Termina ' + transformDateToString(dateEnd).toLocaleLowerCase());
+    $($copy).find('.event-frecuency').show();
+  }
 }
 
 function addEventLocation(element) {
@@ -199,10 +199,8 @@ function transformDateToString(dateString) {
     return 'Hoy';
   } else if (isTomorrow(dt)) {
     return 'Mañana';
-  } else if (isPastTomorrow(dt)) {
-    return 'Pasado Mañana';
   } else {
-    return dateString;
+    return '' + dt.getDate() + '-' + (dt.getMonth() + 1) + '-' + dt.getFullYear();
   }
 }
 
@@ -330,7 +328,6 @@ var isPastTomorrow = function isPastTomorrow(date) {
 function loadingAnim() {
   dotsAnim = window.setInterval(function () {
     var dots = $('#dots');
-    console.log;
     if (dots.text().length > 3) dots.text('.');else dots.text(dots.text() + '.');
   }, 300);
 }
