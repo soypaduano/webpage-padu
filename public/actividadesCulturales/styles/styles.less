@@ -4,6 +4,8 @@
 
 @background-color2: #fbece2;
 @background-color: #cee4ca;
+@background-color: #cbacf6;
+
 
 @color-black: #262626;
 @button-color: #F08080;
@@ -18,13 +20,11 @@ body {
   font-family: @font-test1;
 
   .header-donator {
-    display: flex;
+    display: inline-block;
+    font-size: 1.1rem;
 
     .donate {
       background-color: rgba(255, 255, 0, 0.425);
-      right: 0;
-      position: absolute;
-      margin-right: 50px;
       cursor: pointer;
     }
 
@@ -51,7 +51,7 @@ body {
 
       h3 {
         background-color: white;
-        border: 3px solid @color-black;
+        border: 2px solid @color-black;
         box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
         width: 70%;
       }
@@ -68,17 +68,17 @@ body {
   }
 
   h1 {
-    font-size: 48px;
+    font-size: 2rem;
 
     .city {
-      font-size: 56px;
+      font-size: 2.5rem;
       text-decoration: underline;
     }
   }
 
   h3 {
     padding: 10px;
-    font-size: 28px;
+    font-size: 1.5rem;
     font-weight: normal;
   }
 
@@ -97,38 +97,6 @@ body {
     font-size: 26px;
   }
 
-  button {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-    color: @color-black;
-    font-size: 20px;
-    font-weight: 100;
-    background-color: white;
-    -webkit-box-shadow: 0 0 0 0 @color-black;
-    -moz-box-shadow: 0 0 0 0 @color-black;
-    box-shadow: 0 0 0 0 @color-black;
-    text-shadow: 0 0 0 @color-black;
-    border: solid @color-black 1px;
-    text-decoration: none;
-    display: inline-block;
-    cursor: pointer;
-    text-align: center;
-  }
-
-  button:hover {
-    -webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-    text-decoration: none;
-    border: 4px double @color-black;
-  }
-
-  .creator {
-    font-size: 1vw;
-    color: @color-black;
-  }
-
   #mc_embed_signup_scroll {
     display: flex;
   }
@@ -137,8 +105,6 @@ body {
     counter-reset: section;
     margin-left: 0px;
     padding-left: 0px;
-    padding-right: 100px;
-    padding-left: 100px;
   }
 
   li {
@@ -148,6 +114,7 @@ body {
     padding: 15px;
     margin-bottom: 15px;
     color: rgb(0, 0, 0);
+    background-color: white;
     border: 1px solid @color-black;
     transition: 0.3s;
   }
@@ -156,7 +123,8 @@ body {
     &.desktop:hover {
       transition: 0.3s;
       transform: translate(4px, -4px);
-      box-shadow: 10px 10px 0px #10162f;
+      //box-shadow: 10px 10px 0px #10162f;
+      box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
     }
   }
 
@@ -173,9 +141,7 @@ body {
   }
 
   .filter-container {
-    display: inline-flex;
-    margin-top: 20px;
-    margin-left: 10%;
+    display: inline;
 
     select {
       background-color: white;
@@ -183,14 +149,15 @@ body {
       font-weight: bold;
       font-size: 20px;
       font: @font-test1;
+      width: 30%;
     }
 
-    .filter,
-    .filter-dropdown {
+    .filter, .filter-dropdown {
       display: inline-block;
       padding: 0.25rem 0.75rem;
       margin: 1rem 0.5rem 0 0;
       font-size: 1.2rem;
+      text-align: center;
       font-family: SpaceGroteskRegular, sans-serif;
       line-height: 130%;
       background-color: #ff9d7a;
@@ -304,11 +271,6 @@ body {
       }
     }
 
-    &.event-frecuency{
-      background-color: yellow;
-      display: none;
-    }
-
     &.event-location {
       text-decoration: underline;
       cursor: pointer;
@@ -343,7 +305,7 @@ body {
     color: @color-black;
     border: 1px solid @color-black;
     text-align: center;
-    cursor: pointer;
+    background-color: white;
   }
 
   .loading {
@@ -351,6 +313,7 @@ body {
     font-size: 30px;
     color: @color-black;
     border: 1px solid @color-black;
+    background-color: white;
 
     .text {
       margin-left: 15px;
@@ -362,56 +325,78 @@ body {
   }
 }
 
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 768px) {
   body {
-    .title {
-      font-size: 28px;
 
-      .city {
-        font-size: 32px;
+    .header-container {  
+      &.title {
+        width: 100%;
       }
-    }
-
-    .creator {
-      font-size: 14px;
-
-      .padu {
-        font-size: 18px;
+  
+      &.description {
+        width: 100%;
+  
+        h3 {
+          width: 100%;
+        }
+  
+        .flag-container{
+          display: none;
+        }
       }
-    }
-
-    .description {
-      font-size: 18px;
-
-      b {
-        font-size: 22px;
-      }
-    }
-
-    .newsletter-text {
-      font-size: 14px;
-    }
-
-    input {
-      width: 150px;
-      height: 30px;
-      font-size: 15px;
-    }
-
-    button {
-      font-size: 15px;
     }
 
     .filter-container {
-      .filter {
-        width: 15%;
-        font-size: 15px;
-      }
-
-      select {
-        font-size: 15px;
+      .filter, .filter-dropdown {
+        font-size: 1.5rem;
       }
     }
+
+    .event-head {
+      display: inline-block;
+      margin-bottom: 20px;
+
+      .event-title {
+        font-size: 26px;
+        line-height: 27px;
+      }
+
+      .event-district {
+        font-size: 16px;
+        left: 15px;
+      }
+    }
+
+    .event-data-container {
+      display: inline-block;
+
+      .event-small-data {
+        font-size: 18px;
+        margin-left: 8px;
+        margin-right: 8px;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+    }
+
+    .no-events {
+      font-size: 25px;
+    }
+
+    .loading {
+      font-size: 18px;
+
+      #dots {
+        font-size: 20px;
+      }
+    }
+
+  }
+}
+
+@media screen and (max-width: 768px) {
+  body {
 
     .event-head {
       display: inline-block;
@@ -455,38 +440,28 @@ body {
   }
 }
 
+
 @media screen and (max-width: 425px) {
   body {
-    .header-donator {
-      display: block;
-
-      .creator {
-        line-height: 30px;
-      }
-
-      .donate {
-        margin-top: 10px;
-        position: relative;
-      }
-    }
 
     .filter-container {
-      .filter {
-        padding: 3px;
-        margin-left: 4px;
-        font-size: 12px;
+      display: block;
+      text-align: center;
+      .filter, .filter-dropdown {
+        font-size: 1.2rem;
+      }
+
+      .filter-dropdown{
+        width: 40%;
       }
 
       select {
         font-size: 12px;
-        width: 90px;
       }
     }
 
-
     .event-head {
       width: 100%;
-
       .event-title {
         font-size: 20px;
       }
@@ -500,42 +475,6 @@ body {
       .event-small-data {
         font-size: 13px;
       }
-    }
-
-    input[type=email] {
-      width: 40%;
-      font-size: 15px;
-    }
-
-    input[type=submit] {
-      height: 100%;
-      width: 100%;
-      -webkit-border-radius: 0;
-      -moz-border-radius: 0;
-      border-radius: 0;
-      color: @color-black;
-      font-size: 20px;
-      font-weight: 100;
-      background-color: white;
-      -webkit-box-shadow: 0 0 0 0 @color-black;
-      -moz-box-shadow: 0 0 0 0 @color-black;
-      box-shadow: 0 0 0 0 @color-black;
-      text-shadow: 0 0 0 @color-black;
-      border: solid @color-black 1px;
-      text-decoration: none;
-      display: inline-block;
-      cursor: pointer;
-      text-align: center;
-    }
-
-
-  }
-}
-
-@media screen and (max-width: 425px) {
-  body {
-    .title {
-      font-size: 27px;
     }
   }
 }
@@ -552,10 +491,6 @@ body {
 
     .filter-container {
       font-size: 15px;
-
-      select {
-        width: 70px;
-      }
     }
 
     .loading {
@@ -580,42 +515,4 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar-thumb {
   background-color: @highlight-color;
-}
-
-input[type=submit] {
-  height: 100%;
-  width: 100%;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  border-radius: 0;
-  color: @color-black;
-  font-size: 20px;
-  font-weight: 100;
-  background-color: white;
-  -webkit-box-shadow: 0 0 0 0 @color-black;
-  -moz-box-shadow: 0 0 0 0 @color-black;
-  box-shadow: 0 0 0 0 @color-black;
-  text-shadow: 0 0 0 @color-black;
-  border: solid @color-black 1px;
-  text-decoration: none;
-  display: inline-block;
-  cursor: pointer;
-  text-align: center;
-}
-
-input[type=email] {
-  width: 30%;
-  height: 30px;
-  padding: 5px;
-  border: 1px solid @color-black;
-  -webkit-border-radius: 1px;
-  border-radius: 1px;
-  font-size: 25px;
-}
-
-input[type=text]:focus {
-  border: 3px double @color-black;
-  font-size: 20px;
-  background-color: white;
-  font-style: italic;
 }

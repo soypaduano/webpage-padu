@@ -51,9 +51,9 @@
       <div class="header-container description">
 
 
-        <div class="flag-container">
+        <div class="flag-container" id="flag-element">
         </div>
-        
+
         <h3>En Madrid hay una gran cantidad de <span class="important"> eventos en centros culturales, bibliotecas,
             parques y plazas</span> que apenas tienen difusión.
           <br>
@@ -64,7 +64,7 @@
 
       </div>
 
-      
+
 
       <div style="text-align: center;">
         <br>
@@ -87,8 +87,9 @@
         <div class="filter" id="free" value="1"> Gratis </div>
         <div class="filter" id="dtend" value="1"> Varios días </div>
         <div class="filter" id="audience" value="0"> Para niños </div>
+        <div class="filter" id="audience_woman" value="0"> Para mujeres </div>
         <select class="filter-dropdown" id="district-filter">
-          <option id="event-district" selected="ALL" value="ALL">DISTRITOS</option>
+          <option id="event-district" selected="ALL" value="ALL">Distritos</option>
           <option id="event-district" value="ARGANZUELA"> ARGANZUELA </option>
           <option id="event-district" value="BARAJAS"> BARAJAS </option>
           <option id="event-district" value="CARABANCHEL"> CARABANCHEL </option>
@@ -112,9 +113,9 @@
           <option id="event-district" value="VILLAVERDE"> VILLAVERDE </option>
         </select>
       </div>
-  
+
       <div class="list-container">
-  
+
         <ol id="events-list">
           <li event-district="Latina" class="one-day-event" url="">
             <div class="event-head">
@@ -126,27 +127,29 @@
               cumque
               nihil impedit.</p>
             <div class="event-data-container">
-              <div class="event-small-data event-frecuency">Varios días</div>
               <div class='event-small-data event-location'>@ Centro Cultural Conde Duque</div>
               <div class="event-small-data event-day-start">Día: 15-09-2020</div>
+              <div class="event-small-data event-frecuency">Varios días</div>
               <div class="event-small-data event-hour">Hora: <span>18:30</span> - <span>23:00</span></div>
               <div class="event-small-data event-price">Precio: 10 euros</div>
               <div class="event-small-data event-audience"></div>
-              <div class="event-small-data share-whatsapp">Compartir<img src='actividadesCulturales/images/share.png'> </div>
-            </div></div>
-          </li>  
-        </ol>
-  
-  
-        <div class="no-events" id="no-events">No hay eventos 😟 </div>
-        <div class="no-events" id="wrong-message">Algo ha ido mal 😟 <br>
-          Es posible que se deba a un problema técnico de la web del ayuntamiento.
-          Si encuentras otro problema, escribe a <a href="https://www.instagram.com/padu.soy/">padu</span></a></div>
-  
-        <div class="loading"> <span class="text"> cargando los eventos (puede tardar un poco 🕒) </span> <span id="dots">
-            . .
-            . </span> </div>
+              <div class="event-small-data share-whatsapp">Compartir<img src='actividadesCulturales/images/share.png'>
+              </div>
+            </div>
       </div>
+      </li>
+      </ol>
+
+
+      <div class="no-events" id="no-events">No hay eventos 😟 </div>
+      <div class="no-events" id="wrong-message">Algo ha ido mal 😟 <br>
+        Es posible que se deba a un problema técnico de la web del ayuntamiento.
+        Si encuentras otro problema, escribe a <a href="https://www.instagram.com/padu.soy/">padu</span></a></div>
+
+      <div class="loading"> <span class="text"> cargando los eventos (puede tardar un poco 🕒) </span> <span id="dots">
+          . .
+          . </span> </div>
+    </div>
     </div>
 
 

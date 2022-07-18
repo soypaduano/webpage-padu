@@ -37,12 +37,20 @@ function addAudience(element) {
   let audience = element['audience'];
   if (audience && ((audience === 'Niños' || audience === 'Niños,Familias'))) {
     $($copy).attr('audience', 0)
-    $($copy).find('.event-audience').text('Para niños: ' + audience);
+    $($copy).find('.event-audience').text('Para niños');
   } else {
     $($copy).attr('audience', 1)
     $($copy).find('.event-audience').remove();
   }
   return audience;
+
+
+  //TODO: Meter el filtro de mujeres
+  /*
+  else if(audience === 'Mujeres' || audience ===  'Mujeres,Mayores' || audience === 'Mujeres,Familias'){
+    $($copy).attr('audience', 1)
+    $($copy).find('.event-audience').text('Para mujeres');
+  */
 }
 
 function addDistrict(element) {
@@ -265,7 +273,7 @@ function applyFilters() {
     filters.push($(this))
   });
 
-  if($('#district-filter').find('option:selected').text() != 'DISTRITOS') filters.push($($('#district-filter').find('option:selected')));
+  if($('#district-filter').find('option:selected').text() != 'Distritos') filters.push($($('#district-filter').find('option:selected')));
 
   var audience = false;
   filters.forEach(function (element) {

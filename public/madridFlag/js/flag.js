@@ -1,4 +1,3 @@
-var colors = ['red' ]
 
 const $section = $('#flag-section')
 console.log($section)

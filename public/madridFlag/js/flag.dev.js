@@ -1,6 +1,5 @@
 "use strict";
 
-var colors = ['red'];
 var $section = $('#flag-section');
 console.log($section);
 var scene = new THREE.Scene();
