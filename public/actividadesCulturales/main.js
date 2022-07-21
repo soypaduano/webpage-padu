@@ -154,6 +154,8 @@ function readEventData(data) {
   events = orderByDate(events);
   let uniqueEvents = removeRepeatedEvents(events);
 
+  //hay algo que está fallando aquí: los eventos creo que se están sustituyendo y tiene pinta por ser del tema $copy & element globales. 
+  //hay que buscar la solución de meterlos directamente aqui y no globales, que puede que es lo que está fallando y además es mala solución. 
   uniqueEvents.forEach(element_ => {
     element = element_;
     //Day and Hour
@@ -167,10 +169,8 @@ function readEventData(data) {
     addLink(element); //Link
 
     $('#events-list').append($copy);
+    $($copy).show();
 
-    if (!(audience === 'Niños' || audience === 'Niños,Familias' || audience == 'Jovenes' || audience == 'Familias')) {
-      $($copy).show();
-    }
   });
 
   $('.loading').hide();

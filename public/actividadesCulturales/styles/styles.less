@@ -10,7 +10,7 @@
 @color-black: #262626;
 @button-color: #F08080;
 @button-color-background: #f3b0b0;
-@highlight-color: #e2d4ff;
+@highlight-color: #FFFD98;
 @frecuency-color: #FFFD98;
 
 
@@ -53,13 +53,12 @@ body {
         background-color: white;
         border: 2px solid @color-black;
         box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
-        width: 70%;
       }
 
       .flag-container{
         box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
-        width: 200px;
-        height: 200px;
+        width: 180px;
+        border-radius: 250px;
         background-color: white;
         margin: 2em;
       }
@@ -150,6 +149,7 @@ body {
       font-size: 20px;
       font: @font-test1;
       width: 30%;
+      max-width: 200px;
     }
 
     .filter, .filter-dropdown {
@@ -325,6 +325,7 @@ body {
   }
 }
 
+
 @media screen and (max-width: 768px) {
   body {
 
@@ -346,80 +347,32 @@ body {
       }
     }
 
+    .event-head {
+      display: inline-block;
+      margin-bottom: 20px;
+
+      .event-title {
+        font-size: 26px;
+        line-height: 27px;
+      }
+
+      .event-district {
+        font-size: 16px;
+        left: 15px;
+      }
+    }
+
     .filter-container {
       .filter, .filter-dropdown {
         font-size: 1.5rem;
       }
     }
 
-    .event-head {
-      display: inline-block;
-      margin-bottom: 20px;
-
-      .event-title {
-        font-size: 26px;
-        line-height: 27px;
-      }
-
-      .event-district {
-        font-size: 16px;
-        left: 15px;
-      }
-    }
-
     .event-data-container {
       display: inline-block;
+      font-size: 1rem;
 
       .event-small-data {
-        font-size: 18px;
-        margin-left: 8px;
-        margin-right: 8px;
-        margin-top: 5px;
-        margin-bottom: 5px;
-        font-weight: bold;
-      }
-    }
-
-    .no-events {
-      font-size: 25px;
-    }
-
-    .loading {
-      font-size: 18px;
-
-      #dots {
-        font-size: 20px;
-      }
-    }
-
-  }
-}
-
-@media screen and (max-width: 768px) {
-  body {
-
-    .event-head {
-      display: inline-block;
-      margin-bottom: 20px;
-
-      .event-title {
-        font-size: 26px;
-        line-height: 27px;
-      }
-
-      .event-district {
-        font-size: 16px;
-        left: 15px;
-      }
-    }
-
-    .event-data-container {
-      display: inline-block;
-
-      .event-small-data {
-        font-size: 18px;
-        margin-left: 8px;
-        margin-right: 8px;
         margin-top: 5px;
         margin-bottom: 5px;
         font-weight: bold;

@@ -162,7 +162,9 @@ function readEventData(data) {
   //Evento de un día o evento de varios días?
   var events = data['@graph'];
   events = orderByDate(events);
-  var uniqueEvents = removeRepeatedEvents(events);
+  var uniqueEvents = removeRepeatedEvents(events); //hay algo que está fallando aquí: los eventos creo que se están sustituyendo y tiene pinta por ser del tema $copy & element globales. 
+  //hay que buscar la solución de meterlos directamente aqui y no globales, que puede que es lo que está fallando y además es mala solución. 
+
   uniqueEvents.forEach(function (element_) {
     element = element_; //Day and Hour
 
@@ -181,10 +183,7 @@ function readEventData(data) {
     addLink(element); //Link
 
     $('#events-list').append($copy);
-
-    if (!(audience === 'Niños' || audience === 'Niños,Familias' || audience == 'Jovenes' || audience == 'Familias')) {
-      $($copy).show();
-    }
+    $($copy).show();
   });
   $('.loading').hide();
   clearInterval(dotsAnim);
