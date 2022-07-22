@@ -54,13 +54,18 @@
         <div class="flag-container" id="flag-element">
         </div>
 
-        <h3>En Madrid hay una gran cantidad de <span class="important"> eventos en centros culturales, bibliotecas,
+        <div>
+          <h3>En Madrid hay una gran cantidad de <span class="important"> eventos en centros culturales, bibliotecas,
             parques y plazas</span> que apenas tienen difusión.
           <br>
           <p class="description-separator">. . .</p>
+          <br>
           Esta web pretende estructurar la información para <span class="important"> facilitar la visualización </span>y
-          hacer estos eventos más accesibles. </b>
+          hacer estos eventos más accesibles.
+          <br>
         </h3>
+        </div>
+        
       </div>
 
 
@@ -82,10 +87,10 @@
 
     <div id="event-section">
       <div class="filter-container">
-        <div class="filter" id="day"> Hoy </div>
+        <div class="filter" id="day-start" value=getToday();> Hoy </div>
         <div class="filter" id="free" value="1"> Gratis </div>
         <div class="filter" id="dtend" value="1"> Varios días </div>
-        <div class="filter" id="audience" value="0"> Para niños </div>
+        <div class="filter" id="audience_kids" value="0"> Para niños </div>
         <div class="filter" id="audience_woman" value="0"> Para mujeres </div>
         <select class="filter-dropdown" id="district-filter">
           <option id="event-district" selected="ALL" value="ALL">Distritos</option>
@@ -128,7 +133,6 @@
             <div class="event-data-container">
               <div class='event-small-data event-location'>@ Centro Cultural Conde Duque</div>
               <div class="event-small-data event-day-start">Día: 15-09-2020</div>
-              <div class="event-small-data event-frecuency">Varios días</div>
               <div class="event-small-data event-hour">Hora: <span>18:30</span> - <span>23:00</span></div>
               <div class="event-small-data event-price">Precio: 10 euros</div>
               <div class="event-small-data event-audience"></div>

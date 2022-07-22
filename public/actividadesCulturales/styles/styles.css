@@ -36,16 +36,19 @@ body .header-container.description h3 {
 }
 body .header-container.description .flag-container {
   box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
-  width: 180px;
-  border-radius: 250px;
+  width: 300px;
   background-color: white;
+  border: 2px solid black;
   margin: 2em;
+  background-image: url(../images/3d-mov-madrid.gif);
+  background-size: cover;
+  background-position: left;
 }
 body h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
 }
 body h1 .city {
-  font-size: 2.5rem;
+  font-size: 3rem;
   text-decoration: underline;
 }
 body h3 {
@@ -77,11 +80,10 @@ body ol {
 body li {
   list-style-type: none;
   position: relative;
-  font-size: 1.5rem;
   padding: 15px;
   margin-bottom: 15px;
   color: #000000;
-  background-color: white;
+  background-color: #f8f8f8;
   border: 1px solid #262626;
   transition: 0.3s;
 }
@@ -109,7 +111,7 @@ body .filter-container select {
   font-weight: bold;
   font-size: 20px;
   font: 'Work Sans', sans-serif;
-  width: 30%;
+  width: 20%;
   max-width: 200px;
 }
 body .filter-container .filter,
@@ -153,9 +155,10 @@ body .event-head {
 }
 body .event-head .event-title {
   position: relative;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: bold;
   line-height: 32px;
+  text-decoration: underline;
 }
 body .event-head .event-title:hover {
   cursor: pointer;
@@ -175,21 +178,21 @@ body .event-title:after {
   width: 25px;
 }
 body .event-description {
-  font-size: 20px;
+  font-size: 1.1rem;
   font-stretch: condensed;
 }
 body .event-description a {
+  text-decoration: underline;
+}
+body .event-description a:hover {
+  font-weight: bold;
   background-image: linear-gradient(transparent 60%, #FFFD98 60%);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: top center;
   cursor: pointer;
 }
-body .event-description a:hover {
-  font-weight: bold;
-}
 body .event-data-container {
-  background-color: white;
   width: 100%;
   display: inline-flex;
 }
@@ -201,9 +204,7 @@ body .event-small-data {
   padding: 0.25rem 0.75rem;
   margin: 1rem 0.5rem 0 0;
   font-size: 0.9rem;
-  line-height: 130%;
-  background-color: white;
-  border: 2px solid #262626;
+  border: 1px solid #262626;
   color: #262626;
   border-radius: 1rem;
   text-decoration: none;
@@ -293,6 +294,11 @@ body .loading #dots {
   body .filter-container .filter-dropdown {
     font-size: 1.5rem;
   }
+  body .filter-container .filter:hover,
+  body .filter-container .filter-dropdown:hover {
+    top: 0;
+    box-shadow: none;
+  }
   body .event-data-container {
     display: inline-block;
     font-size: 1rem;
@@ -300,7 +306,6 @@ body .loading #dots {
   body .event-data-container .event-small-data {
     margin-top: 5px;
     margin-bottom: 5px;
-    font-weight: bold;
   }
   body .no-events {
     font-size: 25px;
@@ -333,11 +338,11 @@ body .loading #dots {
   body .event-head .event-title {
     font-size: 20px;
   }
-  body .event-description {
-    font-size: 15px;
+  body .event-data-container {
+    text-align: center;
   }
   body .event-data-container .event-small-data {
-    font-size: 13px;
+    font-size: 0.75rem;
   }
 }
 @media screen and (max-width: 320px) {
@@ -359,11 +364,14 @@ body .loading #dots {
 }
 body::-webkit-scrollbar-track {
   background-color: #cbacf6;
+  cursor: pointer;
 }
 body::-webkit-scrollbar {
   width: 12px;
   background-color: #cbacf6;
+  cursor: pointer;
 }
 body::-webkit-scrollbar-thumb {
   background-color: #FFFD98;
+  cursor: pointer;
 }

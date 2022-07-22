@@ -15,42 +15,87 @@ if (!test) {
 }
 
 
+function readEventData(data) {
+  //Evento de un día o evento de varios días?
+  let events = data['@graph']
+  events = orderByDate(events);
+  let uniqueEvents = removeRepeatedEvents(events);
+
+  //hay algo que está fallando aquí: los eventos creo que se están sustituyendo y tiene pinta por ser del tema $copy & element globales. 
+  //hay que buscar la solución de meterlos directamente aqui y no globales, que puede que es lo que está fallando y además es mala solución. 
+  uniqueEvents.forEach(element_ => {
+    $copy = $oneDayEvent.clone();
+    element = element_;
+    addDayHour(element); //Day and Hour
+    let audience = addAudience(element); //Audience
+    addDistrict(element); //District
+    addTitleDescription(element); //Event title and description
+    addEventLocation(element) //event location
+    addPrice(element);//Price
+    addLink(element); //Link
+
+    $('#events-list').append($copy);
+    $($copy).show();
+
+  });
+
+  $('.loading').hide();
+  clearInterval(dotsAnim);
+  addListenerFilters();
+}
+
+
 function addDayHour(element) {
-  let recurrence = element['recurrence'];
+  //Obtenemos la fecha de inicio (todos los eventos la tienen)
+  let dateStart = element['dtstart'];
+  if (!dateStart) dateStart = 'No hay fecha de inicio'
+  let dayStart = transformDateToString(dateStart.split(' ')[0]);
+  $($copy).attr('day-start', dateStart.split(' ')[0]);
+  //Vemos si tiene recurrencia
+  let recurrence = element['recurrence']; 
+
   if (recurrence) {
     let dateEnd = element['dtend'];
-    let dayEnd;
     if (!dateEnd) dateEnd = 'No hay fecha de fin'
-    else dayEnd = dateEnd.split(' ')[0]
-    dayEnd = transformDateToString(dayEnd)
-    $($copy).find('.event-day-end').text('Fecha fin: ' + dayEnd);
+    else dateEnd = transformDateToString(dateEnd.split(' ')[0]);
     $($copy).attr('dtend', "1");
-  } else {
-    $copy = $oneDayEvent.clone();
-    let time = element['time'];
-    if (!time) time = 'Sin hora';
-    $($copy).find('.event-hour').text('' + time);
+    $($copy).find('.event-day-start').text('De '  + dayStart.toLocaleLowerCase() + ' a ' + dateEnd.toLocaleLowerCase());
+  } else { //El evento no tiene recurrencia, por tanto: 
+    $($copy).find('.event-day-start').text('' + dayStart);
   }
+
+  //Le añadimos la hora de inicio 
+  let time = element['time'];
+  if (!time) time = 'Sin hora';
+  $($copy).find('.event-hour').text('' + time); 
+    $($copy).find('.event-hour').text('' + time);
+  $($copy).find('.event-hour').text('' + time); 
+    $($copy).find('.event-hour').text('' + time);
+  $($copy).find('.event-hour').text('' + time); 
+    $($copy).find('.event-hour').text('' + time);
+  $($copy).find('.event-hour').text('' + time); 
+    $($copy).find('.event-hour').text('' + time);
+  $($copy).find('.event-hour').text('' + time); 
+    $($copy).find('.event-hour').text('' + time);
+  $($copy).find('.event-hour').text('' + time); 
+
 }
 
 function addAudience(element) {
   let audience = element['audience'];
-  if (audience && ((audience === 'Niños' || audience === 'Niños,Familias'))) {
-    $($copy).attr('audience', 0)
+  console.log(audience);
+  if (audience && ((audience === 'Niños' || audience === 'Niños,Familias' || audience === 'Jovenes,Niños' || audience === 'Familias' || audience === 'Jovenes' || audience === 'Familias,Mayores'))) {
+    $($copy).attr('audience_kids', 0)
     $($copy).find('.event-audience').text('Para niños');
+  } else if(audience && ((audience === 'Mujeres' || audience === 'Mujeres,Familias' || audience === 'Mujeres,Familias'))){
+    $($copy).attr('audience_woman', 0)
+    $($copy).find('.event-audience').text('Para mujeres');
   } else {
-    $($copy).attr('audience', 1)
+    $($copy).attr('audience_kids', 1);
+    $($copy).attr('audience_woman', 1);
     $($copy).find('.event-audience').remove();
   }
   return audience;
-
-
-  //TODO: Meter el filtro de mujeres
-  /*
-  else if(audience === 'Mujeres' || audience ===  'Mujeres,Mayores' || audience === 'Mujeres,Familias'){
-    $($copy).attr('audience', 1)
-    $($copy).find('.event-audience').text('Para mujeres');
-  */
 }
 
 function addDistrict(element) {
@@ -78,24 +123,6 @@ function addTitleDescription(element) {
     $($copy).find('.event-description').text(description);
   }
   $($copy).attr('id', element['id']);
-}
-
-function addDayStart(element) {
-  let dateStart = element['dtstart'];
-  if (!dateStart) dateStart = 'No hay fecha de inicio'
-  let dayStart = dateStart.split(' ');
-  let dayStartFormat;
-  dayStartFormat = transformDateToString(dayStart[0]);
-  $($copy).find('.event-day-start').text('' + dayStartFormat);
-  $($copy).attr('day', dayStart[0]);
-
-
-  let recurrence = element['recurrence'];
-  if(recurrence){
-    var dateEnd = element['dtend'];
-    $($copy).find('.event-day-start').text('Termina ' + transformDateToString(dateEnd).toLocaleLowerCase());
-    $($copy).find('.event-frecuency').show();
-  }
 }
 
 function addEventLocation(element) {
@@ -145,37 +172,6 @@ function addLink(element) {
 function removeRepeatedEvents(events) {
   let uniqueArray = events.filter((v, i, a) => a.findIndex(t => (t.title === v.title)) === i)
   return uniqueArray;
-}
-
-
-function readEventData(data) {
-  //Evento de un día o evento de varios días?
-  let events = data['@graph']
-  events = orderByDate(events);
-  let uniqueEvents = removeRepeatedEvents(events);
-
-  //hay algo que está fallando aquí: los eventos creo que se están sustituyendo y tiene pinta por ser del tema $copy & element globales. 
-  //hay que buscar la solución de meterlos directamente aqui y no globales, que puede que es lo que está fallando y además es mala solución. 
-  uniqueEvents.forEach(element_ => {
-    element = element_;
-    //Day and Hour
-    addDayHour(element);
-    addDayStart(element);
-    let audience = addAudience(element); //Audience
-    addDistrict(element); //District
-    addTitleDescription(element); //Event title and description
-    addEventLocation(element) //event location
-    addPrice(element);//Price
-    addLink(element); //Link
-
-    $('#events-list').append($copy);
-    $($copy).show();
-
-  });
-
-  $('.loading').hide();
-  clearInterval(dotsAnim);
-  addListenerFilters();
 }
 
 function getDistrict(district) {
@@ -232,7 +228,7 @@ function orderByDate(events) {
 }
 
 function filterOnlyToday() {
-  $('li[day!="' + getToday() + '"]').toggle();
+  $('li[day-start!="' + getToday() + '"]').toggle();
 }
 
 function getToday() {
@@ -250,7 +246,7 @@ function getToday() {
 }
 
 function addListenerFilters() {
-  $('#day').attr('value', getToday());
+  $('#day-start').attr('value', getToday());
   $('#district-filter').on('change', function () {
     var valueSelect = $($('#district-filter').find('option:selected')).text();
     applyFilters();
@@ -275,18 +271,11 @@ function applyFilters() {
 
   if($('#district-filter').find('option:selected').text() != 'Distritos') filters.push($($('#district-filter').find('option:selected')));
 
-  var audience = false;
-  filters.forEach(function (element) {
-    var id = $(element).attr('id');
-    if (id === 'audience') audience = true;
-  });
+  $('li').show(); //Mostramos todos para poder filtrar... ¿no tengo muy claro que sea la mejor solución?
 
-  if (audience) {
-    $('li').show();
-  } else {
-    $('li[audience=0]').hide();
-    $('li[audience=1]').show();
-  }
+  filters.forEach(function (filter_element) {
+    var id = $(filter_element).attr('id');
+  });
 
   filters.forEach(function (element) {
     var id = $(element).attr('id');
