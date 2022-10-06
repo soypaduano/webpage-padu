@@ -25,7 +25,7 @@ function readEventData(data) {
   uniqueEvents.forEach(function (element_) {
     $copy = $oneDayEvent.clone();
     element = element_;
-    addDayHour(element); //Day and Hour
+    if (!addDayHour(element)) return; //Day and Hour
 
     var audience = addAudience(element); //Audience
 
@@ -50,7 +50,6 @@ function readEventData(data) {
 }
 
 function addTodayTomorrowMarkToList(element) {
-  console.log($('#events-list').find('#today-mark').length != 1);
   $('#events-list').find('#today-mark');
 
   if (element.date === 'Hoy' && $('#events-list').find('.date-separator.today').length != 1) {
@@ -70,36 +69,29 @@ function addDayHour(element) {
   $($copy).attr('day-start', dateStart.split(' ')[0]); //Vemos si tiene recurrencia
 
   var recurrence = element['recurrence'];
+  var dateEnd;
 
   if (recurrence) {
-    var dateEnd = element['dtend'];
+    dateEnd = element['dtend'];
     if (!dateEnd) dateEnd = 'No hay fecha de fin';else dateEnd = transformDateToString(dateEnd.split(' ')[0]);
     $($copy).attr('dtend', "1");
     $($copy).find('.event-day-start').text('De ' + dayStart.toLocaleLowerCase() + ' a ' + dateEnd.toLocaleLowerCase());
   } else {
     //El evento no tiene recurrencia, por tanto: 
     $($copy).find('.event-day-start').text('' + dayStart);
-  } //Le añadimos la hora de inicio 
+  }
 
+  if (isYesterday(dateStart) || isYesterday(dateEnd)) return false; //Tanto como si el evento empezaba ayer o terminaba ayer, quiere decir que está terminado. 
+  //Le añadimos la hora de inicio 
 
   var time = element['time'];
   if (!time) time = 'Sin hora';
   $($copy).find('.event-hour').text('' + time);
-  $($copy).find('.event-hour').text('' + time);
-  $($copy).find('.event-hour').text('' + time);
-  $($copy).find('.event-hour').text('' + time);
-  $($copy).find('.event-hour').text('' + time);
-  $($copy).find('.event-hour').text('' + time);
-  $($copy).find('.event-hour').text('' + time);
-  $($copy).find('.event-hour').text('' + time);
-  $($copy).find('.event-hour').text('' + time);
-  $($copy).find('.event-hour').text('' + time);
-  $($copy).find('.event-hour').text('' + time);
+  return true;
 }
 
 function addAudience(element) {
   var audience = element['audience'];
-  console.log(audience);
 
   if (audience && (audience === 'Niños' || audience === 'Niños,Familias' || audience === 'Jovenes,Niños' || audience === 'Familias' || audience === 'Jovenes' || audience === 'Familias,Mayores')) {
     $($copy).attr('audience_kids', 0);
@@ -117,6 +109,7 @@ function addAudience(element) {
 }
 
 function addDistrict(element) {
+  debugger;
   var district = 'no-district';
   var postalcode = 'no-postal-code';
 
@@ -128,7 +121,7 @@ function addDistrict(element) {
       $($copy).find('.event-district').text(district + ', ' + postalcode);
     }
 
-    $($copy).find('.event-district').text(district);
+    $($copy).find('.event-district').text(district.replace(/([A-Z])/g, ' $1').trim().replace('- ', '-'));
   }
 
   district = district.toUpperCase();
@@ -334,6 +327,12 @@ var isTomorrow = function isTomorrow(date) {
 var isPastTomorrow = function isPastTomorrow(date) {
   var today = new Date();
   return date.getDate() === today.getDate() + 2 && date.getMonth() === today.getMonth() && date.getFullYear() === today.getFullYear();
+};
+
+var isYesterday = function isYesterday(date) {
+  var today = new Date();
+  var dt = new Date(date);
+  return dt < today;
 };
 
 function loadingAnim() {

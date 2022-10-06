@@ -26,7 +26,7 @@ function readEventData(data) {
   uniqueEvents.forEach(element_ => {
     $copy = $oneDayEvent.clone();
     element = element_;
-    addDayHour(element); //Day and Hour
+    if (!addDayHour(element)) return; //Day and Hour
     let audience = addAudience(element); //Audience
     addDistrict(element); //District
     addTitleDescription(element); //Event title and description
@@ -46,12 +46,11 @@ function readEventData(data) {
   addListenerFilters();
 }
 
-function addTodayTomorrowMarkToList(element){
-  console.log($('#events-list').find('#today-mark').length != 1);
+function addTodayTomorrowMarkToList(element) {
   $('#events-list').find('#today-mark');
-  if(element.date === 'Hoy' && $('#events-list').find('.date-separator.today').length != 1){
+  if (element.date === 'Hoy' && $('#events-list').find('.date-separator.today').length != 1) {
     $('#events-list').append('<p class="date-separator today"> Hoy </p>');
-  } else if(element.date === 'Mañana' && $('#events-list').find('.date-separator.tomorrow').length != 1){
+  } else if (element.date === 'Mañana' && $('#events-list').find('.date-separator.tomorrow').length != 1) {
     $('#events-list').append('<p class="date-separator tomorrow"> Mañana </p>');
   }
 }
@@ -67,8 +66,9 @@ function addDayHour(element) {
   //Vemos si tiene recurrencia
   let recurrence = element['recurrence']; 
 
+  let dateEnd;
   if (recurrence) {
-    let dateEnd = element['dtend'];
+    dateEnd = element['dtend'];
     if (!dateEnd) dateEnd = 'No hay fecha de fin'
     else dateEnd = transformDateToString(dateEnd.split(' ')[0]);
     $($copy).attr('dtend', "1");
@@ -77,30 +77,21 @@ function addDayHour(element) {
     $($copy).find('.event-day-start').text('' + dayStart);
   }
 
+  if(isYesterday(dateStart) || isYesterday(dateEnd)) return false;   //Tanto como si el evento empezaba ayer o terminaba ayer, quiere decir que está terminado. 
+
   //Le añadimos la hora de inicio 
   let time = element['time'];
   if (!time) time = 'Sin hora';
-  $($copy).find('.event-hour').text('' + time); 
-    $($copy).find('.event-hour').text('' + time);
-  $($copy).find('.event-hour').text('' + time); 
-    $($copy).find('.event-hour').text('' + time);
-  $($copy).find('.event-hour').text('' + time); 
-    $($copy).find('.event-hour').text('' + time);
-  $($copy).find('.event-hour').text('' + time); 
-    $($copy).find('.event-hour').text('' + time);
-  $($copy).find('.event-hour').text('' + time); 
-    $($copy).find('.event-hour').text('' + time);
-  $($copy).find('.event-hour').text('' + time); 
-
+  $($copy).find('.event-hour').text('' + time);
+  return true;
 }
 
 function addAudience(element) {
   let audience = element['audience'];
-  console.log(audience);
-  if (audience && ((audience === 'Niños' || audience === 'Niños,Familias' || audience === 'Jovenes,Niños' || audience === 'Familias' || audience === 'Jovenes' || audience === 'Familias,Mayores'))) {
+  if (audience && ((audience === 'Niños' || audience === 'Niños,Familias' || audience === 'Jovenes,Niños' || audience === 'Familias' || audience === 'Jovenes' || audience === 'Familias,Mayores'))) {
     $($copy).attr('audience_kids', 0)
     $($copy).find('.event-audience').text('Para niños');
-  } else if(audience && ((audience === 'Mujeres' || audience === 'Mujeres,Familias' || audience === 'Mujeres,Familias'))){
+  } else if (audience && ((audience === 'Mujeres' || audience === 'Mujeres,Familias' || audience === 'Mujeres,Familias'))) {
     $($copy).attr('audience_woman', 0)
     $($copy).find('.event-audience').text('Para mujeres');
   } else {
@@ -112,6 +103,7 @@ function addAudience(element) {
 }
 
 function addDistrict(element) {
+  debugger;
   let district = 'no-district'
   let postalcode = 'no-postal-code'
   if (element['address']) {
@@ -120,7 +112,7 @@ function addDistrict(element) {
       postalcode = element['address']['area']['postal-code'];
       $($copy).find('.event-district').text(district + ', ' + postalcode);
     }
-    $($copy).find('.event-district').text(district);
+    $($copy).find('.event-district').text(district.replace(/([A-Z])/g, ' $1').trim().replace('- ', '-'));
   }
   district = district.toUpperCase();
   $($copy).attr('event-district', district);
@@ -282,7 +274,7 @@ function applyFilters() {
     filters.push($(this))
   });
 
-  if($('#district-filter').find('option:selected').text() != 'Distritos') filters.push($($('#district-filter').find('option:selected')));
+  if ($('#district-filter').find('option:selected').text() != 'Distritos') filters.push($($('#district-filter').find('option:selected')));
 
   $('li').show(); //Mostramos todos para poder filtrar... ¿no tengo muy claro que sea la mejor solución?
 
@@ -337,6 +329,12 @@ const isPastTomorrow = (date) => {
     date.getMonth() === today.getMonth() &&
     date.getFullYear() === today.getFullYear();
 };
+
+const isYesterday = (date) => {
+  const today = new Date()
+  let dt =  new Date(date);
+  return dt < today; 
+}
 
 function loadingAnim() {
   dotsAnim = window.setInterval(function () {

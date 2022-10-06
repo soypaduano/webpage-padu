@@ -1,5 +1,5 @@
 body {
-  margin: 40px;
+  margin: 20px;
   background-color: #cbacf6;
   font-family: 'Work Sans', sans-serif;
 }
@@ -14,9 +14,6 @@ body .header-donator .donate {
 body .header-donator .donate:hover {
   background-color: rgba(255, 255, 0, 0.918);
   font-weight: bold;
-}
-body .header-container {
-  padding: 10px;
 }
 body .header-container.title {
   width: 65%;
@@ -46,6 +43,7 @@ body .header-container.description .flag-container {
   background-position: left;
 }
 body h1 {
+  padding: 10px;
   font-size: 2.5rem;
 }
 body h1 .city {
@@ -56,6 +54,12 @@ body h3 {
   padding: 10px;
   font-size: 1.5rem;
   font-weight: normal;
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
 }
 body .important {
   background-image: linear-gradient(transparent 60%, #FFFD98 60%);
@@ -75,12 +79,8 @@ body #mc_embed_signup_scroll {
 }
 body .date-separator {
   text-align: center;
-  font-weight: bold;
   padding: 10px;
-  border: 2px solid black;
-  border-radius: 20px;
   margin-bottom: 35px;
-  background-color: #FFFD98;
 }
 body ol {
   counter-reset: section;
@@ -115,9 +115,8 @@ body li.desktop:hover {
 body .filter-container {
   display: inline;
   margin-top: 10px;
-  border: 1px solid black;
-  background-color: wheat;
   padding: 10px;
+  border-bottom: 1px solid black;
 }
 body .filter-container select {
   background-color: white;
@@ -308,16 +307,29 @@ body .loading #dots {
     font-size: 26px;
     line-height: 27px;
   }
+  body .event-head .event-title:hover {
+    background-color: none;
+  }
   body .event-head .event-district {
     font-size: 16px;
     left: 15px;
   }
   body .filter-container .filter,
   body .filter-container .filter-dropdown {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
   }
   body .filter-container .filter:hover,
   body .filter-container .filter-dropdown:hover {
+    top: 0;
+    box-shadow: none;
+  }
+  body .filter-container .filter.selected,
+  body .filter-container .filter-dropdown.selected {
+    top: 0;
+    box-shadow: none;
+  }
+  body .filter-container .filter.selected:hover,
+  body .filter-container .filter-dropdown.selected:hover {
     top: 0;
     box-shadow: none;
   }

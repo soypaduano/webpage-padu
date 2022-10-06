@@ -15,7 +15,7 @@
 
 
 body {
-  margin: 40px;
+  margin: 20px;
   background-color: @background-color;
   font-family: @font-test1;
 
@@ -35,8 +35,7 @@ body {
   }
 
   .header-container {
-    padding: 10px;
-
+  
     &.title {
       width: 65%;
       background-color: white;
@@ -71,6 +70,7 @@ body {
   }
 
   h1 {
+    padding: 10px;
     font-size: 2.5rem;
 
     .city {
@@ -83,6 +83,9 @@ body {
     padding: 10px;
     font-size: 1.5rem;
     font-weight: normal;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
   }
 
   .important {
@@ -106,12 +109,12 @@ body {
 
   .date-separator{
     text-align: center;
-    font-weight: bold;
     padding: 10px;
-    border: 2px solid black;
-    border-radius: 20px;
     margin-bottom: 35px;
-    background-color: @highlight-color;
+  }
+
+  #event-section{
+    //background-color: white;
   }
 
   ol {
@@ -155,9 +158,8 @@ body {
   .filter-container {
     display: inline;
     margin-top: 10px;
-    border: 1px solid black;
-    background-color: wheat;
     padding: 10px;
+    border-bottom: 1px solid black;
 
     select {
       background-color: white;
@@ -360,7 +362,7 @@ body {
       &.title {
         width: 100%;
       }
-  
+
       &.description {
         width: 100%;
   
@@ -381,6 +383,9 @@ body {
       .event-title {
         font-size: 26px;
         line-height: 27px;
+        &:hover{
+          background-color: none;
+        }
       }
 
       .event-district {
@@ -391,13 +396,20 @@ body {
 
     .filter-container {
       .filter, .filter-dropdown {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
         &:hover {
           top: 0;
           box-shadow: none;
         }
+        &.selected{
+          top: 0;
+          box-shadow: none;
+          &:hover{
+            top: 0;
+            box-shadow: none;
+          }
+        }
       }
-
     }
 
     .event-data-container {
