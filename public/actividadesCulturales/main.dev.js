@@ -39,6 +39,8 @@ function readEventData(data) {
 
     addLink(element); //Link
 
+    debugger;
+    addTodayTomorrowMarkToList(element);
     $('#events-list').append($copy);
     $($copy).show();
   });
@@ -47,11 +49,24 @@ function readEventData(data) {
   addListenerFilters();
 }
 
+function addTodayTomorrowMarkToList(element) {
+  console.log($('#events-list').find('#today-mark').length != 1);
+  $('#events-list').find('#today-mark');
+
+  if (element.date === 'Hoy' && $('#events-list').find('.date-separator.today').length != 1) {
+    $('#events-list').append('<p class="date-separator today"> Hoy </p>');
+  } else if (element.date === 'Mañana' && $('#events-list').find('.date-separator.tomorrow').length != 1) {
+    $('#events-list').append('<p class="date-separator tomorrow"> Mañana </p>');
+  }
+}
+
 function addDayHour(element) {
   //Obtenemos la fecha de inicio (todos los eventos la tienen)
   var dateStart = element['dtstart'];
   if (!dateStart) dateStart = 'No hay fecha de inicio';
   var dayStart = transformDateToString(dateStart.split(' ')[0]);
+  element.date = dayStart; //Le añadimos la fecha al elemento
+
   $($copy).attr('day-start', dateStart.split(' ')[0]); //Vemos si tiene recurrencia
 
   var recurrence = element['recurrence'];
