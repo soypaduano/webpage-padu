@@ -21,38 +21,42 @@ function readEventData(data) {
   events = orderByDate(events);
   let uniqueEvents = removeRepeatedEvents(events);
 
-  //hay algo que está fallando aquí: los eventos creo que se están sustituyendo y tiene pinta por ser del tema $copy & element globales. 
-  //hay que buscar la solución de meterlos directamente aqui y no globales, que puede que es lo que está fallando y además es mala solución. 
   uniqueEvents.forEach(element_ => {
     $copy = $oneDayEvent.clone();
     element = element_;
-    if (!addDayHour(element)) return; //Day and Hour
-    let audience = addAudience(element); //Audience
-    addDistrict(element); //District
-    addTitleDescription(element); //Event title and description
-    addEventLocation(element) //event location
-    addPrice(element);//Price
-    addLink(element); //Link
-
-    debugger;
-    addTodayTomorrowMarkToList(element);
+    if (!addDayHour(element)) return; //Esto devuelve un valor porque a veces, devuelve eventos que han sido ayer.
+    let audience = addAudience(element);
+    addDistrict(element);
+    addTitleDescription(element);
+    addEventLocation(element);
+    addPrice(element);
+    addLink(element);
     $('#events-list').append($copy);
     $($copy).show();
-
   });
 
   $('.loading').hide();
   clearInterval(dotsAnim);
+  addTodayTomorrowMarkToList();
   addListenerFilters();
 }
 
 function addTodayTomorrowMarkToList(element) {
-  $('#events-list').find('#today-mark');
-  if (element.date === 'Hoy' && $('#events-list').find('.date-separator.today').length != 1) {
-    $('#events-list').append('<p class="date-separator today"> Hoy </p>');
-  } else if (element.date === 'Mañana' && $('#events-list').find('.date-separator.tomorrow').length != 1) {
-    $('#events-list').append('<p class="date-separator tomorrow"> Mañana </p>');
-  }
+  //Buscamos primer elemento de la lista que comparta la fecha de inicio con 'hoy'.
+  let $element = $('li[day-start="' + getToday() + '"]').first();
+  $element ? $element.before('<div class="date-separator"> <p> Actividades para hoy </p> </div>') : $('.date-separator.today').remove();
+  
+  let $elementTomorrow = $('li[day-start="' + getTomorrow() + '"]').first();
+  $elementTomorrow.before('<div class="date-separator"> <p> Actividades para mañana </p> </div>');
+
+
+
+  /*let dateFirst = $($element).attr('day-start');
+  if(isToday(new Date(dateFirst))){
+    $('#events-list').prepend('<div> <p class="date-separator today"> Actividades para hoy </p> </div>');
+  }*/
+
+  //Buscamos el primer elemento de la lista 
 }
 
 
@@ -83,6 +87,7 @@ function addDayHour(element) {
   let time = element['time'];
   if (!time) time = 'Sin hora';
   $($copy).find('.event-hour').text('' + time);
+  $($copy).dateStart = dayStart;
   return true;
 }
 
@@ -103,7 +108,6 @@ function addAudience(element) {
 }
 
 function addDistrict(element) {
-  debugger;
   let district = 'no-district'
   let postalcode = 'no-postal-code'
   if (element['address']) {
@@ -250,6 +254,20 @@ function getToday() {
   return [year, month, day].join('-');
 }
 
+function getTomorrow() {
+  var d = new Date(),
+    month = '' + (d.getMonth() + 1),
+    day = '' + (d.getDate() + 1),
+    year = d.getFullYear();
+
+  if (month.length < 2)
+    month = '0' + month;
+  if (day.length < 2)
+    day = '0' + day;
+
+  return [year, month, day].join('-');
+}
+
 function addListenerFilters() {
   $('#day-start').attr('value', getToday());
   $('#district-filter').on('change', function () {
@@ -297,6 +315,8 @@ function applyFilters() {
 
 
   filters = [];
+
+  addTodayTomorrowMarkToList();
 }
 
 function addListenerCreator() {

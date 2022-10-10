@@ -1,14 +1,19 @@
 @font-test2: 'Alice', serif;
 @font-test1: 'Work Sans', sans-serif;
 @font-test3: 'Cabin', sans-serif;
+@font-test4: 'Karla', sans-serif;
 
-@background-color2: #fbece2;
+
+//@background-color2: #fbece2;
 //@background-color: #cee4ca;
-@background-color: #cbacf6;
-@card-color: #f8f8f8;
+//@background-color: #cbacf6;
+@background-color: #eef6f0;
+
+//@card-color: #f8f8f8;
+@card-color: #fffad1;
 
 
-@color-black: #262626;
+@color-black: #2b2839f0;
 @button-color: #F08080;
 @button-color-background: #f3b0b0;
 @highlight-color: #FFFD98;
@@ -18,18 +23,19 @@ body {
   margin: 20px;
   background-color: @background-color;
   font-family: @font-test1;
+  color: #2b2839f0;
 
   .header-donator {
     display: inline-block;
     font-size: 1.1rem;
 
     .donate {
-      background-color: rgba(255, 255, 0, 0.425);
+      background-color: @highlight-color;
       cursor: pointer;
     }
 
     .donate:hover {
-      background-color: rgba(255, 255, 0, 0.918);
+      background-color: rgba(247, 247, 104, 0.911);
       font-weight: bold;
     }
   }
@@ -39,7 +45,7 @@ body {
     &.title {
       width: 65%;
       background-color: white;
-      border: 2px solid @color-black;
+      border: 1px solid hsla(215,20.22%,65.1%,100%);
       box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
       margin-top: 20px;
     }
@@ -51,7 +57,7 @@ body {
 
       h3 {
         background-color: white;
-        border: 2px solid @color-black;
+        border: 1px solid hsla(215,20.22%,65.1%,100%);
         box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
       }
 
@@ -108,13 +114,15 @@ body {
   }
 
   .date-separator{
-    text-align: center;
     padding: 10px;
-    margin-bottom: 35px;
-  }
-
-  #event-section{
-    //background-color: white;
+    background-color: @card-color;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
+    border: 2px solid white;
+    p{
+      font-size: 1.2rem;
+      text-align: center;
+    }
   }
 
   ol {
@@ -128,13 +136,11 @@ body {
     position: relative;
     padding: 15px;
     margin-bottom: 15px;
-    color: rgb(0, 0, 0);
-    background-color: @card-color;
-    border: 1px solid @color-black;
+    background-color: white;
     transition: 0.3s;
-  }
-
-  li {
+    border: 1px solid hsla(0,0%,0%,10%);
+    border-radius: 10px;
+  
     &.desktop:hover {
       transition: 0.3s;
       transform: translate(4px, -4px);
@@ -159,7 +165,6 @@ body {
     display: inline;
     margin-top: 10px;
     padding: 10px;
-    border-bottom: 1px solid black;
 
     select {
       background-color: white;
@@ -177,7 +182,6 @@ body {
       margin: 1rem 0.5rem 0 0;
       font-size: 1.2rem;
       text-align: center;
-      font-family: SpaceGroteskRegular, sans-serif;
       line-height: 130%;
       background-color: #ff9d7a;
       border: 2px solid #5b0505;
@@ -209,7 +213,6 @@ body {
 
   .event-head {
     display: inline-flex;
-    width: 85%;
 
     .event-title {
       position: relative;
@@ -233,30 +236,26 @@ body {
       right: 0;
       margin-right: 15px;
     }
-  }
 
-  .event-title:after {
-    content: '';
-    position: absolute;
-    width: 25px;
-  }
-
-  .event-description {
-    font-size: 1.1rem;
-    font-stretch: condensed;
-
-    a {
-      text-decoration: underline;
-      &:hover {
-        font-weight: bold;
-        background-image: linear-gradient(transparent 60%, @highlight-color 60%);
-      background-size: 100% 100%;
-      background-repeat: no-repeat;
-      background-position: top center;
-      cursor: pointer;
+    .event-description {
+      font-size: 1.1rem;
+      font-stretch: condensed;
+  
+      a {
+        text-decoration: underline;
+        &:hover {
+          font-weight: bold;
+          background-image: linear-gradient(transparent 60%, @highlight-color 60%);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: top center;
+        cursor: pointer;
+        }
       }
     }
   }
+
+  
 
   .event-data-container {
     width: 100%;
@@ -356,7 +355,7 @@ body {
     .header-container {  
 
       h1{
-        font-size: 2rem;
+        font-size: 1.8rem;
       }
 
       &.title {
@@ -381,10 +380,17 @@ body {
       margin-bottom: 20px;
 
       .event-title {
-        font-size: 26px;
-        line-height: 27px;
+        font-size: 1.1rem;
+        line-height: 22px;
         &:hover{
           background-color: none;
+        }
+      }
+
+      .event-description{
+        p {
+          font-size: 1.0rem;
+          text-align: left;
         }
       }
 

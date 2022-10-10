@@ -1,24 +1,25 @@
 body {
   margin: 20px;
-  background-color: #cbacf6;
+  background-color: #eef6f0;
   font-family: 'Work Sans', sans-serif;
+  color: #2b2839f0;
 }
 body .header-donator {
   display: inline-block;
   font-size: 1.1rem;
 }
 body .header-donator .donate {
-  background-color: rgba(255, 255, 0, 0.425);
+  background-color: #FFFD98;
   cursor: pointer;
 }
 body .header-donator .donate:hover {
-  background-color: rgba(255, 255, 0, 0.918);
+  background-color: rgba(247, 247, 104, 0.911);
   font-weight: bold;
 }
 body .header-container.title {
   width: 65%;
   background-color: white;
-  border: 2px solid #262626;
+  border: 1px solid hsl(215, 20.22%, 65.1%);
   box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
   margin-top: 20px;
 }
@@ -29,7 +30,7 @@ body .header-container.description {
 }
 body .header-container.description h3 {
   background-color: white;
-  border: 2px solid #262626;
+  border: 1px solid hsl(215, 20.22%, 65.1%);
   box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
 }
 body .header-container.description .flag-container {
@@ -78,9 +79,15 @@ body #mc_embed_signup_scroll {
   display: flex;
 }
 body .date-separator {
-  text-align: center;
   padding: 10px;
-  margin-bottom: 35px;
+  background-color: #fffad1;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0%), 0 2px 4px -1px rgb(0 0 0%);
+  border: 2px solid white;
+}
+body .date-separator p {
+  font-size: 1.2rem;
+  text-align: center;
 }
 body ol {
   counter-reset: section;
@@ -92,10 +99,10 @@ body li {
   position: relative;
   padding: 15px;
   margin-bottom: 15px;
-  color: #000000;
-  background-color: #f8f8f8;
-  border: 1px solid #262626;
+  background-color: white;
   transition: 0.3s;
+  border: 1px solid hsla(0, 0%, 0%, 0.1);
+  border-radius: 10px;
 }
 body li.desktop:hover {
   transition: 0.3s;
@@ -116,11 +123,10 @@ body .filter-container {
   display: inline;
   margin-top: 10px;
   padding: 10px;
-  border-bottom: 1px solid black;
 }
 body .filter-container select {
   background-color: white;
-  border: 2px solid #262626;
+  border: 2px solid #2b2839f0;
   font-weight: bold;
   font-size: 20px;
   font: 'Work Sans', sans-serif;
@@ -134,7 +140,6 @@ body .filter-container .filter-dropdown {
   margin: 1rem 0.5rem 0 0;
   font-size: 1.2rem;
   text-align: center;
-  font-family: SpaceGroteskRegular, sans-serif;
   line-height: 130%;
   background-color: #ff9d7a;
   border: 2px solid #5b0505;
@@ -164,7 +169,6 @@ body .filter-container .filter-dropdown.selected:hover {
 }
 body .event-head {
   display: inline-flex;
-  width: 85%;
 }
 body .event-head .event-title {
   position: relative;
@@ -185,19 +189,14 @@ body .event-head .event-district {
   right: 0;
   margin-right: 15px;
 }
-body .event-title:after {
-  content: '';
-  position: absolute;
-  width: 25px;
-}
-body .event-description {
+body .event-head .event-description {
   font-size: 1.1rem;
   font-stretch: condensed;
 }
-body .event-description a {
+body .event-head .event-description a {
   text-decoration: underline;
 }
-body .event-description a:hover {
+body .event-head .event-description a:hover {
   font-weight: bold;
   background-image: linear-gradient(transparent 60%, #FFFD98 60%);
   background-size: 100% 100%;
@@ -217,8 +216,8 @@ body .event-small-data {
   padding: 0.25rem 0.75rem;
   margin: 1rem 0.5rem 0 0;
   font-size: 0.9rem;
-  border: 1px solid #262626;
-  color: #262626;
+  border: 1px solid #2b2839f0;
+  color: #2b2839f0;
   border-radius: 1rem;
   text-decoration: none;
 }
@@ -260,16 +259,16 @@ body .no-events {
   display: none;
   width: 100%;
   font-size: 50px;
-  color: #262626;
-  border: 1px solid #262626;
+  color: #2b2839f0;
+  border: 1px solid #2b2839f0;
   text-align: center;
   background-color: white;
 }
 body .loading {
   width: 100%;
   font-size: 30px;
-  color: #262626;
-  border: 1px solid #262626;
+  color: #2b2839f0;
+  border: 1px solid #2b2839f0;
   background-color: white;
 }
 body .loading .text {
@@ -285,7 +284,7 @@ body .loading #dots {
     margin-top: 20px;
   }
   body .header-container h1 {
-    font-size: 2rem;
+    font-size: 1.8rem;
   }
   body .header-container.title {
     width: 100%;
@@ -304,11 +303,15 @@ body .loading #dots {
     margin-bottom: 20px;
   }
   body .event-head .event-title {
-    font-size: 26px;
-    line-height: 27px;
+    font-size: 1.1rem;
+    line-height: 22px;
   }
   body .event-head .event-title:hover {
     background-color: none;
+  }
+  body .event-head .event-description p {
+    font-size: 1rem;
+    text-align: left;
   }
   body .event-head .event-district {
     font-size: 16px;
@@ -397,15 +400,17 @@ body .loading #dots {
   }
 }
 body::-webkit-scrollbar-track {
-  background-color: #cbacf6;
+  background-color: #eef6f0;
   cursor: pointer;
 }
 body::-webkit-scrollbar {
   width: 12px;
-  background-color: #cbacf6;
+  background-color: #eef6f0;
   cursor: pointer;
 }
 body::-webkit-scrollbar-thumb {
   background-color: #FFFD98;
   cursor: pointer;
+}
+or: pointer;
 }
