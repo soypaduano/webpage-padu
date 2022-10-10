@@ -31,13 +31,26 @@ function readEventData(data) {
     addEventLocation(element);
     addPrice(element);
     addLink(element);
-    $('#events-list').append($copy);
-    $($copy).show();
+    appendEventToParentDate($copy, element);
   });
   $('.loading').hide();
   clearInterval(dotsAnim);
-  addTodayTomorrowMarkToList();
   addListenerFilters();
+}
+
+function appendEventToParentDate($copy, element) {
+  //Cogemos la fecha 
+  var date = element.dateEnd;
+  var $dateSeparator = $('.date-separator[datestart=' + date + ']');
+
+  if (!$dateSeparator.length) {
+    $dateSeparator = $('<div class="date-separator" datestart=' + date + '> <p> Actividades para ' + date + '</p> </div>');
+    $('#events-list').append($dateSeparator);
+    debugger;
+  }
+
+  $($dateSeparator).append($copy);
+  $($copy).show();
 }
 
 function addTodayTomorrowMarkToList(element) {
@@ -46,11 +59,6 @@ function addTodayTomorrowMarkToList(element) {
   $element ? $element.before('<div class="date-separator"> <p> Actividades para hoy </p> </div>') : $('.date-separator.today').remove();
   var $elementTomorrow = $('li[day-start="' + getTomorrow() + '"]').first();
   $elementTomorrow.before('<div class="date-separator"> <p> Actividades para mañana </p> </div>');
-  /*let dateFirst = $($element).attr('day-start');
-  if(isToday(new Date(dateFirst))){
-    $('#events-list').prepend('<div> <p class="date-separator today"> Actividades para hoy </p> </div>');
-  }*/
-  //Buscamos el primer elemento de la lista 
 }
 
 function addDayHour(element) {
@@ -73,8 +81,10 @@ function addDayHour(element) {
   } else {
     //El evento no tiene recurrencia, por tanto: 
     $($copy).find('.event-day-start').text('' + dayStart);
+    dateEnd = dayStart;
   }
 
+  element.dateEnd = dateEnd;
   if (isYesterday(dateStart) || isYesterday(dateEnd)) return false; //Tanto como si el evento empezaba ayer o terminaba ayer, quiere decir que está terminado. 
   //Le añadimos la hora de inicio 
 
@@ -307,7 +317,6 @@ function applyFilters() {
   });
   $('li:visible').length === 0 ? $('#no-events').show() : $('#no-events').hide();
   filters = [];
-  addTodayTomorrowMarkToList();
 }
 
 function addListenerCreator() {

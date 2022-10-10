@@ -116,13 +116,19 @@ body {
   .date-separator{
     padding: 10px;
     background-color: @card-color;
-    border-radius: 10px;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
-    border: 2px solid white;
+    border-left: 2px solid white;
+    border-right: 2px solid white;
     p{
       font-size: 1.2rem;
       text-align: center;
+      margin-bottom: 20px;
     }
+  }
+
+  .date-separator:nth-of-type(1){
+    border-top: 2px solid white;
+    border-radius: 15px 15px 0px 0px;
   }
 
   ol {
