@@ -28,6 +28,7 @@ function readEventData(data) {
     var audience = addAudience(element);
     addDistrict(element);
     addTitleDescription(element);
+    debugger;
     addEventLocation(element);
     addPrice(element);
     addLink(element);
@@ -289,6 +290,7 @@ function addListenerFilters() {
 
 function applyFilters() {
   $('.date-separator').show();
+  $('.date-separator').removeClas('first');
   $('.filter.selected').each(function () {
     filters.push($(this));
   });
@@ -308,6 +310,7 @@ function applyFilters() {
   });
   $('li:visible').length === 0 ? $('#no-events').show() : $('#no-events').hide();
   $('.date-separator:not(:has(li:visible))').hide();
+  $('.date-separator:visible').first().addClass('first');
   filters = [];
 }
 
