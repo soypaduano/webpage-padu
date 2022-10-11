@@ -1,39 +1,91 @@
-body {
+/* 
+Challenge:
+1. Refactor the CSS to make it DRYer
+   by grouping selectors together where
+   possible.
+*/
+
+body{
     font-size: 16px;
     color: #2b283a;
     font-family: 'Roboto', sans-serif;
-}
-
-header {
-    background-color: #5f29a3;
-    padding: 45px 0px;
-}
-
-h1 {
-    font-size: 36px;
-    color: whitesmoke;
-    margin-top: 0px;
     margin: 0;
 }
 
-h2 {
-    font-weight: bold;
-    font-size: 24px;
+/* typography */
+
+h1{
+    color: whitesmoke;
+    font-size: 36px;
+    margin: 0;
+}
+
+h2{
     margin-top: 0;
 }
 
-h3 {
-    font-size: 20px;
+h3{
     color: #d0aaff;
-    margin: 0;
+    font-size: 20px;
+    margin:0;
 }
 
-section {
-    padding: 45px 0px;
+/* links */
+
+a{
+    color: #ef5839;
+    text-decoration: underline dotted; 
 }
 
-.img-pigeon{
-    width: 100%;
+a:hover{
+    color: #d4b44c;
 }
 
+a:active{
+    color: #d4b44c;
+}
 
+/* layout */
+
+header{
+    background-color: #5f29a3;
+    padding: 45px 0;
+}
+
+section{
+    padding: 45px 0;
+}
+
+.section-two{
+    color: whitesmoke;
+    background-color: #5f29a3;
+}
+
+.section-two p {
+    line-height: 23px;
+}
+
+.container{
+    width: 620px;
+    margin: 0 auto;
+}
+
+.main-image{
+    width:100%;
+}
+
+.section-two-image-container{
+    display: flex;
+    justify-content: space-between;
+}
+
+.feature-image{
+    width: 300px;
+    border-radius: 4.6px;
+}
+
+footer{
+    text-align: center;
+    padding: 45px 0;
+    color: #5f29a3;
+}

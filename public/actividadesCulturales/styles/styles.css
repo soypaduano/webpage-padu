@@ -134,7 +134,7 @@ body .filter-container {
   padding: 10px;
 }
 body .filter-container select {
-  background-color: white;
+  background-color: #eef6f0;
   border: 2px solid #2b2839f0;
   font-weight: bold;
   font-size: 20px;
@@ -150,10 +150,10 @@ body .filter-container .filter-dropdown {
   font-size: 1.2rem;
   text-align: center;
   line-height: 130%;
-  background-color: #ff9d7a;
-  border: 2px solid #5b0505;
-  color: #5b0505;
-  border-radius: 1rem;
+  background-color: none;
+  border: 1px solid black;
+  color: #2b2839f0;
+  border-radius: 5px;
   text-decoration: none;
   position: relative;
   top: 0;
@@ -164,17 +164,14 @@ body .filter-container .filter-dropdown {
 body .filter-container .filter:hover,
 body .filter-container .filter-dropdown:hover {
   top: 0.25rem;
-  box-shadow: 0 -1px 0 #5b0505, 0 -3px 0 -1px #5b0505, 0 -5px 0 -2px #5b0505, 0 -7px 0 -3px #5b0505, 0 -9px 0 -5px #5b0505, 0 -11px 0 -6px #5b0505;
 }
 body .filter-container .filter.selected,
 body .filter-container .filter-dropdown.selected {
-  background-color: #5b0505;
-  color: #ff9d7a;
+  background-color: white;
 }
 body .filter-container .filter.selected:hover,
 body .filter-container .filter-dropdown.selected:hover {
   top: 0.25rem;
-  box-shadow: 0 -1px 0 #ff9d7a, 0 -3px 0 -1px #ff9d7a, 0 -5px 0 -2px #ff9d7a, 0 -7px 0 -3px #ff9d7a, 0 -9px 0 -5px #ff9d7a, 0 -11px 0 -6px #ff9d7a;
 }
 body .event-head {
   display: inline-flex;
@@ -421,6 +418,4 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background-color: #FFFD98;
   cursor: pointer;
-}
-or: pointer;
 }

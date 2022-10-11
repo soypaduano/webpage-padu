@@ -134,7 +134,7 @@ function addEventLocation(element) {
     $($copy).find('.event-location').addClass('none');
   } else {
     $($copy).find('.event-location').click(function () {
-      window.open("http://google.com/search?q=" + eventLocation);
+      window.open("http://maps.google.com/?q=" + eventLocation);
     })
   }
   $($copy).find('.event-location').text(eventLocation);
