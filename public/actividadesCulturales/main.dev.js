@@ -39,26 +39,16 @@ function readEventData(data) {
 }
 
 function appendEventToParentDate($copy, element) {
-  //Cogemos la fecha 
   var date = element.dateEnd;
   var $dateSeparator = $('.date-separator[datestart=' + date + ']');
 
   if (!$dateSeparator.length) {
-    $dateSeparator = $('<div class="date-separator" datestart=' + date + '> <p> Actividades para ' + date + '</p> </div>');
+    $dateSeparator = $('<div class="date-separator" datestart=' + date + '> <p class="text-date">' + date + '</p> </div>');
     $('#events-list').append($dateSeparator);
-    debugger;
   }
 
   $($dateSeparator).append($copy);
   $($copy).show();
-}
-
-function addTodayTomorrowMarkToList(element) {
-  //Buscamos primer elemento de la lista que comparta la fecha de inicio con 'hoy'.
-  var $element = $('li[day-start="' + getToday() + '"]').first();
-  $element ? $element.before('<div class="date-separator"> <p> Actividades para hoy </p> </div>') : $('.date-separator.today').remove();
-  var $elementTomorrow = $('li[day-start="' + getTomorrow() + '"]').first();
-  $elementTomorrow.before('<div class="date-separator"> <p> Actividades para mañana </p> </div>');
 }
 
 function addDayHour(element) {
@@ -79,7 +69,7 @@ function addDayHour(element) {
     $($copy).attr('dtend', "1");
     $($copy).find('.event-day-start').text('De ' + dayStart.toLocaleLowerCase() + ' a ' + dateEnd.toLocaleLowerCase());
   } else {
-    //El evento no tiene recurrencia, por tanto: 
+    //El evento no tiene recurrencia, por tanto, el día que termina es el día que empieza. 
     $($copy).find('.event-day-start').text('' + dayStart);
     dateEnd = dayStart;
   }
@@ -298,6 +288,7 @@ function addListenerFilters() {
 }
 
 function applyFilters() {
+  $('.date-separator').show();
   $('.filter.selected').each(function () {
     filters.push($(this));
   });
@@ -316,6 +307,7 @@ function applyFilters() {
     $(a).toggle();
   });
   $('li:visible').length === 0 ? $('#no-events').show() : $('#no-events').hide();
+  $('.date-separator:not(:has(li:visible))').hide();
   filters = [];
 }
 

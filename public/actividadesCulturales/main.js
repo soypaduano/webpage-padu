@@ -40,28 +40,15 @@ function readEventData(data) {
 }
 
 function appendEventToParentDate($copy, element){
-
-  //Cogemos la fecha 
   let date = element.dateEnd;
   let $dateSeparator = $('.date-separator[datestart=' + date + ']')
   if(!$dateSeparator.length){
-    $dateSeparator = $('<div class="date-separator" datestart=' + date + '> <p> Actividades para ' + date + '</p> </div>')
+    $dateSeparator = $('<div class="date-separator" datestart=' + date + '> <p class="text-date">' + date + '</p> </div>')
     $('#events-list').append($dateSeparator);
-    debugger;
   }
   $($dateSeparator).append($copy);
   $($copy).show();
 }
-
-function addTodayTomorrowMarkToList(element) {
-  //Buscamos primer elemento de la lista que comparta la fecha de inicio con 'hoy'.
-  let $element = $('li[day-start="' + getToday() + '"]').first();
-  $element ? $element.before('<div class="date-separator"> <p> Actividades para hoy </p> </div>') : $('.date-separator.today').remove();
-  
-  let $elementTomorrow = $('li[day-start="' + getTomorrow() + '"]').first();
-  $elementTomorrow.before('<div class="date-separator"> <p> Actividades para mañana </p> </div>');
-}
-
 
 function addDayHour(element) {
   //Obtenemos la fecha de inicio (todos los eventos la tienen)
@@ -80,13 +67,12 @@ function addDayHour(element) {
     else dateEnd = transformDateToString(dateEnd.split(' ')[0]);
     $($copy).attr('dtend', "1");
     $($copy).find('.event-day-start').text('De '  + dayStart.toLocaleLowerCase() + ' a ' + dateEnd.toLocaleLowerCase());
-  } else { //El evento no tiene recurrencia, por tanto: 
+  } else { //El evento no tiene recurrencia, por tanto, el día que termina es el día que empieza. 
     $($copy).find('.event-day-start').text('' + dayStart);
     dateEnd = dayStart;
   }
 
   element.dateEnd = dateEnd;
-
   if(isYesterday(dateStart) || isYesterday(dateEnd)) return false;   //Tanto como si el evento empezaba ayer o terminaba ayer, quiere decir que está terminado. 
 
   //Le añadimos la hora de inicio 
@@ -294,12 +280,12 @@ function addListenerFilters() {
 
 function applyFilters() {
 
+  $('.date-separator').show();
   $('.filter.selected').each(function () {
     filters.push($(this))
   });
 
   if ($('#district-filter').find('option:selected').text() != 'Distritos') filters.push($($('#district-filter').find('option:selected')));
-
   $('li').show(); //Mostramos todos para poder filtrar... ¿no tengo muy claro que sea la mejor solución?
 
   filters.forEach(function (filter_element) {
@@ -318,6 +304,7 @@ function applyFilters() {
   });
 
   $('li:visible').length === 0 ? $('#no-events').show() : $('#no-events').hide();
+  $('.date-separator:not(:has(li:visible))').hide();
   filters = [];
 }
 

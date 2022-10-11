@@ -1,0 +1,39 @@
+body {
+    font-size: 16px;
+    color: #2b283a;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    background-color: #5f29a3;
+    padding: 45px 0px;
+}
+
+h1 {
+    font-size: 36px;
+    color: whitesmoke;
+    margin-top: 0px;
+    margin: 0;
+}
+
+h2 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-top: 0;
+}
+
+h3 {
+    font-size: 20px;
+    color: #d0aaff;
+    margin: 0;
+}
+
+section {
+    padding: 45px 0px;
+}
+
+.img-pigeon{
+    width: 100%;
+}
+
+

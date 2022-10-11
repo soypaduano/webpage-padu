@@ -22,6 +22,7 @@ body .header-container.title {
   border: 1px solid hsl(215, 20.22%, 65.1%);
   box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
   margin-top: 20px;
+  border-radius: 5px;
 }
 body .header-container.description {
   width: 100%;
@@ -31,6 +32,7 @@ body .header-container.description {
 body .header-container.description h3 {
   background-color: white;
   border: 1px solid hsl(215, 20.22%, 65.1%);
+  border-radius: 5px;
   box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
 }
 body .header-container.description .flag-container {
@@ -85,10 +87,12 @@ body .date-separator {
   border-left: 2px solid white;
   border-right: 2px solid white;
 }
-body .date-separator p {
+body .date-separator .text-date {
   font-size: 1.2rem;
-  text-align: center;
+  text-align: left;
   margin-bottom: 20px;
+  font-weight: bold;
+  margin-left: 20px;
 }
 body .date-separator:nth-of-type(1) {
   border-top: 2px solid white;
@@ -112,7 +116,7 @@ body li {
 body li.desktop:hover {
   transition: 0.3s;
   transform: translate(4px, -4px);
-  box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
+  box-shadow: 4px 12px 0px rgba(0, 0, 0, 0.13);
 }
 @keyframes slideIn {
   0% {
@@ -178,7 +182,6 @@ body .event-head {
 body .event-head .event-title {
   position: relative;
   font-size: 1.5rem;
-  font-weight: bold;
   line-height: 32px;
   text-decoration: underline;
 }
@@ -189,25 +192,28 @@ body .event-head .event-title:hover {
   background-repeat: no-repeat;
   background-position: top center;
 }
-body .event-head .event-district {
+body .event-district {
   position: absolute;
   right: 0;
   margin-right: 15px;
 }
-body .event-head .event-description {
-  font-size: 1.1rem;
+body .event-description {
   font-stretch: condensed;
 }
-body .event-head .event-description a {
+body .event-description a {
   text-decoration: underline;
 }
-body .event-head .event-description a:hover {
-  font-weight: bold;
+body .event-description a:hover {
   background-image: linear-gradient(transparent 60%, #FFFD98 60%);
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: top center;
   cursor: pointer;
+}
+body .event-description p {
+  font-size: 0.9rem;
+  text-align: left;
+  font-weight: normal;
 }
 body .event-data-container {
   width: 100%;
@@ -263,18 +269,23 @@ body li::before {
 body .no-events {
   display: none;
   width: 100%;
-  font-size: 50px;
+  font-size: 2rem;
   color: #2b2839f0;
-  border: 1px solid #2b2839f0;
+  border: 2px solid white;
+  border-radius: 5px;
   text-align: center;
-  background-color: white;
+  background-color: #fffad1;
+  padding: 5px;
 }
 body .loading {
   width: 100%;
-  font-size: 30px;
+  font-size: 2.5rem;
   color: #2b2839f0;
-  border: 1px solid #2b2839f0;
-  background-color: white;
+  text-align: center;
+  border: 2px solid white;
+  background-color: #fffad1;
+  border-radius: 5px;
+  padding: 5px;
 }
 body .loading .text {
   margin-left: 15px;
@@ -349,9 +360,6 @@ body .loading #dots {
     margin-top: 5px;
     margin-bottom: 5px;
   }
-  body .no-events {
-    font-size: 25px;
-  }
   body .loading {
     font-size: 18px;
   }
@@ -376,9 +384,6 @@ body .loading #dots {
   }
   body .event-head {
     width: 100%;
-  }
-  body .event-head .event-title {
-    font-size: 20px;
   }
   body .event-data-container {
     text-align: center;
@@ -416,4 +421,6 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background-color: #FFFD98;
   cursor: pointer;
+}
+or: pointer;
 }

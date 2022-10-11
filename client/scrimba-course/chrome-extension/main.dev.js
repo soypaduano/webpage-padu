@@ -1,11 +1,16 @@
 "use strict";
 
 var myLeads = [];
-var inputBtn, inputEl, ulEl, deleteBtn;
+var oldLeads = [];
+var inputBtn, inputEl, ulEl, deleteBtn, tabButton;
+var tabs = [{
+  url: 'https://www.linkedin.com/in/per-harald-borgen/'
+}];
 $(document).ready(function () {
   inputBtn = $('#input-btn');
   inputEl = $('#input-el');
   ulEl = $('#ul-el');
+  tabButton = $('#tab-btn');
   myLeads = [];
   renderLeads();
   $('#input-btn').click(function () {
@@ -21,6 +26,19 @@ $(document).ready(function () {
     alert("Borrando");
     localStorage.clear('myLeads');
     renderLeads();
+  });
+  $(tabButton).click(function () {
+    chrome.tabs.query({
+      active: true,
+      currentWindow: true
+    }, function (tabs) {
+      myLeads = localStorage.getItem('myLeads');
+      myLeads = JSON.parse(myLeads);
+      if (!myLeads) myLeads = [];
+      myLeads.push(tabs[0].url);
+      localStorage.setItem("myLeads", JSON.stringify(myLeads));
+      renderLeads();
+    });
   });
 });
 
