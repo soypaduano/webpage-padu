@@ -1,91 +1,63 @@
-/* 
-Challenge:
-1. Refactor the CSS to make it DRYer
-   by grouping selectors together where
-   possible.
-*/
-
-body{
-    font-size: 16px;
-    color: #2b283a;
-    font-family: 'Roboto', sans-serif;
+body {
+    font-size: 1.125rem;
+    color: #707070;
     margin: 0;
 }
 
-/* typography */
+/* Typography */
 
-h1{
-    color: whitesmoke;
-    font-size: 36px;
-    margin: 0;
+h1 {
+    font-size: 3rem;
+    color: #212614;
+    text-align: center;
 }
 
-h2{
+h1 span {
+    color: #b7832f;
+}
+
+h2 {
+    font-size: 1.5rem;
+}
+
+p {
     margin-top: 0;
 }
 
-h3{
-    color: #d0aaff;
-    font-size: 20px;
-    margin:0;
+
+/*  Layout  */
+
+img {
+    max-width: 100%;
 }
 
-/* links */
-
-a{
-    color: #ef5839;
-    text-decoration: underline dotted; 
-}
-
-a:hover{
-    color: #d4b44c;
-}
-
-a:active{
-    color: #d4b44c;
-}
-
-/* layout */
-
-header{
-    background-color: #5f29a3;
-    padding: 45px 0;
-}
-
-section{
-    padding: 45px 0;
-}
-
-.section-two{
-    color: whitesmoke;
-    background-color: #5f29a3;
-}
-
-.section-two p {
-    line-height: 23px;
-}
-
-.container{
-    width: 620px;
+.container {
+    width: 95%;
+    max-width: 980px;
     margin: 0 auto;
 }
 
-.main-image{
-    width:100%;
-}
-
-.section-two-image-container{
+.columns {
     display: flex;
     justify-content: space-between;
+    margin: 1em 0;
+    align-items: stretch;
 }
 
-.feature-image{
-    width: 300px;
-    border-radius: 4.6px;
+.col-1{
+    width: 20%;
 }
 
-footer{
-    text-align: center;
-    padding: 45px 0;
-    color: #5f29a3;
+.col-2{
+    width: 45%;
+}
+
+.col-3{
+    width: 70%;
+}
+
+.bg-brown {
+    background: #212614;
+    color: #fff;
+    padding: 1em;
 }
