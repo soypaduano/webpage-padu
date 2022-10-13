@@ -1,6 +1,6 @@
 
 var test = false;
-var dotsAnim, eventosActividadesCulturales, element, $copy;
+var dotsAnim, element, $copy;
 var filters = [];
 
 if (typeof window.orientation === 'undefined') {
@@ -16,7 +16,7 @@ if (!test) {
 
 
 function readEventData(data) {
-  //Evento de un día o evento de varios días?
+  //Evento de un día o evento de letios días?
   let events = data['@graph']
   events = orderByDate(events);
   let uniqueEvents = removeRepeatedEvents(events);
@@ -28,7 +28,6 @@ function readEventData(data) {
     let audience = addAudience(element);
     addDistrict(element);
     addTitleDescription(element);
-    debugger;
     addEventLocation(element);
     addPrice(element);
     addLink(element);
@@ -41,12 +40,9 @@ function readEventData(data) {
 }
 
 function appendEventToParentDate($copy, element){
-  let date = element.dateEnd;
+  let date = element.dateEnd
   let $dateSeparator = $('.date-separator[datestart=' + date + ']')
-  if(!$dateSeparator.length){
-    $dateSeparator = $('<div class="date-separator" datestart=' + date + '> <p class="text-date">' + date + '</p> </div>')
-    $('#events-list').append($dateSeparator);
-  }
+  if(!$dateSeparator.length) $('#events-list').append($('<div class="date-separator" datestart=' + date + '> <p class="text-date">' + date.replaceAll('-', '.') + '</p> </div>'));
   $($dateSeparator).append($copy);
   $($copy).show();
 }
@@ -91,7 +87,7 @@ function addAudience(element) {
     $($copy).find('.event-audience').text('Para niños');
   } else if (audience && ((audience === 'Mujeres' || audience === 'Mujeres,Familias' || audience === 'Mujeres,Familias'))) {
     $($copy).attr('audience_woman', 0)
-    $($copy).find('.event-audience').text('Para mujeres');
+    $($copy).find('.event-audience').text('Feminismo');
   } else {
     $($copy).attr('audience_kids', 1);
     $($copy).attr('audience_woman', 1);
@@ -119,7 +115,7 @@ function addTitleDescription(element) {
   $($copy).find('.event-title').text(element['title']);;
   let description = element['description'];
   if (description === '') {
-    $($copy).find('.event-description').html('<p>Este evento no tiene descripción. Para ver más información, <a id="link-to-event"> pincha aquí.</a></p>')
+    $($copy).find('.event-description').html('<p>Para ver más información, <a id="link-to-event"> pincha aquí.</a></p>')
     $($copy).find('.event-more-info').find('#link-to-event').remove();
   } else {
     $($copy).find('.event-description').text(description);
@@ -177,13 +173,13 @@ function removeRepeatedEvents(events) {
 }
 
 function getDistrict(district) {
-  var parts = district.split('/');
-  var lastSegment = parts.pop() || parts.pop(); // handle potential trailing slash
+  let parts = district.split('/');
+  let lastSegment = parts.pop() || parts.pop(); // handle potential trailing slash
   return lastSegment;
 }
 
 function transformDateToString(dateString) {
-  var dt = new Date(dateString);
+  let dt = new Date(dateString);
   if (isToday(dt)) {
     return 'Hoy';
   } else if (isTomorrow(dt)) {
@@ -201,8 +197,8 @@ $(document).ready(function () {
 
 
 function doRequestActividadesCulturales() {
-  var currentURL = window.location.href;
-  var urlEvents = currentURL + '/request';
+  let currentURL = window.location.href;
+  let urlEvents = currentURL + '/request';
   doEventsRequest(urlEvents);
 }
 
@@ -234,7 +230,7 @@ function filterOnlyToday() {
 }
 
 function getToday() {
-  var d = new Date(),
+  let d = new Date(),
     month = '' + (d.getMonth() + 1),
     day = '' + d.getDate(),
     year = d.getFullYear();
@@ -248,7 +244,7 @@ function getToday() {
 }
 
 function getTomorrow() {
-  var d = new Date(),
+  let d = new Date(),
     month = '' + (d.getMonth() + 1),
     day = '' + (d.getDate() + 1),
     year = d.getFullYear();
@@ -264,7 +260,7 @@ function getTomorrow() {
 function addListenerFilters() {
   $('#day-start').attr('value', getToday());
   $('#district-filter').on('change', function () {
-    var valueSelect = $($('#district-filter').find('option:selected')).text();
+    let valueSelect = $($('#district-filter').find('option:selected')).text();
     applyFilters();
   });
 
@@ -282,7 +278,7 @@ function addListenerFilters() {
 function applyFilters() {
 
   $('.date-separator').show();
-  $('.date-separator').removeClas('first');
+  $('.date-separator').removeClass('first');
   $('.filter.selected').each(function () {
     filters.push($(this))
   });

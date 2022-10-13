@@ -1,7 +1,7 @@
 "use strict";
 
 var test = false;
-var dotsAnim, eventosActividadesCulturales, element, $copy;
+var dotsAnim, element, $copy;
 var filters = [];
 
 if (typeof window.orientation === 'undefined') {
@@ -16,7 +16,7 @@ if (!test) {
 }
 
 function readEventData(data) {
-  //Evento de un día o evento de varios días?
+  //Evento de un día o evento de letios días?
   var events = data['@graph'];
   events = orderByDate(events);
   var uniqueEvents = removeRepeatedEvents(events);
@@ -28,7 +28,6 @@ function readEventData(data) {
     var audience = addAudience(element);
     addDistrict(element);
     addTitleDescription(element);
-    debugger;
     addEventLocation(element);
     addPrice(element);
     addLink(element);
@@ -44,7 +43,7 @@ function appendEventToParentDate($copy, element) {
   var $dateSeparator = $('.date-separator[datestart=' + date + ']');
 
   if (!$dateSeparator.length) {
-    $dateSeparator = $('<div class="date-separator" datestart=' + date + '> <p class="text-date">' + date + '</p> </div>');
+    $dateSeparator = $('<div class="date-separator" datestart=' + date + '> <p class="text-date">' + date.replaceAll('-', '.') + '</p> </div>');
     $('#events-list').append($dateSeparator);
   }
 
@@ -94,7 +93,7 @@ function addAudience(element) {
     $($copy).find('.event-audience').text('Para niños');
   } else if (audience && (audience === 'Mujeres' || audience === 'Mujeres,Familias' || audience === 'Mujeres,Familias')) {
     $($copy).attr('audience_woman', 0);
-    $($copy).find('.event-audience').text('Para mujeres');
+    $($copy).find('.event-audience').text('Feminismo');
   } else {
     $($copy).attr('audience_kids', 1);
     $($copy).attr('audience_woman', 1);
@@ -129,7 +128,7 @@ function addTitleDescription(element) {
   var description = element['description'];
 
   if (description === '') {
-    $($copy).find('.event-description').html('<p>Este evento no tiene descripción. Para ver más información, <a id="link-to-event"> pincha aquí.</a></p>');
+    $($copy).find('.event-description').html('<p>Para ver más información, <a id="link-to-event"> pincha aquí.</a></p>');
     $($copy).find('.event-more-info').find('#link-to-event').remove();
   } else {
     $($copy).find('.event-description').text(description);
@@ -290,7 +289,7 @@ function addListenerFilters() {
 
 function applyFilters() {
   $('.date-separator').show();
-  $('.date-separator').removeClas('first');
+  $('.date-separator').removeClass('first');
   $('.filter.selected').each(function () {
     filters.push($(this));
   });
