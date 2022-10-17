@@ -42,7 +42,7 @@ function readEventData(data) {
 function appendEventToParentDate($copy, element){
   let date = element.dateEnd
   let $dateSeparator = $('.date-separator[datestart=' + date + ']')
-  if(!$dateSeparator.length) $('#events-list').append($('<div class="date-separator" datestart=' + date + '> <p class="text-date">' + date.replaceAll('-', '.') + '</p> </div>'));
+  if(!$dateSeparator.length) $('#events-list').append($(`<div class="date-separator" datestart=${date}> <p class="text-date"> <i class="fa-regular fa-calendar-days"></i> ${date.replaceAll('-', '.')} </p> </div>`));
   $($dateSeparator).append($copy);
   $($copy).show();
 }
@@ -63,9 +63,9 @@ function addDayHour(element) {
     if (!dateEnd) dateEnd = 'No hay fecha de fin'
     else dateEnd = transformDateToString(dateEnd.split(' ')[0]);
     $($copy).attr('dtend', "1");
-    $($copy).find('.event-day-start').text('De '  + dayStart.toLocaleLowerCase() + ' a ' + dateEnd.toLocaleLowerCase());
+    $($copy).find('.event-day-start').html(`<i class="fa-light fa-calendar-w"></i> De ${dayStart.toLocaleLowerCase()} a ${dateEnd.toLocaleLowerCase()}`);
   } else { //El evento no tiene recurrencia, por tanto, el día que termina es el día que empieza. 
-    $($copy).find('.event-day-start').text('' + dayStart);
+    $($copy).find('.event-day-start').html(`<i class="fa-regular fa-calendar-days"></i> ${dayStart}`);
     dateEnd = dayStart;
   }
 
@@ -75,7 +75,7 @@ function addDayHour(element) {
   //Le añadimos la hora de inicio 
   let time = element['time'];
   if (!time) time = 'Sin hora';
-  $($copy).find('.event-hour').text('' + time);
+  $($copy).find('.event-hour').html(`<i class="fa-regular fa-clock"></i> ${time}`);
   $($copy).dateStart = dayStart;
   return true;
 }
@@ -84,10 +84,10 @@ function addAudience(element) {
   let audience = element['audience'];
   if (audience && ((audience === 'Niños' || audience === 'Niños,Familias' || audience === 'Jovenes,Niños' || audience === 'Familias' || audience === 'Jovenes' || audience === 'Familias,Mayores'))) {
     $($copy).attr('audience_kids', 0)
-    $($copy).find('.event-audience').text('Para niños');
+    $($copy).find('.event-audience').html(`<i class="fa-solid fa-children"></i> Para niños`);
   } else if (audience && ((audience === 'Mujeres' || audience === 'Mujeres,Familias' || audience === 'Mujeres,Familias'))) {
     $($copy).attr('audience_woman', 0)
-    $($copy).find('.event-audience').text('Feminismo');
+    $($copy).find('.event-audience').addClass('feminismo').html('<i class="fa-solid fa-venus"></i> Feminismo');
   } else {
     $($copy).attr('audience_kids', 1);
     $($copy).attr('audience_woman', 1);
@@ -105,7 +105,7 @@ function addDistrict(element) {
       postalcode = element['address']['area']['postal-code'];
       $($copy).find('.event-district').text(district + ', ' + postalcode);
     }
-    $($copy).find('.event-district').text(district.replace(/([A-Z])/g, ' $1').trim().replace('- ', '-'));
+    $($copy).find('.event-district').html(`<i class="fa-solid fa-tree-city"></i> ${district.replace(/([A-Z])/g, ' $1').trim().replace('- ', '-')}`);
   }
   district = district.toUpperCase();
   $($copy).attr('event-district', district);
@@ -134,7 +134,7 @@ function addEventLocation(element) {
       window.open("http://maps.google.com/?q=" + eventLocation);
     })
   }
-  $($copy).find('.event-location').text(eventLocation);
+  $($copy).find('.event-location').html(`<i class="fa-solid fa-location-dot"></i> ${eventLocation}`);
 }
 
 function addPrice(element) {
@@ -147,7 +147,7 @@ function addPrice(element) {
     if (!price) price = 'Precio: Consultar en la web'
     else price = '' + price;
   }
-  $($copy).find('.event-price').text(price);
+  $($copy).find('.event-price').html(`<i class="fa-solid fa-euro-sign"></i> ${price}`);
   $($copy).attr('free', free);
 }
 

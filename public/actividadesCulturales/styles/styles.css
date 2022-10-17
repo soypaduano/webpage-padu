@@ -233,12 +233,11 @@ body .event-small-data.share-whatsapp {
   text-decoration: underline;
   cursor: pointer;
 }
-body .event-small-data.share-whatsapp img {
-  width: 15px;
-  margin-top: 0px;
+body .event-small-data.share-whatsapp i {
   margin-left: 5px;
-  position: relative;
-  top: 1px;
+}
+body .event-small-data.feminismo {
+  background-color: #ECD5EC;
 }
 body .event-small-data.event-location {
   text-decoration: underline;
@@ -313,20 +312,21 @@ body .loading #dots {
   }
   body .event-head {
     display: inline-block;
-    margin-bottom: 20px;
   }
   body .event-head .event-title {
     font-size: 1.1rem;
     line-height: 22px;
   }
   body .event-head .event-title:hover {
-    background-color: none;
+    background-image: none;
   }
   body .event-head .event-description p {
     font-size: 1rem;
     text-align: left;
   }
   body .event-head .event-district {
+    margin-top: 5px;
+    position: inherit;
     font-size: 0.9rem;
     left: 15px;
   }
