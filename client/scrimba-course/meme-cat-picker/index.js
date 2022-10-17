@@ -38,9 +38,6 @@ function renderEmotionsRadios(cats) {
             $(emotionRatios).append(emotionString);
         }
     }
-
-    console.log(emotions);
-    console.log(emotionsArray);
 }
 
 
@@ -54,38 +51,51 @@ function addListenerToRadioButtons(){
 
 function addListenerToButton(){
     $('#get-image-btn').click(function(){
-        getMatchingCatsArray();
+        renderCat();
     })
 }
 
-renderEmotionsRadios(catsData);
-
-
-
-
 function getMatchingCatsArray(){
     if($('input[type="radio"]:checked').val()){
-        console.log($('input[type="radio"]:checked').val());
-        console.log($('#gifs-only-option').prop('checked'));
-    }
-    
+        let emotionCat = $('input[type="radio"]:checked').val();
+        let gifOnly = $('#gifs-only-option').prop('checked');
+        let emotionsFound = catsData.filter(function(cat){
+            return (cat.emotionTags.includes(emotionCat) && cat.isGif === gifOnly);
+        });
+
+        return emotionsFound;
+    }   
 }
 
 
+function getSingleCatObject(){
+    const catsArray = getMatchingCatsArray();   
+    if(catsArray.length === 1){
+        return catsArray[0];
+    } else {
+        var randomnumber = Math.floor(Math.random() * ((catsArray.length - 1) - 0 + 1)) + 0;
+        return catsArray[randomnumber];
+    }
+}
 
-/*
-Challenge:
-1. Take control of the gifs only option checkbox.
-2. Set up a const in getMatchingCatsArray to store 
-   a boolean which will be set to true if the 
-   "gifs only" option is checked and false if it's
-   not. (Think what a good name for this const would 
-   be.)
-3. Log it out to check it's working.
-*/
+function renderCat(){
+    let catSelected = getSingleCatObject();
+    $('#meme-modal-inner').html( `<img 
+                                    class="cat-img" 
+                                    src="./images/${catSelected.image}"
+                                    alt="CAT ALT TEXT"
+                                    >`)
+
+    $('#meme-modal').css('display', 'flex');
+
+    $('#meme-modal-close-btn').click(function(){
+        $('#meme-modal').css('display', 'none');
+    })
+}
+ 
 
 
 
 
-
+renderEmotionsRadios(catsData);
 

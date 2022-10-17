@@ -83,7 +83,7 @@ body #mc_embed_signup_scroll {
 }
 body .date-separator {
   padding: 10px;
-  background-color: #FCB07E;
+  background-color: #EAF9D9;
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   border-left: 2px solid white;
   border-right: 2px solid white;
@@ -171,7 +171,7 @@ body .filter-container .filter.selected,
 body .filter-container .filter-dropdown.selected {
   top: 0.5rem;
   border-bottom: 2px solid black;
-  background-color: #FCB07E;
+  background-color: #EAF9D9;
 }
 body .event-head {
   display: inline-flex;
@@ -271,7 +271,7 @@ body .no-events {
   border: 2px solid white;
   border-radius: 5px;
   text-align: center;
-  background-color: #FCB07E;
+  background-color: #EAF9D9;
   padding: 5px;
 }
 body .loading {
@@ -280,7 +280,7 @@ body .loading {
   color: #2b2839f0;
   text-align: center;
   border: 2px solid white;
-  background-color: #FCB07E;
+  background-color: #EAF9D9;
   border-radius: 5px;
   padding: 5px;
 }
@@ -327,7 +327,7 @@ body .loading #dots {
     text-align: left;
   }
   body .event-head .event-district {
-    font-size: 16px;
+    font-size: 0.9rem;
     left: 15px;
   }
   body .filter-container .filter,
