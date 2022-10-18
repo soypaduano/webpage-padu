@@ -1,36 +1,29 @@
 
-var test = false;
-var dotsAnim, element, $copy;
-var filters = [];
+import {isToday, isTomorrow, isYesterday, getToday, transformDateToString, getDistrict, eventHtml} from './utils.js'
 
-if (typeof window.orientation === 'undefined') {
-  $('.one-day-event').addClass('desktop');
-}
+let test = false;
+let dotsAnim, element, $copy;
+let filters = [];
 
-let $oneDayEvent;
-
-if (!test) {
-  $oneDayEvent = $('.one-day-event').remove();
-  $($oneDayEvent).hide();
-}
-
+//Document Ready
+$(document).ready(function () {
+  loadingAnim();
+  if (!test) doRequestActividadesCulturales();
+})
 
 function readEventData(data) {
-  //Evento de un día o evento de letios días?
   let events = data['@graph']
   events = orderByDate(events);
-  let uniqueEvents = removeRepeatedEvents(events);
+  events = removeRepeatedEvents(events);
 
-  uniqueEvents.forEach(element_ => {
-    $copy = $oneDayEvent.clone();
-    element = element_;
+  events.forEach(element => {
+    $copy = $(eventHtml);
     if (!addDayHour(element)) return; //Esto devuelve un valor porque a veces, devuelve eventos que han sido ayer.
+    addTitleDescription(element);
     let audience = addAudience(element);
     addDistrict(element);
-    addTitleDescription(element);
     addEventLocation(element);
     addPrice(element);
-    addLink(element);
     appendEventToParentDate($copy, element);
   });
 
@@ -42,7 +35,9 @@ function readEventData(data) {
 function appendEventToParentDate($copy, element){
   let date = element.dateEnd
   let $dateSeparator = $('.date-separator[datestart=' + date + ']')
-  if(!$dateSeparator.length) $('#events-list').append($(`<div class="date-separator" datestart=${date}> <p class="text-date"> <i class="fa-regular fa-calendar-days"></i> ${date.replaceAll('-', '.')} </p> </div>`));
+  if(!$dateSeparator.length){
+    $('#events-list').append($(`<div class="date-separator" datestart=${date}> <p class="text-date"> <i class="fa-regular fa-calendar-days"></i> ${date.replaceAll('-', '.')} </p> </div>`));
+  } 
   $($dateSeparator).append($copy);
   $($copy).show();
 }
@@ -112,19 +107,20 @@ function addDistrict(element) {
 }
 
 function addTitleDescription(element) {
-  $($copy).find('.event-title').text(element['title']);;
+  $($copy).find('.event-title').html(`<a href="${element['link']}" target="_blank"> ${element['title']} </a>`);
   let description = element['description'];
-  if (description === '') {
-    $($copy).find('.event-description').html('<p>Para ver más información, <a id="link-to-event"> pincha aquí.</a></p>')
-    $($copy).find('.event-more-info').find('#link-to-event').remove();
+  if ( description === '') {
+    $($copy).find('.event-description').html(`<p>Para ver más información, <a href="${element['link']}" target="_blank"> pincha aquí.</a></p>`)
   } else {
     $($copy).find('.event-description').text(description);
   }
+
   $($copy).attr('id', element['id']);
+  $('.share-whatsapp').html(`<a href="whatsapp://send?text= He encontrado este evento. Fichalo. ${encodeURIComponent(element['link'])} target="_blank">Compartir</a> <i class="fa-brands fa-whatsapp"></i>`)
+
 }
 
 function addEventLocation(element) {
-  $($copy).find('.event-location').removeClass('none');
   let eventLocation = element['event-location'];
   if (!eventLocation) {
     eventLocation = 'Sin ubicación' //no location
@@ -139,6 +135,7 @@ function addEventLocation(element) {
 
 function addPrice(element) {
   let free = element['free'];
+  let price;
   if (free) {
     price = 'Gratis'
   } else {
@@ -151,54 +148,9 @@ function addPrice(element) {
   $($copy).attr('free', free);
 }
 
-function addLink(element) {
-  let link = element['link'];
-
-  $($copy).find('.event-title').click(function () {
-    window.open(link);
-  });
-
-  $($copy).find('#link-to-event').click(function () {
-    window.open(link);
-  });
-
-  $($copy).find('.share-whatsapp').click(function () {
-    window.open('whatsapp://send?text= He encontrado este evento. Fichalo. ' + encodeURIComponent(link));
-  });
-}
-
-function removeRepeatedEvents(events) {
-  let uniqueArray = events.filter((v, i, a) => a.findIndex(t => (t.title === v.title)) === i)
-  return uniqueArray;
-}
-
-function getDistrict(district) {
-  let parts = district.split('/');
-  let lastSegment = parts.pop() || parts.pop(); // handle potential trailing slash
-  return lastSegment;
-}
-
-function transformDateToString(dateString) {
-  let dt = new Date(dateString);
-  if (isToday(dt)) {
-    return 'Hoy';
-  } else if (isTomorrow(dt)) {
-    return 'Mañana';
-  } else {
-    return '' + dt.getDate() + '-' + (dt.getMonth() + 1) + '-' + dt.getFullYear();
-  }
-}
-
-$(document).ready(function () {
-  loadingAnim();
-  addListenerCreator();
-  if (!test) doRequestActividadesCulturales();
-})
-
-
+//Request Functions
 function doRequestActividadesCulturales() {
-  let currentURL = window.location.href;
-  let urlEvents = currentURL + '/request';
+  let urlEvents = window.location.href + '/request';
   doEventsRequest(urlEvents);
 }
 
@@ -218,43 +170,20 @@ function doEventsRequest(url) {
   });
 }
 
+//Events Sorting and Filtering 
 function orderByDate(events) {
-  events = events.sort(function (a, b) {
+  return events.sort(function (a, b) {
     return new Date(a.dtend) - new Date(b.dtend);
   });
-  return events;
 }
 
+function removeRepeatedEvents(events) {
+  return events.filter((v, i, a) => a.findIndex(t => (t.title === v.title)) === i)
+}
+
+//Filter Functions
 function filterOnlyToday() {
   $('li[day-start!="' + getToday() + '"]').toggle();
-}
-
-function getToday() {
-  let d = new Date(),
-    month = '' + (d.getMonth() + 1),
-    day = '' + d.getDate(),
-    year = d.getFullYear();
-
-  if (month.length < 2)
-    month = '0' + month;
-  if (day.length < 2)
-    day = '0' + day;
-
-  return [year, month, day].join('-');
-}
-
-function getTomorrow() {
-  let d = new Date(),
-    month = '' + (d.getMonth() + 1),
-    day = '' + (d.getDate() + 1),
-    year = d.getFullYear();
-
-  if (month.length < 2)
-    month = '0' + month;
-  if (day.length < 2)
-    day = '0' + day;
-
-  return [year, month, day].join('-');
 }
 
 function addListenerFilters() {
@@ -287,17 +216,17 @@ function applyFilters() {
   $('li').show(); //Mostramos todos para poder filtrar... ¿no tengo muy claro que sea la mejor solución?
 
   filters.forEach(function (filter_element) {
-    var id = $(filter_element).attr('id');
+    let id = $(filter_element).attr('id');
   });
 
   filters.forEach(function (element) {
-    var id = $(element).attr('id');
-    var value = $(element).attr('value')
-    var comparision = '!=';
+    let id = $(element).attr('id');
+    let value = $(element).attr('value')
+    let comparision = '!=';
 
     if (id === 'event-district') value = '"' + value + '"';
 
-    var a = 'li:visible[' + id + comparision + value + ']'
+    let a = 'li:visible[' + id + comparision + value + ']'
     $(a).toggle();
   });
 
@@ -307,43 +236,7 @@ function applyFilters() {
   filters = [];
 }
 
-function addListenerCreator() {
-  $('.padu').click(function () {
-    window.open('https://www.instagram.com/padu.soy/');
-  });
-
-  $('.donate').click(function () {
-    window.open('https://www.paypal.com/donate?hosted_button_id=R7NPDDXAEE4V6');
-  });
-}
-
-const isToday = (date) => {
-  const today = new Date()
-  return date.getDate() === today.getDate() &&
-    date.getMonth() === today.getMonth() &&
-    date.getFullYear() === today.getFullYear();
-};
-
-const isTomorrow = (date) => {
-  const today = new Date()
-  return date.getDate() === today.getDate() + 1 &&
-    date.getMonth() === today.getMonth() &&
-    date.getFullYear() === today.getFullYear();
-};
-
-const isPastTomorrow = (date) => {
-  const today = new Date()
-  return date.getDate() === today.getDate() + 2 &&
-    date.getMonth() === today.getMonth() &&
-    date.getFullYear() === today.getFullYear();
-};
-
-const isYesterday = (date) => {
-  const today = new Date()
-  let dt =  new Date(date);
-  return dt < today; 
-}
-
+//Animation Functions
 function loadingAnim() {
   dotsAnim = window.setInterval(function () {
     let dots = $('#dots');

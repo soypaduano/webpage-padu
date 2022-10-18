@@ -48,7 +48,7 @@ main {
 @media(min-width:550px){
     .character-card {
         border: 0.2rem solid #000721;
-        height:26rem;
+        height:inherit;
         width:37vw;
     }
 }
@@ -83,7 +83,7 @@ main {
 }
 
 .health {
-    font-size:1.1rem;
+    font-size:1.5rem;
     font-weight: normal;
     width:90%;
     text-align: left;
@@ -124,7 +124,6 @@ main {
 .dice-container {
     width:100%;
     height: 20%;
-    position: absolute;
     bottom:0;
     left:0px;
     right:0;

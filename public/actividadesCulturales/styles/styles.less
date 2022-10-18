@@ -8,9 +8,6 @@
 @list-color: #EAF9D9;
 @filter-color: #ddebf8;
 @border-black-color: 1px solid hsla(215, 20.22%, 65.1%, 100%);
-
-
-
 @color-black: #2b2839f0;
 @highlight-color: #FFFD98;
 @women-color: #f7b3df;
@@ -21,22 +18,6 @@ body {
   background-color: @background-color;
   font-family: @font-test1;
   color: #2b2839f0;
-
-  .header-donator {
-    display: inline-block;
-    font-size: 1.1rem;
-    text-decoration: underline;
-
-    .donate {
-      background-color: @highlight-color;
-      cursor: pointer;
-    }
-
-    .donate:hover {
-      background-color: rgba(247, 247, 104, 0.911);
-      font-weight: bold;
-    }
-  }
 
   .header-container {
 
@@ -151,12 +132,6 @@ body {
     transition: 0.3s;
     border: 1px solid hsla(0, 0%, 0%, 10%);
     border-radius: 10px;
-
-    &.desktop:hover {
-      transition: 0.3s;
-      transform: translate(4px, -4px);
-      box-shadow: 4px 12px 0px rgba(0, 0, 0, 0.13);
-    }
   }
 
   @keyframes slideIn {

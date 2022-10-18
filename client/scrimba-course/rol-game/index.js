@@ -1,54 +1,60 @@
-const hero = {
-    elementId: "hero", 
-    name: "Wizard", 
-    avatar: "images/wizard.png", 
-    health: 60, 
-    dices: 3,
- }
- 
- const monster = {
-    elementId: "monster", 
-    name: "Orc", 
-    avatar: "images/orc.png", 
-    health: 10, 
-    dices: 1
- }
- 
- function getDiceRollArray(length){
-    let randomNumbers = new Array(length)
-    return randomNumbers.fill(0)
- }
- 
- function getDiceHtml(diceRoll){
-    return getDiceRollArray(diceRoll).map(function(diceNumber){
-       return `<div class="dice">${Math.ceil((Math.random()) * 6)}</div>`;
-    }).join('')
- }
- 
- function renderCharacter(data) {
-    let {elementId, name, avatar, health, dices} = data;
- 
-    document.getElementById(elementId).innerHTML =
-        `<div class="character-card">
-            <h4 class="name"> ${name} </h4>
-            <img class="avatar" src="${avatar}" />
-            <div class="health">health: <b> ${health} </b></div>
-            <div class="dice-container">
-                ${getDiceHtml(dices)}
-            </div>
-        </div>`
- }
- 
- renderCharacter(hero);
- renderCharacter(monster);
- 
- 
- /* Challenge: 
- 1. Instead of the for loop, use an Array constructor to 
-    create a new array which is diceCount length.
- 2. Fill the new array with zeros as its initial state.
- 3. Map over the new array directly (no need to declare a 
-    new variable) and return a random number from 1-6 in 
-    each element.
- 4. Delete all unnecessary code.
- */  
+import characterData from './data.js'
+import Character from './Character.js'
+
+let monstersArray = ["orc", "demon", "goblin"]
+
+function attack(){
+   wizard.getDiceHtml();
+   orc.getDiceHtml();
+
+   wizard.takeDamage(orc.currentDiceScore);
+   orc.takeDamage(wizard.currentDiceScore);
+
+   wizard.health <= 0 || orc.health <= 0 ? endGame() : console.log("Game continue"); //Ternary Operator. 
+
+   render();
+}
+
+function render() {
+    document.getElementById('hero').innerHTML = wizard.getCharacterHtml();
+    document.getElementById('monster').innerHTML = orc.getCharacterHtml();
+}
+
+function endGame(){
+   let endMessage, endEmoji;
+   endEmoji = '🔮';
+   if(orc.health <= 0 && wizard.health > 0){
+      endMessage = "Orco pierde"
+   } else if(orc.health > 0 && wizard.health <= 0){
+      endMessage = "Wizard pierde"
+   } else if(wizard.health <= 0 && orc.health <= 0){
+      endMessage = "Ambos pierden"
+   }
+   $('#game-section').html(`<div class="end-game">
+      <h2>Game Over</h2>
+      <h3>${endMessage}</h3>
+      <p class="end-emoji">${endEmoji}</p>
+      </div>`)
+}
+
+document.getElementById("attack-button").addEventListener('click', attack)
+
+const wizard = new Character(characterData.hero)
+const orc = new Character(characterData.monster)
+render()
+getNewMonster();
+
+
+function getNewMonster(){
+   const nextMonsterData = characterData[monstersArray.shift()]
+}
+
+/*
+Challenge
+1. Create a function called getNewMonster.
+2. Write logic inside the function that takes the first 
+monster from monstersArray and extracts that monster's 
+data from characterData.
+3. Save that data to a new const called nextMonsterData.
+**hint.md for help!!**
+*/

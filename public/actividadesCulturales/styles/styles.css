@@ -4,19 +4,6 @@ body {
   font-family: 'Work Sans', sans-serif;
   color: #2b2839f0;
 }
-body .header-donator {
-  display: inline-block;
-  font-size: 1.1rem;
-  text-decoration: underline;
-}
-body .header-donator .donate {
-  background-color: #FFFD98;
-  cursor: pointer;
-}
-body .header-donator .donate:hover {
-  background-color: rgba(247, 247, 104, 0.911);
-  font-weight: bold;
-}
 body .header-container.title {
   width: 65%;
   background-color: white;
@@ -114,11 +101,6 @@ body li {
   transition: 0.3s;
   border: 1px solid hsla(0, 0%, 0%, 0.1);
   border-radius: 10px;
-}
-body li.desktop:hover {
-  transition: 0.3s;
-  transform: translate(4px, -4px);
-  box-shadow: 4px 12px 0px rgba(0, 0, 0, 0.13);
 }
 @keyframes slideIn {
   0% {
