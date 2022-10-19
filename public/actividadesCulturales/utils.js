@@ -1,54 +1,54 @@
 
 //Date Events
 const isToday = (date) => {
-    const today = new Date()
-    return date.getDate() === today.getDate() &&
-        date.getMonth() === today.getMonth() &&
-        date.getFullYear() === today.getFullYear();
+  const today = new Date()
+  return date.getDate() === today.getDate() &&
+    date.getMonth() === today.getMonth() &&
+    date.getFullYear() === today.getFullYear();
 };
 
 const isTomorrow = (date) => {
-    const today = new Date()
-    return date.getDate() === today.getDate() + 1 &&
-        date.getMonth() === today.getMonth() &&
-        date.getFullYear() === today.getFullYear();
+  const today = new Date()
+  return date.getDate() === today.getDate() + 1 &&
+    date.getMonth() === today.getMonth() &&
+    date.getFullYear() === today.getFullYear();
 };
 
 const isYesterday = (date) => {
-    const today = new Date()
-    const dt = new Date(date);
-    return dt < today;
+  const today = new Date()
+  const dt = new Date(date);
+  return dt < today;
 }
 
 const getToday = () => {
-    const d = new Date(),
-      month = '' + (d.getMonth() + 1),
-      day = '' + d.getDate(),
-      year = d.getFullYear();
-  
-    if (month.length < 2)
-      month = '0' + month;
-    if (day.length < 2)
-      day = '0' + day;
-  
-    return [year, month, day].join('-');
-  }
+  const d = new Date(),
+    month = '' + (d.getMonth() + 1),
+    day = '' + d.getDate(),
+    year = d.getFullYear();
 
-  const transformDateToString =  (dateString) => {
-    const dt = new Date(dateString);
-    if (isToday(dt)) {
-      return 'Hoy';
-    } else if (isTomorrow(dt)) {
-      return 'Mañana';
-    } else {
-      return '' + dt.getDate() + '-' + (dt.getMonth() + 1) + '-' + dt.getFullYear();
-    }
-  }
+  if (month.length < 2)
+    month = '0' + month;
+  if (day.length < 2)
+    day = '0' + day;
 
-  const getDistrict = (district) =>  {
-    const parts = district.split('/');
-    return parts.pop() || parts.pop(); // handle potential trailing slash
+  return [year, month, day].join('-');
+}
+
+const transformDateToString = (dateString) => {
+  const dt = new Date(dateString);
+  if (isToday(dt)) {
+    return 'Hoy';
+  } else if (isTomorrow(dt)) {
+    return 'Mañana';
+  } else {
+    return '' + dt.getDate() + '-' + (dt.getMonth() + 1) + '-' + dt.getFullYear();
   }
+}
+
+const getDistrict = (district) => {
+  const parts = district.split('/');
+  return parts.pop() || parts.pop(); // handle potential trailing slash
+}
 
 const eventHtml = `<li event-district="Latina" class="event-element" url="">
 <div class="event-head">

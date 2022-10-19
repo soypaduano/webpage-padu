@@ -1,7 +1,7 @@
 import {isYesterday, getToday, transformDateToString, getDistrict, eventHtml} from './utils.js'
 
 const test = false;
-let dotsAnim, $copy;
+let dotsAnim;
 let filters = [];
 
 //Document Ready
@@ -16,14 +16,15 @@ function readEventData(data) {
   events = removeRepeatedEvents(events);
 
   events.forEach(element => {
-    $copy = $(eventHtml);
-    if (!addDayHour(element)) return; //Esto devuelve un valor porque a veces, devuelve eventos que han sido ayer.
-    addTitleDescription(element);
-    let audience = addAudience(element);
-    addDistrict(element);
-    addEventLocation(element);
-    addPrice(element);
-    appendEventToParentDate($copy, element);
+    let $copy = $(eventHtml);
+    if (!addDayHour(element, $copy)) return; //Esto devuelve un valor porque a veces, devuelve eventos que han sido ayer.
+    addTitleDescription(element, $copy);
+    addTime(element, $copy);
+    addAudience(element, $copy);
+    addDistrict(element, $copy);
+    addEventLocation(element, $copy);
+    addPrice(element, $copy);
+    appendEventToParentDate(element, $copy);
   });
 
   $('.loading').hide();
@@ -31,54 +32,47 @@ function readEventData(data) {
   addListenerFilters();
 }
 
-
-function addDayHour(element) {
+function addDayHour(element, $copy) {
   //Obtenemos la fecha de inicio (todos los eventos la tienen)
-  let dateStart = element['dtstart'];
-  if (!dateStart) dateStart = 'No hay fecha de inicio'
-  let dayStart = transformDateToString(dateStart.split(' ')[0]);
-  element.date = dayStart; //Le añadimos la fecha al elemento
+  const dateStart = element['dtstart'];
+  let dateEnd = element['dtend'];
+  const dayStartFormatted = transformDateToString(dateStart.split(' ')[0]);
+
+  element.dateFormatted = dayStartFormatted; //Le añadimos la fecha al elemento
   $($copy).attr('day-start', dateStart.split(' ')[0]);
-  
-  
   
   //Vemos si tiene recurrencia
   let recurrence = element['recurrence']; 
 
-  let dateEnd;
+  
   if (recurrence) {
-    dateEnd = element['dtend'];
-    if (!dateEnd) dateEnd = 'No hay fecha de fin'
-    else dateEnd = transformDateToString(dateEnd.split(' ')[0]);
-    $($copy).attr('dtend', "1");
-    $($copy).find('.event-day-start').html(`<i class="fa-light fa-calendar-w"></i> De ${dayStart.toLocaleLowerCase()} a ${dateEnd.toLocaleLowerCase()}`);
+    dateEnd = transformDateToString(dateEnd.split(' ')[0]);
+    $($copy).attr('dtend', "1"); //Esto sirve para el filter de varios días
+    $($copy).find('.event-day-start').html(`<i class="fa-light fa-calendar-w"></i> De ${dayStartFormatted.toLocaleLowerCase()} a ${dateEnd.toLocaleLowerCase()}`);
   } else { //El evento no tiene recurrencia, por tanto, el día que termina es el día que empieza. 
-    $($copy).find('.event-day-start').html(`<i class="fa-regular fa-calendar-days"></i> ${dayStart}`);
-    dateEnd = dayStart;
+    $($copy).find('.event-day-start').html(`<i class="fa-regular fa-calendar-days"></i> ${dayStartFormatted}`);
+    dateEnd = dayStartFormatted;
   }
 
   element.dateEnd = dateEnd;
-  if(isYesterday(dateStart) || isYesterday(dateEnd)) return false;   //Tanto como si el evento empezaba ayer o terminaba ayer, quiere decir que está terminado. 
+  return (isYesterday(dateStart) || isYesterday(dateEnd)) ? false : true;
+}
 
-  //Le añadimos la hora de inicio 
-  let time = element['time'];
-  if (!time) time = 'Sin hora';
+function addTime(element, $copy){
+  const time = element['time'] ? element['time'] : 'Sin hora';
   $($copy).find('.event-hour').html(`<i class="fa-regular fa-clock"></i> ${time}`);
-  $($copy).dateStart = dayStart;
-  return true;
+  $($copy).dateStart = element.dayStartFormatted;
 }
 
-function appendEventToParentDate($copy, element){
-  let date = element.dateEnd
-  let $dateSeparator = $('.date-separator[datestart=' + date + ']')
-  if(!$dateSeparator.length){
-    $('#events-list').append($(`<div class="date-separator" datestart=${date}> <p class="text-date"> <i class="fa-regular fa-calendar-days"></i> ${date.replaceAll('-', '.')} </p> </div>`));
-  } 
-  $($dateSeparator).append($copy);
-  $($copy).show();
+function addTitleDescription(element, $copy) {
+  $($copy).find('.event-title').html(`<a href="${element['link']}" target="_blank"> ${element['title']} </a>`);
+  let description = (element['description'] === '') ? `Para ver más información, <a href="${element['link']}" target="_blank"> pincha aquí.</a>` : element['description']
+  $($copy).find('.event-description').html(`<p> ${description} </p>`);
+  $($copy).attr('id', element['id']);
+  $('.share-whatsapp').html(`<a href="whatsapp://send?text= He encontrado este evento. Fichalo. ${encodeURIComponent(element['link'])} target="_blank">Compartir</a> <i class="fa-brands fa-whatsapp"></i>`);
 }
 
-function addAudience(element) {
+function addAudience(element, $copy) {
   let audience = element['audience'];
   if (audience && ((audience === 'Niños' || audience === 'Niños,Familias' || audience === 'Jovenes,Niños' || audience === 'Familias' || audience === 'Jovenes' || audience === 'Familias,Mayores'))) {
     $($copy).attr('audience_kids', 0)
@@ -94,7 +88,7 @@ function addAudience(element) {
   return audience;
 }
 
-function addDistrict(element) {
+function addDistrict(element, $copy) {
   let district = 'no-district'
   let postalcode = 'no-postal-code'
   if (element['address']) {
@@ -105,50 +99,30 @@ function addDistrict(element) {
     }
     $($copy).find('.event-district').html(`<i class="fa-solid fa-tree-city"></i> ${district.replace(/([A-Z])/g, ' $1').trim().replace('- ', '-')}`);
   }
-  district = district.toUpperCase();
-  $($copy).attr('event-district', district);
+
+  $($copy).attr('event-district', district.toUpperCase());
 }
 
-function addTitleDescription(element) {
-  $($copy).find('.event-title').html(`<a href="${element['link']}" target="_blank"> ${element['title']} </a>`);
-  let description = element['description'];
-  if ( description === '') {
-    $($copy).find('.event-description').html(`<p>Para ver más información, <a href="${element['link']}" target="_blank"> pincha aquí.</a></p>`)
-  } else {
-    $($copy).find('.event-description').text(description);
-  }
-
-  $($copy).attr('id', element['id']);
-  $('.share-whatsapp').html(`<a href="whatsapp://send?text= He encontrado este evento. Fichalo. ${encodeURIComponent(element['link'])} target="_blank">Compartir</a> <i class="fa-brands fa-whatsapp"></i>`)
-
+function addEventLocation(element,$copy) {
+  let eventLocation = element['event-location'] ? element['event-location'] : 'Sin ubicacion'
+  $($copy).find('.event-location').html(`<a href=//maps.google.com/?q="${eventLocation}" target="_blank"> <i class="fa-solid fa-location-dot"></i> ${eventLocation} </a>`);
 }
 
-function addEventLocation(element) {
-  let eventLocation = element['event-location'];
-  if (!eventLocation) {
-    eventLocation = 'Sin ubicación' //no location
-    $($copy).find('.event-location').addClass('none');
-  } else {
-    $($copy).find('.event-location').click(function () {
-      window.open("http://maps.google.com/?q=" + eventLocation);
-    })
-  }
-  $($copy).find('.event-location').html(`<i class="fa-solid fa-location-dot"></i> ${eventLocation}`);
+function addPrice(element, $copy) {
+  let price = element['free'] ? 'Gratis' : element['price'];
+  if (!price) price = 'Precio: Consultar en la web'
+  debugger;
+  $($copy).attr('free', element['free'] ? 1 : 0).find('.event-price').html(`<i class="fa-solid fa-euro-sign"></i> ${price}`);
 }
 
-function addPrice(element) {
-  let free = element['free'];
-  let price;
-  if (free) {
-    price = 'Gratis'
-  } else {
-    price = element['price'];
-    //Caso: no es free, pero no tiene precio
-    if (!price) price = 'Precio: Consultar en la web'
-    else price = '' + price;
-  }
-  $($copy).find('.event-price').html(`<i class="fa-solid fa-euro-sign"></i> ${price}`);
-  $($copy).attr('free', free);
+function appendEventToParentDate(element, $copy){
+  let date = element.dateEnd
+  let $dateSeparator = $('.date-separator[datestart=' + date + ']')
+  if(!$dateSeparator.length){
+    $('#events-list').append($(`<div class="date-separator" datestart=${date}> <p class="text-date"> <i class="fa-regular fa-calendar-days"></i> ${date.replaceAll('-', '.')} </p> </div>`));
+  } 
+  $($dateSeparator).append($copy);
+  $($copy).show();
 }
 
 //Request Functions
