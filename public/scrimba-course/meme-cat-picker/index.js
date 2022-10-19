@@ -82,7 +82,7 @@ function renderCat(){
     let catSelected = getSingleCatObject();
     $('#meme-modal-inner').html( `<img 
                                     class="cat-img" 
-                                    src="./images/${catSelected.image}"
+                                    src="scrimba-course/meme-cat-picker/images/${catSelected.image}"
                                     alt="CAT ALT TEXT"
                                     >`)
 

@@ -27,6 +27,10 @@ app.all('/distrito-cultural', cors(), function (request, response, nextt) {
   response.sendFile('client/actividadesCulturales/index.html', { root: __dirname });
 });
 
+app.all('/cat-mood', cors(), function (request, response, nextt) {
+  response.sendFile('client/meme-cat-picker/index.html', { root: __dirname });
+});
+
 app.all('/aprende-programacion', cors(), function (request, response, nextt) {
   response.sendFile('client/aprendeProgramacion/index.html', { root: __dirname });
 });
