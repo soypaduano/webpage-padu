@@ -3,58 +3,79 @@ import Character from './Character.js'
 
 let monstersArray = ["orc", "demon", "goblin"]
 
-function attack(){
-   wizard.getDiceHtml();
-   orc.getDiceHtml();
-
-   wizard.takeDamage(orc.currentDiceScore);
-   orc.takeDamage(wizard.currentDiceScore);
-
-   wizard.health <= 0 || orc.health <= 0 ? endGame() : console.log("Game continue"); //Ternary Operator. 
-
-   render();
+function getNewMonster() {
+    const nextMonsterData = characterData[monstersArray.shift()]
+    return nextMonsterData ? new Character(nextMonsterData) : {}
 }
 
-function render() {
-    document.getElementById('hero').innerHTML = wizard.getCharacterHtml();
-    document.getElementById('monster').innerHTML = orc.getCharacterHtml();
+function attack() {
+    wizard.getDiceHtml()
+    monster.getDiceHtml()
+    wizard.takeDamage(monster.currentDiceScore)
+    monster.takeDamage(wizard.currentDiceScore)
+    render()
+    
+        if(wizard.dead || monster.dead){
+           if(wizard.dead){
+            setTimeout(() =>{
+               $('#attack-button').addClass("disabled");
+               endGame();
+            }, 1500); 
+           } else {
+              let newMonster = getNewMonster();
+              if(newMonster.health){
+                 monster = newMonster;
+                 $('#attack-button').addClass("disabled");
+                 setTimeout(() =>{
+                  render();
+                 }, 2500);
+              } else {
+               setTimeout(() =>{
+                  $('#attack-button').addClass("disabled");
+                  endGame();
+               }, 1500); 
+              }
+           }
+            
+        }      
 }
 
-function endGame(){
-   let endMessage, endEmoji;
-   endEmoji = '🔮';
-   if(orc.health <= 0 && wizard.health > 0){
-      endMessage = "Orco pierde"
-   } else if(orc.health > 0 && wizard.health <= 0){
-      endMessage = "Wizard pierde"
-   } else if(wizard.health <= 0 && orc.health <= 0){
-      endMessage = "Ambos pierden"
-   }
-   $('#game-section').html(`<div class="end-game">
-      <h2>Game Over</h2>
-      <h3>${endMessage}</h3>
-      <p class="end-emoji">${endEmoji}</p>
-      </div>`)
+function endGame() {
+    const endMessage = wizard.health === 0 && monster.health === 0 ?
+        "No victors - all creatures are dead" :
+        wizard.health > 0 ? "The Wizard Wins" :
+            "The Orc is Victorious"
+
+    const endEmoji = wizard.health > 0 ? "🔮" : "☠️"
+    document.body.innerHTML = `
+                <div class="end-game">
+                    <h2>Game Over</h2> 
+                    <h3>${endMessage}</h3>
+                    <p class="end-emoji">${endEmoji}</p>
+                </div>
+                `
 }
 
 document.getElementById("attack-button").addEventListener('click', attack)
 
-const wizard = new Character(characterData.hero)
-const orc = new Character(characterData.monster)
-render()
-getNewMonster();
-
-
-function getNewMonster(){
-   const nextMonsterData = characterData[monstersArray.shift()]
+function render() {
+   $('#attack-button').removeClass("disabled");
+    document.getElementById('hero').innerHTML = wizard.getCharacterHtml()
+    document.getElementById('monster').innerHTML = monster.getCharacterHtml()
 }
+
+const wizard = new Character(characterData.hero)
+let monster = getNewMonster()
+render()
+
+
 
 /*
 Challenge
-1. Create a function called getNewMonster.
-2. Write logic inside the function that takes the first 
-monster from monstersArray and extracts that monster's 
-data from characterData.
-3. Save that data to a new const called nextMonsterData.
+1. Disable the user's ability to attack when a monster dies.
+2. Reneable the user's ability to attack when a new monster
+loads.
+3. When the game is over, disable the user's ability to attack.
 **hint.md for help!!**
 */
+

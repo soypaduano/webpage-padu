@@ -16,12 +16,12 @@ const isTomorrow = (date) => {
 
 const isYesterday = (date) => {
     const today = new Date()
-    let dt = new Date(date);
+    const dt = new Date(date);
     return dt < today;
 }
 
 const getToday = () => {
-    let d = new Date(),
+    const d = new Date(),
       month = '' + (d.getMonth() + 1),
       day = '' + d.getDate(),
       year = d.getFullYear();
@@ -34,8 +34,8 @@ const getToday = () => {
     return [year, month, day].join('-');
   }
 
-  let transformDateToString =  (dateString) => {
-    let dt = new Date(dateString);
+  const transformDateToString =  (dateString) => {
+    const dt = new Date(dateString);
     if (isToday(dt)) {
       return 'Hoy';
     } else if (isTomorrow(dt)) {
@@ -45,16 +45,12 @@ const getToday = () => {
     }
   }
 
-  let getDistrict = (district) =>  {
-    let parts = district.split('/');
-    let lastSegment = parts.pop() || parts.pop(); // handle potential trailing slash
-    return lastSegment;
+  const getDistrict = (district) =>  {
+    const parts = district.split('/');
+    return parts.pop() || parts.pop(); // handle potential trailing slash
   }
 
-
-
-
-let eventHtml = `<li event-district="Latina" class="event-element" url="">
+const eventHtml = `<li event-district="Latina" class="event-element" url="">
 <div class="event-head">
   <div class="event-title">Un titulo así bien largote para poder diferenciar con el distrito y poder ver más
     cosas en la mediaquerie</div>

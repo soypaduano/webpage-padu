@@ -1,8 +1,7 @@
+import {isYesterday, getToday, transformDateToString, getDistrict, eventHtml} from './utils.js'
 
-import {isToday, isTomorrow, isYesterday, getToday, transformDateToString, getDistrict, eventHtml} from './utils.js'
-
-let test = false;
-let dotsAnim, element, $copy;
+const test = false;
+let dotsAnim, $copy;
 let filters = [];
 
 //Document Ready
@@ -32,15 +31,6 @@ function readEventData(data) {
   addListenerFilters();
 }
 
-function appendEventToParentDate($copy, element){
-  let date = element.dateEnd
-  let $dateSeparator = $('.date-separator[datestart=' + date + ']')
-  if(!$dateSeparator.length){
-    $('#events-list').append($(`<div class="date-separator" datestart=${date}> <p class="text-date"> <i class="fa-regular fa-calendar-days"></i> ${date.replaceAll('-', '.')} </p> </div>`));
-  } 
-  $($dateSeparator).append($copy);
-  $($copy).show();
-}
 
 function addDayHour(element) {
   //Obtenemos la fecha de inicio (todos los eventos la tienen)
@@ -49,6 +39,9 @@ function addDayHour(element) {
   let dayStart = transformDateToString(dateStart.split(' ')[0]);
   element.date = dayStart; //Le añadimos la fecha al elemento
   $($copy).attr('day-start', dateStart.split(' ')[0]);
+  
+  
+  
   //Vemos si tiene recurrencia
   let recurrence = element['recurrence']; 
 
@@ -73,6 +66,16 @@ function addDayHour(element) {
   $($copy).find('.event-hour').html(`<i class="fa-regular fa-clock"></i> ${time}`);
   $($copy).dateStart = dayStart;
   return true;
+}
+
+function appendEventToParentDate($copy, element){
+  let date = element.dateEnd
+  let $dateSeparator = $('.date-separator[datestart=' + date + ']')
+  if(!$dateSeparator.length){
+    $('#events-list').append($(`<div class="date-separator" datestart=${date}> <p class="text-date"> <i class="fa-regular fa-calendar-days"></i> ${date.replaceAll('-', '.')} </p> </div>`));
+  } 
+  $($dateSeparator).append($copy);
+  $($copy).show();
 }
 
 function addAudience(element) {
@@ -214,10 +217,6 @@ function applyFilters() {
 
   if ($('#district-filter').find('option:selected').text() != 'Distritos') filters.push($($('#district-filter').find('option:selected')));
   $('li').show(); //Mostramos todos para poder filtrar... ¿no tengo muy claro que sea la mejor solución?
-
-  filters.forEach(function (filter_element) {
-    let id = $(filter_element).attr('id');
-  });
 
   filters.forEach(function (element) {
     let id = $(element).attr('id');
