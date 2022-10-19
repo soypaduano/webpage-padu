@@ -3,6 +3,11 @@ body {
   background-color: #989EC3;
   font-family: 'Work Sans', sans-serif;
   color: #2b2839f0;
+  /*  OVERRIDE GENERAL STYLING  */
+  /*  HEADER STYLES  */
+}
+body a {
+  color: #2b2839f0;
 }
 body .header-container h1 {
   padding: 10px;
@@ -40,7 +45,7 @@ body .header-container.description h3 {
   box-sizing: border-box;
   /* Opera/IE 8+ */
 }
-body .important {
+body .header-container .important {
   background-image: linear-gradient(transparent 60%, #FFFD98 60%);
   background-size: 100% 100%;
   background-repeat: no-repeat;
@@ -64,7 +69,8 @@ body .filter-container select option {
   background-color: white;
 }
 body .filter-container .filter,
-body .filter-container .filter-dropdown {
+body .filter-container .filter-dropdown,
+body .filter-container input[type="date"] {
   display: inline-block;
   padding: 0.25rem 0.75rem;
   margin: 1rem 0.5rem 0 0;
@@ -82,10 +88,14 @@ body .filter-container .filter-dropdown {
   font-weight: normal;
 }
 body .filter-container .filter.selected,
-body .filter-container .filter-dropdown.selected {
+body .filter-container .filter-dropdown.selected,
+body .filter-container input[type="date"].selected {
   top: 0.5rem;
   border-bottom: 2px solid black;
   background-color: #EAF9D9;
+}
+body .filter-container input[type="date"] {
+  font-family: 'Work Sans', sans-serif;
 }
 body .date-separator {
   padding: 10px;
@@ -124,30 +134,10 @@ body .event-head .event-title {
   line-height: 32px;
   text-decoration: underline;
 }
-body .event-head .event-title:hover {
-  cursor: pointer;
-  background-image: linear-gradient(transparent 60%, #FFFD98 60%);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: top center;
-}
 body .event-district {
   position: absolute;
   right: 0;
   margin-right: 15px;
-}
-body .event-description {
-  font-stretch: condensed;
-}
-body .event-description a {
-  text-decoration: underline;
-}
-body .event-description a:hover {
-  background-image: linear-gradient(transparent 60%, #FFFD98 60%);
-  background-size: 100% 100%;
-  background-repeat: no-repeat;
-  background-position: top center;
-  cursor: pointer;
 }
 body .event-description p {
   font-size: 0.9rem;
@@ -159,15 +149,11 @@ body .event-data-container {
   display: inline-flex;
 }
 body .event-small-data {
-  font-size: 19px;
-  margin-right: 10px;
-  margin-left: 10px;
   display: inline-block;
   padding: 0.25rem 0.75rem;
   margin: 1rem 0.5rem 0 0;
   font-size: 0.9rem;
   border: 1px solid #2b2839f0;
-  color: #2b2839f0;
   border-radius: 1rem;
   text-decoration: none;
 }
@@ -178,6 +164,9 @@ body .event-small-data.share-whatsapp {
 body .event-small-data.share-whatsapp i {
   margin-left: 5px;
 }
+body .event-small-data.kids {
+  background-color: #BAD1F3;
+}
 body .event-small-data.feminismo {
   background-color: #ECD5EC;
 }
@@ -185,9 +174,8 @@ body .event-small-data.event-location {
   text-decoration: underline;
   cursor: pointer;
 }
-body .event-small-data.event-location.none {
-  text-decoration: none;
-  cursor: text;
+body .event-small-data.event-location .none {
+  pointer-events: none;
 }
 body li::before {
   text-align: center;

@@ -1,6 +1,7 @@
-import {isYesterday, getToday, transformDateToString, getDistrict, eventHtml} from './utils.js'
+import {isYesterday, transformDateToString, getDistrict, eventHtml} from './utils.js'
 
 const test = false;
+const eventsNumber = 250;
 let dotsAnim;
 let filters = [];
 
@@ -14,8 +15,9 @@ function readEventData(data) {
   let events = data['@graph']
   events = orderByDate(events);
   events = removeRepeatedEvents(events);
-
+  let i = 0;
   events.forEach(element => {
+    if(i > eventsNumber) return;
     let $copy = $(eventHtml);
     if (!addDayHour(element, $copy)) return; //Esto devuelve un valor porque a veces, devuelve eventos que han sido ayer.
     addTitleDescription(element, $copy);
@@ -25,6 +27,7 @@ function readEventData(data) {
     addEventLocation(element, $copy);
     addPrice(element, $copy);
     appendEventToParentDate(element, $copy);
+    i++;
   });
 
   $('.loading').hide();
@@ -32,6 +35,7 @@ function readEventData(data) {
   addListenerFilters();
 }
 
+//Functions for event fill
 function addDayHour(element, $copy) {
   //Obtenemos la fecha de inicio (todos los eventos la tienen)
   const dateStart = element['dtstart'];
@@ -76,7 +80,7 @@ function addAudience(element, $copy) {
   let audience = element['audience'];
   if (audience && ((audience === 'Niños' || audience === 'Niños,Familias' || audience === 'Jovenes,Niños' || audience === 'Familias' || audience === 'Jovenes' || audience === 'Familias,Mayores'))) {
     $($copy).attr('audience_kids', 0)
-    $($copy).find('.event-audience').html(`<i class="fa-solid fa-children"></i> Para niños`);
+    $($copy).find('.event-audience').addClass('kids').html(`<i class="fa-solid fa-children"></i> Para niños`);
   } else if (audience && ((audience === 'Mujeres' || audience === 'Mujeres,Familias' || audience === 'Mujeres,Familias'))) {
     $($copy).attr('audience_woman', 0)
     $($copy).find('.event-audience').addClass('feminismo').html('<i class="fa-solid fa-venus"></i> Feminismo');
@@ -104,14 +108,13 @@ function addDistrict(element, $copy) {
 }
 
 function addEventLocation(element,$copy) {
-  let eventLocation = element['event-location'] ? element['event-location'] : 'Sin ubicacion'
-  $($copy).find('.event-location').html(`<a href=//maps.google.com/?q="${eventLocation}" target="_blank"> <i class="fa-solid fa-location-dot"></i> ${eventLocation} </a>`);
+  let eventLocation = element['event-location'] ? element['event-location'] : 'Sin ubicación'
+  $($copy).find('.event-location').html(`<a href=//maps.google.com/?q="${eventLocation}" target="_blank" style="${eventLocation === 'Sin ubicación' ? 'pointer-events: none; cursor: auto;' : ''}"> <i class="fa-solid fa-location-dot"></i> ${eventLocation} </a>`);
 }
 
 function addPrice(element, $copy) {
   let price = element['free'] ? 'Gratis' : element['price'];
   if (!price) price = 'Precio: Consultar en la web'
-  debugger;
   $($copy).attr('free', element['free'] ? 1 : 0).find('.event-price').html(`<i class="fa-solid fa-euro-sign"></i> ${price}`);
 }
 
@@ -164,25 +167,27 @@ function filterOnlyToday() {
 }
 
 function addListenerFilters() {
+  $('#date-filter').attr("min", getToday());
   $('#day-start').attr('value', getToday());
+
+
   $('#district-filter').on('change', function () {
-    let valueSelect = $($('#district-filter').find('option:selected')).text();
+    $($('#district-filter').find('option:selected')).text();
     applyFilters();
   });
 
+  $('#date-filter').change(function() {
+    var date = $(this).val();
+    alert(date)
+});
+
   $('.filter').click(function () {
-    //Buscar aquellos filtros activos
-    if ($(this).hasClass('selected')) {
-      $(this).removeClass('selected')
-    } else {
-      $(this).addClass('selected');
-    }
+    $(this).hasClass('selected') ? $(this).removeClass('selected') : $(this).addClass('selected'); //Buscar aquellos filtros activos
     applyFilters();
   });
 }
 
 function applyFilters() {
-
   $('.date-separator').show();
   $('.date-separator').removeClass('first');
   $('.filter.selected').each(function () {
@@ -196,9 +201,7 @@ function applyFilters() {
     let id = $(element).attr('id');
     let value = $(element).attr('value')
     let comparision = '!=';
-
     if (id === 'event-district') value = '"' + value + '"';
-
     let a = 'li:visible[' + id + comparision + value + ']'
     $(a).toggle();
   });
@@ -218,4 +221,19 @@ function loadingAnim() {
     else
       dots.text(dots.text() + '.')
   }, 300);
+}
+
+
+const getToday = () => {
+  const d = new Date(),
+    month = '' + (d.getMonth() + 1),
+    day = '' + d.getDate(),
+    year = d.getFullYear();
+
+  if (month.length < 2)
+    month = '0' + month;
+  if (day.length < 2)
+    day = '0' + day;
+
+  return [year, month, day].join('-');
 }

@@ -37,7 +37,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
   <link rel="shortcut icon" type="image/x-icon" href="actividadesCulturales/images/icon-madrid.ico">
-
+  <script src="actividadesCulturales/main.js" type="module"></script>
 </head>
 
   <body>
@@ -66,10 +66,11 @@
     <div id="event-section">
       <div class="filter-container">
         <!--<div class="filter" id="day-start" value=getToday();> Hoy </div>-->
-        <div class="filter" id="free" value="1"> Gratis </div>
-        <div class="filter" id="dtend" value="1"> Varios días </div>
+        <!-- <div class="filter" id="free" value="1"> Gratis </div> -->
+        <!-- <div class="filter" id="dtend" value="1"> Varios días </div> -->
         <!-- <div class="filter" id="audience_kids" value="0"> Para niños </div> -->
         <div class="filter" id="audience_woman" value="0"> Feminismo </div>
+        <input type="date" id="date-filter" name="event-day" value="" min="">
         <select class="filter-dropdown" id="district-filter">
           <option id="event-district" selected="ALL" value="ALL">Distritos</option>
           <option id="event-district" value="ARGANZUELA"> ARGANZUELA </option>
@@ -112,6 +113,5 @@
         </div>
       </div>
     </div>
-    <script src="actividadesCulturales/main.js" type="module"></script>
   </body>
 </html>

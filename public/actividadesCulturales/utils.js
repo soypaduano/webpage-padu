@@ -20,20 +20,6 @@ const isYesterday = (date) => {
   return dt < today;
 }
 
-const getToday = () => {
-  const d = new Date(),
-    month = '' + (d.getMonth() + 1),
-    day = '' + d.getDate(),
-    year = d.getFullYear();
-
-  if (month.length < 2)
-    month = '0' + month;
-  if (day.length < 2)
-    day = '0' + day;
-
-  return [year, month, day].join('-');
-}
-
 const transformDateToString = (dateString) => {
   const dt = new Date(dateString);
   if (isToday(dt)) {
@@ -69,4 +55,4 @@ const eventHtml = `<li event-district="Latina" class="event-element" url="">
 </li>`
 
 
-export { isToday, isTomorrow, isYesterday, getToday, transformDateToString, getDistrict, eventHtml }
+export { isToday, isTomorrow, isYesterday, transformDateToString, getDistrict, eventHtml }

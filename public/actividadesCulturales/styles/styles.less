@@ -11,6 +11,7 @@
 @color-black: #2b2839f0;
 @highlight-color: #FFFD98;
 @women-color: #f7b3df;
+@kids-color: #BAD1F3;
 
 
 body {
@@ -19,8 +20,14 @@ body {
   font-family: @font-test1;
   color: #2b2839f0;
 
-  .header-container {
+  /*  OVERRIDE GENERAL STYLING  */
+  a{
+    color: @color-black;
+  }
 
+  /*  HEADER STYLES  */
+
+  .header-container {
     h1 {
       padding: 10px;
       font-size: 2.5rem;
@@ -61,13 +68,12 @@ body {
         /* Opera/IE 8+ */
       }
     }
-  }
-
-  .important {
-    background-image: linear-gradient(transparent 60%, @highlight-color 60%);
-    background-size: 100% 100%;
-    background-repeat: no-repeat;
-    background-position: top center;
+    .important {
+      background-image: linear-gradient(transparent 60%, @highlight-color 60%);
+      background-size: 100% 100%;
+      background-repeat: no-repeat;
+      background-position: top center;
+    }
   }
 
   .filter-container {
@@ -83,14 +89,14 @@ body {
       font: @font-test1;
       width: 30%;
       max-width: 200px;
-
       option {
         background-color: white;
       }
     }
 
+  
     .filter,
-    .filter-dropdown {
+    .filter-dropdown, input[type="date"] {
       display: inline-block;
       padding: 0.25rem 0.75rem;
       margin: 1rem 0.5rem 0 0;
@@ -113,6 +119,11 @@ body {
         background-color: @list-color;
       }
     }
+
+    input[type="date"] {
+      font-family: @font-test1;
+    }
+
   }
 
   .date-separator {
@@ -148,25 +159,13 @@ body {
     border-radius: 10px;
   }
 
-  
-
   .event-head {
     display: inline-flex;
-
     .event-title {
       position: relative;
       font-size: 1.3rem;
       line-height: 32px;
       text-decoration: underline;
-
-
-      &:hover {
-        cursor: pointer;
-        background-image: linear-gradient(transparent 60%, @highlight-color 60%);
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        background-position: top center;
-      }
     }
   }
 
@@ -177,20 +176,6 @@ body {
   }
 
   .event-description {
-    font-stretch: condensed;
-
-    a {
-      text-decoration: underline;
-
-      &:hover {
-        background-image: linear-gradient(transparent 60%, @highlight-color 60%);
-        background-size: 100% 100%;
-        background-repeat: no-repeat;
-        background-position: top center;
-        cursor: pointer;
-      }
-    }
-
     p {
       font-size: 0.9rem;
       text-align: left;
@@ -204,25 +189,24 @@ body {
   }
 
   .event-small-data {
-    font-size: 19px;
-    margin-right: 10px;
-    margin-left: 10px;
     display: inline-block;
     padding: 0.25rem 0.75rem;
     margin: 1rem 0.5rem 0 0;
     font-size: 0.9rem;
     border: 1px solid @color-black;
-    color: @color-black;
     border-radius: 1rem;
     text-decoration: none;
 
     &.share-whatsapp {
       text-decoration: underline;
       cursor: pointer;
-
       i {
         margin-left: 5px;
       }
+    }
+
+    &.kids{
+      background-color: @kids-color;
     }
 
     &.feminismo {
@@ -233,9 +217,8 @@ body {
       text-decoration: underline;
       cursor: pointer;
 
-      &.none {
-        text-decoration: none;
-        cursor: text;
+      .none {
+        pointer-events: none;
       }
     }
   }
