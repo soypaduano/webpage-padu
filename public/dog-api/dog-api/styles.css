@@ -1,0 +1,21 @@
+body{
+    background-color: black;
+    color: whitesmoke;
+    font-size: 2rem;
+    font-family: 'Underdog', cursive;
+
+}
+
+.main-container{
+    margin: 0 auto;
+    text-align: center;
+}
+
+img{
+    border: 20px double pink;
+}
+
+h1 {
+
+}
+

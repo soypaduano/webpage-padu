@@ -1,0 +1,141 @@
+body {
+    background-repeat: no-repeat;
+    color: whitesmoke;
+    font-size: 2rem;
+    font-family: 'Playfair Display', serif;
+    margin: 0;
+}
+
+.body-container {
+    width: 100%;
+    height: inherit;
+    background: #bdc3c7;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #2c3e50, #bdc3c7);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #2c3e50, #bdc3c7);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+
+.body-container.opa {
+    background: #3D7EAA;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #FFE47A, #3D7EAA);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #FFE47A, #3D7EAA);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.body-container.midnightCity {
+    background: #232526;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #414345, #232526);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #414345, #232526);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.body-container.mystic {
+    background: #757F9A;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #D7DDE8, #757F9A);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #D7DDE8, #757F9A);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.body-container.shroom {
+    background: #5C258D;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #4389A2, #5C258D);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #4389A2, #5C258D);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.body-container.moss {
+    background: #134E5E;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #71B280, #134E5E);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #71B280, #134E5E);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.body-container.bora {
+    background: #2BC0E4;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #EAECC6, #2BC0E4);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #EAECC6, #2BC0E4);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+
+.bored-container button {
+    width: 30%;
+    height: 75px;
+    font-size: 1.5rem;
+    /* border: 3px solid greenyellow; */
+    border-radius: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+.bored-container,
+.jsonplaceholder-container {
+    margin: 0 auto;
+    text-align: center;
+    padding: 50px;
+}
+
+.jsonplaceholder-container p {
+    font-size: 1rem;
+    margin: 0;
+}
+
+h6 {
+    margin: 0;
+}
+
+form {
+    font-size: 1rem;
+    display: grid;
+    width: 30%;
+    margin: 0 auto;
+    text-align: left;
+}
+
+form button{
+    width: 50%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+
+.jsonplaceholder-container .msg {
+    border: 2px solid black;
+    text-align: left;
+    margin: 20px;
+}
+
+img {
+    border: 20px double pink;
+}
+
+ol {
+    list-style: none;
+    display: flex;
+}
+
+li {
+    font-size: 1.5rem;
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid black;
+    background-color: white;
+}

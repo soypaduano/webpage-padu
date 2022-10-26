@@ -1,0 +1,52 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+    <script src="../../jquery-1.8.3.min.js"></script>
+</head>
+
+<body>
+    
+    <div class="body-container">
+        <ol>
+            <li>
+                <a href="https://google.com">Bored Api</a>
+            </li>
+            <li>
+                <a href="https://google.com">BlogSpace</a>
+            </li>
+        </ol>
+        <div class="bored-container">
+            <h3>Are you bored? Press the button</h3>
+            <h1 id="activity">Find something to do</h1>
+            <button onclick="getActivityBoredApi()">I'm bored</button>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="jsonplaceholder-container">
+            <h3>Json PlaceHolder API</h3>
+            <div>
+                <form>
+                    <label for="post-title">Title</label>
+                    <input type="text" id="post-title" placeholder="Enter a title" required value="elcarabraga">
+                    <label for="post-body">Body</label>
+                    <textarea id="post-body" placeholder="Enter a text" required> el palancuela</textarea>
+                    <button onclick="postObject(event)">Post</button>
+                </form>
+            </div>
+            <div id="json-msg">
+
+            </div>
+        </div>
+
+
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+
+</html>
