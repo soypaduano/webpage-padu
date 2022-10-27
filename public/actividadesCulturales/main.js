@@ -2,12 +2,10 @@ import {isYesterday, transformDateToString, getDistrict, eventHtml} from './util
 
 const test = false;
 const eventsNumber = 250;
-let dotsAnim;
 let filters = [];
 
 //Document Ready
 $(document).ready(function () {
-  loadingAnim();
   if (!test) doRequestActividadesCulturales();
 })
 
@@ -31,7 +29,6 @@ function readEventData(data) {
   });
 
   $('.loading').hide();
-  clearInterval(dotsAnim);
   addListenerFilters();
 }
 
@@ -73,7 +70,7 @@ function addTitleDescription(element, $copy) {
   let description = (element['description'] === '') ? `Para ver más información, <a href="${element['link']}" target="_blank"> pincha aquí.</a>` : element['description']
   $($copy).find('.event-description').html(`<p> ${description} </p>`);
   $($copy).attr('id', element['id']);
-  $('.share-whatsapp').html(`<a href="whatsapp://send?text= He encontrado este evento. Fichalo. ${encodeURIComponent(element['link'])} target="_blank">Compartir</a> <i class="fa-brands fa-whatsapp"></i>`);
+  $('.share-whatsapp').html(`<a href="whatsapp://send?text= He encontrado este evento. Fichalo. ${encodeURIComponent(element['link'])} target="_blank"> <i class="fa-brands fa-whatsapp"></i> </a>`);
 }
 
 function addAudience(element, $copy) {
@@ -120,12 +117,12 @@ function addPrice(element, $copy) {
 
 function appendEventToParentDate(element, $copy){
   let date = element.dateEnd
-  let $dateSeparator = $('.date-separator[datestart=' + date + ']')
+  let $dateSeparator = $('.date-separator[day-start=' + date + ']')
   if(!$dateSeparator.length){
-    $('#events-list').append($(`<div class="date-separator" datestart=${date}> <p class="text-date"> <i class="fa-regular fa-calendar-days"></i> ${date.replaceAll('-', '.')} </p> </div>`));
+    $dateSeparator = $(`<div class="date-separator" day-start=${date}> <p class="text-date"> <i class="fa-regular fa-calendar-days"></i> ${date.replaceAll('-', '.')} </p> </div>`)
+    $('#events-list').append($dateSeparator);
   } 
   $($dateSeparator).append($copy);
-  $($copy).show();
 }
 
 //Request Functions
@@ -177,8 +174,8 @@ function addListenerFilters() {
   });
 
   $('#date-filter').change(function() {
-    var date = $(this).val();
-    alert(date)
+    $(this).addClass('selected')
+    applyFilters();
 });
 
   $('.filter').click(function () {
@@ -194,6 +191,7 @@ function applyFilters() {
     filters.push($(this))
   });
 
+  if($('#date-filter').val() != '') filters.push($('#date-filter'));
   if ($('#district-filter').find('option:selected').text() != 'Distritos') filters.push($($('#district-filter').find('option:selected')));
   $('li').show(); //Mostramos todos para poder filtrar... ¿no tengo muy claro que sea la mejor solución?
 
@@ -211,18 +209,6 @@ function applyFilters() {
   $('.date-separator:visible').first().addClass('first');
   filters = [];
 }
-
-//Animation Functions
-function loadingAnim() {
-  dotsAnim = window.setInterval(function () {
-    let dots = $('#dots');
-    if (dots.text().length > 3)
-      dots.text('.');
-    else
-      dots.text(dots.text() + '.')
-  }, 300);
-}
-
 
 const getToday = () => {
   const d = new Date(),

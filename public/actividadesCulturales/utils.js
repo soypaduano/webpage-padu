@@ -38,19 +38,20 @@ const getDistrict = (district) => {
 
 const eventHtml = `<li event-district="Latina" class="event-element" url="">
 <div class="event-head">
-  <div class="event-title">Un titulo así bien largote para poder diferenciar con el distrito y poder ver más
-    cosas en la mediaquerie</div>
-  <div class="event-district">Hortaleza</div>
+  <div class="event-title">Un titulo así bien largote para poder diferenciar con el distrito y poder ver más cosas en la mediaquerie </div>
+  <div class="share-whatsapp"></div>
 </div>
-<p class="event-description">Qui dolorem ipsum quia dolor sit amet, consectetur nobis est eligendi optio
-  cumque nihil impedit.</p>
-<div class="event-data-container">
-  <div class='event-small-data event-location'>@ Centro Cultural Conde Duque</div>
-  <div class="event-small-data event-day-start">Día: 15-09-2020</div>
-  <div class="event-small-data event-hour">Hora: <span>18:30</span> - <span>23:00</span></div>
-  <div class="event-small-data event-price">Precio: 10 euros</div>
-  <div class="event-small-data event-audience"></div>
-  <div class="event-small-data share-whatsapp">Compartir<i class="fa-brands fa-whatsapp"></i> </div>
+<div class="event-district">Hortaleza</div>
+<div class="event-content">
+  <p class="event-description">Qui dolorem ipsum quia dolor sit amet, consectetur nobis est eligendi optio
+    cumque nihil impedit.</p>
+  <div class="event-data-container">
+    <div class='event-small-data event-location'>@ Centro Cultural Conde Duque</div>
+    <div class="event-small-data event-day-start">Día: 15-09-2020</div>
+    <div class="event-small-data event-hour">Hora: <span>18:30</span> - <span>23:00</span></div>
+    <div class="event-small-data event-price">Precio: 10 euros</div>
+    <div class="event-small-data event-audience"></div>
+  </div>
 </div>
 </li>`
 

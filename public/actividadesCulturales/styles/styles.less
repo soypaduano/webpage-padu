@@ -40,9 +40,9 @@ body {
 
     &.title {
       width: 65%;
-      background-color: white;
-      border: @border-black-color;
-      box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
+      //background-color: white;
+      //border: @border-black-color;
+      //box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
       margin-top: 20px;
       border-radius: 5px;
     }
@@ -160,19 +160,19 @@ body {
   }
 
   .event-head {
-    display: inline-flex;
+    display: flex;
+    justify-content: space-between;
     .event-title {
-      position: relative;
       font-size: 1.3rem;
       line-height: 32px;
-      text-decoration: underline;
+    }
+    .share-whatsapp a{
+      font-size: 1.2rem;
     }
   }
 
   .event-district {
-    position: absolute;
-    right: 0;
-    margin-right: 15px;
+    margin: 5px 0px 5px 0px;
   }
 
   .event-description {
@@ -252,21 +252,18 @@ body {
   }
 
   .loading {
-    width: 100%;
-    font-size: 2.5rem;
+    width: 95%;
+    font-size: 2rem;
     color: @color-black;
     text-align: center;
     border: 2px solid white;
     background-color: @list-color;
     border-radius: 5px;
     padding: 5px;
+    margin: 0 auto;
 
-    .text {
-      margin-left: 15px;
-    }
-
-    #dots {
-      font-size: 35px;
+    .text{
+      margin: 0;
     }
   }
 }
@@ -305,7 +302,7 @@ body {
     }
 
     .event-head {
-      display: inline-block;
+      display: flex;
 
       .event-title {
         font-size: 1.1rem;
@@ -359,8 +356,7 @@ body {
       font-size: 1rem;
 
       .event-small-data {
-        margin-top: 5px;
-        margin-bottom: 5px;
+        margin: 3px 0px 3px 0px;
       }
     }
 
@@ -426,10 +422,6 @@ body {
 
     .loading {
       font-size: 18px;
-
-      #dots {
-        font-size: 20px;
-      }
     }
 
   }
@@ -449,4 +441,60 @@ body::-webkit-scrollbar {
 body::-webkit-scrollbar-thumb {
   background-color: @highlight-color;
   cursor: pointer;
+}
+
+.lds-ellipsis {
+  display: inline-block;
+  position: relative;
+  width: 80px;
+  height: 80px;
+}
+.lds-ellipsis div {
+  position: absolute;
+  top: 33px;
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background: @color-black;
+  animation-timing-function: cubic-bezier(0, 1, 1, 0);
+}
+.lds-ellipsis div:nth-child(1) {
+  left: 8px;
+  animation: lds-ellipsis1 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(2) {
+  left: 8px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(3) {
+  left: 32px;
+  animation: lds-ellipsis2 0.6s infinite;
+}
+.lds-ellipsis div:nth-child(4) {
+  left: 56px;
+  animation: lds-ellipsis3 0.6s infinite;
+}
+@keyframes lds-ellipsis1 {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+@keyframes lds-ellipsis3 {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+@keyframes lds-ellipsis2 {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(24px, 0);
+  }
 }
