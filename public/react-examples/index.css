@@ -1,0 +1,45 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+.panel-container{
+    background-color: whitesmoke;
+    border: 1px solid black;
+    box-shadow: 1px 1px black;
+    border-radius: 2px;
+    width: 200px;
+}
+
+.panel-container button{
+    background-color: cornsilk;
+    font-style: italic;
+    border: none;
+    width: 100%;
+}
+
+.header-nav{
+    background-color: whitesmoke;
+    display: flex;
+    padding: 20px;
+}
+
+.header-nav h3{
+    border: 2px solid black;
+    margin: 10px;
+}
+
+.nav-list{
+    display: flex;
+    list-style: none;
+    text-decoration: underline;
+}
+
+.element-nav-list{
+    margin: 10px;
+}
