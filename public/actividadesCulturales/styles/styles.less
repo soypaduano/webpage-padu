@@ -3,127 +3,157 @@
 @font-test3: 'Cabin', sans-serif;
 @font-test4: 'Karla', sans-serif;
 
-//background: linear-gradient(90deg, hsla(16, 100%, 76%, 1) 0%, hsla(49, 100%, 81%, 1) 100%);
-@background-color: #989EC3;
-@list-color: #EAF9D9;
-@filter-color: #ddebf8;
-@border-black-color: 1px solid hsla(215, 20.22%, 65.1%, 100%);
+
+//Fonts used
+@title-font: 'Plus Jakarta Sans', sans-serif;
+@filter-fonts: 'Plus Jakarta Sans', sans-serif;
+//Colores de fondo
+@background-color: #CFD2FA;
+@list-color: #b0b3df;
 @color-black: #2b2839f0;
-@highlight-color: #FFFD98;
-@women-color: #f7b3df;
-@kids-color: #BAD1F3;
+@filter-selected-color: #f2f3fa;
 
 
 body {
-  margin: 15px;
+  margin: 0;
   background-color: @background-color;
   font-family: @font-test1;
   color: #2b2839f0;
+  font-size: 1rem;
 
   /*  OVERRIDE GENERAL STYLING  */
-  a{
+  a {
     color: @color-black;
   }
 
+  h1,
+  h2 {
+    font-family: @title-font;
+    margin: 30px;
+  }
+
+
   /*  HEADER STYLES  */
+
+  .creators {
+    margin: 20px;
+  }
 
   .header-container {
     h1 {
       padding: 10px;
-      font-size: 2.5rem;
-
-      .city {
-        font-size: 3rem;
-        text-decoration: underline;
-      }
+      font-size: 8rem;
     }
 
-    &.title {
-      width: 65%;
-      //background-color: white;
-      //border: @border-black-color;
-      //box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
-      margin-top: 20px;
-      border-radius: 5px;
-    }
-
-    &.description {
-      width: 100%;
+    .m-scroll {
       display: flex;
-      padding-left: 0px;
+      position: relative;
+      width: 100%;
+      height: 100px;
+      margin: auto;
+      overflow: hidden;
+      z-index: 1;
 
-      h3 {
-        background-color: white;
-        border: @border-black-color;
-        border-radius: 5px;
-        box-shadow: 10px 12px 0px rgba(0, 0, 0, 0.13);
-        padding: 10px;
-        font-size: 1.5rem;
-        font-weight: normal;
-        -webkit-box-sizing: border-box;
-        /* Safari/Chrome, other WebKit */
-        -moz-box-sizing: border-box;
-        /* Firefox, other Gecko */
-        box-sizing: border-box;
-        /* Opera/IE 8+ */
+      &__title {
+        display: flex;
+        position: absolute;
+        top: 0;
+        left: 0;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        height: 100%;
+        color: @color-black;
+        white-space: nowrap;
+        transform: scale(2);
+        transition: all 1s ease;
+
+        &>div {
+          display: flex;
+          animation: scrollText 40s infinite linear;
+        }
+
+        h2 {
+          margin: 0;
+          transition: all 2s ease;
+        }
+
       }
     }
-    .important {
-      background-image: linear-gradient(transparent 60%, @highlight-color 60%);
-      background-size: 100% 100%;
-      background-repeat: no-repeat;
-      background-position: top center;
+
+    @keyframes scrollText {
+      from {
+        transform: translateX(0%);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes slide-left {
+      from {
+        -webkit-transform: translateX(0);
+        transform: translateX(0);
+      }
+
+      to {
+        -webkit-transform: translateX(-300%);
+        transform: translateX(-300%);
+      }
     }
   }
 
   .filter-container {
     display: inline;
     padding: 10px;
+    margin: 30px;
+    font-family: @filter-fonts;
 
     select {
-      background-color: @background-color;
       border: 2px solid @color-black;
       color: white;
-      font-weight: bold;
       font-size: 20px;
-      font: @font-test1;
       width: 30%;
-      max-width: 200px;
+
       option {
         background-color: white;
       }
     }
 
-  
     .filter,
-    .filter-dropdown, input[type="date"] {
+    .filter-dropdown,
+    input[type="date"] {
+      font-size: 1.5rem;
+      font-weight: 300;
       display: inline-block;
       padding: 0.25rem 0.75rem;
       margin: 1rem 0.5rem 0 0;
-      font-size: 1.2rem;
       text-align: center;
-      line-height: 130%;
-      background-color: white;
       border: 1px solid black;
       color: black;
       border-radius: 5px;
-      text-decoration: none;
-      top: 0;
       cursor: pointer;
       transition: .10s;
-      font-weight: normal;
+      background-color: @background-color;
+      font-family: @filter-fonts;
 
       &.selected {
         top: 0.5rem;
         border-bottom: 2px solid black;
-        background-color: @list-color;
+        background-color: @filter-selected-color;
+        font-weight: bold;
       }
     }
 
-    input[type="date"] {
-      font-family: @font-test1;
+    #district-filter {
+      width: 15%;
     }
 
+  }
+
+  #event-section {
+    padding: 50px;
   }
 
   .date-separator {
@@ -162,25 +192,25 @@ body {
   .event-head {
     display: flex;
     justify-content: space-between;
+
     .event-title {
-      font-size: 1.3rem;
-      line-height: 32px;
+      font-size: 2rem;
     }
-    .share-whatsapp a{
+
+    .share-whatsapp a {
       font-size: 1.2rem;
     }
   }
 
   .event-district {
     margin: 5px 0px 5px 0px;
+    font-size: 1.2rem;
   }
 
   .event-description {
-    p {
-      font-size: 0.9rem;
-      text-align: left;
-      font-weight: normal;
-    }
+    font-size: 1.4rem;
+    text-align: left;
+    font-weight: normal;
   }
 
   .event-data-container {
@@ -200,14 +230,13 @@ body {
     &.share-whatsapp {
       text-decoration: underline;
       cursor: pointer;
+
       i {
         margin-left: 5px;
       }
     }
 
-    &.kids{
-      background-color: @kids-color;
-    }
+    &.kids {}
 
     &.feminismo {
       background-color: #ECD5EC;
@@ -262,7 +291,7 @@ body {
     padding: 5px;
     margin: 0 auto;
 
-    .text{
+    .text {
       margin: 0;
     }
   }
@@ -439,7 +468,6 @@ body::-webkit-scrollbar {
 }
 
 body::-webkit-scrollbar-thumb {
-  background-color: @highlight-color;
   cursor: pointer;
 }
 
@@ -449,6 +477,7 @@ body::-webkit-scrollbar-thumb {
   width: 80px;
   height: 80px;
 }
+
 .lds-ellipsis div {
   position: absolute;
   top: 33px;
@@ -458,42 +487,52 @@ body::-webkit-scrollbar-thumb {
   background: @color-black;
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
+
 .lds-ellipsis div:nth-child(1) {
   left: 8px;
   animation: lds-ellipsis1 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(2) {
   left: 8px;
   animation: lds-ellipsis2 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(3) {
   left: 32px;
   animation: lds-ellipsis2 0.6s infinite;
 }
+
 .lds-ellipsis div:nth-child(4) {
   left: 56px;
   animation: lds-ellipsis3 0.6s infinite;
 }
+
 @keyframes lds-ellipsis1 {
   0% {
     transform: scale(0);
   }
+
   100% {
     transform: scale(1);
   }
 }
+
 @keyframes lds-ellipsis3 {
   0% {
     transform: scale(1);
   }
+
   100% {
     transform: scale(0);
   }
 }
+
 @keyframes lds-ellipsis2 {
   0% {
     transform: translate(0, 0);
   }
+
   100% {
     transform: translate(24px, 0);
   }

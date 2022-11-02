@@ -36,41 +36,50 @@
   <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300&display=swap" rel="stylesheet">
+
   <link rel="shortcut icon" type="image/x-icon" href="actividadesCulturales/images/icon-madrid.ico">
   <script src="actividadesCulturales/main.js" type="module"></script>
 </head>
 
 <body>
-  <div>
+  <div class="creators">
     <a href="//instagram.com/padu.soy/" target="_blank" style="color: #2b2839f0;" class="creator"><span
         class="padu">padu & pepito</span> 2022 </a>
   </div>
 
   <div class="header-container title">
-    <h1> Eventos y actividades culturales en distritos de <span class="city">Madrid.</span></h1>
+    <h1> Distrito Cultural </h1>
+    <div class="m-scroll">
+      <div class="m-scroll__title">
+        <div>
+          <h2>
+            <p> &nbsp; Eventos y actividade culturales en Madrid. Distrito Cultural utiliza la API de Datos Abiertos del ayuntamiento de Madrid para estructurar los datos de una manera limpia y ordenada. </p>&nbsp;
+          </h2>
+          <h2>
+            <p> &nbsp; Eventos y actividade culturales en Madrid. Distrito Cultural utiliza la API de Datos Abiertos del ayuntamiento de Madrid para estructurar los datos de una manera limpia y ordenada. </p>&nbsp;
+          </h2>
+        </div>
+      </div>
+    </div>  
   </div>
 
-  <div class="header-container description">
-    <h3>En Madrid hay una gran cantidad de <span class="important"> eventos y actividades en centros culturales,
-        bibliotecas,
-        parques y plazas</span> que apenas tienen difusión.
-      <br>
-      <br>
-      Esta web pretende estructurar la información para <span class="important"> facilitar la visualización
-      </span>y
-      hacer estos eventos más accesibles.
-      <br>
-    </h3>
+  <div class="main-events">
+
   </div>
+
+  
 
   <div id="event-section">
     <div class="filter-container">
       <!--<div class="filter" id="day-start" value=getToday();> Hoy </div>-->
-      <!-- <div class="filter" id="free" value="1"> Gratis </div> -->
+      
       <!-- <div class="filter" id="dtend" value="1"> Varios días </div> -->
       <!-- <div class="filter" id="audience_kids" value="0"> Para niños </div> -->
+      <div class="filter" id="free" value="1"> Gratis </div>
       <div class="filter" id="audience_woman" value="0"> Feminismo </div>
-      <input type="date" id="date-filter" name="event-day" value="" min="">
+      <input type="date" id="date-filter" name="event-day" value="" min="" day-start="">
       <select class="filter-dropdown" id="district-filter">
         <option id="event-district" selected="ALL" value="ALL">Distritos</option>
         <option id="event-district" value="ARGANZUELA"> ARGANZUELA </option>

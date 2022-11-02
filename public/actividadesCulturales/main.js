@@ -17,6 +17,7 @@ function readEventData(data) {
   events.forEach(element => {
     if(i > eventsNumber) return;
     let $copy = $(eventHtml);
+    console.log(element.dtend);
     if (!addDayHour(element, $copy)) return; //Esto devuelve un valor porque a veces, devuelve eventos que han sido ayer.
     addTitleDescription(element, $copy);
     addTime(element, $copy);
@@ -25,6 +26,7 @@ function readEventData(data) {
     addEventLocation(element, $copy);
     addPrice(element, $copy);
     appendEventToParentDate(element, $copy);
+    //appendToList($copy);
     i++;
   });
 
@@ -52,10 +54,10 @@ function addDayHour(element, $copy) {
     $($copy).find('.event-day-start').html(`<i class="fa-light fa-calendar-w"></i> De ${dayStartFormatted.toLocaleLowerCase()} a ${dateEnd.toLocaleLowerCase()}`);
   } else { //El evento no tiene recurrencia, por tanto, el día que termina es el día que empieza. 
     $($copy).find('.event-day-start').html(`<i class="fa-regular fa-calendar-days"></i> ${dayStartFormatted}`);
-    dateEnd = dayStartFormatted;
+    dateEnd = dateStart;
   }
 
-  element.dateEnd = dateEnd;
+  element.dateEnd = transformDateToString(dateEnd);
   return (isYesterday(dateStart) || isYesterday(dateEnd)) ? false : true;
 }
 
@@ -65,10 +67,14 @@ function addTime(element, $copy){
   $($copy).dateStart = element.dayStartFormatted;
 }
 
+function setAccesibility(){
+
+}
+
 function addTitleDescription(element, $copy) {
   $($copy).find('.event-title').html(`<a href="${element['link']}" target="_blank"> ${element['title']} </a>`);
   let description = (element['description'] === '') ? `Para ver más información, <a href="${element['link']}" target="_blank"> pincha aquí.</a>` : element['description']
-  $($copy).find('.event-description').html(`<p> ${description} </p>`);
+  $($copy).find('.event-description').html(`${description}`);
   $($copy).attr('id', element['id']);
   $('.share-whatsapp').html(`<a href="whatsapp://send?text= He encontrado este evento. Fichalo. ${encodeURIComponent(element['link'])} target="_blank"> <i class="fa-brands fa-whatsapp"></i> </a>`);
 }
@@ -125,6 +131,10 @@ function appendEventToParentDate(element, $copy){
   $($dateSeparator).append($copy);
 }
 
+function appendToList($copy){
+  $('#events-list').append($copy);
+}
+
 //Request Functions
 function doRequestActividadesCulturales() {
   let urlEvents = window.location.href + '/request';
@@ -158,23 +168,19 @@ function removeRepeatedEvents(events) {
   return events.filter((v, i, a) => a.findIndex(t => (t.title === v.title)) === i)
 }
 
-//Filter Functions
-function filterOnlyToday() {
-  $('li[day-start!="' + getToday() + '"]').toggle();
-}
-
 function addListenerFilters() {
   $('#date-filter').attr("min", getToday());
   $('#day-start').attr('value', getToday());
 
 
   $('#district-filter').on('change', function () {
-    $($('#district-filter').find('option:selected')).text();
+    let value = $($('#district-filter').find('option:selected')).text();
+    value != 'Distritos' ? $('#district-filter').addClass('selected') : $('#district-filter').removeClass('selected')
     applyFilters();
   });
 
   $('#date-filter').change(function() {
-    $(this).addClass('selected')
+    $(this).val() != '' ? $(this).addClass('selected') : $(this).removeClass('selected');
     applyFilters();
 });
 
@@ -198,7 +204,14 @@ function applyFilters() {
   filters.forEach(function (element) {
     let id = $(element).attr('id');
     let value = $(element).attr('value')
-    let comparision = '!=';
+    let comparision = '!='; 
+    if(id === 'date-filter'){
+      //Filter date
+      let $query = '.date-separator[day-start=' + transformDateToString(value) + ']';
+      $('.date-separator').hide();
+      $($query).show();
+      return;
+    }
     if (id === 'event-district') value = '"' + value + '"';
     let a = 'li:visible[' + id + comparision + value + ']'
     $(a).toggle();
@@ -211,7 +224,7 @@ function applyFilters() {
 }
 
 const getToday = () => {
-  const d = new Date(),
+  let d = new Date(),
     month = '' + (d.getMonth() + 1),
     day = '' + d.getDate(),
     year = d.getFullYear();
