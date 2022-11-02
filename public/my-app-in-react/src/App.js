@@ -1,23 +1,19 @@
 import './App.css';
-import Header from './components/Header.js'
-import MainContent from './components/MainContent.js'
-import Footer from './components/Footer.js'
+import './styles/meme-generator-styles.css'
+import Header from './components/meme-generator-components/Header.js'
+import Meme from './components/meme-generator-components/Meme.js'
+import Counter from './components/meme-generator-components/Counter'
 
-//Tenemos que usar Caps para los componentes, es una convención. 
-let InformationPage = () =>{
+
+let MemeGenerator = () => {
   return (
     <div>
-      <Header/>
-      <MainContent/>
-      <Footer/>
+      <Header />
+      <Meme />
+      <Counter/>
+
     </div>
   )
 }
 
-
-
-
-
-
-
-export default {InformationPage}
+export default { MemeGenerator }
