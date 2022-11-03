@@ -10,8 +10,7 @@
 //Colores de fondo
 @background-color: #CFD2FA;
 @list-color: #b0b3df;
-
-@scroll-color:#5dfdcb;
+@scroll-color: #5dfdcb;
 
 @color-black: #2b2839f0;
 @filter-selected-color: #f2f3fa;
@@ -30,7 +29,8 @@ body {
   }
 
   h1,
-  h2 {
+  h2,
+  h3 {
     font-family: @title-font;
     margin: 30px;
   }
@@ -157,6 +157,47 @@ body {
 
   }
 
+  .main-events {
+    padding: 10px;
+    width: 70%;
+    margin: 0 auto;
+
+    #image-title {
+      position: absolute;
+      border-top-left-radius: 20px;
+      h3 {
+        background-color: white;
+        padding: 10px;
+        border: 1px solid @color-black;
+        border-radius: 10px;
+      }
+    }
+
+    .wrapper{
+      width: 100%;
+      overflow:hidden;
+      border-radius:15px;
+      img {
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 12.5px 12.5px 10px rgba(0, 0, 0, 0.035), 100px 100px 80px rgba(0, 0, 0, 0.07);
+        object-fit:cover;
+        cursor: pointer;
+      }
+    }
+    
+    @keyframes loading {
+      to {
+        background-position-x: -20%;
+      }
+    }
+
+
+  }
+
+
+
+
   #event-section {
     padding: 50px;
   }
@@ -167,6 +208,7 @@ body {
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
     border-left: 2px solid white;
     border-right: 2px solid white;
+
     .text-date {
       font-size: 2.1rem;
       margin-left: 20px;
@@ -226,7 +268,7 @@ body {
     display: inline-block;
     padding: 0.25rem 0.75rem;
     margin: 1rem 0.5rem 0 0;
-    font-size: 1.2rem;
+    font-size: 1.1rem;
     border: 1px solid @color-black;
     border-radius: 1rem;
     text-decoration: none;
@@ -293,8 +335,6 @@ body {
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
     border: 2px solid white;
     border-radius: 15px 15px 0px 0px;
-
-
     background-color: @list-color;
     border-radius: 5px;
     padding: 5px;
@@ -309,15 +349,13 @@ body {
 
 @media screen and (max-width: 768px) {
   body {
-    .header-container {
-    }
-
     .event-head {
       display: flex;
 
       .event-title {
         font-size: 1.1rem;
         line-height: 22px;
+        width: 95%;
 
         &:hover {
           background-image: none;

@@ -11,7 +11,8 @@ body a {
   color: #2b2839f0;
 }
 body h1,
-body h2 {
+body h2,
+body h3 {
   font-family: 'Plus Jakarta Sans', sans-serif;
   margin: 30px;
 }
@@ -116,6 +117,38 @@ body .filter-container input[type="date"].selected {
 body .filter-container #district-filter {
   width: 15%;
 }
+body .main-events {
+  padding: 10px;
+  width: 70%;
+  margin: 0 auto;
+}
+body .main-events #image-title {
+  position: absolute;
+  border-top-left-radius: 20px;
+}
+body .main-events #image-title h3 {
+  background-color: white;
+  padding: 10px;
+  border: 1px solid #2b2839f0;
+  border-radius: 10px;
+}
+body .main-events .wrapper {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+}
+body .main-events .wrapper img {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 12.5px 12.5px 10px rgba(0, 0, 0, 0.035), 100px 100px 80px rgba(0, 0, 0, 0.07);
+  object-fit: cover;
+  cursor: pointer;
+}
+@keyframes loading {
+  to {
+    background-position-x: -20%;
+  }
+}
 body #event-section {
   padding: 50px;
 }
@@ -174,7 +207,7 @@ body .event-small-data {
   display: inline-block;
   padding: 0.25rem 0.75rem;
   margin: 1rem 0.5rem 0 0;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   border: 1px solid #2b2839f0;
   border-radius: 1rem;
   text-decoration: none;
@@ -246,6 +279,7 @@ body .loading .text {
   body .event-head .event-title {
     font-size: 1.1rem;
     line-height: 22px;
+    width: 95%;
   }
   body .event-head .event-title:hover {
     background-image: none;

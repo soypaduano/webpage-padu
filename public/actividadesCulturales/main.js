@@ -1,15 +1,35 @@
-import {isYesterday, transformDateToString, getDistrict, eventHtml} from './utils.js'
+//http://css3.bradshawenterprises.com/cfimg/
 
-const test = false;
-const eventsNumber = 250;
-let dotsAnim;
+import { isYesterday, transformDateToString, getDistrict, eventHtml } from './utils.js'
+import MainEvents from './MainEvent.js'
+
+const test = true;
+const eventsNumber = 200;
 let filters = [];
 
 //Document Ready
 $(document).ready(function () {
-  loadingAnim();
   if (!test) doRequestActividadesCulturales();
+  setImages();
 })
+
+
+function setImages() {
+  let imageAnim = $("#img-main-event");
+
+  $('#img-main-event').attr("src", MainEvents[MainEvents.length - 1].urlImage)
+  $('#title-main-event').text(MainEvents[MainEvents.length - 1].title)
+
+  let imageIndex = 0;
+  const startImage = () => {
+    imageAnim.attr("src", MainEvents[imageIndex].urlImage);
+    $('#title-main-event').text(MainEvents[imageIndex].title);
+    $('#img-main-event-url').attr('href', MainEvents[imageIndex].urlEvent);
+    imageIndex++;
+    if (imageIndex >= MainEvents.length) imageIndex = 0;
+  }
+  setInterval(startImage, 10000);
+}
 
 function readEventData(data) {
   let events = data['@graph']
@@ -17,13 +37,15 @@ function readEventData(data) {
   events = removeRepeatedEvents(events);
   let i = 0;
   events.forEach(element => {
-    if(i > eventsNumber) return;
+    if (i > eventsNumber) return;
     let $copy = $(eventHtml);
+    console.log(element.dtend);
     if (!addDayHour(element, $copy)) return; //Esto devuelve un valor porque a veces, devuelve eventos que han sido ayer.
     addTitleDescription(element, $copy);
     addTime(element, $copy);
     addAudience(element, $copy);
     addDistrict(element, $copy);
+    setAccesibility(element, $copy);
     addEventLocation(element, $copy);
     addPrice(element, $copy);
     appendEventToParentDate(element, $copy);
@@ -31,7 +53,6 @@ function readEventData(data) {
   });
 
   $('.loading').hide();
-  clearInterval(dotsAnim);
   addListenerFilters();
 }
 
@@ -44,36 +65,44 @@ function addDayHour(element, $copy) {
 
   element.dateFormatted = dayStartFormatted; //Le añadimos la fecha al elemento
   $($copy).attr('day-start', dateStart.split(' ')[0]);
-  
-  //Vemos si tiene recurrencia
-  let recurrence = element['recurrence']; 
 
-  
+  //Vemos si tiene recurrencia
+  let recurrence = element['recurrence'];
+
+
   if (recurrence) {
     dateEnd = transformDateToString(dateEnd.split(' ')[0]);
     $($copy).attr('dtend', "1"); //Esto sirve para el filter de varios días
     $($copy).find('.event-day-start').html(`<i class="fa-light fa-calendar-w"></i> De ${dayStartFormatted.toLocaleLowerCase()} a ${dateEnd.toLocaleLowerCase()}`);
   } else { //El evento no tiene recurrencia, por tanto, el día que termina es el día que empieza. 
     $($copy).find('.event-day-start').html(`<i class="fa-regular fa-calendar-days"></i> ${dayStartFormatted}`);
-    dateEnd = dayStartFormatted;
+    dateEnd = dateStart;
   }
 
-  element.dateEnd = dateEnd;
+  element.dateEnd = transformDateToString(dateEnd);
   return (isYesterday(dateStart) || isYesterday(dateEnd)) ? false : true;
 }
 
-function addTime(element, $copy){
+function addTime(element, $copy) {
   const time = element['time'] ? element['time'] : 'Sin hora';
   $($copy).find('.event-hour').html(`<i class="fa-regular fa-clock"></i> ${time}`);
   $($copy).dateStart = element.dayStartFormatted;
 }
 
+function setAccesibility(element, $copy) {
+  if (element['organization'] && element['organization']['accesibility']) {
+    $($copy).find('.event-accesibility').html(`<i class="fa-solid fa-wheelchair"></i> Accesible`)
+  } else {
+    $($copy).find('.event-accesibility').hide();
+  }
+}
+
 function addTitleDescription(element, $copy) {
   $($copy).find('.event-title').html(`<a href="${element['link']}" target="_blank"> ${element['title']} </a>`);
   let description = (element['description'] === '') ? `Para ver más información, <a href="${element['link']}" target="_blank"> pincha aquí.</a>` : element['description']
-  $($copy).find('.event-description').html(`<p> ${description} </p>`);
+  $($copy).find('.event-description').html(`${description}`);
   $($copy).attr('id', element['id']);
-  $('.share-whatsapp').html(`<a href="whatsapp://send?text= He encontrado este evento. Fichalo. ${encodeURIComponent(element['link'])} target="_blank">Compartir</a> <i class="fa-brands fa-whatsapp"></i>`);
+  $('.share-whatsapp').html(`<a href="whatsapp://send?text= He encontrado este evento. Fichalo. ${encodeURIComponent(element['link'])} target="_blank"> <i class="fa-brands fa-whatsapp"></i> </a>`);
 }
 
 function addAudience(element, $copy) {
@@ -99,6 +128,7 @@ function addDistrict(element, $copy) {
     district = getDistrict(element['address']['district']['@id']);
     if (element['address'['area']] && element['address']['area']['postal-code']) {
       postalcode = element['address']['area']['postal-code'];
+      debugger;
       $($copy).find('.event-district').text(district + ', ' + postalcode);
     }
     $($copy).find('.event-district').html(`<i class="fa-solid fa-tree-city"></i> ${district.replace(/([A-Z])/g, ' $1').trim().replace('- ', '-')}`);
@@ -107,7 +137,7 @@ function addDistrict(element, $copy) {
   $($copy).attr('event-district', district.toUpperCase());
 }
 
-function addEventLocation(element,$copy) {
+function addEventLocation(element, $copy) {
   let eventLocation = element['event-location'] ? element['event-location'] : 'Sin ubicación'
   $($copy).find('.event-location').html(`<a href=//maps.google.com/?q="${eventLocation}" target="_blank" style="${eventLocation === 'Sin ubicación' ? 'pointer-events: none; cursor: auto;' : ''}"> <i class="fa-solid fa-location-dot"></i> ${eventLocation} </a>`);
 }
@@ -118,14 +148,18 @@ function addPrice(element, $copy) {
   $($copy).attr('free', element['free'] ? 1 : 0).find('.event-price').html(`<i class="fa-solid fa-euro-sign"></i> ${price}`);
 }
 
-function appendEventToParentDate(element, $copy){
+function appendEventToParentDate(element, $copy) {
   let date = element.dateEnd
-  let $dateSeparator = $('.date-separator[datestart=' + date + ']')
-  if(!$dateSeparator.length){
-    $('#events-list').append($(`<div class="date-separator" datestart=${date}> <p class="text-date"> <i class="fa-regular fa-calendar-days"></i> ${date.replaceAll('-', '.')} </p> </div>`));
-  } 
+  let $dateSeparator = $('.date-separator[day-start=' + date + ']')
+  if (!$dateSeparator.length) {
+    $dateSeparator = $(`<div class="date-separator" day-start=${date}> <p class="text-date"> <i class="fa-regular fa-calendar-days"></i> ${date.replaceAll('-', '.')} </p> </div>`)
+    $('#events-list').append($dateSeparator);
+  }
   $($dateSeparator).append($copy);
-  $($copy).show();
+}
+
+function appendToList($copy) {
+  $('#events-list').append($copy);
 }
 
 //Request Functions
@@ -161,25 +195,21 @@ function removeRepeatedEvents(events) {
   return events.filter((v, i, a) => a.findIndex(t => (t.title === v.title)) === i)
 }
 
-//Filter Functions
-function filterOnlyToday() {
-  $('li[day-start!="' + getToday() + '"]').toggle();
-}
-
 function addListenerFilters() {
   $('#date-filter').attr("min", getToday());
   $('#day-start').attr('value', getToday());
 
 
   $('#district-filter').on('change', function () {
-    $($('#district-filter').find('option:selected')).text();
+    let value = $($('#district-filter').find('option:selected')).text();
+    value != 'Distritos' ? $('#district-filter').addClass('selected') : $('#district-filter').removeClass('selected')
     applyFilters();
   });
 
-  $('#date-filter').change(function() {
-    var date = $(this).val();
-    alert(date)
-});
+  $('#date-filter').change(function () {
+    $(this).val() != '' ? $(this).addClass('selected') : $(this).removeClass('selected');
+    applyFilters();
+  });
 
   $('.filter').click(function () {
     $(this).hasClass('selected') ? $(this).removeClass('selected') : $(this).addClass('selected'); //Buscar aquellos filtros activos
@@ -194,6 +224,7 @@ function applyFilters() {
     filters.push($(this))
   });
 
+  if ($('#date-filter').val() != '') filters.push($('#date-filter'));
   if ($('#district-filter').find('option:selected').text() != 'Distritos') filters.push($($('#district-filter').find('option:selected')));
   $('li').show(); //Mostramos todos para poder filtrar... ¿no tengo muy claro que sea la mejor solución?
 
@@ -201,6 +232,13 @@ function applyFilters() {
     let id = $(element).attr('id');
     let value = $(element).attr('value')
     let comparision = '!=';
+    if (id === 'date-filter') {
+      //Filter date
+      let $query = '.date-separator[day-start=' + transformDateToString(value) + ']';
+      $('.date-separator').hide();
+      $($query).show();
+      return;
+    }
     if (id === 'event-district') value = '"' + value + '"';
     let a = 'li:visible[' + id + comparision + value + ']'
     $(a).toggle();
@@ -212,20 +250,8 @@ function applyFilters() {
   filters = [];
 }
 
-//Animation Functions
-function loadingAnim() {
-  dotsAnim = window.setInterval(function () {
-    let dots = $('#dots');
-    if (dots.text().length > 3)
-      dots.text('.');
-    else
-      dots.text(dots.text() + '.')
-  }, 300);
-}
-
-
 const getToday = () => {
-  const d = new Date(),
+  let d = new Date(),
     month = '' + (d.getMonth() + 1),
     day = '' + d.getDate(),
     year = d.getFullYear();
@@ -237,3 +263,4 @@ const getToday = () => {
 
   return [year, month, day].join('-');
 }
+
