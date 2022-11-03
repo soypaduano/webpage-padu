@@ -240,26 +240,6 @@ body .loading .text {
   margin: 0;
 }
 @media screen and (max-width: 768px) {
-  body .arrow {
-    display: block;
-    text-align: center;
-    margin-top: 20px;
-  }
-  body .header-container h1 {
-    font-size: 1.8rem;
-  }
-  body .header-container.title {
-    width: 100%;
-  }
-  body .header-container.description {
-    width: 100%;
-  }
-  body .header-container.description h3 {
-    width: 100%;
-  }
-  body .header-container.description .flag-container {
-    display: none;
-  }
   body .event-head {
     display: flex;
   }

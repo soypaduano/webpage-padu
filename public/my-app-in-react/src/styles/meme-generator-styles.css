@@ -90,9 +90,34 @@ main {
     background-color: green;
 }
 
-button {
-    width: 200px;
-    height: 40px;
-    font-size: 2rem;
+.box {
+    width: 60px;
+    height: 60px;
+    margin: 10px;
+    border: 2px solid red;
+    background-color: beige;
+    border-radius: 10px;
+}
+
+.box-container {
+    display: flex;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    background-color: wheat;
+    border: 2px solid black;
+    justify-content: center;
+    align-items: center;
     color: black;
+}
+
+form input {
+    margin: 20px;
+    padding: 10px;
+}
+
+form textarea{
+    width: 50%;
 }
