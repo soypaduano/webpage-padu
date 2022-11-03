@@ -36,82 +36,101 @@
   <link href="https://fonts.googleapis.com/css2?family=Alice&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cabin&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Karla&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300&display=swap" rel="stylesheet">
+
   <link rel="shortcut icon" type="image/x-icon" href="actividadesCulturales/images/icon-madrid.ico">
   <script src="actividadesCulturales/main.js" type="module"></script>
 </head>
 
-  <body>
-    <div>
-      <a href="//instagram.com/padu.soy/" target="_blank" style="color: #2b2839f0;" class="creator"><span
-          class="padu">padu</span> 2022 </a>
-    </div>
+<body>
+  <div class="creators">
+    <a href="//instagram.com/padu.soy/" target="_blank" style="color: #2b2839f0;" class="creator"><span
+        class="padu">padu & pepito</span> 2022 </a>
+  </div>
 
-    <div class="header-container title">
-      <h1> Eventos y actividades culturales en distritos de <span class="city">Madrid.</span></h1>
-    </div>
-
-    <div class="header-container description">
-      <h3>En Madrid hay una gran cantidad de <span class="important"> eventos y actividades en centros culturales,
-          bibliotecas,
-          parques y plazas</span> que apenas tienen difusión.
-        <br>
-        <br>
-        Esta web pretende estructurar la información para <span class="important"> facilitar la visualización
-        </span>y
-        hacer estos eventos más accesibles.
-        <br>
-      </h3>
-    </div>
-
-    <div id="event-section">
-      <div class="filter-container">
-        <!--<div class="filter" id="day-start" value=getToday();> Hoy </div>-->
-        <!-- <div class="filter" id="free" value="1"> Gratis </div> -->
-        <!-- <div class="filter" id="dtend" value="1"> Varios días </div> -->
-        <!-- <div class="filter" id="audience_kids" value="0"> Para niños </div> -->
-        <div class="filter" id="audience_woman" value="0"> Feminismo </div>
-        <input type="date" id="date-filter" name="event-day" value="" min="">
-        <select class="filter-dropdown" id="district-filter">
-          <option id="event-district" selected="ALL" value="ALL">Distritos</option>
-          <option id="event-district" value="ARGANZUELA"> ARGANZUELA </option>
-          <option id="event-district" value="BARAJAS"> BARAJAS </option>
-          <option id="event-district" value="CARABANCHEL"> CARABANCHEL </option>
-          <option id="event-district" value="CENTRO"> CENTRO </option>
-          <option id="event-district" value="CHAMARTIN"> CHAMARTIN </option>
-          <option id="event-district" value="CHAMBERI"> CHAMBERI </option>
-          <option id="event-district" value="CIUDAD LINEAL"> CIUDAD LINEAL </option>
-          <option id="event-district" value="FUENCARRAL-ELPARDO"> FUENCARRAL-EL PARDO </option>
-          <option id="event-district" value="HORTALEZA"> HORTALEZA </option>
-          <option id="event-district" value="LATINA"> LATINA </option>
-          <option id="event-district" value="MONCLOA-ARAVACA"> MONCLOA-ARAVACA </option>
-          <option id="event-district" value="MORATALAZ"> MORATALAZ </option>
-          <option id="event-district" value="PUENTEDEVALLECAS"> PUENTE DE VALLECAS </option>
-          <option id="event-district" value="RETIRO"> RETIRO </option>
-          <option id="event-district" value="SALAMANCA"> SALAMANCA </option>
-          <option id="event-district" value="SAN BLAS-CANILLEJAS"> SAN BLAS-CANILLEJAS </option>
-          <option id="event-district" value="TETUAN"> TETUAN </option>
-          <option id="event-district" value="USERA"> USERA </option>
-          <option id="event-district" value="VICALVARO"> VICALVARO </option>
-          <option id="event-district" value="VILLADEVALLECAS"> VILLA DE VALLECAS </option>
-          <option id="event-district" value="VILLAVERDE"> VILLAVERDE </option>
-        </select>
-      </div>
-
-      <div class="list-container">
-        <ol id="events-list">
-          
-        </ol>
-
-        <div class="no-events" id="no-events">No hay eventos 😟 </div>
-        <div class="no-events" id="wrong-message">Algo ha ido mal 😟 <br>
-          Es posible que se deba a un problema técnico de la web del ayuntamiento.
-          Si encuentras otro problema, escribe a <a href="//instagram.com/padu.soy/">padu</span></a>
-        </div>
-        <div class="loading"> 
-          <span class="text"> Cargando las actividades </span> 
-          <span id="dots">... </span> 
+  <div class="header-container title">
+    <h1> Distrito Cultural </h1>
+    <div class="m-scroll">
+      <div class="m-scroll__title">
+        <div>
+          <h2>
+            <p> &nbsp; Eventos y actividade culturales en Madrid. Distrito Cultural utiliza la API de Datos Abiertos del ayuntamiento de Madrid para estructurar los datos de una manera limpia y ordenada. </p>&nbsp;
+          </h2>
+          <h2>
+            <p> &nbsp; Eventos y actividade culturales en Madrid. Distrito Cultural utiliza la API de Datos Abiertos del ayuntamiento de Madrid para estructurar los datos de una manera limpia y ordenada. </p>&nbsp;
+          </h2>
         </div>
       </div>
+    </div>  
+  </div>
+
+  <div class="main-events">
+
+  </div>
+
+  
+
+  <div id="event-section">
+    <div class="filter-container">
+      <!--<div class="filter" id="day-start" value=getToday();> Hoy </div>-->
+      
+      <!-- <div class="filter" id="dtend" value="1"> Varios días </div> -->
+      <!-- <div class="filter" id="audience_kids" value="0"> Para niños </div> -->
+      <div class="filter" id="free" value="1"> Gratis </div>
+      <div class="filter" id="audience_woman" value="0"> Feminismo </div>
+      <input type="date" id="date-filter" name="event-day" value="" min="" day-start="">
+      <select class="filter-dropdown" id="district-filter">
+        <option id="event-district" selected="ALL" value="ALL">Distritos</option>
+        <option id="event-district" value="ARGANZUELA"> ARGANZUELA </option>
+        <option id="event-district" value="BARAJAS"> BARAJAS </option>
+        <option id="event-district" value="CARABANCHEL"> CARABANCHEL </option>
+        <option id="event-district" value="CENTRO"> CENTRO </option>
+        <option id="event-district" value="CHAMARTIN"> CHAMARTIN </option>
+        <option id="event-district" value="CHAMBERI"> CHAMBERI </option>
+        <option id="event-district" value="CIUDAD LINEAL"> CIUDAD LINEAL </option>
+        <option id="event-district" value="FUENCARRAL-ELPARDO"> FUENCARRAL-EL PARDO </option>
+        <option id="event-district" value="HORTALEZA"> HORTALEZA </option>
+        <option id="event-district" value="LATINA"> LATINA </option>
+        <option id="event-district" value="MONCLOA-ARAVACA"> MONCLOA-ARAVACA </option>
+        <option id="event-district" value="MORATALAZ"> MORATALAZ </option>
+        <option id="event-district" value="PUENTEDEVALLECAS"> PUENTE DE VALLECAS </option>
+        <option id="event-district" value="RETIRO"> RETIRO </option>
+        <option id="event-district" value="SALAMANCA"> SALAMANCA </option>
+        <option id="event-district" value="SAN BLAS-CANILLEJAS"> SAN BLAS-CANILLEJAS </option>
+        <option id="event-district" value="TETUAN"> TETUAN </option>
+        <option id="event-district" value="USERA"> USERA </option>
+        <option id="event-district" value="VICALVARO"> VICALVARO </option>
+        <option id="event-district" value="VILLADEVALLECAS"> VILLA DE VALLECAS </option>
+        <option id="event-district" value="VILLAVERDE"> VILLAVERDE </option>
+      </select>
     </div>
-  </body>
+
+    <div class="list-container">
+      <ol id="events-list">
+
+      </ol>
+
+      <div class="no-events" id="no-events">
+       <h2>
+        No hay eventos 😟 
+       </h2> 
+      </div>
+      <div class="no-events" id="wrong-message">Algo ha ido mal 😟 <br>
+        Es posible que se deba a un problema técnico de la web del ayuntamiento.
+        Si encuentras otro problema, escribe a <a href="//instagram.com/padu.soy/">padu</span></a>
+      </div>
+      <div class="loading">
+        <h2> Cargando las actividades </h2>
+        <div class="lds-ellipsis">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
