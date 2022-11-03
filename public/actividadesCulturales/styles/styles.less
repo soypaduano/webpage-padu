@@ -10,6 +10,9 @@
 //Colores de fondo
 @background-color: #CFD2FA;
 @list-color: #b0b3df;
+
+@scroll-color:#5dfdcb;
+
 @color-black: #2b2839f0;
 @filter-selected-color: #f2f3fa;
 
@@ -37,6 +40,8 @@ body {
 
   .creators {
     margin: 20px;
+    font-family: @title-font;
+    font-weight: bold;
   }
 
   .header-container {
@@ -162,9 +167,8 @@ body {
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
     border-left: 2px solid white;
     border-right: 2px solid white;
-
     .text-date {
-      font-size: 1.5rem;
+      font-size: 2.1rem;
       margin-left: 20px;
     }
   }
@@ -222,7 +226,7 @@ body {
     display: inline-block;
     padding: 0.25rem 0.75rem;
     margin: 1rem 0.5rem 0 0;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     border: 1px solid @color-black;
     border-radius: 1rem;
     text-decoration: none;
@@ -284,8 +288,13 @@ body {
     width: 95%;
     font-size: 2rem;
     color: @color-black;
+    font-family: @title-font;
     text-align: center;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 10%), 0 2px 4px -1px rgb(0 0 0 / 6%);
     border: 2px solid white;
+    border-radius: 15px 15px 0px 0px;
+
+
     background-color: @list-color;
     border-radius: 5px;
     padding: 5px;
@@ -456,20 +465,21 @@ body {
   }
 }
 
-body::-webkit-scrollbar-track {
-  background-color: @background-color;
-  cursor: pointer;
-}
-
-body::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 12px;
-  background-color: @background-color;
-  cursor: pointer;
 }
 
-body::-webkit-scrollbar-thumb {
-  cursor: pointer;
+/* Track */
+::-webkit-scrollbar-track {
+  background: @list-color;
 }
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: @scroll-color;
+}
+
+
 
 .lds-ellipsis {
   display: inline-block;

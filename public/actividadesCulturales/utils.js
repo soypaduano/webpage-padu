@@ -51,6 +51,7 @@ const eventHtml = `<li event-district="Latina" class="event-element" url="">
     <div class="event-small-data event-hour">Hora: <span>18:30</span> - <span>23:00</span></div>
     <div class="event-small-data event-price">Precio: 10 euros</div>
     <div class="event-small-data event-audience"></div>
+    <div class="event-small-data event-accesibility"></div>
   </div>
 </div>
 </li>`

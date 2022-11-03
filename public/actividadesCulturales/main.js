@@ -1,7 +1,7 @@
 import {isYesterday, transformDateToString, getDistrict, eventHtml} from './utils.js'
 
 const test = false;
-const eventsNumber = 250;
+const eventsNumber = 450;
 let filters = [];
 
 //Document Ready
@@ -23,6 +23,7 @@ function readEventData(data) {
     addTime(element, $copy);
     addAudience(element, $copy);
     addDistrict(element, $copy);
+    setAccesibility(element, $copy);
     addEventLocation(element, $copy);
     addPrice(element, $copy);
     appendEventToParentDate(element, $copy);
@@ -67,8 +68,10 @@ function addTime(element, $copy){
   $($copy).dateStart = element.dayStartFormatted;
 }
 
-function setAccesibility(){
-
+function setAccesibility(element, $copy){
+  if(element['organization'] && element['organization']['accesibility']){
+    $('.event-accesibility').html(`<i class="fa-solid fa-wheelchair"></i> Accesible`)
+  }
 }
 
 function addTitleDescription(element, $copy) {

@@ -17,6 +17,8 @@ body h2 {
 }
 body .creators {
   margin: 20px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: bold;
 }
 body .header-container h1 {
   padding: 10px;
@@ -125,7 +127,7 @@ body .date-separator {
   border-right: 2px solid white;
 }
 body .date-separator .text-date {
-  font-size: 1.5rem;
+  font-size: 2.1rem;
   margin-left: 20px;
 }
 body .date-separator:nth-of-type(1),
@@ -172,7 +174,7 @@ body .event-small-data {
   display: inline-block;
   padding: 0.25rem 0.75rem;
   margin: 1rem 0.5rem 0 0;
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   border: 1px solid #2b2839f0;
   border-radius: 1rem;
   text-decoration: none;
@@ -224,8 +226,11 @@ body .loading {
   width: 95%;
   font-size: 2rem;
   color: #2b2839f0;
+  font-family: 'Plus Jakarta Sans', sans-serif;
   text-align: center;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   border: 2px solid white;
+  border-radius: 15px 15px 0px 0px;
   background-color: #b0b3df;
   border-radius: 5px;
   padding: 5px;
@@ -347,17 +352,16 @@ body .loading .text {
     font-size: 18px;
   }
 }
-body::-webkit-scrollbar-track {
-  background-color: #CFD2FA;
-  cursor: pointer;
-}
-body::-webkit-scrollbar {
+::-webkit-scrollbar {
   width: 12px;
-  background-color: #CFD2FA;
-  cursor: pointer;
 }
-body::-webkit-scrollbar-thumb {
-  cursor: pointer;
+/* Track */
+::-webkit-scrollbar-track {
+  background: #b0b3df;
+}
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #5dfdcb;
 }
 .lds-ellipsis {
   display: inline-block;
