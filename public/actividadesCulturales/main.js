@@ -3,7 +3,7 @@
 import { isYesterday, transformDateToString, getDistrict, eventHtml } from './utils.js'
 import MainEvents from './MainEvent.js'
 
-const test = true;
+const test = false;
 const eventsNumber = 200;
 let filters = [];
 

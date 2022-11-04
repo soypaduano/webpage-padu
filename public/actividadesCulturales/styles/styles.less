@@ -47,7 +47,7 @@ body {
   .header-container {
     h1 {
       padding: 10px;
-      font-size: 8rem;
+      font-size: 7.5rem;
     }
 
     .m-scroll {
@@ -165,6 +165,7 @@ body {
     #image-title {
       position: absolute;
       border-top-left-radius: 20px;
+
       h3 {
         background-color: white;
         padding: 10px;
@@ -173,30 +174,26 @@ body {
       }
     }
 
-    .wrapper{
+    .wrapper {
       width: 100%;
-      overflow:hidden;
-      border-radius:15px;
+      overflow: hidden;
+      border-radius: 15px;
+
       img {
         width: 100%;
         border-radius: 20px;
         box-shadow: 12.5px 12.5px 10px rgba(0, 0, 0, 0.035), 100px 100px 80px rgba(0, 0, 0, 0.07);
-        object-fit:cover;
+        object-fit: cover;
         cursor: pointer;
       }
     }
-    
+
     @keyframes loading {
       to {
         background-position-x: -20%;
       }
     }
-
-
   }
-
-
-
 
   #event-section {
     padding: 50px;
@@ -348,76 +345,133 @@ body {
 
 
 @media screen and (max-width: 768px) {
+
   body {
-    .event-head {
-      display: flex;
-
-      .event-title {
-        font-size: 1.1rem;
-        line-height: 22px;
-        width: 95%;
-
-        &:hover {
-          background-image: none;
-        }
-      }
-
-      .event-description {
-        p {
-          font-size: 1.0rem;
-          text-align: left;
-        }
-      }
-
-      .event-district {
-        margin-top: 5px;
-        position: inherit;
-        font-size: .9rem;
-        left: 15px;
+    .header-container {
+      h1 {
+        padding: 10px;
+        font-size: 5rem;
       }
     }
 
-    .filter-container {
+    .main-events {
+      width: 90%;
+      #image-title {  
+        h3 {
+          font-size: 1rem;
+        }
+      }
+    }
 
-      .filter,
-      .filter-dropdown {
+    #event-section{
+      padding: 20px;
+    }
+
+    .filter-container{
+      .filter-dropdown, input[type="date"]{
+        font-size: 1.2rem !important;
+      }
+      .filter-dropdown{
+        width: 20%;
+      }
+      .filter {
         font-size: 1.2rem;
+        &#free{
+          display: none;
+        }
+      }
+    }
 
-        &:hover {
-          top: 0;
-          box-shadow: none;
+    .date-separator.text-date{
+      font-size: 1.8rem;
+    }
+
+    .event-head.event-title{
+      font-size: 1.7rem;
+    }
+
+
+    .event-data-container{
+      display: inline-block;
+    }
+
+    .event-small-data{
+      &.event-location{
+        width: 95%;
+      }
+    }
+  }
+}
+
+    /*body {
+      .event-head {
+        display: flex;
+
+        .event-title {
+          font-size: 1.1rem;
+          line-height: 22px;
+          width: 95%;
+
+          &:hover {
+            background-image: none;
+          }
         }
 
-        &.selected {
-          top: 0;
-          box-shadow: none;
+        .event-description {
+          p {
+            font-size: 1.0rem;
+            text-align: left;
+          }
+        }
+
+        .event-district {
+          margin-top: 5px;
+          position: inherit;
+          font-size: .9rem;
+          left: 15px;
+        }
+      }
+
+      .filter-container {
+
+        .filter,
+        .filter-dropdown {
+          font-size: 1.2rem;
 
           &:hover {
             top: 0;
             box-shadow: none;
           }
+
+          &.selected {
+            top: 0;
+            box-shadow: none;
+
+            &:hover {
+              top: 0;
+              box-shadow: none;
+            }
+          }
         }
       }
-    }
 
-    .event-data-container {
-      display: inline-block;
-      font-size: 1rem;
+      .event-data-container {
+        display: inline-block;
+        font-size: 1rem;
 
-      .event-small-data {
-        margin: 3px 0px 3px 0px;
+        .event-small-data {
+          margin: 3px 0px 3px 0px;
+        }
       }
-    }
 
-    .loading {
-      font-size: 18px;
+      .loading {
+        font-size: 18px;
 
-      #dots {
-        font-size: 20px;
+        #dots {
+          font-size: 20px;
+        }
       }
-    }
-  }
-}
+    }*/
 
 
 @media screen and (max-width: 425px) {
