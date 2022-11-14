@@ -131,6 +131,8 @@ body .main-events #image-title h3 {
   padding: 10px;
   border: 1px solid #2b2839f0;
   border-radius: 10px;
+  width: fit-content;
+  margin: 0;
 }
 body .main-events .wrapper {
   width: 100%;

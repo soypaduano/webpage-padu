@@ -1,0 +1,124 @@
+@font-1: 'Albert Sans', sans-serif;
+
+html,
+body {
+    background-color: black;
+    font-family: @font-1;
+    color: white;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    scroll-behavior: smooth;
+}
+
+header {
+    //background-color: #0000006b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    width: 100%;
+
+    h1 {
+        margin: 0;
+        padding: 20px;
+    }
+
+    img {
+        margin: 20px;
+    }
+
+    .social-container {
+        margin-right: 50px;
+
+        ul {
+            display: flex;
+            flex-direction: row;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: white;
+            margin: 20px;
+            text-decoration: none;
+            font-size: 1.5rem;
+            i {
+                font-size: 3rem;
+            }
+        }
+    }
+}
+
+main {
+    scroll-behavior: smooth;
+
+    .picture {
+        img {
+            width: 100%;
+        }
+    }
+}
+
+.hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: white;
+}
+
+.hover-underline-animation::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.hover-underline-animation:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+
+body::-webkit-scrollbar {
+    width: 0.2em;
+}
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 1px rgba(0, 0, 0, 0.123);
+}
+
+body::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
+}
+
+@media screen and (max-width: 560px) {
+    header {
+        flex-direction: row;
+        img{
+            width: 80px;
+        }
+
+        h1 {
+            padding-top: 10px;
+        }
+
+        .social-container {
+            margin-right: 30px;
+            a {
+                font-size: 2rem;
+                margin: 13px;
+                i {
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+}
