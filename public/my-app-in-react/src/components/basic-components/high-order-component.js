@@ -29,3 +29,26 @@ export function withFavoriteNumber(Component) {
         )
     }
 }
+
+
+/*
+    En React podemos hacer cosas locas como pasar un render por props.
+    Como vemos aquí, le estamos pasando una función a Example, y example la ejecuta. 
+*/
+
+export function Example(props){
+    return (
+        <div>
+            {props.render("Padu")}
+        </div>
+    )
+}
+
+export function renderProps(){
+    return (
+        <Example render={function(name) {
+            return <h1>Hola!, {name}</h1>
+        }}
+        />
+    )
+}

@@ -1,13 +1,18 @@
+import React from 'react';
 import './App.css';
 //import './styles/meme-generator-styles.css'
-import Main from './components/basic-components/Main.js'
+import TypingApp from './components/typing-game/TypingApp.js'
 
 
 let App = () => {
 
   return (
-    <Main/>
+    <div>
+      <TypingApp />
+    </div>
+    
   )
 }
+
 export default App 
 
